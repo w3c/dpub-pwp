@@ -360,7 +360,7 @@
   </head>
   <body>
     <section id="abstract">
-      <p>This white paper introduces Portable Web Documents, a vision for the future of digital publishing that is based on a fully native representation of documents within the Open Web Platform. Portable Web Documents achieve full convergence between online and offline/portable document publishing: publishers and users won't need to choose one or the other, but can switch between them dynamically, at will.
+      <p>This document introduces Portable Web Documents, a vision for the future of digital publishing that is based on a fully native representation of documents within the Open Web Platform. Portable Web Documents achieve full convergence between online and offline/portable document publishing: publishers and users won't need to choose one or the other, but can switch between them dynamically, at will.
       </p>
       <p class="note">Earlier versions of this document used, colloquially, the term “EPUB+WEB”. The current terminology reflects a <a href="http://j.mp/1O8eB6g">discussion on the Digital Publishing Interest Group</a>.</p>
      </section>
@@ -480,7 +480,7 @@
       <section>
         <h2 id="pwd_definition">Definitions of Portable Web Documents</h2>
 
-        <p>This document is based on the following defintions</p>
+        <p>This document is based on the following defintions.</p>
 
         <ul>
           <li> A <dfn data-lt="Web Resource|Web Resources">Web Resource</dfn> is a digital resource that can be uniquely addressed by a Unified Resource Identifier (URI)&nbsp;[[URI]], and whose content can be accessed through standard protocols like HTTP, FTP, etc.
@@ -508,18 +508,19 @@
         <p>The differences between the distinguishing characteristics of <a>Web Documents</a> and <a>Portable Web Documents</a> can be viewed as situational and gradual rather than as representative of bright-line distinctions. Just as most of the content features of Web pages and portable documents implemented via digital publications are held in common, portable documents and documents on the Web share a desire for occasional or on-demand use of their distinguishing characteristics. Authors of HTML Web pages using CSS for styling may want pagination features. Users of Web sites want the occasional ability to download a part of a Web site for offline use with links intact to both the saved offline content and remaining content that has not been downloaded. Reliable navigation of a Web site would increase usability and accessibility.
         </p>
 
-        <p class="note">The concepts of <a>essential content</a> and <a>functionality</a> have been taken over from the Web Content Accessibility Guidelines&nbsp;[[WCAG20]]</p>
+        <p class="note">The concepts of <a>essential content</a> and <a>functionality</a> have been taken over from the W3C Web Content Accessibility Guidelines&nbsp;[[WCAG20]]</p>
 
-        <p class="issue" data-number="1"></p>
+        <p class="issue" data-number="1">Change the terminology to "Portable Web Publication"</p>
 
        </section>
     </section>
 
     <section>
       <h2>Achieving convergence: work areas</h2>
-      <p>Although all effort must be taken to keep as much backward compatibility as possible, the requirement(s) of <a>Portable Web Documents</a> will very likely mean a non-backward compatible transition from other formats like, e.g., EPUB&nbsp;3.</p>
-
-      <p>This section lists some of the work areas that <a>Portable Web Documents</a> should engage in. The list is not exhaustive and there are only hints at the technical solutions; one of the main goals of the work ahead will be to clarify the requirements and technical details. It must be emphasized that the solutions to these problems may not come from either IDPF or W3C, but possibly from other, external organizations (document identification is a typical example).</p>
+ 
+      <p>This section lists some of the work areas that <a>Portable Web Documents</a> should engage in. The list is not exhaustive and there are only hints at the technical solutions; one of the main goals of the work ahead will be to clarify the requirements and technical details. It must be emphasized that the solutions to these problems may not come from W3C, but possibly from other, external organizations (document identification is a typical example).</p>
+  
+      <p>Although all effort must be taken to keep as much backward compatibility with deployed formats (e.g., EPUB&nbsp;3) as possible, the requirement(s) of <a>Portable Web Documents</a> will very likely mean a non-backward compatible transition from those.</p>
 
       <p class="note">
         It must be emphasized, however, that the major part of any EPUB&nbsp;3 publication, namely the content, will remain unchanged or will require only minimal changes: the bulk of the changes are expected to occur around the accompanying constructs like publication-level metadata records, the spine, or the packaging of the content. The content of an EPUB&nbsp;3 file is based on core Open Web Platform technologies including HTML5, SVG, or CSS3, and this will remain true for Portable Web Documents as well. EPUB&nbsp;3 files can also contain many other types of files, like images, audio and video, metadata files (e.g., to describe provenance), executable code in <a href="http://www.ecma-international.org/ecma-262/6.0/index.html">JavaScript</a>, <a href="http://ipython.org/">iPython</a>, <a href="https://jupyter.org/">Jupyter</a>, or <a href="http://www.maplesoft.com/products/maple/">Maple</a> scripts, or datafiles in various formats. All these should be available and possible, unchanged, in Portable Web Documents, too. In other words, the investments made by publishers into the transition from EPUB&nbsp;2 to EPUB&nbsp;3 (i.e., the move from XHTML1 to HTML5, from CSS2 to CSS3) are certainly not lost: the new changes would be mostly restricted to the implementation details of reading systems and production workflows. The evolution of the past few years of online tooling for the production of EPUB content based on the Open Web Platform (e.g., the platforms developed and used by companies like O’Reilly, Hachette, Metrodigi, or Inkling) will also greatly facilitate any transition to Portable Web Documents; adapting these tools to Portable Web Documents is expected to be quite straightforward.
@@ -553,7 +554,7 @@
             <p>W3C’s <a href="http://www.w3.org/2008/webapps/">Web Application Working Group</a> has published a First Working Draft for a Streamable Package Format for the Web[[web-packaging]] to encompass the needs of various applications (like installing Web Applications or downloading data for local processing). It is may become advantageous for Portable Web Documents to adopt this format, thereby being compatible with what Web Browsers may implement anyway. While this general packaging format could hypothetically be compatible with the ZIP+XML manifest format used by EPUB (and also by the Open Document Format [[ODF]]) the broader requirements of installable applications and other types of content, and efficient incremental transmission over networks, may well imply a different and incompatible packaging format.
             </p>  
 
-            <p>The IETF has published an <a href="https://tools.ietf.org/html/draft-seantek-kerwin-arcmedia-type-01">informational draft on a top-level media type for archives</a>. Although that draft does not specify a specific archive format it shows the overall interest in packaging on the Web, in line with the concerns of Portable Web Documents.</p> 
+            <p>The IETF has published an <a href="https://tools.ietf.org/html/draft-seantek-kerwin-arcmedia-type-01">informational draft on a top-level media type for archives</a>. Although that draft does not specify a specific archive format, and the work is currently on hold, it shows the overall interest in packaging on the Web, in line with the concerns of Portable Web Documents.</p> 
           </div> 
         </section>
 
