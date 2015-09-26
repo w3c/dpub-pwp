@@ -271,7 +271,7 @@
 
           // if the specification's copyright date is a range of years, specify
           // the start date here:
-          copyrightStart: "2014",
+          copyrightStart: "2015",
 
           // if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
           // and its maturity status
@@ -279,7 +279,7 @@
           // previousMaturity:  "WD",
 
           // if there a publicly available Editor's Draft, this is the link
-          edDraftURI:           "http://w3c.github.io/epubweb/",
+          edDraftURI:           "http://w3c.github.io/dpub-pwd/",
 
           // if this is a LCWD, uncomment and set the end of its review period
           // lcEnd: "2009-08-05",
@@ -507,47 +507,8 @@
 
         <p class="note">The concepts of <a>essential content</a> and <a>functionality</a> have been taken over from the Web Content Accessibility Guidelines&nbsp;[[WCAG20]]</p>
 
-       </section>
-       <section>
-          <h2 id="pwd_states">States of a Portable Web Documents</h2>
-          <p><a>Portable Web Documents</a> can be in different <em>states</em> depending on their organizations and access. There are two pairs of states as follows:</p>
+        <p class="issue" data-number="1"></p>
 
-          <ul>
-            <li>With regard to resource organization, a <a>Portable Web Document</a> can be in a:
-              <ul>
-                <li><dfn data-lt="Packed State|packed state|packed|Packed">Packed State</dfn>, when all constituents <a>Web Resources</a> are combined into one unit for, e.g., storage in a file system, network transfer, etc</li>
-                <li><dfn data-lt="Unpacked State|unpacked state|unpacked|Unpacked">Unpacked State</dfn>, when all constituent <a>Web Resources</a> are directly accessible individually through standard network protocols like HTTP(S), FTP, etc., or through direct file system access.</li>
-              </ul>
-            </li>
-            <li>With regard to access, a <a>Portable Web Document</a> can be in a:
-              <ul>
-                <li><dfn data-lt="Online State|online state|online|Online">Online State</dfn>, when the document can be accessed through standard network protocols, like HTTP(S) or FTP.</li>
-                <li><dfn data-lt="Offline State|offline state|offline|Offline">Offline State</dfn>, when the document can be accessed through the local file system access, as provided by the local operating system, or through a user agent cache.</li>
-              </ul>
-            </li>
-          </ul>
-
-          <p class="note">These definitions mean that a Portable Web Document stored on a local disc, but accessed through HTTP running on a local machine (i.e., through an <code>http://localhost/…</code> URL) is considered to be “online”.</p>
-
-          <p>The following table gives some typical examples for various combination of states that a <a>Portable Web Document</a> can be in:</p>
-
-          <table class="zebra">
-            <tr>
-              <th style="width: 10%"></th>
-              <th style="width:40%">Offline</th>
-              <th>Online</th>
-            </tr>
-            <tr>
-              <th style="text-align:left">Packed</th>
-              <td>PWD as a package (e.g., ZIP or OCF) on a local disc</td>
-              <td>PWD as a package (e.g., ZIP or OCF) on a server</td>
-            </tr>
-            <tr>
-              <th style="text-align:left">Unpacked</th>
-              <td>PWD as files in a folder on a local disc</td>
-              <td>PWD as files in a folder on a server <br>(or on local disc accessed through local server)</td>
-            </tr>
-          </table>
        </section>
     </section>
 
@@ -566,22 +527,22 @@
 
         <p>The latest evolution of browser technologies around Web Workers[[web-workers]] and Service Workers[[service-workers]] may fundamentally change the way browsers operate in terms of offline/online. Service Workers will provide a flexible and programmable way to efficiently implement local caching of <a>Web Resources</a>. Caching is implemented as a programmable network proxy, meaning that the browser’s rendering engine becomes oblivious on whether a resource originates from the local cache or diretly from the network. </p>
 
-        <p id="sworkers">This evolution makes it particularly to bring <a>Portable Web Documents</a> under the same abstraction of a <a>Web Resource</a> identified with a URI. A specialized service worker can cache resources, i.e., can bridge the differences between the <a>offline</a> and <a>online</a> states of a document. Furthermore, by adding additional functionalities to the service worker, it can also deal with possible packaging and unpackaging; i.e., it can also bridge the difference between <a>packed</a> and <a>unpacked</a> state. In other words, the core rendering engine of a user agent can operate as if the <a>Portable Web Document</a> was in an <a>online</a> and <a>unpacked</a> stage, and differences were handled by the service worker acting as a proxy.</p>
+        <p id="sworkers">This evolution makes it particularly to bring <a>Portable Web Documents</a> under the same abstraction of a <a>Web Resource</a> identified with a URI. A specialized service worker can cache resources, i.e., can bridge the differences between the offline and online states of a document. Furthermore, by adding additional functionalities to the service worker, it can also deal with possible packaging. In other words, the core rendering engine of a user agent can operate as if the <a>Portable Web Document</a> was in an online and unpacked stage, and differences were handled by the service worker acting as a proxy.</p>
 
         <p>Of course many of the details have to be worked, taking also into accoount that the Web Workers[[web-workers]] and Service Workers[[service-workers]] specifications are not finalized yet.</p> 
 
         <figure style="text-align: center;" id="workers_basic"> 
           <img src="figures/Workers-basic.png" width="70%"> 
-          <figcaption>Accessing an <a>unpacked</a> <a>Portable Web Document</a> directly from the Web. (Picture is available directly <a href="figures/Workers-basic.svg">SVG</a> or <a href="figures/Workers-basic.png">PNG</a> formats.)</figcaption>
+          <figcaption>Accessing a <a>Portable Web Document</a> directly from the Web. (Picture is available directly <a href="figures/Workers-basic.svg">SVG</a> or <a href="figures/Workers-basic.png">PNG</a> formats.)</figcaption>
         </figure>
 
         <figure style="text-align: center;" id="workers_package"> 
           <img src="figures/Workers-package.png" width="70%"> 
-          <figcaption>Accessing a <a>packed</a> <a>Portable Web Document</a> via a Service Worker. (Picture is available directly <a href="figures/Workers-package.svg">SVG</a> or <a href="figures/Workers-package.png">PNG</a> formats.)</figcaption>
+          <figcaption>Accessing a packaged <a>Portable Web Document</a> via a Service Worker. (Picture is available directly <a href="figures/Workers-package.svg">SVG</a> or <a href="figures/Workers-package.png">PNG</a> formats.)</figcaption>
         </figure>
 
         <section>
-          <h4>General Archive formats for the portable/offline state</h4>
+          <h4>General Archive formats</h4>
 
           <p id="sworkers">Regardless of the details or the <a>Portable Web Documents</a> architecture, an archive format is necessary for the storage of a publication as one file (e.g., for distribution). A variety of formats for offline/archival storage of collections of digital resources exist today [[OCF]], [[ODF]], [[OOXML]], but none of them is universally recognized and supported across ecosystems. Depending on the general architecture, Portable Web Documents may use the current EPUB packaging format (based on [[OCF]])) or it may need to be based on the definition of an archive format that is generic and native to the Open Web Platform. </p>
 
@@ -612,7 +573,7 @@
         <p class="note">A typical, and extremely valuable use case is in academic and scholarly publishing. There are currently several methods for citing online works (disputed among style guides), but there is no standard method for citations to ebooks. Even if a reflowable ebook is by a scholar, she must refer to PDF, paper copy, or HTML version to cite it in her bibliography. <a>Portable Web Documents</a> should enable stable citations.</p>
 
 
-        <p><a>Portable Web Documents</a> needs to define a way to utilize URI schemes for identifying documents and/or fragments thereof such that the addressing scheme does not break, nor needs to be changed, when a document transits from <a>online</a> to <a>offline</a>, and from <a>packed</a> to <a>unpacked</a> states, or vice versa.  A number of questions arise and need answers, e.g.:</p>
+        <p><a>Portable Web Documents</a> needs to define a way to utilize URI schemes for identifying documents and/or fragments thereof such that the addressing scheme does not break, nor needs to be changed, whether the document is online or offline, or whether it is packaged or not.  A number of questions arise and need answers, e.g.:</p>
 
         <ul>        
           <li>What is the URI of the offline version of the document? How does that URI relate to the online identification of the content?</li>
