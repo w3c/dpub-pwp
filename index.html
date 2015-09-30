@@ -55,10 +55,10 @@
       table.zebra th{border-bottom:1px solid #bbb;padding:.2em 1em;}
       table.zebra td{border-bottom:1px solid #ddd;padding:.2em 1em;}
 
-      ul.definition li {
+      ul.definition li, ol.definition li {
         margin-bottom: 0.3em;
       }
-      ul.definition li ul {
+      ul.definition li ul, ol.definition li ul {
         margin-top: 0.3em;
       }
 
@@ -79,6 +79,7 @@
           border-left-style: solid;
           border-color: #e0cb52;
           background: #fcfaee;
+          page-break-inside: avoid;
       }
 
       div.my-example div.my-example-title {
@@ -90,22 +91,6 @@
 
 
     </style>
-
-    <!--
-    <script class="remove">
-      var postProc = {
-        apply: function(c) {
-          //$("<span><a href='http://www.idpf.org'><img height='48' src='idpf.jpg' alt='IDPF'></a> </span>").prependTo($("div.head > p")[0]);
-          //$("<br><br><span> Copyright © 2014 <a href='http://www.idpf.org'>International Publishing Digital Forum™</a> </span>").appendTo("p.copyright")
-          //$("<span>Joint IDPF and   </span>").prependTo("div.head > h2[property='dcterms:issued']");
-          //$("<span>Authors:</span>").prependTo("div.head dt");
-
-          $("div.head dt").text("Authors:");
-
-       }
-      }
-    </script>
-    -->
 
     <script src="https://www.w3.org/Tools/respec/respec-w3c-common" async="" class="remove"></script>
     <script class="remove">
@@ -523,14 +508,13 @@
 
     <section>
       <h2>Terminology</h2>
+      <p>This document is based on the following defintions.</p>
 
       <section>
-        <h2 id="pwp_definition">Definitions of Portable Web Publications</h2>
-
-        <p>This document is based on the following defintions.</p>
+        <h2 id="pwp_definition">Portable Web Publications</h2>
 
         <ul class="definition">
-          <li> A <dfn data-lt="Web Resource|Web Resources">Web Resource</dfn> is a digital resource that can be uniquely addressed by a Unified Resource Identifier (URI)&nbsp;[[URI]], and whose content can be accessed through standard protocols like HTTP, FTP, the File Protocol (i.e., based on the File URI Scheme[[file-uri-scheme]]), etc.</li>
+          <li> A <dfn data-lt="Web Resource|Web Resources">Web Resource</dfn> is a digital resource that can be uniquely addressed by a Unified Resource Identifier (URI)&nbsp;[[URI]], and whose content can be accessed through standard network protocols like HTTP, FTP, or the File Protocol (i.e., based on the File URI Scheme[[file-uri-scheme]]), etc.</li>
 
           <li><dfn data-lt="Content|content">Content</dfn> of a <a>Web Resource</a>: information and sensory experience to be communicated to the user by means of a user agent, including code or markup that defines the content’s structure, presentation, and interactions.</li>
 
@@ -559,19 +543,65 @@
 
         <p>The differences between the distinguishing characteristics of <a>Web Publications</a> and <a>Portable Web Publications</a> can be viewed as situational and gradual rather than as representative of bright-line distinctions. </p>
 
-
           
         <div class="my-example"><div class="my-example-title">Example</div>
-       <p>The usage of a particular font within a <a>Web Publication</a> may be regarded as non-essential and its font file may therefore be missing from the publication; because the user agent can fall back on a system font, thereby rendering the <a>essential content</a> of the publication, this particular publication may be considered as portable. In other cases, however, the font is <a>essential</a> for the content (e.g., because the font represents some mathematical or musical symbols) in which case the <a>Web Publication</a> may be considered as portable only if the font files are part of the constituent set.</p>
+           <p>The usage of a particular font within a <a>Web Publication</a> may be regarded as non-essential and its font file may therefore be missing from the publication; because the user agent can fall back on a system font, thereby rendering the <a>essential content</a> of the publication, this particular publication may be considered as portable. In other cases, however, the font is <a>essential</a> for the content (e.g., because the font represents some mathematical or musical symbols) in which case the <a>Web Publication</a> may be considered as portable only if the font files are part of the constituent set.</p>
         </div>
 
         <p class="note">The concepts of <a>content</a>, <a>essential content</a>, and <a>functionality</a> have been taken over from the W3C Web Content Accessibility Guidelines&nbsp;[[WCAG20]], thought slightly modified for this context.</p>
 
-       </section>
+      </section>
+
+      <section>
+        <h3 id="state_definition">States of a Portable Web Publication</h3>
+
+        <p>The states of a <a>Portable Web Publication</a> can be separated into two different axes. These different states require a different behavior from the user agent, while some of the characteristics of the publication may be invariant across states. The different states are as follows:</p>
+
+        <ol class="definition">
+          <li><strong>States related to the organization of the <a>Web Resources</a></strong>: A <a>Portable Web Publication</a> is in 
+            <ul>
+              <li><dfn data-lt="packed|Packed|packed state|Packed State">Packed State</dfn>: when all constituents <a>Web Resources</a> are combined into one unit for storage in a file system, network transfer, etc.</li>
+              <li><dfn data-lt="unpacked|Unpacked|unpacked state|Unpacked State">Unpacked State</dfn>: when all constituent <a>Web Resources</a> can be directly accessed individually through standard network protocols like HTTP, FTP, etc., or through file system access</li>
+            </ul>
+          </li>
+
+          <li><strong>States related to the access of <a>Web Resources</a></strong>: A <a>Portable Web Publication</a> is in
+            <ul>
+              <li><dfn data-lt="protocol|Protocol|protocol state|Protocol State">Protocol State</dfn>: when all constituent <a>Web Resources</a>, as well as the <a>Portable Web Publication</a> itself, are accessed through network protocols like HTTP, HTTPS, or FTP</li>
+              <li><dfn data-lt="file|File|file state|File State">File State</dfn>: when all constituent <a>Web Resources</a>, as well as the <a>Portable Web Publication</a> itself, are accessed as files on a local file system</li>
+          </li>
+        </ol>
+
+        <p>The table below shows the same publication (PWP) in the most typical states:</p>
+
+        <table class="zebra">
+          <tbody>
+            <tr>
+              <th></th>
+              <th>Protocol</th>
+              <th>File</th>
+            </tr>
+            <tr>
+              <th>Packed</th>
+              <td>PWP as one archive file on a Web Server</td>
+              <td>PWP as one archive file on a local disc</td> 
+            </tr>
+            <tr>
+              <th>Unpacked</th>
+              <td>PWP spread over several files on a Web Server</td>
+              <td>PWP spread over several files on a local disc</td> 
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="note">The difference between <a>protocol</a> and <a>file</a> states is not identical, although close, to the difference between the commonly used notions of “online” vs. “offline”. A PWP can be on a local disc, but accessed through a Web Server running on that machine (i.e., through a <code>http://localhost</code> URI): the PWP is in a <a>protocol</a> state, though clearly “offline”. Similarly, a remote file system can be mount on a local disc, in which case a PWP can be accessed as a file, i.e., is in a <a>file</a> state, though possibly “online”.</p>
+      </section>
     </section>
 
     <section>
       <h2>Achieving convergence: work areas</h2>
+
+      <p class="issue">This section should be reviewed to adapt it to the definitions of <a href="#state_definition">states</a>.</p>
  
       <p>This section lists some of the work areas that <a>Portable Web Publications</a> should engage in. The list is not exhaustive and there are only hints at the technical solutions; one of the main goals of the work ahead will be to clarify the requirements and technical details. It must be emphasized that the solutions to these problems may not come from W3C, but possibly from other, external organizations (document identification is a typical example).</p>
   
