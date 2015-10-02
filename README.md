@@ -3,7 +3,7 @@ Portable Web Documents for the Open Web Platform
 
 Documents produced by the [Digital Publishing Interest Group](http://www.w3.org/dpub/IG) of the W3C.
 
-See also the [paged view](http://w3c.github.io/dpub-pwp/) for the document itself, served in HTML. Publishing snapshots are also available in paged view:
+See also the [paged view](http://w3c.github.io/dpub-pwp/) for the Editors' Draft, served in HTML. Publishing snapshots are also available in paged view:
 
 * [FPWD](http://w3c.github.io/dpub-pwp/publishing-snapshots/FPWD/Overview.html)
 
