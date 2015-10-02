@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" typeof="bibo:Document " prefix="bibo: http://purl.org/ontology/bibo/ w3p: http://www.w3.org/2001/02pd/rec54#">
+<head><meta lang="" property="dc:language" content="en">
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <title>Portable Web Publications for the Open Web Platform</title>
+    <style>/* --- ISSUES/NOTES --- */
+div.issue-title, div.note-title , div.ednote-title, div.warning-title {
+    padding-right:  1em;
+    min-width: 7.5em;
+    color: #b9ab2d;
+}
+div.issue-title { color: #e05252; }
+div.note-title, div.ednote-title { color: #2b2; }
+div.warning-title { color: #f22; }
+div.issue-title span, div.note-title span, div.ednote-title span, div.warning-title span {
+    text-transform: uppercase;
+}
+div.note, div.issue, div.ednote, div.warning {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.note > p:first-child, .ednote > p:first-child, .issue > p:first-child, .warning > p:first-child { margin-top: 0 }
+.issue, .note, .ednote, .warning {
+    padding: .5em;
+    border-left-width: .5em;
+    border-left-style: solid;
+}
+div.issue, div.note , div.ednote,  div.warning {
+    padding: 1em 1.2em 0.5em;
+    margin: 1em 0;
+    position: relative;
+    clear: both;
+}
+span.note, span.ednote, span.issue, span.warning { padding: .1em .5em .15em; }
+
+.issue {
+    border-color: #e05252;
+    background: #fbe9e9;
+}
+.note, .ednote {
+    border-color: #52e052;
+    background: #e9fbe9;
+}
+
+.warning {
+    border-color: #f11;
+    border-right-width: .2em;
+    border-top-width: .2em;
+    border-bottom-width: .2em;
+    border-style: solid;
+    background: #fbe9e9;
+}
+
+.warning-title:before{
+    content: "⚠"; /*U+26A0 WARNING SIGN*/
+    font-size: 3em;
+    float: left;
+    height: 100%;
+    padding-right: .3em;
+    vertical-align: top;
+    margin-top: -0.5em;
+}
+
+li.task-list-item {
+    list-style: none;
+}
+
+input.task-list-item-checkbox {
+    margin: 0 0.35em 0.25em -1.6em;
+    vertical-align: middle;
+}
+</style><link rel="stylesheet" type="text/css" href="extras.css">
+    
+    <style type="text/css"></style><style type="text/css"></style>
+  <style>/*****************************************************************
+ * ReSpec 3 CSS
+ * Robin Berjon - http://berjon.com/
+ *****************************************************************/
+
+/* --- INLINES --- */
+em.rfc2119 { 
+    text-transform:     lowercase;
+    font-variant:       small-caps;
+    font-style:         normal;
+    color:              #900;
+}
+
+h1 acronym, h2 acronym, h3 acronym, h4 acronym, h5 acronym, h6 acronym, a acronym,
+h1 abbr, h2 abbr, h3 abbr, h4 abbr, h5 abbr, h6 abbr, a abbr {
+    border: none;
+}
+
+dfn {
+    font-weight:    bold;
+}
+
+a.internalDFN {
+    color:  inherit;
+    border-bottom:  1px solid #99c;
+    text-decoration:    none;
+}
+
+a.externalDFN {
+    color:  inherit;
+    border-bottom:  1px dotted #ccc;
+    text-decoration:    none;
+}
+
+a.bibref {
+    text-decoration:    none;
+}
+
+cite .bibref {
+    font-style: normal;
+}
+
+code {
+    color:  #C83500;
+}
+
+/* --- TOC --- */
+.toc a, .tof a {
+    text-decoration:    none;
+}
+
+a .secno, a .figno {
+    color:  #000;
+}
+
+ul.tof, ol.tof {
+    list-style: none outside none;
+}
+
+.caption {
+    margin-top: 0.5em;
+    font-style:   italic;
+}
+
+/* --- TABLE --- */
+table.simple {
+    border-spacing: 0;
+    border-collapse:    collapse;
+    border-bottom:  3px solid #005a9c;
+}
+
+.simple th {
+    background: #005a9c;
+    color:  #fff;
+    padding:    3px 5px;
+    text-align: left;
+}
+
+.simple th[scope="row"] {
+    background: inherit;
+    color:  inherit;
+    border-top: 1px solid #ddd;
+}
+
+.simple td {
+    padding:    3px 10px;
+    border-top: 1px solid #ddd;
+}
+
+.simple tr:nth-child(even) {
+    background: #f0f6ff;
+}
+
+/* --- DL --- */
+.section dd > p:first-child {
+    margin-top: 0;
+}
+
+.section dd > p:last-child {
+    margin-bottom: 0;
+}
+
+.section dd {
+    margin-bottom:  1em;
+}
+
+.section dl.attrs dd, .section dl.eldef dd {
+    margin-bottom:  0;
+}
+
+@media print {
+    .removeOnSave {
+        display: none;
+    }
+}
+</style><link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/W3C-WD"><!--[if lt IE 9]><script src='https://www.w3.org/2008/site/js/html5shiv.js'></script><![endif]--><script id="initialUserConfig" type="application/json">{
+  "localBiblio": {
+    "EPUB3": {
+      "authors": [
+        "Garth Conboy",
+        "Matt Garrish",
+        "Markus Gylling",
+        "William McCoy",
+        "Murata Makoto",
+        "Daniel Weck"
+      ],
+      "title": "EPUB 3 Overview",
+      "href": "http://www.idpf.org/epub/301/spec/epub-overview-20140626.html",
+      "rawDate": "2014-06-26",
+      "status": "Recommended Specification",
+      "publisher": "IDPF"
+    },
+    "OCF": {
+      "authors": [
+        "James Pritchett",
+        "Markus Gylling"
+      ],
+      "title": "EPUB Open Container Format (OCF) 3.0",
+      "href": "http://www.idpf.org/epub/301/spec/epub-ocf-20140626.html",
+      "rawDate": "2014-06-26",
+      "status": "Recommended Specification",
+      "publisher": "IDPF"
+    },
+    "epubcfi": {
+      "authors": [
+        "Peter Sorotokin",
+        "Garth Conboy",
+        "Brady Duga",
+        "John Rivlin",
+        "Don Beaver",
+        "Kevin Ballard",
+        "Alastair Fettes",
+        "Daniel Weck"
+      ],
+      "title": "EPUB Canonical Fragment Identifier (epubcfi) Specification",
+      "href": "http://www.idpf.org/epub/linking/cfi/epub-cfi-20140626.html",
+      "rawDate": "2014-06-26",
+      "status": "Recommended Specification",
+      "publisher": "IDPF"
+    },
+    "ODF": {
+      "authors": [
+        "Michael Brauer",
+        "Patrick Durusau",
+        "Gary Edwards",
+        "David Faure",
+        "Tom Magliery",
+        "Daniel Vogelheim"
+      ],
+      "title": "Open Document Format for Office Applications v1.0",
+      "href": "https://www.oasis-open.org/committees/download.php/12572/OpenDocument-v1.0-os.pdf",
+      "rawDate": "2005-05-01",
+      "status": "Oasis Standard",
+      "publisher": "Oasis"
+    },
+    "OOXML": {
+      "authors": [
+        "ECMA International"
+      ],
+      "title": "Office Open XML File Formats, ECMA-376",
+      "href": "http://www.ecma-international.org/publications/standards/Ecma-376.htm",
+      "rawDate": "2012-12",
+      "status": "Standard ECMA 376",
+      "publisher": "ECMA"
+    },
+    "ZIP": {
+      "title": ".ZIP File Format Specification, version 6.3.3",
+      "href": "http://www.pkware.com/documents/APPNOTE/APPNOTE-6.3.3.TXT",
+      "rawDate": "2012-09-01",
+      "status": "APPNOTE",
+      "publisher": "Pkware, Inc."
+    },
+    "css-fragments": {
+      "authors": [
+        "Simon St.Laurent",
+        "Eric Meyer"
+      ],
+      "title": "Using CSS Selectors as Fragment Identifiers",
+      "href": "http://simonstl.com/articles/cssFragID.html",
+      "rawDate": "2012-03-02",
+      "status": "Unofficial Draft"
+    },
+    "web-manifest": {
+      "title": "Manifest for web application",
+      "href": "https://w3c.github.io/manifest/",
+      "rawDate": "2015-02-23",
+      "status": "ED",
+      "publisher": "W3C"
+    },
+    "web-packaging": {
+      "authors": [
+        "Jeni Tennison"
+      ],
+      "title": "Packaging on the Web",
+      "href": "http://www.w3.org/TR/web-packaging/",
+      "rawDate": "2015-01-15",
+      "status": "WD",
+      "publisher": "W3C"
+    },
+    "PDF": {
+      "authors": [
+        "Adobe Systems, Inc.,"
+      ],
+      "title": "Adobe Portable Document Format, Version 4.0",
+      "href": "http://partners.adobe.com/public/developer/en/pdf/PDFReference.pdf",
+      "rawDate": "2001-01",
+      "publisher": "Adobe, Inc."
+    },
+    "ISOPDF": {
+      "authors": [
+        "International Organization for Standardization"
+      ],
+      "title": "Document management - Electronic document file format for long-term preservation - Part 1: Use of PDF 1.4, ISO 19005-1:2005",
+      "rawDate": "2005-10-01",
+      "publisher": "International Organization for Standardization"
+    },
+    "ONIX": {
+      "authors": [
+        "EDItEUR"
+      ],
+      "title": "ONIX for Books 3.0.2 Specification",
+      "rawDate": "2014-01-02",
+      "publisher": "EDItEUR"
+    },
+    "CFI": {
+      "authors": [
+        "Peter Sorotokin, et. al."
+      ],
+      "title": "EPUB Canonical Fragment Identifier (epubcfi) Specification",
+      "href": "http://www.idpf.org/epub/linking/cfi/epub-cfi.html",
+      "rawDate": "2014-06-26",
+      "publisher": "International Digital Publishing Forum"
+    },
+    "PGT": {
+      "authors": [
+        "Peter Sorotokin, et. al."
+      ],
+      "title": "EPUB Adaptive Layout",
+      "href": "http://www.idpf.org/epub/pgt/",
+      "rawDate": "2012-08-08",
+      "publisher": "International Digital Publishing Forum"
+    },
+    "Sigarchian": "Hajar Ghaem Sigarchian et al. <em>EPUB3 for Integrated and Customizable Representation of a Scientific Publication and its Associated Resources</em>. In: Proceedings of the 4th Workshop on Linked Science 2014. URL: <a href='http://linkedscience.org/wp-content/uploads/2014/10/lisc2014_submission_3.pdf'>http://linkedscience.org/wp-content/uploads/2014/10/lisc2014_submission_3.pdf</a>.",
+    "BigJava": "Cay Horstmann. <em>Big Java Late Objects</em>, John Wiley &amp; Sons, Inc., 2013",
+    "web-workers": {
+      "authors": [
+        "Ian Hickson"
+      ],
+      "title": "Web Workers",
+      "href": "https://w3c.github.io/workers/",
+      "rawDate": "2014-05-19",
+      "status": "ED",
+      "publisher": "W3C"
+    },
+    "service-workers": {
+      "authors": [
+        "Alex Russel",
+        "Jungkee Song",
+        "Jake Archibald"
+      ],
+      "title": "Service Workers",
+      "href": "http://www.w3.org/TR/service-workers/",
+      "rawDate": "2015-06-25",
+      "status": "WD",
+      "publisher": "W3C"
+    },
+    "file-uri-scheme": {
+      "authors": [
+        "M. Kervin"
+      ],
+      "title": "The file URI Scheme",
+      "href": "https://tools.ietf.org/html/draft-ietf-appsawg-file-scheme-03",
+      "rawDate": "2015-07-23",
+      "status": "Internet Draft",
+      "publisher": "IETF"
+    }
+  },
+  "doRdfa": "true",
+  "specStatus": "ED",
+  "shortName": "pwp",
+  "copyrightStart": "2015",
+  "edDraftURI": "http://w3c.github.io/dpub-pwp/",
+  "editors": [
+    {
+      "name": "Markus Gylling",
+      "mailto": "mgylling@idpf.org",
+      "company": "IDPF",
+      "companyURL": "http://idpf.org"
+    },
+    {
+      "name": "Ivan Herman",
+      "mailto": "ivan@w3.org",
+      "company": "W3C",
+      "companyURL": "http://www.w3.org",
+      "url": "http://www.w3.org/People/Ivan/"
+    },
+    {
+      "name": "Tzviya Siegman",
+      "mailto": "tsiegman@wiley.com",
+      "company": "John Wiley & Sons, Inc.",
+      "companyURL": "http://www.wiley.com"
+    }
+  ],
+  "wg": "Digital Publishing Interest Group",
+  "wgURI": "http://www.w3.org/dpub/IG/",
+  "wgPublicList": "public-digipub-ig",
+  "issueBase": "https://github.com/w3c/dpub-pwp/issues/",
+  "noRecTrack": "true",
+  "otherLinks": [
+    {
+      "key": "Repository",
+      "data": [
+        {
+          "value": "Github Repository",
+          "href": "https://github.com/w3c/dpub-pwp"
+        }
+      ]
+    },
+    {
+      "key": "Issues tracker",
+      "data": [
+        {
+          "value": "Github Issue Tracker",
+          "href": "https://github.com/w3c/dpub-pwp/issues"
+        }
+      ]
+    }
+  ],
+  "alternateFormats": [
+    {
+      "uri": "pwp.epub",
+      "label": "ePub"
+    }
+  ],
+  "charterDisclosureURI": "http://www.w3.org/2004/01/pp-impl/64149/status",
+  "wgPatentURI": ""
+}</script></head>
+  <body class="h-entry" data-feedly-mini="yes" role="document" id="respecDocument"><div class="head" role="contentinfo" id="respecHeader">
+  <p>
+      
+        
+            <a href="http://www.w3.org/"><img width="72" height="48" src="https://www.w3.org/Icons/w3c_home" alt="W3C"></a>
+            
+            
+        
+      
+  </p>
+  <h1 class="title p-name" id="title" property="dcterms:title">Portable Web Publications for the Open Web Platform</h1>
+  
+  <h2 id="w3c-first-public-working-draft-08-october-2015"><abbr title="World Wide Web Consortium">W3C</abbr> First Public Working Draft <time property="dcterms:issued" class="dt-published" datetime="2015-10-08">08 October 2015</time></h2>
+  <dl>
+    
+      <dt>This version:</dt>
+      <dd><a class="u-url" href="http://www.w3.org/TR/2015/WD-pwp-20151008/">http://www.w3.org/TR/2015/WD-pwp-20151008/</a></dd>
+      <dt>Latest published version:</dt>
+      <dd><a href="http://www.w3.org/TR/pwp/">http://www.w3.org/TR/pwp/</a></dd>
+    
+    
+      <dt>Latest editor's draft:</dt>
+      <dd><a href="http://w3c.github.io/dpub-pwp/">http://w3c.github.io/dpub-pwp/</a></dd>
+    
+    
+    
+    
+    
+    
+    
+    <dt>Editors:</dt>
+    <dd class="p-author h-card vcard" property="bibo:editor" resource="_:editor0"><span property="rdf:first" typeof="foaf:Person"><span property="foaf:name" class="p-name fn">Markus Gylling</span>, <a property="foaf:workplaceHomepage" class="p-org org h-org h-card" href="http://idpf.org">IDPF</a>, <span class="ed_mailto"><a class="u-email email" property="foaf:mbox" href="mailto:mgylling@idpf.org">mgylling@idpf.org</a></span></span>
+<span property="rdf:rest" resource="_:editor1"></span>
+</dd>
+<dd class="p-author h-card vcard" resource="_:editor1"><span property="rdf:first" typeof="foaf:Person"><meta property="foaf:name" content="Ivan Herman"><a class="u-url url p-name fn" property="foaf:homepage" href="http://www.w3.org/People/Ivan/">Ivan Herman</a>, <a property="foaf:workplaceHomepage" class="p-org org h-org h-card" href="http://www.w3.org"><abbr title="World Wide Web Consortium">W3C</abbr></a>, <span class="ed_mailto"><a class="u-email email" property="foaf:mbox" href="mailto:ivan@w3.org">ivan@w3.org</a></span></span>
+<span property="rdf:rest" resource="_:editor2"></span>
+</dd>
+<dd class="p-author h-card vcard" resource="_:editor2"><span property="rdf:first" typeof="foaf:Person"><span property="foaf:name" class="p-name fn">Tzviya Siegman</span>, <a property="foaf:workplaceHomepage" class="p-org org h-org h-card" href="http://www.wiley.com">John Wiley &amp; Sons, Inc.</a>, <span class="ed_mailto"><a class="u-email email" property="foaf:mbox" href="mailto:tsiegman@wiley.com">tsiegman@wiley.com</a></span></span>
+<span property="rdf:rest" resource="rdf:nil"></span>
+</dd>
+
+    
+    
+      
+        
+          <dt>Repository:</dt>
+          
+             
+                
+                  <dd>
+                    <a href="https://github.com/w3c/dpub-pwp">
+                      Github Repository
+                    </a>
+                  </dd>
+                
+             
+          
+        
+      
+        
+          <dt>Issues tracker:</dt>
+          
+             
+                
+                  <dd>
+                    <a href="https://github.com/w3c/dpub-pwp/issues">
+                      Github Issue Tracker
+                    </a>
+                  </dd>
+                
+             
+          
+        
+      
+    
+  </dl>
+  
+  
+    <p>
+      
+        This document is also available in this non-normative format:
+      
+      <a rel="alternate" href="pwp.epub">ePub</a>
+    </p>
+  
+  
+  
+    
+      <p class="copyright">
+        <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> ©
+        2015
+        
+        <a href="http://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup>
+        (<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
+        <a href="http://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
+        <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>). 
+        
+        <abbr title="World Wide Web Consortium">W3C</abbr> <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
+        <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and
+        
+          
+            <a rel="license" href="http://www.w3.org/Consortium/Legal/copyright-documents">document use</a>
+          
+        
+        rules apply.
+      </p>
+    
+  
+  <hr>
+</div>
+    <section id="abstract" class="introductory" property="dc:abstract"><h2 id="h-abstract" resource="#h-abstract"><span property="xhv:role" resource="xhv:heading">Abstract</span></h2>
+      <p>This document introduces Portable Web Publications, a vision for the future of digital publishing that is based on a fully native representation of documents within the Open Web Platform. Portable Web Publications achieve full convergence between online and offline/portable document publishing: publishers and users won't need to choose one or the other, but can switch between them dynamically, at will.
+      </p>
+    </section><section id="sotd" class="introductory"><h2 id="h-sotd" resource="#h-sotd"><span property="xhv:role" resource="xhv:heading">Status of This Document</span></h2>
+  
+    
+      
+        <p>
+          <em>This section describes the status of this document at the time of its publication. Other documents may supersede this document. A list of current <abbr title="World Wide Web Consortium">W3C</abbr> publications and the latest revision of this technical report can be found in the <a href="http://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> technical reports index</a> at http://www.w3.org/TR/.</em>
+        </p>
+        
+          
+          
+      <p>This document outlines a general vision and should not be considered a technical specification. Instead, its goal is to outline that vision and the possible technical directions to achieve it; more detailed technical work should be documented in separate documents. </p>
+    
+          
+          <p>
+            This document was published by the <a href="http://www.w3.org/dpub/IG/">Digital Publishing Interest Group</a> as a First Public Working Draft.
+            
+            
+              If you wish to make comments regarding this document, please send them to
+              <a href="mailto:public-digipub-ig@w3.org">public-digipub-ig@w3.org</a>
+              (<a href="mailto:public-digipub-ig-request@w3.org?subject=subscribe">subscribe</a>,
+              <a href="http://lists.w3.org/Archives/Public/public-digipub-ig/">archives</a>).
+            
+            
+            
+            
+            
+              
+              All comments are welcome.
+              
+            
+          </p>
+          
+          
+          
+            <p>
+              Publication as a First Public Working Draft does not imply endorsement by the <abbr title="World Wide Web Consortium">W3C</abbr>
+              Membership. This is a draft document and may be updated, replaced or obsoleted by other
+              documents at any time. It is inappropriate to cite this document as other than work in
+              progress.
+            </p>
+          
+          
+          
+          <p>
+            
+              This document was produced by
+              
+              a group
+               operating under the
+              <a id="sotd_patent" property="w3p:patentRules" href="http://www.w3.org/Consortium/Patent-Policy-20040205/">5 February 2004 <abbr title="World Wide Web Consortium">W3C</abbr> Patent
+              Policy</a>.
+            
+            
+              The group does not expect this document to become a <abbr title="World Wide Web Consortium">W3C</abbr> Recommendation.
+            
+            
+              
+                <abbr title="World Wide Web Consortium">W3C</abbr> maintains a <a href="" rel="disclosure">public list of any patent
+                disclosures</a>
+              
+              made in connection with the deliverables of
+              
+              the group; that page also includes
+              
+              instructions for disclosing a patent. An individual who has actual knowledge of a patent
+              which the individual believes contains
+              <a href="http://www.w3.org/Consortium/Patent-Policy-20040205/#def-essential">Essential
+              Claim(s)</a> must disclose the information in accordance with
+              <a href="http://www.w3.org/Consortium/Patent-Policy-20040205/#sec-Disclosure">section
+              6 of the <abbr title="World Wide Web Consortium">W3C</abbr> Patent Policy</a>.
+            
+            
+          </p>
+          
+            <p>This document is governed by the <a id="w3c_process_revision" href="http://www.w3.org/2015/Process-20150901/">1 September 2015 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
+            </p>
+          
+          
+        
+      
+    
+  
+</section><section id="toc"><h2 class="introductory" id="h-toc" resource="#h-toc"><span property="xhv:role" resource="xhv:heading">Table of Contents</span></h2><ul class="toc" role="directory" id="respecContents"><li class="tocline"><a href="#introduction" class="tocxref"><span class="secno">1. </span>Our Vision</a></li><li class="tocline"><a href="#whynow" class="tocxref"><span class="secno">2. </span>Why work on this now?</a></li><li class="tocline"><a href="#what-are-the-areas-of-interest" class="tocxref"><span class="secno">3. </span>What are the areas of interest?</a><ul class="toc"><li class="tocline"><a href="#publishers" class="tocxref"><span class="secno">3.1 </span>Publishers</a></li><li class="tocline"><a href="#schol" class="tocxref"><span class="secno">3.2 </span>Scholarly Journal  and <abbr title="Science, Technology, and Medical">STM</abbr> Publishers</a></li><li class="tocline"><a href="#in-house-publishers" class="tocxref"><span class="secno">3.3 </span>In-house Publishers</a></li><li class="tocline"><a href="#reading-system-developers" class="tocxref"><span class="secno">3.4 </span>Reading System developers</a></li><li class="tocline"><a href="#web-page-designers" class="tocxref"><span class="secno">3.5 </span>Web page designers</a></li><li class="tocline"><a href="#web-browsers" class="tocxref"><span class="secno">3.6 </span>Web browsers</a></li><li class="tocline"><a href="#libraries-and-archival-services" class="tocxref"><span class="secno">3.7 </span>Libraries and archival services</a></li><li class="tocline"><a href="#users" class="tocxref"><span class="secno">3.8 </span>Users</a></li></ul></li><li class="tocline"><a href="#terminology" class="tocxref"><span class="secno">4. </span>Terminology</a><ul class="toc"><li class="tocline"><a href="#pwp_definition" class="tocxref"><span class="secno">4.1 </span>Portable Web Publications</a></li><li class="tocline"><a href="#state_definition" class="tocxref"><span class="secno">4.2 </span>States of a Portable Web Publication</a></li></ul></li><li class="tocline"><a href="#achieving-convergence-work-areas" class="tocxref"><span class="secno">5. </span>Achieving convergence: work areas</a><ul class="toc"><li class="tocline"><a href="#arch" class="tocxref"><span class="secno">5.1 </span>General Architecture for Online/Offline Publications</a><ul class="toc"><li class="tocline"><a href="#general-archive-formats" class="tocxref"><span class="secno">5.1.1 </span>General Archive formats</a></li><li class="tocline"><a href="#capturing-overall-publication-structure" class="tocxref"><span class="secno">5.1.2 </span>Capturing overall publication structure</a></li></ul></li><li class="tocline"><a href="#idf" class="tocxref"><span class="secno">5.2 </span>Document and fragment identification</a></li><li class="tocline"><a href="#metadata-discovery" class="tocxref"><span class="secno">5.3 </span>Metadata: discovery</a></li><li class="tocline"><a href="#styling" class="tocxref"><span class="secno">5.4 </span>Styling and Layout, Pagination</a></li><li class="tocline"><a href="#security-models" class="tocxref"><span class="secno">5.5 </span>Security Models</a></li><li class="tocline"><a href="#presentation-control-and-personalization" class="tocxref"><span class="secno">5.6 </span>Presentation Control and Personalization</a></li><li class="tocline"><a href="#models-for-embracing-domain-specific-restrictions-and-extensions" class="tocxref"><span class="secno">5.7 </span>Models for embracing domain-specific restrictions and extensions</a></li></ul></li><li class="tocline"><a href="#conclusions" class="tocxref"><span class="secno">6. </span>Conclusions</a></li><li class="tocline"><a href="#epub-relations" class="tocxref"><span class="secno">A. </span>Portable Web Publications and EPUB&nbsp;3</a></li><li class="tocline"><a href="#references" class="tocxref"><span class="secno">B. </span>References</a><ul class="toc"><li class="tocline"><a href="#informative-references" class="tocxref"><span class="secno">B.1 </span>Informative references</a></li></ul></li></ul></section>
+    
+    
+
+    <section typeof="bibo:Chapter" resource="#introduction" property="bibo:hasPart">
+      <!--OddPage--><h2 id="introduction" resource="#introduction"><span property="xhv:role" resource="xhv:heading"><span class="secno">1. </span>Our Vision</span></h2>
+
+      <p class="vision">Our vision for <a href="#dfn-portable-web-publication-pwp" class="internalDFN" data-link-type="dfn">Portable Web Publications</a> is to define a class of documents on the Web that would be part of the Digital Publishing ecosystem but would also be fully native citizens of the Open Web Platform.  In this vision, the current format- and workflow-level separation between offline/portable and online (Web) document publishing is diminished to zero. These are merely two dynamic manifestations of the same publication: content authored with online use as the primary mode can easily be saved by the user for offline reading in portable document form. Content authored primarily for use as a portable document can be put online, without any need for refactoring the content. Publishers can choose to utilize either or both of these publishing modes, and users can choose either or both of these consumption modes. Essential features flow seamlessly between online and offline modes; examples include cross-references, user annotations, access to online databases, as well as licensing and rights management.
+      </p>
+
+      <p>The precise definition of <a href="#dfn-portable-web-publication-pwp" class="internalDFN" data-link-type="dfn">Portable Web Publications</a> is provided in a <a href="#pwp_definition">separate section</a>. For the sake of this introduction, suffices to say that a <a href="#dfn-portable-web-publication-pwp" class="internalDFN" data-link-type="dfn">Portable Web Publication</a> is a collection of content items (e.g. pages, chapters, modules, articles) whose content is compatible with Web usage, and structured as a single, self-contained logical unit. Individual items can consist of text, images, graphics, possibly interactive mathematical or chemical formulae, as well as audio and video. These documents, by definition, have a default, linear “reading order”, however the user may choose to skip around in the content just as with a book on paper; alternatively, interactive aspects of the content may alter the reading order on behalf of the user.
+      </p>
+
+    </section>
+
+    <section typeof="bibo:Chapter" resource="#whynow" property="bibo:hasPart">
+      <!--OddPage--><h2 id="whynow" resource="#whynow"><span property="xhv:role" resource="xhv:heading"><span class="secno">2. </span>Why work on this now?</span></h2>
+      <p>Digital Publishing can be considered to be at a tipping point. Digital publishing formats like EPUB have been broadly adopted globally for trade ebooks, and is starting to gain adoption among textbook publishers as well as corporate marketing departments. However, these formats have largely been seen as an “offline” format up until now. Various browser extensions supporting such complex publications exist, and other solutions are available for delivering these publications in browsers. Browser- and cloud-based solutions require relatively complex server and/or client software. In many cases browser- and cloud-based solutions depend on a proprietary transformation of the packaged files into formats more suitable to network delivery. A focused effort to make digital publications first-class Open web Platform citizens will result in a significant reduction in the complexity of deploying publishing content into browsers for both online and offline consumption. Further, this focused effort will increase the momentum of digital publication and associated Web adoption across communities who are looking for an open, non-proprietary, next-generation portable document format.</p>
+
+      <p>The broader Web Platform can also be considered to be at a tipping point. Mobile platform web site use is diminishing in favor of native applications. Hybrid applications that use web content alongside native application technology, and web-technology-based system applications are growing. The specific means of delivering hybrid and web-technology-based system applications is currently proprietary to specific applications frameworks and/or browser platforms. The point of Portable Web Publications is to increase problem solving momentum in package, metadata, and offline support applicable to both portable publications and installed applications. Open and native solutions to replace proprietary packaging, metadata, and offline support are intended to ensure the broadest possible general adoption of the Open Web Platform.
+      </p>
+
+      <p>In many respects, the convergence is already happening. In a number of areas (e.g., educational publications, travel books, etc.) publishers already exploit the advanced possibilities of packaged publishing formats to produce highly interactive documents whose features are very close to what one is used to on the Web (see the <a href="#epub-relations">separate section</a> for some examples). And the converse is also true: tutorial and introductory articles have appeared on the Web that have the quality of traditional publications that one was used to see in a scientific magazine, but combined with the interactive possibilities of the Web (<a href="http://bost.ocks.org/mike/algorithms/">Mike Bostock’s article on visualizing algorithms</a> or <a href="http://worrydream.com/LadderOfAbstraction/">Bret Victor’s article on visualization</a> are just two of several possible examples). However, the convergence still has a long way to go, and this topic that this document, and the concept of <a href="#dfn-portable-web-publication-pwp" class="internalDFN" data-link-type="dfn">Portable Web Publications</a>, aim to explore.
+      </p>
+
+      <figure style="text-align: center;" id="pwp_figure"> 
+        <img src="figures/pwp.svg" width="70%"> 
+        <figcaption>Fig. <span class="figno">1</span> <span class="fig-title">The same content can be turned into an archived file and back without any inherent changes to the core content or associated digital assets. (Picture is available directly <a href="figures/pwp.svg">SVG</a> or <a href="figures/pwp.png">PNG</a> formats.)</span></figcaption>
+      </figure>
+
+    </section>
+    <section id="what-are-the-areas-of-interest" typeof="bibo:Chapter" resource="#what-are-the-areas-of-interest" property="bibo:hasPart">
+      <!--OddPage--><h2 id="h-what-are-the-areas-of-interest" resource="#h-what-are-the-areas-of-interest"><span property="xhv:role" resource="xhv:heading"><span class="secno">3. </span>What are the areas of interest?</span></h2>
+
+      <p>The convergence of Digital Publishing and the Open Web Platform provides a common set of solutions and opportunities to various stakeholders:
+      </p>
+
+      <section id="publishers" typeof="bibo:Chapter" resource="#publishers" property="bibo:hasPart">
+        <h3 id="h-publishers" resource="#h-publishers"><span property="xhv:role" resource="xhv:heading"><span class="secno">3.1 </span>Publishers</span></h3>
+        <p>Book publishers are investing in the development of technical expertise in web technologies. While gaining understanding of technical topics is important to new and future publishing workflows, the lack of communication between the trade publishers and web application developer communities is resulting in unnecessary duplication and investments in effort.</p>
+
+        <p>Collaboration between the Web content development and publishing communities will result in major benefits to publishers. Adopting a universal and interoperable format means publishers can concentrate on engaging content authors in the production of high quality content. The web content development community can be relied on to deal with sophisticated technical issues (e.g., CSS, SVG). Potential future web content formats (e.g., 3D rendering) and various interactive web programs (e.g., visualization tools like <a href="http://d3js.org">D3</a>) will naturally flow into the publishing realm through Portable Web Publications, hence increasing publishers' opportunities to sell new content products across the board.</p>
+
+        <p>Realizing new opportunities is a reality for publishers traditionally considered to be on the leading edge of technological advances in working with content. These publishers include <abbr title="Science, Technology, and Medical">STM</abbr> and educational publishing houses, as well as scholarly and journal publishing organizations (see the <a="#schol">section on scholarly publishing in this document).</a="#schol"></p>
+
+        <p>A converged platform will support more tools and services and a much larger population of trained practitioners compared to the current state of working in parallel universes.</p>
+      </section>
+
+      <section typeof="bibo:Chapter" resource="#schol" property="bibo:hasPart">
+        <h3 id="schol" resource="#schol"><span property="xhv:role" resource="xhv:heading"><span class="secno">3.2 </span>Scholarly Journal  and <abbr title="Science, Technology, and Medical">STM</abbr> Publishers</span></h3>
+
+        <p>Scholarly journal publishers also provide articles for download these days. The most popular distribution format for journal articles continues to be [<cite><a class="bibref" href="#bib-PDF">PDF</a></cite>] as a direct reflection of the scholarly community which highly prioritizes linear text and preservation of print typography. Indeed, the original goal for scholarly publisher to make files available online was to enable readers to download and print content directly, instead of borrowing a paper copy of a journal issue and photocopying relevant articles.</p>
+
+        <p>But things are changing. First of all, Web-only publications become part of the mainstream (e.g., the multidisciplinary <a href="http://www.plosone.org">PLOS ONE</a> or the new <a href="https://peerj.com/computer-science/">PeerJ CompSci</a> journals) with the main content being published with traditional Web technologies like HTML and CSS. And there is much more. Scholarly communication increasingly uses additional media such as video, audio, animated graphics, or very large images, and the trend is to consider these as integral parts of the scientific output. (<a href="http://bost.ocks.org/mike/algorithms/">Mike Bostock’s recent article on visualizing algorithms</a> or the “live” presentation of data in a <a href="http://f1000research.com/articles/3-176/v1#f3">paper published by F1000 Research</a> are good examples for the new possibilities.) Furthermore, publishing the scientific <em>data sources</em>, like the results of a sociological survey or measurement output of biochemical experiments in XML or CSV formats, alongside the “main” publication, is also coming to the fore, with some journals and institutions actually requiring a public access to those. Gaining access to all these various media and contents both online and offline is important for scholars, whether the goal is to read the publication on the Web, or to download the papers for various reasons: reading the article offline, inclusion of the paper into bibliographic management systems like <a href="http://www.mendelay.com">Mendeley</a> or <a href="www.zotero.org">Zotero</a>, or peer-reviewing submissions. Any offline format for scholarly purposes should be adapted to these needs.</p>
+
+        <p>Having essentially identical online and offline versions of the same content, including the usage of various media, leads to similar reading experiences whether online or offline (see, e.g., [<cite><a class="bibref" href="#bib-Sigarchian">Sigarchian</a></cite>]). User annotations, formal reviews, etc., performed by the scholar on a small, mobile device while being offline can be automatically synchronized with the online version as soon as there is Internet access. Being based on a general archival format, Portable Web Publications provide an easy way to consistently include video, audio, interactive scripts, any kind of data, and can naturally contain active links to the scientific data published elsewhere on the Web in case the data is too large to be distributed offline. These and other possibilities provided by Portable Web Publications may contribute to fundamentally change the way scholarly publishing works.</p>
+      </section>
+
+      <section id="in-house-publishers" typeof="bibo:Chapter" resource="#in-house-publishers" property="bibo:hasPart">
+        <h3 id="h-in-house-publishers" resource="#h-in-house-publishers"><span property="xhv:role" resource="xhv:heading"><span class="secno">3.3 </span>In-house Publishers</span></h3>
+        <p>A special form of document production is related to technical and/or user documentation of complex products as well as complex administrative documents. Such documents are often akin to <abbr title="Science, Technology, and Medical">STM</abbr> or scholarly publications edited by traditional trade or scholarly publishers but, often, the sheer quantity and complexity of production, as well as confidentiality requirements, mean that the production are done in-house. In many respects major corporations such as IBM, Intel, Renault, or Boeing, or institutions like the European Commission, the FAO, or the UNESCO have become specialized publishers themselves.</p>
+
+        <p>The quantity of documentation makes it infeasible to produce these documents in print (or print-only); instead, publishing them on the public Web, an Intranet, and/or providing them through specialized mobile devices is the viable alternative. The production of these documents has similar challenges to scholarly publications like accessibility issues, portability of annotations, or the possible inclusion of complex media.</p>
+
+        <p>Just as for scientific publications, Portable Web Publications will provide new possibilities for these types of documents. Documentation in Portable Web Publications can be used offline in, for example, a cockpit, while being easily updated through the Web when possible. Inclusion of interactive animation, explanations, etc., become easy thanks to the possibilities provided by the Open Web Platform, whether online or offline.</p>
+      </section>
+
+      <section id="reading-system-developers" typeof="bibo:Chapter" resource="#reading-system-developers" property="bibo:hasPart">
+        <h3 id="h-reading-system-developers" resource="#h-reading-system-developers"><span property="xhv:role" resource="xhv:heading"><span class="secno">3.4 </span>Reading System developers</span></h3>
+
+        <p>Reading system developers will also benefit. It is already true today that, due to the large scale use of the Open Web Platform technologies in publishing formats, reading systems often rely on existing Web browser “cores”. This means that the development of these reading systems already benefit from a level of synergy insofar as they can rely on software developments done elsewhere. Making Portable Web Publications “native” to browsers will mean that an even larger percentage of the necessary software will be available as part of the “core” and developers can concentrate on book-specific issues such as specialized user interfaces or connection to online bookstores.</p>
+
+        <p>But the main advantage of Portable Web Publications for reading systems is a vastly larger user base. Whilst, today, reading systems are mainly used to read traditional novels, the introduction of Portable Web Publications will open up new possibilities for, e.g., scholarly and educational use, journals and magazines, governmental usage, etc.</p> 
+      </section>
+
+      <section id="web-page-designers" typeof="bibo:Chapter" resource="#web-page-designers" property="bibo:hasPart">
+        <h3 id="h-web-page-designers" resource="#h-web-page-designers"><span property="xhv:role" resource="xhv:heading"><span class="secno">3.5 </span>Web page designers</span></h3>
+
+        <p>The synergy between the traditional publishing community and the Web site designers may help in greatly improving the quality of overall Web page design. Indeed, the publishing community has significant experience on issues like ergonomy, complex layout design, paged layout, or user interface problems when consuming, for example, long, elaborate, and mostly linear content. Publishers also have an experience in a proper editorial and curatory workflow in producing content, which can be easily transposed from traditional publishing to Web site production. </p>
+
+        <p>Another aspect of Web page design is its adaption to various environments easily. Creating documents on the Web that could be uncompromisingly displayed both on traditional screens and on mobile devices with varying screen sizes is already a growing trend today; with Portable Web Publications, users will be able to create digitally native documents easily, whether the document is viewed online or offline.</p> 
+      </section>
+
+      <section id="web-browsers" typeof="bibo:Chapter" resource="#web-browsers" property="bibo:hasPart">
+        <h3 id="h-web-browsers" resource="#h-web-browsers"><span property="xhv:role" resource="xhv:heading"><span class="secno">3.6 </span>Web browsers</span></h3>
+
+        <p>Generation of an offline version of a Web page (mainly in terms of very long and complex content) is an area where browsers will benefit from Portable Web Publications. Such a facility is important: when roaming charging are often high, or when internet access may be of a low quality or not available at all, users need the possibility to create, in an ad-hoc and easy manner, an offline version of the Web page they are reading. Several browsers offer such facilities already, albeit in mutually incompatible formats. Making Portable Web Publications native to a browser means to standardize an archive format that can be used through a suitable user interface by anyone using a browser. Also, some of the facilities required by reading systems are also extremely useful for “traditional” Web content; annotation facilities are an obvious example. A joint development will therefore provide a welcome addition to the core browser facilities.</p>
+
+        <p>It must be emphasized, however, that Portable Web Publications are not meant to create an offline version of <em>any</em> Web page; the emphasis is on Web <em>publications</em> and not to, so to say, duplicate the Web. For example, it is not the goal of Portable Web Publications to store the page of a Web-based email client. The exact boundaries and limitations are specified in a separate <a href="#terminology">section on terminology</a>.</p>
+
+        <p>Note that, technically, the inclusion of Portable Web Publication capabilities in browsers is a matter of enhancement rather than addition of completely new capabilities: because Portable Web Publications documents are based on core Web Technologies, the “extras” to make them a native feature of the Web is limited to a smaller set of tasks like handling packages, dealing with features like reading order, dynamic pagination, and displaying tables of contents. An important goal of Portable Web Publications will be to further streamline these tasks, all while making sure it is feasible to include Portable Web Publications content handling even in mobile environments, where the computing and memory limits are more demanding.</p>
+      </section>
+
+      <section id="libraries-and-archival-services" typeof="bibo:Chapter" resource="#libraries-and-archival-services" property="bibo:hasPart">
+        <h3 id="h-libraries-and-archival-services" resource="#h-libraries-and-archival-services"><span property="xhv:role" resource="xhv:heading"><span class="secno">3.7 </span>Libraries and archival services</span></h3>
+
+        <p>The archiving of digital assets is coming to the fore as a significant issue for dedicated institutions like national libraries. With the arrival of highly dynamic and possibly interactive Web Publications as primary content, the traditional means of archiving (i.e., storing an XML or HTML page on some backup device for long term preservation) is no longer adequate. Web Publications depend on a multitude of auxiliary files, like CSS style sheets, images, videos, javascript programs, etc. The completeness of a Portable Web Publications has a significant role to play in this respect: combined with archiving it provides means to store the content offline, making it appropriate for archival purposes. </p>
+      </section> 
+
+      <section id="users" typeof="bibo:Chapter" resource="#users" property="bibo:hasPart">
+        <h3 id="h-users" resource="#h-users"><span property="xhv:role" resource="xhv:heading"><span class="secno">3.8 </span>Users</span></h3>
+
+        <p>Users will benefit, arguably the most, from a convergence of efforts between Portable Web Publications and other uses of Web technologies. Users will have the choice among different reading systems for the same content, ranging from specialized devices to traditional Web Browsers. Beyond the overall qualities of the reading environment the choice can also be made based on the content and usage: whereas a specialized device would work well for reading a novel on the beach, a Web browser or a high-end tablet may be preferred to consume highly interactive educational content in a class room. Publishers do not have to make this decision: users can do that. The same content can also smoothly migrate from one device or system to another, possibly carrying notes, annotations, but also the possibility to fill interactive Web forms offline (and “pushing” the results to its destination when on line again). Features for people with disabilities will also be provided consistently, whether the content is a portable document or a Web page. </p>
+      </section> 
+    </section>
+
+    <section typeof="bibo:Chapter" resource="#terminology" property="bibo:hasPart">
+      <!--OddPage--><h2 id="terminology" resource="#terminology"><span property="xhv:role" resource="xhv:heading"><span class="secno">4. </span>Terminology</span></h2>
+      <p>This document is based on the following defintions.</p>
+
+      <section typeof="bibo:Chapter" resource="#pwp_definition" property="bibo:hasPart">
+        <h3 id="pwp_definition" resource="#pwp_definition"><span property="xhv:role" resource="xhv:heading"><span class="secno">4.1 </span>Portable Web Publications</span></h3>
+
+        <ul class="definition">
+          <li> A <dfn data-dfn-type="dfn" id="dfn-web-resource">Web Resource</dfn> is a digital resource that can be uniquely addressed by a Unified Resource Identifier (URI)[<cite><a class="bibref" href="#bib-URI">URI</a></cite>], and whose content can be accessed through standard network protocols like HTTP, FTP, or the File Protocol (i.e., based on the File URI Scheme[<cite><a class="bibref" href="#bib-file-uri-scheme">file-uri-scheme</a></cite>]), etc.</li>
+
+          <li><dfn data-dfn-type="dfn" id="dfn-content">Content</dfn> of a <a href="#dfn-web-resource" class="internalDFN" data-link-type="dfn">Web Resource</a>: information and sensory experience to be communicated to the user by means of a user agent, including code or markup that defines the content’s structure, presentation, and interactions.</li>
+
+          <li><dfn data-dfn-type="dfn" id="dfn-essential-content">Essential Content</dfn> of a <a href="#dfn-web-resource" class="internalDFN" data-link-type="dfn">Web Resource</a>: <a href="#dfn-content" class="internalDFN" data-link-type="dfn">content</a> which, if removed, would fundamentally change the information or <a href="#dfn-functionality" class="internalDFN" data-link-type="dfn">functionality</a> of the <a href="#dfn-web-resource" class="internalDFN" data-link-type="dfn">Web Resource</a>.</li>
+
+          <li><dfn data-dfn-type="dfn" id="dfn-functionality">Functionality</dfn> related to a <a href="#dfn-web-resource" class="internalDFN" data-link-type="dfn">Web Resource</a>: processes and outcomes achievable through user action.</li>
+
+          <li>A <dfn data-dfn-type="dfn" id="dfn-web-publication">Web Publication</dfn> is a <a href="#dfn-web-resource" class="internalDFN" data-link-type="dfn">Web Resource</a> which itself is an aggregated set of interrelated <a href="#dfn-web-resource" class="internalDFN" data-link-type="dfn">Web Resources</a>, and which is intended to be considered as a single <a href="#dfn-web-resource" class="internalDFN" data-link-type="dfn">Web Resource</a>.
+            <ul> 
+              <li>As a <a href="#dfn-web-resource" class="internalDFN" data-link-type="dfn">Web Resource</a>, a <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publication</a> has its own [<cite><a class="bibref" href="#bib-URI">URI</a></cite>] which identifies the <em>full set</em> of the constituent resources (as opposed a particular <a href="#dfn-web-resource" class="internalDFN" data-link-type="dfn">Web Resource</a> <em>within</em> the <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publication</a>).</li>
+
+              <li>A <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publication</a> should be constructed of resources whose formats enable (individually or in conjunction with other resources in the same <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publication</a>) delivery of <a href="#dfn-essential-content" class="internalDFN" data-link-type="dfn">essential content</a> and <a href="#dfn-functionality" class="internalDFN" data-link-type="dfn">functionality</a> when delivered via a variety of technologies or delivery platforms.</li>
+
+              <li>A <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publication</a> should provide a gracefully degrading experience when delivered via a variety of technologies or delivery platforms.</li>
+
+              <li>A <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publication</a> should provide accessible access to content.</li>
+
+              <li>A <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publication</a> is not an object with a precise technical meaning, e.g., it is not necessarily equivalent to an HTML Document.</li>
+            </ul>
+          </li>
+
+          <li>A <dfn data-dfn-type="dfn" id="dfn-portable-web-resource">Web Resource</dfn> in a <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publication</a> is <dfn data-dfn-type="dfn" id="dfn-portable">Portable</dfn> if an OWP compliant user agent can render its <a href="#dfn-essential-content" class="internalDFN" data-link-type="dfn">essential content</a> by relying essentially on the <a href="#dfn-web-resource" class="internalDFN" data-link-type="dfn">Web Resources</a> within the same <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publication</a></li>
+
+          <li>A <dfn data-dfn-type="dfn" id="dfn-portable-web-publication-pwp">Portable Web Publication (PWP)</dfn> is a <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publication</a> whose constituent <a href="#dfn-web-resource" class="internalDFN" data-link-type="dfn">Web Resources</a> are all <a data-lt="Portable Web Resource" href="#dfn-portable" class="internalDFN" data-link-type="dfn">Portable</a>.</li>
+        </ul>
+
+        <p>The differences between the distinguishing characteristics of <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publications</a> and <a href="#dfn-portable-web-publication-pwp" class="internalDFN" data-link-type="dfn">Portable Web Publications</a> can be viewed as situational and gradual rather than as representative of bright-line distinctions. Consider the following example:</p>
+
+          
+        <div class="my-example"><div class="my-example-title">Example</div>
+           <p>The usage of a particular font within a <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publication</a> may be regarded as non-essential and its font file may therefore be missing from the publication; because the user agent can fall back on a system font, thereby rendering the <a href="#dfn-essential-content" class="internalDFN" data-link-type="dfn">essential content</a> of the publication, this particular publication may be considered as portable. In other cases, however, the font is <a href="#dfn-essential-content" class="internalDFN" data-link-type="dfn">essential</a> for the content (e.g., because the font represents some mathematical or musical symbols) in which case the <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publication</a> may be considered as portable only if the font files are part of the constituent set.</p>
+        </div>
+
+        <div class="note"><div class="note-title" aria-level="4" role="heading" id="h-note1"><span>Note</span></div><p class="">The concepts of <a href="#dfn-content" class="internalDFN" data-link-type="dfn">content</a>, <a href="#dfn-essential-content" class="internalDFN" data-link-type="dfn">essential content</a>, and <a href="#dfn-functionality" class="internalDFN" data-link-type="dfn">functionality</a> have been taken over from the <abbr title="World Wide Web Consortium">W3C</abbr> Web Content Accessibility Guidelines[<cite><a class="bibref" href="#bib-WCAG20">WCAG20</a></cite>], thought slightly modified for this context.</p></div>
+
+      </section>
+
+      <section typeof="bibo:Chapter" resource="#state_definition" property="bibo:hasPart">
+        <h3 id="state_definition" resource="#state_definition"><span property="xhv:role" resource="xhv:heading"><span class="secno">4.2 </span>States of a Portable Web Publication</span></h3>
+
+        <p>The states of a <a href="#dfn-portable-web-publication-pwp" class="internalDFN" data-link-type="dfn">Portable Web Publication</a> can be separated into two different axes. These different states require a different behavior from the user agent, while some of the characteristics of the publication may be invariant across states. The different states are as follows:</p>
+
+        <ol class="definition">
+          <li><strong>States related to the organization of the <a href="#dfn-web-resource" class="internalDFN" data-link-type="dfn">Web Resources</a></strong>: A <a href="#dfn-portable-web-publication-pwp" class="internalDFN" data-link-type="dfn">Portable Web Publication</a> is in 
+            <ul>
+              <li><dfn data-dfn-type="dfn" id="dfn-packed-state">Packed State</dfn>: when all constituents <a href="#dfn-web-resource" class="internalDFN" data-link-type="dfn">Web Resources</a> are combined into one unit for storage in a file system, network transfer, etc.</li>
+              <li><dfn data-dfn-type="dfn" id="dfn-unpacked-state">Unpacked State</dfn>: when all constituent <a href="#dfn-web-resource" class="internalDFN" data-link-type="dfn">Web Resources</a> can be directly accessed individually through standard network protocols like HTTP, FTP, etc., or through file system access</li>
+            </ul>
+          </li>
+
+          <li><strong>States related to the access of <a href="#dfn-web-resource" class="internalDFN" data-link-type="dfn">Web Resources</a></strong>: A <a href="#dfn-portable-web-publication-pwp" class="internalDFN" data-link-type="dfn">Portable Web Publication</a> is in
+            <ul>
+              <li><dfn data-dfn-type="dfn" id="dfn-protocol-state">Protocol State</dfn>: when all constituent <a href="#dfn-web-resource" class="internalDFN" data-link-type="dfn">Web Resources</a>, as well as the <a href="#dfn-portable-web-publication-pwp" class="internalDFN" data-link-type="dfn">Portable Web Publication</a> itself, are accessed through network protocols like HTTP, HTTPS, or FTP</li>
+              <li><dfn data-dfn-type="dfn" id="dfn-file-state">File State</dfn>: when all constituent <a href="#dfn-web-resource" class="internalDFN" data-link-type="dfn">Web Resources</a>, as well as the <a href="#dfn-portable-web-publication-pwp" class="internalDFN" data-link-type="dfn">Portable Web Publication</a> itself, are accessed as files on a local file system</li>
+          
+        </ul></li></ol>
+
+        <p>The table below shows the same publication (PWP) in the most typical states:</p>
+
+        <table class="zebra">
+          <tbody>
+            <tr>
+              <th></th>
+              <th>Protocol</th>
+              <th>File</th>
+            </tr>
+            <tr>
+              <th>Packed</th>
+              <td>PWP as one archive file on a Web Server</td>
+              <td>PWP as one archive file on a local disc</td> 
+            </tr>
+            <tr>
+              <th>Unpacked</th>
+              <td>PWP spread over several files on a Web Server</td>
+              <td>PWP spread over several files on a local disc</td> 
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note"><div class="note-title" aria-level="4" role="heading" id="h-note2"><span>Note</span></div><p class="">The difference between <a href="#dfn-protocol-state" class="internalDFN" data-link-type="dfn">protocol</a> and <a href="#dfn-file-state" class="internalDFN" data-link-type="dfn">file</a> states is not identical, although close, to the difference between the commonly used notions of “online” vs. “offline”. A PWP can be on a local disc, but accessed through a Web Server running on that machine (i.e., through a <code>http://localhost</code> URI): the PWP is in a <a href="#dfn-protocol-state" class="internalDFN" data-link-type="dfn">protocol</a> state, though clearly “offline”. Similarly, a remote file system can be mount on a local disc, in which case a PWP can be accessed as a file, i.e., is in a <a href="#dfn-file-state" class="internalDFN" data-link-type="dfn">file</a> state, though possibly “online”.</p></div>
+      </section>
+    </section>
+
+    <section id="achieving-convergence-work-areas" typeof="bibo:Chapter" resource="#achieving-convergence-work-areas" property="bibo:hasPart">
+      <!--OddPage--><h2 id="h-achieving-convergence-work-areas" resource="#h-achieving-convergence-work-areas"><span property="xhv:role" resource="xhv:heading"><span class="secno">5. </span>Achieving convergence: work areas</span></h2>
+
+      <div class="issue" id="issue-2"><div class="issue-title" aria-level="3" role="heading" id="h-issue1"><a href="https://github.com/w3c/dpub-pwp/issues/2"><span>Issue 2</span></a></div><p class="">This section should be reviewed to adopt the definitions of <a href="#state_definition">states</a>.</p></div>
+ 
+      <p>This section lists some of the work areas that <a href="#dfn-portable-web-publication-pwp" class="internalDFN" data-link-type="dfn">Portable Web Publications</a> should engage in. The list is not exhaustive and there are only hints at the technical solutions; one of the main goals of the work ahead will be to clarify the requirements and technical details. It must be emphasized that the solutions to these problems may not come from <abbr title="World Wide Web Consortium">W3C</abbr>, but possibly from other, external organizations (document identification is a typical example).</p>
+
+      <section typeof="bibo:Chapter" resource="#arch" property="bibo:hasPart">
+        <h3 id="arch" resource="#arch"><span property="xhv:role" resource="xhv:heading"><span class="secno">5.1 </span>General Architecture for Online/Offline Publications</span></h3>
+
+        <p>The latest evolution of browser technologies around Web Workers[<cite><a class="bibref" href="#bib-web-workers">web-workers</a></cite>] and Service Workers[<cite><a class="bibref" href="#bib-service-workers">service-workers</a></cite>] may fundamentally change the way browsers operate in terms of offline/online. Service Workers will provide a flexible and programmable way to efficiently implement local caching of <a href="#dfn-web-resource" class="internalDFN" data-link-type="dfn">Web Resources</a>. Caching is implemented as a programmable network proxy, meaning that the browser’s rendering engine becomes oblivious on whether a resource originates from the local cache or diretly from the network. </p>
+
+        <p id="sworkers">This evolution makes it possible to bring <a href="#dfn-portable-web-publication-pwp" class="internalDFN" data-link-type="dfn">Portable Web Publications</a> under the same abstraction as a <a href="#dfn-web-resource" class="internalDFN" data-link-type="dfn">Web Resource</a> identified with a URI. A specialized service worker can cache resources, i.e., can bridge the differences between the offline and online states of a document. Furthermore, by adding additional functionalities to the service worker, it can also deal with possible (un)packaging. In other words, the core rendering engine of a user agent can operate as if the <a href="#dfn-portable-web-publication-pwp" class="internalDFN" data-link-type="dfn">Portable Web Publication</a> was in an online and unpacked stage, and differences were handled by the service worker acting as a proxy.</p>
+
+        <p>Of course many of the details have to be worked, taking also into accoount that the Web Workers[<cite><a class="bibref" href="#bib-web-workers">web-workers</a></cite>] and Service Workers[<cite><a class="bibref" href="#bib-service-workers">service-workers</a></cite>] specifications are not finalized yet.</p> 
+
+        <figure style="text-align: center;" id="workers_basic"> 
+          <img src="figures/Workers-basic.png" width="70%"> 
+          <figcaption>Fig. <span class="figno">2</span> <span class="fig-title">Accessing a <a href="#dfn-portable-web-publication-pwp" class="internalDFN" data-link-type="dfn">Portable Web Publication</a> directly from the Web. (Picture is available directly <a href="figures/Workers-basic.svg">SVG</a> or <a href="figures/Workers-basic.png">PNG</a> formats.)</span></figcaption>
+        </figure>
+
+        <figure style="text-align: center;" id="workers_package"> 
+          <img src="figures/Workers-package.png" width="70%"> 
+          <figcaption>Fig. <span class="figno">3</span> <span class="fig-title">Accessing a packaged <a href="#dfn-portable-web-publication-pwp" class="internalDFN" data-link-type="dfn">Portable Web Publication</a> via a Service Worker. (Picture is available directly <a href="figures/Workers-package.svg">SVG</a> or <a href="figures/Workers-package.png">PNG</a> formats.)</span></figcaption>
+        </figure>
+
+        <section id="general-archive-formats" typeof="bibo:Chapter" resource="#general-archive-formats" property="bibo:hasPart">
+          <h4 id="h-general-archive-formats" resource="#h-general-archive-formats"><span property="xhv:role" resource="xhv:heading"><span class="secno">5.1.1 </span>General Archive formats</span></h4>
+
+          <p id="sworkers">Regardless of the details or the <a href="#dfn-portable-web-publication-pwp" class="internalDFN" data-link-type="dfn">Portable Web Publications</a> architecture, an archive format is necessary for the storage of a publication as one file (e.g., for distribution). A variety of formats for offline/archival storage of collections of digital resources exist today [<cite><a class="bibref" href="#bib-OCF">OCF</a></cite>], [<cite><a class="bibref" href="#bib-ODF">ODF</a></cite>], [<cite><a class="bibref" href="#bib-OOXML">OOXML</a></cite>], but none of them is universally recognized and supported across all ecosystems. Depending on the general architecture, <a href="#dfn-portable-web-publication-pwp" class="internalDFN" data-link-type="dfn">Portable Web Publications</a> may use, e.g., the current EPUB packaging format (based on [<cite><a class="bibref" href="#bib-OCF">OCF</a></cite>])) or it may need to be based on the definition of an archive format that is generic and native to the Open Web Platform. </p>
+
+          <div class="note"><div class="note-title" aria-level="5" role="heading" id="h-note3"><span>Note</span></div><div class="">
+            <p><abbr title="World Wide Web Consortium">W3C</abbr>’s <a href="http://www.w3.org/2008/webapps/">Web Application Working Group</a> has published a First Working Draft for a Streamable Package Format for the Web[<cite><a class="bibref" href="#bib-web-packaging">web-packaging</a></cite>] to encompass the needs of various applications (like installing Web Applications or downloading data for local processing). It is may become advantageous for Portable Web Publications to adopt this format, thereby being compatible with what Web Browsers may implement anyway. 
+            </p>  
+
+            <p>The IETF has published an <a href="https://tools.ietf.org/html/draft-seantek-kerwin-arcmedia-type-01">informational draft on a top-level media type for archives</a>. Although that draft does not specify a specific archive format, and the work is currently on hold, it shows the overall interest in packaging on the Web, in line with the concerns of Portable Web Publications.</p> 
+          </div></div> 
+        </section>
+
+        <section id="capturing-overall-publication-structure" typeof="bibo:Chapter" resource="#capturing-overall-publication-structure" property="bibo:hasPart">
+          <h4 id="h-capturing-overall-publication-structure" resource="#h-capturing-overall-publication-structure"><span property="xhv:role" resource="xhv:heading"><span class="secno">5.1.2 </span>Capturing overall publication structure</span></h4>
+
+          <p>Portable document formats usually include information pertaining to the overall publication structure, such as the logical reading order(s) of the set of resources that comprise the publication (the “spine”), as well as predictable user-facing meta-structures, such as one or several tables of contents, glossaries, etc. For the requirements of <a href="#dfn-portable-web-publication-pwp" class="internalDFN" data-link-type="dfn">Portable Web Publications</a> it may be imperative to optimize these data structures in a way that is native to the Open Web Platform and more easily supported in authoring tools, browsers, and Reading Systems. If the vision based on Service Workers, as <a href="#sworkers">outlined above</a>, becomes the approach chosen for the architecture Portable Web Publication user agents, that overall structural information may be what a client would return on a request for an Portable Web Publications instance, as an abstraction for a collection of Web resources.</p>
+
+          <p>The Manifest for web application format[<cite><a class="bibref" href="#bib-web-manifest">web-manifest</a></cite>], currently developed at <abbr title="World Wide Web Consortium">W3C</abbr>, is one example of a technology that could potentially be used to achieve this goal.</p>
+
+          <div class="note"><div class="note-title" aria-level="5" role="heading" id="h-note4"><span>Note</span></div><p class="">Whilst these information objects are important for larger and/or more complex publications, it is unnecessary for a number of use cases for <a href="#dfn-portable-web-publication-pwp" class="internalDFN" data-link-type="dfn">Portable Web Publications</a>. A typical example is the archival of a document consisting of a single Web page. <a href="#dfn-portable-web-publication-pwp" class="internalDFN" data-link-type="dfn">Portable Web Publications</a> should therefore include the definition of a set of “defaults”, i.e., it should not require the presence of, say, a spine if the publication contains one single HTML file.</p></div>
+        </section>
+
+      </section>
+
+      <section typeof="bibo:Chapter" resource="#idf" property="bibo:hasPart">
+        <h3 id="idf" resource="#idf"><span property="xhv:role" resource="xhv:heading"><span class="secno">5.2 </span>Document and fragment identification</span></h3>
+        <p>On the web, HTTP URIs serve as the fundamental method of identifying a resource, or a fragment thereof. Among the various portable document formats available today, there is no equivalent ubiquitous method for identifying a publication that by definition does not have an HTTP address. Within the scholarly publishing industry, for example, initiatives such as <a href="http://www.doi.org">DOI</a> and <a href="http://crossref.org">CROSSREF</a> have addressed this problem by providing explicit URN resolver services, but these services are not used by traditional “trade” publishing that rely more on ISBN related services. Also, for a universally applicable portable document format, unconditionally relying on distinct resolver services is suboptimal for a number of use cases, primarily as these may not be free of charge, and may require registration process that is not be applicable to the use case at hand. </p>
+
+        <div class="note"><div class="note-title" aria-level="4" role="heading" id="h-note5"><span>Note</span></div><p class="">A typical, and extremely valuable use case is in academic and scholarly publishing. There are currently several methods for citing online works (disputed among style guides), but there is no standard method for citations to ebooks. Even if a reflowable ebook is by a scholar, she must refer to PDF, paper copy, or HTML version to cite it in her bibliography. <a href="#dfn-portable-web-publication-pwp" class="internalDFN" data-link-type="dfn">Portable Web Publications</a> should enable stable citations.</p></div>
+
+
+        <p><a href="#dfn-portable-web-publication-pwp" class="internalDFN" data-link-type="dfn">Portable Web Publications</a> needs to define a way to utilize URI schemes for identifying documents and/or fragments thereof such that the addressing scheme does not break, nor needs to be changed, whether the document is online or offline, or whether it is packaged or not.  A number of questions arise and need answers, e.g.:</p>
+
+        <ul>        
+          <li>What is the URI of the offline version of the document? How does that URI relate to the online identification of the content?</li>
+
+          <li>How does one identify the instance of a publication that “belongs to”, e.g., a specific person? This may be important if one wants to create and store, e.g., annotation to one’s own “copy” only, as opposed to the content in general.</li>
+          
+          <li>Should there be one URI identifying the content itself, regardless of its format (e.g., whether it is online or offline)? This is akin to the issue of identifying, e.g., a book as a whole, as opposed to its delivery format (i.e., whether it is a printed or electronic).</li>
+        </ul>
+
+        <p>Beyond the identification of the document as a whole, there is a further need for fragment identification, i.e., to identify “anchors” within the document. <a href="#dfn-portable-web-publication-pwp" class="internalDFN" data-link-type="dfn">Portable Web Publications</a> need to include fragment identification schemes that are agnostic to different states, and that can address fragments of various kinds (e.g. resources within archives, elements with or without IDs, text ranges, time positions, etc.) and for various media types.</p>
+
+        <div class="note"><div class="note-title" aria-level="4" role="heading" id="h-note6"><span>Note</span></div><p class="">If the structure for Portable Web Publications is based on Service Workers, as <a href="#sworkers">outlined above</a>, the usual fragment identifiers, as used on the Web, may be adopted and used without any further modifications.</p></div>
+
+        <div class="note"><div class="note-title" aria-level="4" role="heading" id="h-note7"><span>Note</span></div><p class="">The <a href="http://www.w3.org/annotation/"><abbr title="World Wide Web Consortium">W3C</abbr> Annotation Working Group</a> has a joint deliverable with the <a href="http://www.w3.org/2008/webapps/"><abbr title="World Wide Web Consortium">W3C</abbr> Web Application Working Group</a> called “Robust Anchoring”. This deliverable will provide a general framework for anchoring; and, although defined within the framework of annotations, the specification can also be used for other fragment identification use cases. Similarly, the <abbr title="World Wide Web Consortium">W3C</abbr> Media Fragments specification[<cite><a class="bibref" href="#bib-media-frags">media-frags</a></cite>] may prove useful to address some of the use cases. Finally, the Streamable Package Format draft[<cite><a class="bibref" href="#bib-web-packaging">web-packaging</a></cite>], <a href="#arch">mentioned above</a>, also includes a fragment identification mechanism. Would that package format be adopted for Portable Web Publications, that fragment identification may also come to the fore as an important mechanism to consider.</p></div>
+      </section>  
+
+      <section id="metadata-discovery" typeof="bibo:Chapter" resource="#metadata-discovery" property="bibo:hasPart">
+        <h3 id="h-metadata-discovery" resource="#h-metadata-discovery"><span property="xhv:role" resource="xhv:heading"><span class="secno">5.3 </span>Metadata: discovery</span></h3>
+        <p>Throughout the digital publishing industry, highly specialized metadata vocabularies and serialization forms thereof are being used. Within book trade publishing as an example, ONIX[<cite><a class="bibref" href="#bib-ONIX">ONIX</a></cite>] has attained a dominant status as a metadata package that typically travels (in XML form) independently of the publication, and contains not only bibliographic metadata, but also trade information such as pricing. Scholarly publishing, on the other hand, uses various derivatives of the ubiquitous BibTeX vocabulary.</p>
+
+        <p>While not contradicting the obvious use cases for out-of-line metadata records as used by publishers, retailers and libraries, Portable Web Publications must define a syntax for basic in-line metadata records that is agnostic to the online and offline modes. This means that the syntax must seamlessly support discovery and harvesting by both generic Web search engines, as well as dedicated bibliographic/archival/retailer systems. While it is expected that Portable Web Publications will define a minimal set of required metadata (cf. the <a href="#idf">section on identities and fragments above</a>), development and adoption of further vocabularies in Portable Web Publications will most likely be deemed as out of scope; in other words: domain-specific metadata requirements are up to the domains themselves to define via a profiling mechanism, or similar yet-to-be-defined means. </p>
+
+        <div class="note"><div class="note-title" aria-level="4" role="heading" id="h-note8"><span>Note</span></div><p class="">The adoption of HTML as the vehicle for expressing publication-level metadata (i.e., using RDFa[<cite><a class="bibref" href="#bib-html-rdfa">html-rdfa</a></cite>] and/or Microdata[<cite><a class="bibref" href="#bib-microdata">microdata</a></cite>] for metadata like authors or title) would have the added benefits of better I18N support than XML or JSON formats.</p></div>
+      </section>
+
+      <section typeof="bibo:Chapter" resource="#styling" property="bibo:hasPart">
+        <h3 id="styling" resource="#styling"><span property="xhv:role" resource="xhv:heading"><span class="secno">5.4 </span>Styling and Layout, Pagination</span></h3>
+        <p>As outlined in [<cite><a class="bibref" href="#bib-dpub-latinreq">dpub-latinreq</a></cite>] or [<cite><a class="bibref" href="#bib-jlreq">jlreq</a></cite>], the Open Web Platform in general, and CSS in particular, is still lacking solutions for meeting all of the publishers’ expectations on satisfactory typography and layout for digital publications. While improved presentation fidelity will be of paramount importance to the overall success and adoption rate of Portable Web Publications, it is clear that many of these issues are going to be addressed on a case-by-case basis by the CSS WG over a longer period of time. <abbr title="Science, Technology, and Medical">STM</abbr> publishing, for example, where the faithful representation and rendering of, e.g., mathematical or chemical formulae is of a paramount importance, has particularly severe requirements that must be fulfilled by the Open Web Platform technologies. Similarly, dynamic pagination of reflowable content is not natively supported by browsers today, and as a result EPUB Reading System developers, for example, are forced to implement pagination using various ad-hoc approaches, all coming with a significant penalty in terms of development costs, performance and stability.</p>
+
+        <p>It is anticipated that native support for pagination (in CSS and/or in the DOM) is going to be put forward by stakeholders as a critical component of Portable Web Publications; thus the finalization of Portable Web Publications may be contingent on the availability of a native pagination model for Web content. <!--Today’s EPUB does not define a particular pagination model for reflowable content (although work has been done on this, leading to the experimental EPUB Adaptive Layout specification [[PGT]] that has informed subsequent related work in CSS WG).--></p>
+
+        <div class="note"><div class="note-title" aria-level="4" role="heading" id="h-note9"><span>Note</span></div><p class="">Note that the <a href="https://wiki.css-houdini.org/">“Houdini” Task Force</a>, recently started jointly by the <abbr title="World Wide Web Consortium">W3C</abbr> CSS WG and the <abbr title="World Wide Web Consortium">W3C</abbr> TAG, may open new avenues to handle pagination.</p></div>
+      </section>
+
+      <section id="security-models" typeof="bibo:Chapter" resource="#security-models" property="bibo:hasPart">
+        <h3 id="h-security-models" resource="#h-security-models"><span property="xhv:role" resource="xhv:heading"><span class="secno">5.5 </span>Security Models</span></h3>
+
+        <p>The security model of the Web, based primarily on the same-origin policy and the concept of “site”, does not apply to portable documents, as the notion of “origin” is based on HTTP properties that are invalidated/non-existent when a document transitions from its online state to the portable state. Portable Web Publications must incorporate a state agnostic security model that defines rules for both the online and portable states.</p>
+      </section>
+
+      <section id="presentation-control-and-personalization" typeof="bibo:Chapter" resource="#presentation-control-and-personalization" property="bibo:hasPart">
+        <h3 id="h-presentation-control-and-personalization" resource="#h-presentation-control-and-personalization"><span property="xhv:role" resource="xhv:heading"><span class="secno">5.6 </span>Presentation Control and Personalization</span></h3>
+
+        <p>When reading long-form (and sometimes mission-critical) publications, personalization—i.e. the ability for users to adapt the presentation to suit their needs—is of a paramount importance. While technologies such as CSS Media Queries have come a long way in terms of adapting content to devices, this is not the same thing as adapting to a user. Presentation control features are often available in e-book readers of different kinds, for example the possibility to dynamically change font size or background/foreground color schemes, but implementations are brittle and limited due to the lack of an underlying framework that explicitly supports user adaptation.</p> 
+
+        <p>Portable Web Publications needs to incorporate an explicit framework for achieving advanced and predictable user-triggered presentation control. (Note that from this perspective, accessibility can be seen just a radical case of personalization.)</p> 
+      </section>
+
+      <section id="models-for-embracing-domain-specific-restrictions-and-extensions" typeof="bibo:Chapter" resource="#models-for-embracing-domain-specific-restrictions-and-extensions" property="bibo:hasPart">
+        <h3 id="h-models-for-embracing-domain-specific-restrictions-and-extensions" resource="#h-models-for-embracing-domain-specific-restrictions-and-extensions"><span property="xhv:role" resource="xhv:heading"><span class="secno">5.7 </span>Models for embracing domain-specific restrictions and extensions</span></h3>
+
+        <p>Different domains of digital publishing have vastly different expectations and/or requirements on the nature of the content and their presentation. In the digital comics domain for example, the default presentation form is, traditionally at least, pre-paginated, fixed-form, and image-based media, possibly with a set of omnipresent (i.e., cross-publisher) user interaction patterns that are expected to be enabled. On the other hand, for trade publishing the default form is fully reflowable content, where user interaction patterns are defined entirely by the user agent. In educational publishing, the ability to control structure, to include rich domain-specific structural semantics and extensive specialized metadata, are at the basis for enhanced reading system behaviors, as well as predictable content discovery and repurposing. </p>
+
+        <p>To allow for the predictability of content within those domains that need it, Portable Web Publications needs to incorporate a notion of “profiles” that content can be authored and validated against, and that user agent implementations can use to trigger enhanced behaviors, if any. To allow for agile feature-set extensions and innovation, Portable Web Publications profiles also needs to embrace the notion of “feature addons” that can be included by a publisher without risking to invalidate the integrity and functionality of the basic publication.</p>
+      </section>
+    </section>
+    <section id="conclusions" typeof="bibo:Chapter" resource="#conclusions" property="bibo:hasPart">
+      <!--OddPage--><h2 id="h-conclusions" resource="#h-conclusions"><span property="xhv:role" resource="xhv:heading"><span class="secno">6. </span>Conclusions</span></h2>
+      <p>This document outlines a vision for the convergence between the Open Web Platform and portable documents while also significantly advancing and expanding the existing digital publishing ecosystem. The realization of this vision would require a strong cooperation between the traditional publishing and Web communities, based on a close collaboration between IDPF and the <abbr title="World Wide Web Consortium">W3C</abbr> and potentially other relevant organizations. While it is envisaged that most of the work could be done in one or more dedicated Working Groups (within IDPF and/or <abbr title="World Wide Web Consortium">W3C</abbr>), it must be emphasized that many of the features will affect and will be affected by work done elsewhere, within or outside these organizations. The starting point will be to explore and plan for the detailed technical challenges to gain a better insight into the work ahead; this exploration should be done together with the various interested communities.   
+      </p>
+    </section>
+    <section class="appendix" typeof="bibo:Chapter" resource="#epub-relations" property="bibo:hasPart">
+      <!--OddPage--><h2 id="epub-relations" resource="#epub-relations"><span property="xhv:role" resource="xhv:heading"><span class="secno">A. </span>Portable Web Publications and EPUB&nbsp;3</span></h2>
+
+      <p>The development of <a href="#dfn-portable-web-publication-pwp" class="internalDFN" data-link-type="dfn">Portable Web Publications</a> should not be made in isolation given the diverse publishing ecosystems that already exist. Rather, the development should rely as much as possible on existing and deployed formats, which includes both the various Open Web Platform technologies and digital publishing formats.</p>
+
+      <p>Several document formats exist in the digital publishing domain; however, the only vendor independent and HTML based format is EPUB&nbsp;3[<cite><a class="bibref" href="#bib-EPUB3">EPUB3</a></cite>], which emphasizes a dynamic determination of content presentation and a closer alignment with the Open Web Platform.  EPUB&nbsp;3 is built on Web Standards, and the individual items that make up an EPUB publication are identical to types of content on a Web site: [<cite><a class="bibref" href="#bib-html5">html5</a></cite>], [<cite><a class="bibref" href="#bib-svg">svg</a></cite>], [<cite><a class="bibref" href="#bib-css21">css21</a></cite>], [<cite><a class="bibref" href="#bib-ECMAScript">ECMAScript</a></cite>], [<cite><a class="bibref" href="#bib-JPEG">JPEG</a></cite>] and [<cite><a class="bibref" href="#bib-png">png</a></cite>] images, etc. Various browser extensions supporting EPUB exist (e.g., Readium in Chrome, EPUB in Firefox). Other solutions exist for delivering these files in browsers (Readium-Cloud, EPUB.js, Safari Books Online, et al.). Publishers are actively exploring the new and possibly interactive possibilities offered by EPUB&nbsp;3; a good example is <a href="http://bcs.wiley.com/he-bcs/Books?action=index&amp;bcsId=7005&amp;itemId=1118087887">Cay Horstmann’s “Big Java, Late Objects”</a>[<cite><a class="bibref" href="#bib-BigJava">BigJava</a></cite>] that combines the feel of a traditional book with interactive learning materials that makes it reminiscent of similar, Web based tutorials (see the <a href="http://www.wiley.com/college/sc/horstmann/">video</a> on a companion page for the book)</p>
+
+      <p>Whilst the concept of <a href="#dfn-portable-web-publication-pwp" class="internalDFN" data-link-type="dfn">Portable Web Publication</a> is close to, and has been inspired by, EPUB&nbsp;3, it goes beyond it, insofar as it emphasizes the need for a convergence between the offline and online usages. It would be highly desirable to deliver on the requirements on <a href="#dfn-portable-web-publication-pwp" class="internalDFN" data-link-type="dfn">Portable Web Publications</a> in an evolutionary manner that would build on, and would be backwards compatible with, existing EPUB&nbsp;3, since the latter is already widely deployed. However, this may not be possible. At this stage, this document emphasizes all requirements envisions for <a href="#dfn-portable-web-publication-pwp" class="internalDFN" data-link-type="dfn">Portable Web Publications</a> without addressing the natural tension between goals of preserving compatibility and fully achieving all these requirements in the most elegant manner. But neither this end-goal emphasis, nor the use of the new term “<a href="#dfn-portable-web-publication-pwp" class="internalDFN" data-link-type="dfn">Portable Web Publication</a>”, should be taken as implying a recommendation to definitely create a completely new format that would replace EPUB. Further investigation is required, and the ongoing evolutionary trajectory of EPUB&nbsp;3 must also be taken into account.</p>
+
+      <div class="note"><div class="note-title" aria-level="3" role="heading" id="h-note10"><span>Note</span></div><p class="">The current evolution of EPUB&nbsp;3 towards EPUB&nbsp;3.1 will address several compatibility and convergence issues with the Open Web Platform; this will make the evolution path towards Portable Web Publications easier.</p></div> 
+
+      <p>It must also be emphasized that the central part of any EPUB&nbsp;3 publication, namely the <em>content</em>, will remain unchanged or will require only minimal changes when transitioning towards Portable Web Applications. The bulk of the changes are expected to occur around the accompanying constructs like publication-level metadata records, the spine, or the packaging of the content. The content of a Portable Web Publications will be based on core Open Web Platform technologies including HTML5, SVG, or CSS3, and many other types of files like images, audio and video, metadata files (e.g., to describe provenance), executable code in <a href="http://www.ecma-international.org/ecma-262/6.0/index.html">JavaScript</a>, <a href="http://ipython.org/">iPython</a>, <a href="https://jupyter.org/">Jupyter</a>, or <a href="http://www.maplesoft.com/products/maple/">Maple</a> scripts, or datafiles in various formats. All these are valid contents in EPUB&nbsp;3 already; a transition towards <a href="#dfn-portable-web-publication-pwp" class="internalDFN" data-link-type="dfn">Portable Web Publications</a> will leave these resources intact. The envisaged changes will be mostly restricted to the implementation details of reading systems and production workflows. The evolution of the past few years of online tooling for the production of EPUB content based on the Open Web Platform (e.g., the platforms developed and used by companies like O’Reilly, Hachette, Metrodigi, or Inkling) will also greatly facilitate any transition to Portable Web Publications; adapting these tools is expected to be quite straightforward.
+      </p>
+    </section>
+  
+
+<section id="references" class="appendix" typeof="bibo:Chapter" resource="#references" property="bibo:hasPart"><!--OddPage--><h2 id="h-references" resource="#h-references"><span property="xhv:role" resource="xhv:heading"><span class="secno">B. </span>References</span></h2><section id="informative-references" typeof="bibo:Chapter" resource="#informative-references" property="bibo:hasPart"><h3 id="h-informative-references" resource="#h-informative-references"><span property="xhv:role" resource="xhv:heading"><span class="secno">B.1 </span>Informative references</span></h3><dl class="bibliography" resource=""><dt id="bib-BigJava">[BigJava]</dt><dd>Cay Horstmann. <em>Big Java Late Objects</em>, John Wiley &amp; Sons, Inc., 2013
+</dd><dt id="bib-ECMAScript">[ECMAScript]</dt><dd>Allen Wirfs-Brock. <a href="http://www.ecma-international.org/ecma-262/6.0/" property="dc:references"><cite>ECMA-262 6th Edition, The ECMAScript 2015 Language Specification</cite></a>. June 2015. Standard. URL: <a href="http://www.ecma-international.org/ecma-262/6.0/" property="dc:references">http://www.ecma-international.org/ecma-262/6.0/</a>
+</dd><dt id="bib-EPUB3">[EPUB3]</dt><dd>Garth Conboy; Matt Garrish; Markus Gylling; William McCoy; Murata Makoto; Daniel Weck. <a href="http://www.idpf.org/epub/301/spec/epub-overview-20140626.html" property="dc:references"><cite>EPUB 3 Overview</cite></a>. Recommended Specification. URL: <a href="http://www.idpf.org/epub/301/spec/epub-overview-20140626.html" property="dc:references">http://www.idpf.org/epub/301/spec/epub-overview-20140626.html</a>
+</dd><dt id="bib-JPEG">[JPEG]</dt><dd>Eric Hamilton. <a href="http://www.w3.org/Graphics/JPEG/jfif3.pdf" property="dc:references"><cite>JPEG File Interchange Format</cite></a>. September 1992. URL: <a href="http://www.w3.org/Graphics/JPEG/jfif3.pdf" property="dc:references">http://www.w3.org/Graphics/JPEG/jfif3.pdf</a>
+</dd><dt id="bib-OCF">[OCF]</dt><dd>James Pritchett; Markus Gylling. <a href="http://www.idpf.org/epub/301/spec/epub-ocf-20140626.html" property="dc:references"><cite>EPUB Open Container Format (OCF) 3.0</cite></a>. Recommended Specification. URL: <a href="http://www.idpf.org/epub/301/spec/epub-ocf-20140626.html" property="dc:references">http://www.idpf.org/epub/301/spec/epub-ocf-20140626.html</a>
+</dd><dt id="bib-ODF">[ODF]</dt><dd>Michael Brauer; Patrick Durusau; Gary Edwards; David Faure; Tom Magliery; Daniel Vogelheim. <a href="https://www.oasis-open.org/committees/download.php/12572/OpenDocument-v1.0-os.pdf" property="dc:references"><cite>Open Document Format for Office Applications v1.0</cite></a>. Oasis Standard. URL: <a href="https://www.oasis-open.org/committees/download.php/12572/OpenDocument-v1.0-os.pdf" property="dc:references">https://www.oasis-open.org/committees/download.php/12572/OpenDocument-v1.0-os.pdf</a>
+</dd><dt id="bib-ONIX">[ONIX]</dt><dd>EDItEUR. <cite>ONIX for Books 3.0.2 Specification</cite>. 
+</dd><dt id="bib-OOXML">[OOXML]</dt><dd>ECMA International. <a href="http://www.ecma-international.org/publications/standards/Ecma-376.htm" property="dc:references"><cite>Office Open XML File Formats, ECMA-376</cite></a>. Standard ECMA 376. URL: <a href="http://www.ecma-international.org/publications/standards/Ecma-376.htm" property="dc:references">http://www.ecma-international.org/publications/standards/Ecma-376.htm</a>
+</dd><dt id="bib-PDF">[PDF]</dt><dd>Adobe Systems, Inc.,. <a href="http://partners.adobe.com/public/developer/en/pdf/PDFReference.pdf" property="dc:references"><cite>Adobe Portable Document Format, Version 4.0</cite></a>. URL: <a href="http://partners.adobe.com/public/developer/en/pdf/PDFReference.pdf" property="dc:references">http://partners.adobe.com/public/developer/en/pdf/PDFReference.pdf</a>
+</dd><dt id="bib-Sigarchian">[Sigarchian]</dt><dd>Hajar Ghaem Sigarchian et al. <em>EPUB3 for Integrated and Customizable Representation of a Scientific Publication and its Associated Resources</em>. In: Proceedings of the 4th Workshop on Linked Science 2014. URL: <a href="http://linkedscience.org/wp-content/uploads/2014/10/lisc2014_submission_3.pdf" property="dc:references">http://linkedscience.org/wp-content/uploads/2014/10/lisc2014_submission_3.pdf</a>.
+</dd><dt id="bib-URI">[URI]</dt><dd>T. Berners-Lee; R. Fielding; L. Masinter. <a href="https://tools.ietf.org/html/rfc3986" property="dc:references"><cite>Uniform Resource Identifier (URI): Generic Syntax</cite></a>. January 2005. Internet Standard. URL: <a href="https://tools.ietf.org/html/rfc3986" property="dc:references">https://tools.ietf.org/html/rfc3986</a>
+</dd><dt id="bib-WCAG20">[WCAG20]</dt><dd>Ben Caldwell; Michael Cooper; Loretta Guarino Reid; Gregg Vanderheiden et al. <a href="http://www.w3.org/TR/WCAG20/" property="dc:references"><cite>Web Content Accessibility Guidelines (WCAG) 2.0</cite></a>. 11 December 2008. W3C Recommendation. URL: <a href="http://www.w3.org/TR/WCAG20/" property="dc:references">http://www.w3.org/TR/WCAG20/</a>
+</dd><dt id="bib-css21">[css21]</dt><dd>Bert Bos; Tantek Çelik; Ian Hickson; Håkon Wium Lie et al. <a href="http://www.w3.org/TR/CSS2" property="dc:references"><cite>Cascading Style Sheets Level 2 Revision 1 (CSS 2.1) Specification</cite></a>. 7 June 2011. W3C Recommendation. URL: <a href="http://www.w3.org/TR/CSS2" property="dc:references">http://www.w3.org/TR/CSS2</a>
+</dd><dt id="bib-dpub-latinreq">[dpub-latinreq]</dt><dd>Dave Cramer. <a href="http://www.w3.org/TR/dpub-latinreq/" property="dc:references"><cite>Requirements for Latin Text Layout and Pagination</cite></a>. 30 September 2014. W3C Working Draft. URL: <a href="http://www.w3.org/TR/dpub-latinreq/" property="dc:references">http://www.w3.org/TR/dpub-latinreq/</a>
+</dd><dt id="bib-file-uri-scheme">[file-uri-scheme]</dt><dd>M. Kervin. <a href="https://tools.ietf.org/html/draft-ietf-appsawg-file-scheme-03" property="dc:references"><cite>The file URI Scheme</cite></a>. Internet Draft. URL: <a href="https://tools.ietf.org/html/draft-ietf-appsawg-file-scheme-03" property="dc:references">https://tools.ietf.org/html/draft-ietf-appsawg-file-scheme-03</a>
+</dd><dt id="bib-html-rdfa">[html-rdfa]</dt><dd>Manu Sporny. <a href="http://www.w3.org/TR/html-rdfa/" property="dc:references"><cite>HTML+RDFa 1.1 - Second Edition</cite></a>. 17 March 2015. W3C Recommendation. URL: <a href="http://www.w3.org/TR/html-rdfa/" property="dc:references">http://www.w3.org/TR/html-rdfa/</a>
+</dd><dt id="bib-html5">[html5]</dt><dd>Ian Hickson; Robin Berjon; Steve Faulkner; Travis Leithead; Erika Doyle Navara; Edward O'Connor; Silvia Pfeiffer. <a href="http://www.w3.org/TR/html5/" property="dc:references"><cite>HTML5</cite></a>. 28 October 2014. W3C Recommendation. URL: <a href="http://www.w3.org/TR/html5/" property="dc:references">http://www.w3.org/TR/html5/</a>
+</dd><dt id="bib-jlreq">[jlreq]</dt><dd>Yasuhiro Anan; Hiroyuki Chiba; Junzaburo Edamoto; Richard Ishida; Tatsuo KOBAYASHI; Toshi Kobayashi; Kenzou Onozawa; Felix Sasaki; Seiichi Kato; Hajime Shiozawa et al. <a href="http://www.w3.org/TR/jlreq/" property="dc:references"><cite>Requirements for Japanese Text Layout</cite></a>. 3 April 2012. W3C Note. URL: <a href="http://www.w3.org/TR/jlreq/" property="dc:references">http://www.w3.org/TR/jlreq/</a>
+</dd><dt id="bib-media-frags">[media-frags]</dt><dd>Raphaël Troncy; Erik Mannens; Silvia Pfeiffer; Davy Van Deursen. <a href="http://www.w3.org/TR/media-frags/" property="dc:references"><cite>Media Fragments URI 1.0 (basic)</cite></a>. 25 September 2012. W3C Recommendation. URL: <a href="http://www.w3.org/TR/media-frags/" property="dc:references">http://www.w3.org/TR/media-frags/</a>
+</dd><dt id="bib-microdata">[microdata]</dt><dd>Ian Hickson. <a href="http://www.w3.org/TR/microdata/" property="dc:references"><cite>HTML Microdata</cite></a>. 29 October 2013. W3C Note. URL: <a href="http://www.w3.org/TR/microdata/" property="dc:references">http://www.w3.org/TR/microdata/</a>
+</dd><dt id="bib-png">[png]</dt><dd>Tom Lane. <a href="http://www.w3.org/TR/PNG" property="dc:references"><cite>Portable Network Graphics (PNG) Specification (Second Edition)</cite></a>. 10 November 2003. W3C Recommendation. URL: <a href="http://www.w3.org/TR/PNG" property="dc:references">http://www.w3.org/TR/PNG</a>
+</dd><dt id="bib-service-workers">[service-workers]</dt><dd>Alex Russel; Jungkee Song; Jake Archibald. <a href="http://www.w3.org/TR/service-workers/" property="dc:references"><cite>Service Workers</cite></a>. W3C Working Draft. URL: <a href="http://www.w3.org/TR/service-workers/" property="dc:references">http://www.w3.org/TR/service-workers/</a>
+</dd><dt id="bib-svg">[svg]</dt><dd>Jon Ferraiolo. <a href="http://www.w3.org/TR/SVG/" property="dc:references"><cite>Scalable Vector Graphics (SVG) 1.0 Specification</cite></a>. 4 September 2001. W3C Recommendation. URL: <a href="http://www.w3.org/TR/SVG/" property="dc:references">http://www.w3.org/TR/SVG/</a>
+</dd><dt id="bib-web-manifest">[web-manifest]</dt><dd><a href="https://w3c.github.io/manifest/" property="dc:references"><cite>Manifest for web application</cite></a>. W3C Editor's Draft. URL: <a href="https://w3c.github.io/manifest/" property="dc:references">https://w3c.github.io/manifest/</a>
+</dd><dt id="bib-web-packaging">[web-packaging]</dt><dd>Jeni Tennison. <a href="http://www.w3.org/TR/web-packaging/" property="dc:references"><cite>Packaging on the Web</cite></a>. W3C Working Draft. URL: <a href="http://www.w3.org/TR/web-packaging/" property="dc:references">http://www.w3.org/TR/web-packaging/</a>
+</dd><dt id="bib-web-workers">[web-workers]</dt><dd>Ian Hickson. <a href="https://w3c.github.io/workers/" property="dc:references"><cite>Web Workers</cite></a>. W3C Editor's Draft. URL: <a href="https://w3c.github.io/workers/" property="dc:references">https://w3c.github.io/workers/</a>
+</dd></dl></section></section></body></html>
