@@ -31,10 +31,14 @@ table.zebra td {
   padding-left: 0.3em;
 }
 
+table.zebra tr th:nth-child(1) {
+  text-align: left;
+}
+
 table.zebra th {  
   font-weight: bold;  
   text-align: center;  
-  background-color: navy !important;
+  background-color: steelblue !important;
   font-size: 110%;
   background: hsl(180, 30%, 50%); 
   color: #fff;
@@ -88,4 +92,3 @@ a.internalDFN {
     border-bottom:  0px solid #99c !important;
     font-style: italic;
 }
-
