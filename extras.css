@@ -34,7 +34,7 @@ table.zebra td {
 table.zebra th {  
   font-weight: bold;  
   text-align: center;  
-  background-color: navy !important;
+  background-color: steelblue !important;
   font-size: 110%;
   background: hsl(180, 30%, 50%); 
   color: #fff;
