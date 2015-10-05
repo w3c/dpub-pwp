@@ -83,3 +83,9 @@ div.my-example {
 div.my-example div.my-example-title {
     color: #999;
 }
+
+a.internalDFN {
+    border-bottom:  0px solid #99c !important;
+    font-style: italic;
+}
+
