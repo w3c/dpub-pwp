@@ -252,7 +252,6 @@
 
       <p>The precise definition of <a>Portable Web Publications</a> is provided in a <a href='#pwp_definition'>separate section</a>. For the sake of this introduction, suffices to say that a <a>Portable Web Publication</a> is a collection of content items (e.g. pages, chapters, modules, articles) whose content is compatible with Web usage, and structured as a single, self-contained logical unit. Individual items can consist of text, images, graphics, possibly interactive mathematical or chemical formulae, as well as audio and video. These documents, by definition, have a default, linear “reading order”, however the user may choose to skip around in the content just as with a book on paper; alternatively, interactive aspects of the content may alter the reading order on behalf of the user.
       </p>
-
     </section>
 
     <section>
@@ -269,8 +268,8 @@
         <img src="figures/pwp.svg">
         <figcaption>The same content can be turned into an archived file and back without any inherent changes to the core content or associated digital assets. (Picture is available directly <a href="figures/pwp.svg">SVG</a> or <a href="figures/pwp.png">PNG</a> formats.)</figcaption>
       </figure>
-
     </section>
+
     <section>
       <h2>What are the areas of interest?</h2>
 
@@ -451,41 +450,40 @@
 
         <p>This evolution makes it possible to bring <a>Portable Web Publications</a> under the same abstraction as a <a>Web Resource</a> identified by a URI. A specialized service worker can cache resources, i.e., can bridge the differences between the offline and online access of a document. Furthermore, by adding additional functionalities to the service worker, it can also deal with possible (un)packaging as well as bridging the differences between <a>protocol</a> and <a>file</a> states. In other words, the core rendering engine of a user agent can operate as if the <a>Portable Web Publication</a> was in <a>unpacked</a> and <a>protocol</a> states with all resources available; the differences are handled by the service worker acting as a proxy.</p>
 
-        <p class="note">Many of the details have to be worked out, also taking into accoount the fact that the Web Workers[[web-workers]] and Service Workers[[service-workers]] specifications are not yet finalized.</p>
-
         <figure style="text-align: center;" id="workers_basic">
           <img src="figures/Workers-basic.png">
-          <figcaption>Accessing a <a>Portable Web Publication</a> directly from the Web. (Picture is available directly <a href="figures/Workers-basic.svg">SVG</a> or <a href="figures/Workers-basic.png">PNG</a> formats.)</figcaption>
+          <figcaption>Accessing a <a>Portable Web Publication</a> in an <a>unpacked</a> state directly from the Web. (Picture is available directly <a href="figures/Workers-basic.svg">SVG</a> or <a href="figures/Workers-basic.png">PNG</a> formats.)</figcaption>
         </figure>
 
         <figure style="text-align: center;" id="workers_package">
           <img src="figures/Workers-package.png">
-          <figcaption>Accessing a packaged <a>Portable Web Publication</a> via a Service Worker. (Picture is available directly <a href="figures/Workers-package.svg">SVG</a> or <a href="figures/Workers-package.png">PNG</a> formats.)</figcaption>
+          <figcaption>Accessing a <a>Portable Web Publication</a> in <a>packed</a> state from the Web via a Service Worker. (Picture is available directly <a href="figures/Workers-package.svg">SVG</a> or <a href="figures/Workers-package.png">PNG</a> formats.)</figcaption>
         </figure>
 
-        <section>
-          <h4 id="package">General Archive formats</h4>
+        <p class="note">Many of the details have to be worked out, also taking into accoount the fact that the Web Workers[[web-workers]] and Service Workers[[service-workers]] specifications are not yet finalized.</p>
+      </section>
 
-          <p>Regardless of the details of the practical architecture realizing <a>Portable Web Publications</a>, an archive format is necessary for the storage of a publication as one file (e.g., for distribution) defined as the <a>packed</a> state of a <a>Portable Web Publication</a>. A variety of formats for offline/archival storage of collections of digital resources exist today [[OCF]], [[ODF]], [[OOXML]], but none of them is universally recognized and supported across all ecosystems. Depending on the general architecture, <a>Portable Web Publications</a> may use, e.g., the current EPUB packaging format (based on [[OCF]])) or it may need to be based on the definition of an archive format that is generic and native to the Open Web Platform. </p>
+      <section>
+        <h4 id="package">General Archive formats</h4>
 
-          <div class="note">
-            <p>W3C’s <a href="http://www.w3.org/2008/webapps/">Web Application Working Group</a> has published a First Working Draft for a Streamable Package Format for the Web[[web-packaging]] to encompass the needs of various applications (like installing Web Applications or downloading data for local processing). It is may become advantageous for Portable Web Publications to adopt this format, thereby being compatible with what Web Browsers may implement anyway.
-            </p>
+        <p>Regardless of the details of the practical architecture realizing <a>Portable Web Publications</a>, an archive format is necessary for the storage of a publication as one file (e.g., for distribution) defined as the <a>packed</a> state of a <a>Portable Web Publication</a>. A variety of formats for offline/archival storage of collections of digital resources exist today [[OCF]], [[ODF]], [[OOXML]], but none of them is universally recognized and supported across all ecosystems. Depending on the general architecture, <a>Portable Web Publications</a> may use, e.g., the current EPUB packaging format (based on [[OCF]])) or it may need to be based on the definition of an archive format that is generic and native to the Open Web Platform. </p>
 
-            <p>The IETF has published an <a href="https://tools.ietf.org/html/draft-seantek-kerwin-arcmedia-type-01">informational draft on a top-level media type for archives</a>. Although that draft does not specify a specific archive format, and the work is currently on hold, it shows the overall interest in packaging on the Web, in line with the concerns of Portable Web Publications.</p>
-          </div>
-        </section>
+        <div class="note">
+          <p>W3C’s <a href="http://www.w3.org/2008/webapps/">Web Application Working Group</a> has published a First Working Draft for a Streamable Package Format for the Web[[web-packaging]] to encompass the needs of various applications (like installing Web Applications or downloading data for local processing). It is may become advantageous for <a>Portable Web Publications</a> to adopt this format, thereby being compatible with what Web Browsers may implement anyway.
+          </p>
 
-        <section>
-          <h3>Capturing overall publication structure</h3>
+          <p>The IETF has published an <a href="https://tools.ietf.org/html/draft-seantek-kerwin-arcmedia-type-01">informational draft on a top-level media type for archives</a>. Although that draft does not specify a specific archive format, and the work is currently on hold, it shows the overall interest in packaging on the Web, in line with the concerns of <a>Portable Web Publications</a>.</p>
+        </div>
+      </section>
 
-          <p>Portable document formats usually include information pertaining to the overall publication structure, such as the logical reading order(s) of the set of resources that comprise the publication (the “spine”), as well as predictable user-facing meta-structures, such as one or several tables of contents, glossaries, etc. For <a>Portable Web Publications</a> it may be imperative to optimize these data structures in a way that is native to the Open Web Platform and more easily supported in authoring tools, browsers, and Reading Systems. If the vision based on Service Workers, as <a href="#sworkers">outlined above</a>, becomes the approach chosen for the architecture of <a>Portable Web Publication</a> user agents, that overall structural information may be what a client would return on a request for a <a>Portable Web Publication</a> instance, as an abstraction for a collection of <a>Web Resources</a>.</p>
+      <section>
+        <h3>Capturing overall publication structure</h3>
 
-          <p class="note">The Manifest for web application format[[web-manifest]], currently developed at W3C, is one example of a technology that could potentially be used to achieve this goal.</p>
+        <p>Portable document formats usually include information pertaining to the overall publication structure, such as the logical reading order(s) of the set of resources that comprise the publication (the “spine”), as well as predictable user-facing meta-structures, such as one or several tables of contents, glossaries, etc. For <a>Portable Web Publications</a> it may be imperative to optimize these data structures in a way that is native to the Open Web Platform and more easily supported in authoring tools, browsers, and Reading Systems. If the vision based on Service Workers, as <a href="#sworkers">outlined above</a>, becomes the approach chosen for the architecture of <a>Portable Web Publication</a> user agents, that overall structural information may be what a client would return on a request for a <a>Portable Web Publication</a> instance, as an abstraction for a collection of <a>Web Resources</a>.</p>
 
-          <p class="note">Whilst these information objects are important for larger and/or more complex publications, it is unnecessary for other use cases of <a>Portable Web Publications</a>. A typical example is the archival of a single Web page with all the necessary style sheets, images, and similar resources. The definition for <a>Portable Web Publications</a> should therefore include the definition of a set of “defaults”, i.e., it should not require the presence of, say, a spine if the publication contains one single HTML file.</p>
-        </section>
+        <p class="note">The Manifest for web application format[[web-manifest]], currently developed at W3C, is one example of a technology that could potentially be used to achieve this goal.</p>
 
+        <p class="note">Whilst these information objects are important for larger and/or more complex publications, it is unnecessary for other use cases of <a>Portable Web Publications</a>. A typical example is the archival of a single Web page with all the necessary style sheets, images, and similar resources. The definition for <a>Portable Web Publications</a> should therefore include the definition of a set of “defaults”, i.e., it should not require the presence of, say, a spine if the publication contains one single HTML file.</p>
       </section>
 
       <section>
@@ -551,6 +549,7 @@
         <p>To allow for the predictability of content within those domains that need it, <a>Portable Web Publications</a> may need to incorporate a notion of “profiles” that content can be authored and validated against, and that user agent implementations can use to trigger enhanced behaviors, if any. To allow for agile feature-set extensions and innovation, <a>Portable Web Publications</a> profiles also needs to embrace the notion of “feature addons” that can be included by a publisher without risking to invalidate the integrity and functionality of the basic publication.</p>
       </section>
     </section>
+
     <section>
       <h2 id="epub-relations">Portable Web Publications and EPUB&nbsp;3</h2>
 
@@ -565,11 +564,11 @@
       <p>It must also be emphasized that the central part of any EPUB&nbsp;3 publication, namely the <em>content</em>, will remain unchanged or will require only minimal changes when transitioning towards <a>Portable Web Publications</a>. The bulk of the changes are expected to occur around the accompanying constructs like publication-level metadata records, the spine, or the packaging format of the content. As described in the <a href="#pwp_content">terminology section</a>, the content of a <a>Portable Web Publication</a> is based on core <a href="https://www.w3.org/wiki/Open_Web_Platform">Open Web Platform</a> technologies including [[html5]], [[svg]], or [[css21]], and other types of files like images, audio and video, metadata files, or executable code. Most of these are valid contents in EPUB&nbsp;3 already; a transition towards <a>Portable Web Publications</a> will leave these resources and their usage intact. The envisaged changes will be mostly restricted to the implementation details of reading systems and production workflows. The evolution of the past few years of online tooling for the production of EPUB content based on the Open Web Platform (e.g., the platforms developed and used by companies like O’Reilly, Hachette, Metrodigi, or Inkling) will also greatly facilitate any transition to <a>Portable Web Publications</a>; adapting these tools is expected to be quite straightforward.
       </p>
     </section>
+
     <section>
       <h2>Conclusions</h2>
       <p>This document outlines a vision for the convergence between the Open Web Platform and portable documents while also significantly advancing and expanding the existing digital publishing ecosystem. The realization of this vision would require a strong cooperation between the traditional publishing and Web communities, based on a close collaboration between the W3C and other relevant organizations, like <a href="http://www.idpf.org">IDPF</a>, <a href="http://editeur.org/">EDItEUR</a>, <a href="http://www.bisg.org">BISG</a>, or others. While it is envisaged that most of the work could be done in one or more dedicated Working Groups (within W3C or elsewhere, depending on the exact charter), it must be emphasized that many of the features will affect and will be affected by work done elsewhere, within or outside these organizations. The starting point will be to explore and plan for the detailed technical challenges to gain a better insight into the work ahead; this exploration should be done together with the various interested communities.
       </p>
     </section>
-    
   </body>
 </html>
