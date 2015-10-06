@@ -34,23 +34,6 @@
                 "status" : "Recommended Specification",
                 "publisher": "IDPF"
             },
-            "epubcfi": {
-                "authors": [
-                  "Peter Sorotokin",
-                  "Garth Conboy",
-                  "Brady Duga",
-                  "John Rivlin",
-                  "Don Beaver",
-                  "Kevin Ballard",
-                  "Alastair Fettes",
-                  "Daniel Weck"
-                ],
-                "title": "EPUB Canonical Fragment Identifier (epubcfi) Specification",
-                "href" : "http://www.idpf.org/epub/linking/cfi/epub-cfi-20140626.html",
-                "rawDate": "2014-06-26",
-                "status" : "Recommended Specification",
-                "publisher": "IDPF"
-            },
             "ODF": {
                 "authors": [
                   "Michael Brauer",
@@ -75,24 +58,6 @@
                 "rawDate": "2012-12",
                 "status" : "Standard ECMA 376",
                 "publisher": "ECMA"
-            },
-
-            "ZIP": {
-                "title": ".ZIP File Format Specification, version 6.3.3",
-                "href" : "http://www.pkware.com/documents/APPNOTE/APPNOTE-6.3.3.TXT",
-                "rawDate": "2012-09-01",
-                "status" : "APPNOTE",
-                "publisher": "Pkware, Inc."
-            },
-            "css-fragments": {
-               "authors": [
-                  "Simon St.Laurent",
-                  "Eric Meyer"
-                ],
-                "title": "Using CSS Selectors as Fragment Identifiers",
-                "href" : "http://simonstl.com/articles/cssFragID.html",
-                "rawDate": "2012-03-02",
-                "status" : "Unofficial Draft"
             },
     		    "web-manifest": {
     		        "title": "Manifest for web application",
@@ -120,14 +85,6 @@
                 "rawDate": "2001-01",
                 "publisher": "Adobe, Inc."
             },
-            "ISOPDF": {
-                "authors": [
-                  "International Organization for Standardization"
-                ],
-                "title": "Document management - Electronic document file format for long-term preservation - Part 1: Use of PDF 1.4, ISO 19005-1:2005",
-                "rawDate": "2005-10-01",
-                "publisher": "International Organization for Standardization"
-            },
             "ONIX": {
                 "authors": [
                   "EDItEUR"
@@ -136,28 +93,9 @@
                 "rawDate": "2014-01-02",
                 "publisher": "EDItEUR"
             },
-            "CFI": {
-                "authors": [
-                  "Peter Sorotokin, et. al."
-                ],
-                "title": "EPUB Canonical Fragment Identifier (epubcfi) Specification",
-				        "href": "http://www.idpf.org/epub/linking/cfi/epub-cfi.html",
-                "rawDate": "2014-06-26",
-                "publisher": "International Digital Publishing Forum"
-            },
-            "PGT": {
-                "authors": [
-                  "Peter Sorotokin, et. al."
-                ],
-                "title": "EPUB Adaptive Layout",
-				        "href": "http://www.idpf.org/epub/pgt/",
-                "rawDate": "2012-08-08",
-                "publisher": "International Digital Publishing Forum"
-            },
             "Sigarchian" : "Hajar Ghaem Sigarchian et al. <em>EPUB3 for Integrated and Customizable Representation of a Scientific Publication and its Associated Resources</em>. In: Proceedings of the 4th Workshop on Linked Science 2014. URL: <a href='http://linkedscience.org/wp-content/uploads/2014/10/lisc2014_submission_3.pdf'>http://linkedscience.org/wp-content/uploads/2014/10/lisc2014_submission_3.pdf</a>.",
 
             "BigJava" : "Cay Horstmann. <em>Big Java Late Objects</em>, John Wiley &amp; Sons, Inc., 2013",
-
             "web-workers" : {
                 "authors": [
                   "Ian Hickson"
@@ -168,21 +106,6 @@
                 "status" : "ED",
                 "publisher": "W3C"
             },
-
-            "service-workers" : {
-                "authors": [
-                  "Alex Russel",
-                  "Jungkee Song",
-                  "Jake Archibald"
-                ],
-                "title": "Service Workers",
-                "href" : "http://www.w3.org/TR/service-workers/",
-                "rawDate": "2015-06-25",
-                "status" : "WD",
-                "publisher": "W3C"
-
-            },
-
             "file-uri-scheme" : {
               "authors": [
                 "M. Kervin"
@@ -191,6 +114,16 @@
               "href" : "https://tools.ietf.org/html/draft-ietf-appsawg-file-scheme-03",
               "rawDate": "2015-07-23",
               "status" : "Internet Draft",
+              "publisher": "IETF"
+            },
+            "CSV" : {
+              "authors" : [
+                "Yakov Shafranovich"
+              ],
+              "title" : "Common Format and MIME Type for Comma-Separated Values (CSV) Files",
+              "href" : "http://tools.ietf.org/html/rfc4180",
+              "rawDate" : "2015-10",
+              "status" : "Informational RFC",
               "publisher": "IETF"
             }
           },
@@ -448,7 +381,7 @@
           <li>A <dfn data-lt="Portable Web Publication|Portable Web Publications|PWP">Portable Web Publication</dfn> (PWP) is a <a>Web Publication</a> whose constituent <a>Web Resources</a> are all <a data-lt="Portable Web Resource">Portable</a>.</li>
         </ul>
 
-        <p id="pwp_content"><a>Web Resources</a> in a <a data-lt="Portable Web Publication">(Portable) Web Publication</a> are based on the core <a href="https://www.w3.org/wiki/Open_Web_Platform">Open Web Platform</a> technologies like [[html5]], [[svg]], [[css21]] and CSS3 modules, or [[ECMAScript]] API-s. A <a>Web Publication</a> may also include images, audio and video, metadata files, executable code in, for example, <a href="http://ipython.org/">iPython</a> or <a href="http://www.maplesoft.com/products/maple/">Maple</a> scripts, or datafiles in CSV: <a>Web Resources</a> that are needed to render the <a>essential content</a> of the publication.</p>
+        <p id="pwp_content"><a>Web Resources</a> in a <a data-lt="Portable Web Publication">(Portable) Web Publication</a> are based on the core <a href="https://www.w3.org/wiki/Open_Web_Platform">Open Web Platform</a> technologies like [[html5]], [[svg]], [[css21]] and CSS3 modules, or [[ECMAScript]] API-s. A <a>Web Publication</a> may also include images, audio and video, metadata files, executable code in, for example, <a href="http://ipython.org/">iPython</a> or <a href="http://www.maplesoft.com/products/maple/">Maple</a> scripts, or datafiles in [[CSV]]: <a>Web Resources</a> that are needed to render the <a>essential content</a> of the publication.</p>
 
         <p>The differences between the distinguishing characteristics of <a>Web Publications</a> and <a data-lt="Portable Web Publication"><span style="text-decoration:underline">Portable</span> Web Publications</a> can be viewed as situational and gradual rather than as representative of bright-line distinctions. Consider the following example:</p>
 
