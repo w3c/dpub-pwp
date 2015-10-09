@@ -66,29 +66,15 @@ ul.definition li ul, ol.definition li ul {
   margin-top: 0.3em;
 }
 
-div.my-example-title {
-    min-width: 7.5em;
-    color: #b9ab2d;
-}
-div.my-example-title  {
-    text-transform: uppercase;
-}
-
-div.my-example {
-    padding: 0.5em;
-    padding: .5em;
-    border-left-width: .5em;
-    border-left-style: solid;
-    border-color: #e0cb52;
-    background: #fcfaee;
-    page-break-inside: avoid;
-}
-
-div.my-example div.my-example-title {
-    color: #999;
-}
-
 a.internalDFN {
     border-bottom:  0px solid #99c !important;
     font-style: italic;
+}
+
+a.sec-ref:before { 
+    content: "“"; 
+}
+
+a.sec-ref:after  { 
+    content: "”"; 
 }
