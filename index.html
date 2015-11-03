@@ -34,6 +34,23 @@
                 "status" : "Recommended Specification",
                 "publisher": "IDPF"
             },
+            "EPUBCFI": {
+                 "authors": [
+                  "Peter Sorotokin",
+                  "Garth Conboy",
+                  "Brady Duga",
+                  "John Rivlin",
+                  "Don Beaver",
+                  "Kevin Ballard",
+                  "Alastair Fettes",
+                  "Daniel Weck"
+                ],
+                "title": "EPUB Canonical Fragment Identifier (epubcfi) Specification",
+                "href" : "http://www.idpf.org/epub/linking/cfi/epub-cfi.html",
+                "rawDate": "2014-06-26",
+                "status" : "Recommended Specification",
+                "publisher": "IDPF"
+            },
             "ODF": {
                 "authors": [
                   "Michael Brauer",
@@ -477,7 +494,7 @@
         </div>
       </section>
 
-      <section>
+      <section id="manifest">
         <h3>Capturing overall publication structure</h3>
 
         <p>Portable document formats usually include information pertaining to the overall publication structure, such as the logical reading order(s) of the set of resources that comprise the publication (the “spine”), as well as predictable user-facing meta-structures, such as one or several tables of contents, glossaries, etc. For <a>Portable Web Publications</a> it may be imperative to optimize these data structures in a way that is native to the Open Web Platform and more easily supported in authoring tools, browsers, and Reading Systems. If the vision based on Service Workers, as <a href="#sworkers">outlined above</a>, becomes the approach chosen for the architecture of <a>Portable Web Publication</a> user agents, that overall structural information may be what a client would return on a request for a <a>Portable Web Publication</a> instance, as an abstraction for a collection of <a>Web Resources</a>.</p>
@@ -488,27 +505,51 @@
       </section>
 
       <section id="identification">
-        <h3>Document and fragment identification</h3>
-        <p>On the web, HTTP URIs serve as the fundamental method of identifying a resource, or a fragment thereof. Among the various portable document formats available today, there is no equivalent ubiquitous method for identifying a publication that by definition does <em>not</em> have an HTTP address. Within the scholarly publishing industry, for example, initiatives such as <a href="http://www.doi.org">DOI</a> and <a href="http://crossref.org">CROSSREF</a> have addressed this problem by providing explicit URN resolver services, but these services are not used by, e.g., traditional “trade” publishing that rely more on <a href="https://www.isbn-international.org/">ISBN</a> related services. Also, for a universally applicable portable document format, unconditionally relying on distinct resolver services is suboptimal for a number of use cases, primarily as these may not be free of charge, and may require registration process that is not applicable to the use case at hand. </p>
+        <h3>Addressing and Identification</h3>
 
-        <p class="note">A typical, and extremely important use case is in academic and scholarly publishing. There are currently several methods for citing online works (diverging among style guides), but there is no standard method for citations to ebooks. Even if a reflowable ebook is by a scholar, she must refer to PDF, paper copy, or HTML version to cite it in her bibliography. <a>Portable Web Publications</a> should enable stable citations.</p>
+        <p><code>HTTP(S)</code> URIs serve as the fundamental method of address a resource, or a fragment thereof, on the Web. Such URIs can also be used to uniquely <em>identify</em> a resource, although, often, the role of addressing and identification are taken separately. <em>Both</em> of these functionalities should be available for <a>Portable Web Publications</a>: a publication should be uniquely identified for, e.g., library catalogues or archival, and resource locator should be available so that the user could access the content. An <em>identifier</em> and a <em>locator</em> might be identical but might also be different: e.g., an identifier may refer to a specific publication by a specific publisher (e.g., using an <a href="https://www.isbn-international.org/">ISBN</a>), whereas the locator may refer to a personal copy of that publication that the owner can freely annotate for personal use. For the purpose of the general architecture of <a>Portable Web Publications</a> this documents concentrates on <em>locators</em>; as far as identifiers are concerned, the only important point is that such identifier SHOULD also exist and made available, and that they should be stable across, e.g., copying the publication or changing its location on the Web.</p>
 
-        <p><a>Portable Web Publications</a> needs to define a way to utilize URI schemes for identifying documents, or fragments thereof, such that the addressing scheme would not break, nor needs to be changed, whether the document is <a>protocol</a>/<a>file</a>, or <a>packed</a>/<a>unpacked</a> states.  A number of questions arise and need answers, e.g.:</p>
+        <div class="note">
+          <p>There is no  ubiquitous method for identifying a publication among the various document formats available today (whether electronic or printed). Within the scholarly publishing industry, for example, initiatives such as <a href="http://www.doi.org">DOI</a> and <a href="http://crossref.org">CROSSREF</a> have addressed this problem by also providing explicit URN resolver services, but these services are not used by, e.g., traditional “trade” publishing that rely more on <a href="https://www.isbn-international.org/">ISBN</a> related services. The definition of <a>Portable Web Publication</a> should be oblivious to the exact identification method; this is left to specialized services and industry organizations. </p>
 
-        <ul>
-          <li>Should there be one URI identifying the content itself, regardless of its state? This is akin to the issue of identifying, e.g., a book as a whole, as opposed to its delivery format (i.e., whether it is a printed or electronic).</li>
+          <p>A typical, and extremely important use case is in academic and scholarly publishing. There are currently several methods for citing online works (diverging among style guides), but there is no equivalent standard method for citations to ebooks. Even if a reflowable ebook is by a scholar, she must refer to PDF, paper copy, or HTML version to cite it in her bibliography. Identifiers attached to <a>Portable Web Publications</a> should enable stable citations.</p>
+        </div>
 
-          <li>What is the URI of the <a>file</a> state of the document? How does that URI relate to the online, i.e., <a>protocol</a> identification of the content?</li>
+        <p>Based on the discussion in <a href="#arch"></a>, only the <a>unpacked</a> and <a>protocol</a> states of <a>Portable Web Publications</a> should be discussed.</p>
 
-          <li>How does one identify the instance of a publication that “belongs to”, e.g., a specific person? This may be important if one wants to create and store, e.g., annotation to one’s own “copy” only, as opposed to the content in general.</li>
-        </ul>
+        <p>There are number of issues that should be considered on the exact behavior when addressing <a>Portable Web Publication</a> (we will use the <code>http://www.ex.org/doc.pwp</code> in what follows). Some of these are follows:</p>
 
-        <p>Beyond the identification of the document as a whole, there is a further need for fragment identification, i.e., to identify “anchors” <em>within</em> the document. The definition of <a>Portable Web Publications</a> need to include fragment identification schemes that are agnostic to different states, and that can address fragments of various kinds (e.g. resources within archives, elements with or without IDs, text ranges, time positions, etc.) and for various media types.</p>
+        <dl>
+          <dt>What should be the response of an <code>HTTP(S) GET</code> request on <code>http://www.ex.org/doc.pwp</code>? </dt>
+          <dd><p>Conceptually, it should be the information describing the overall structure of the publication, as described in <a href="#manifest"></a>. In practice, this means providing access to the corresponding manifest file through either:</p>
+          <ul class="definition">
+            <li>returning the manifest file itself; or</li>
+            <li>returning another content (e.g., the first chapter in the document) but providing a link to the manifest file through a <code>LINK:</code> in the <code>HTTP</code> response header; or</li>
+            <li>returning and HTML content (e.g., the first chapter in the document) but providing a link to the manifest file through a <code>&lt;link&gt;</code> element.</li>
+          </ul>
+          </dd>
 
-        <p class="note">If the structure for <a>Portable Web Publications</a> is based on Service Workers, as <a href="#sworkers">outlined above</a>, the usual fragment identifiers, as used on the Web, <em>may</em> be adopted and used without any further modifications. However, the details would still have to be worked out on how these would work across all states.</p>
+          <dt><code>http://www.ex.org/doc.pwp</code> refers to the <a>Portable Web Publication</a> as a whole; what is the URL for one of its constituent resources, e.g., <code>chapter1.html</code>?</dt>
+          <dd><p>Several schemes are used in practice; just some examples:</p>
+          <ul class="definition">
+            <li>based on sort of a fragment identifier, e.g., [[EPUBCFI]]: <code>http://www.ex.org/doc.pwp#epubcfi(1/2/3)</code></li>
+            <li>explicit separator between the URL for the publication and the rest: <code>http://www.ex.org/doc.pwp!chapter1.html</code></li>
+            <li>simulate a purely folder view of the publication’s content: <code>http://www.ex.org/doc.pwp/chapter1.html</code></li>
+          </ul>
+          <p>Note that the first alternative would make identifcations of fragments very complex; indeed, <em>only one</em> fragment is allowed in a URL (see the [[URL]] specification). The third alternative is the most “webby”, but relies on a particular, tree-like structure of the constituent resources of a <a>Web Publication</a>; this issue may be mitigated by adding mappings (“virtual redirections”) of URLs in the manifest of the <a>Web Publication</a>.</p>
+          <p class="note">In some cases it may happen that the URL of a particular constituent resource would have two possible addresses: one its intrinsic URL as a resource on the Web, the other via the URL of the <a>Web Publication</a> using, e.g., a virtual redirection through the manifest file of the publication.</p>
+          </p>
 
-        <p class="note">The <a href="http://www.w3.org/annotation/">W3C Annotation Working Group</a> has a joint deliverable with the <a href="http://www.w3.org/2008/webapps/">W3C Web Application Working Group</a> called “Robust Anchoring”. This deliverable will provide a general framework for anchoring; and, although defined within the framework of annotations, the specification can also be used for other fragment identification use cases. Similarly, the W3C Media Fragments specification[[media-frags]] may prove useful to address some of the use cases. Finally, the Streamable Package Format draft[[web-packaging]], mentioned in the separate section <a href="#package"></a>, also includes a fragment identification mechanism. Would that package format be adopted for <a>Portable Web Publications</a>, that fragment identification may also come to the fore as an important mechanism to consider.</p>
-      </section>
+          </dd>
+
+          <dt>How does one locate the internal content of a particular resource?</dt>
+          <dd><p><a>Web Publications</a> should not include any new mechanism at this point; they should rather entirely rely on fragment identifiers as defined and widely used on the Web.</p>
+
+          <p class="note">As exampled for the power of fragment identifiers, the <a href="http://www.w3.org/annotation/">W3C Annotation Working Group</a> has a joint deliverable with the <a href="http://www.w3.org/WebPlatform/WG/">W3C Web Platform Working Group</a> called [[FindText]]. This deliverable will provide a general framework of identifying specific textual content within, e.g., and HTML file. Although defined within the framework of annotations, the specification can also be used for other fragment identification use cases. Similarly, the W3C Media Fragments specification[[media-frags]] may prove useful to address some of the use cases. </p>
+          </dd>
+       </dl>
+
+       </section>
 
       <section id="metadata">
         <h3>Metadata: discovery</h3>
