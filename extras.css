@@ -78,3 +78,9 @@ a.sec-ref:before {
 a.sec-ref:after  { 
     content: "”"; 
 }
+
+span.orcid:before {
+    content: url(figures/orcid_logo.png);
+    margin-right: 2px;
+}
+
