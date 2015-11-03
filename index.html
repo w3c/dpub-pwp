@@ -495,9 +495,9 @@
       </section>
 
       <section id="manifest">
-        <h3>Capturing overall publication structure</h3>
+        <h3>Publication Manifests</h3>
 
-        <p>Portable document formats usually include information pertaining to the overall publication structure, such as the logical reading order(s) of the set of resources that comprise the publication (the “spine”), as well as predictable user-facing meta-structures, such as one or several tables of contents, glossaries, etc. For <a>Portable Web Publications</a> it may be imperative to optimize these data structures in a way that is native to the Open Web Platform and more easily supported in authoring tools, browsers, and Reading Systems. If the vision based on Service Workers, as <a href="#sworkers">outlined above</a>, becomes the approach chosen for the architecture of <a>Portable Web Publication</a> user agents, that overall structural information may be what a client would return on a request for a <a>Portable Web Publication</a> instance, as an abstraction for a collection of <a>Web Resources</a>.</p>
+        <p>The <dfn>manifest</dfn> of <a>Portable Web Publications</a> is a <a>Web Resource</a> that includes information pertaining to the overall publication structure, such as the default logical reading order(s) of the set of resources that comprise the publication (the “spine”), as well as predictable user-facing meta-structures, such as one or several tables of contents, glossaries, etc. As described in the separate section <a href="#identification"></a> that overall structural information may be what a client would return on a request for a <a>Portable Web Publication</a> instance, as an abstraction for a collection of <a>Web Resources</a>. For <a>Portable Web Publications</a> it may be imperative to optimize these data structures in a way that is native to the Open Web Platform and more easily supported in authoring tools, browsers, and Reading Systems. </p>
 
         <p class="note">The Manifest for web application format[[web-manifest]], currently developed at W3C, is one example of a technology that could potentially be used to achieve this goal.</p>
 
@@ -521,31 +521,33 @@
 
         <dl>
           <dt>What should be the response of an <code>HTTP(S) GET</code> request on <code>http://www.ex.org/doc.pwp</code>? </dt>
-          <dd><p>Conceptually, it should be the information describing the overall structure of the publication, as described in <a href="#manifest"></a>. In practice, this means providing access to the corresponding manifest file through either:</p>
-          <ul class="definition">
-            <li>returning the manifest file itself; or</li>
-            <li>returning another content (e.g., the first chapter in the document) but providing a link to the manifest file through a <code>LINK:</code> in the <code>HTTP</code> response header; or</li>
-            <li>returning and HTML content (e.g., the first chapter in the document) but providing a link to the manifest file through a <code>&lt;link&gt;</code> element.</li>
-          </ul>
+          <dd>
+            <p>Conceptually, it should be the <a>manifest</a> of the publication. In practice, this means providing access to the corresponding manifest file through either:</p>
+            <ul class="definition">
+              <li>returning the <a>manifest</a> itself; or</li>
+              <li>returning another content (e.g., the first chapter in the document) but providing a link to the <a>manifest</a> through a <code>LINK:</code> in the <code>HTTP</code> response header; or</li>
+              <li>returning and HTML content (e.g., the first chapter in the document) but providing a link to the <a>manifest</a> through a <code>&lt;link&gt;</code> element.</li>
+            </ul>
           </dd>
 
-          <dt><code>http://www.ex.org/doc.pwp</code> refers to the <a>Portable Web Publication</a> as a whole; what is the URL for one of its constituent resources, e.g., <code>chapter1.html</code>?</dt>
-          <dd><p>Several schemes are used in practice; just some examples:</p>
-          <ul class="definition">
-            <li>based on sort of a fragment identifier, e.g., [[EPUBCFI]]: <code>http://www.ex.org/doc.pwp#epubcfi(1/2/3)</code></li>
-            <li>explicit separator between the URL for the publication and the rest: <code>http://www.ex.org/doc.pwp!chapter1.html</code></li>
-            <li>simulate a purely folder view of the publication’s content: <code>http://www.ex.org/doc.pwp/chapter1.html</code></li>
-          </ul>
-          <p>Note that the first alternative would make identifcations of fragments very complex; indeed, <em>only one</em> fragment is allowed in a URL (see the [[URL]] specification). The third alternative is the most “webby”, but relies on a particular, tree-like structure of the constituent resources of a <a>Web Publication</a>; this issue may be mitigated by adding mappings (“virtual redirections”) of URLs in the manifest of the <a>Web Publication</a>.</p>
-          <p class="note">In some cases it may happen that the URL of a particular constituent resource would have two possible addresses: one its intrinsic URL as a resource on the Web, the other via the URL of the <a>Web Publication</a> using, e.g., a virtual redirection through the manifest file of the publication.</p>
-          </p>
-
+          <dt>The <code>http://www.ex.org/doc.pwp</code> URL refers to the <a>Portable Web Publication</a> as a whole; what is the URL for one of its constituent resources, e.g., <code>chapter1.html</code>?</dt>
+          <dd>
+            <p>Several schemes are used in practice; just some examples:</p>
+            <ul class="definition">
+              <li>based on sort of a fragment identifier, e.g., [[EPUBCFI]]: <code>http://www.ex.org/doc.pwp#epubcfi(1/2/3)</code></li>
+              <li>explicit separator between the URL for the publication and the rest: <code>http://www.ex.org/doc.pwp!chapter1.html</code></li>
+              <li>simulate a purely folder view of the publication’s content: <code>http://www.ex.org/doc.pwp/chapter1.html</code></li>
+            </ul>
+            <p>Note that the first alternative would make identifcations of fragments very complex; indeed, <em>only one</em> fragment is allowed in a URL (see the [[URL]] specification). The third alternative is the most “webby”, but relies on a particular, tree-like structure of the constituent resources of a <a>Web Publication</a>; this issue may be mitigated by adding mappings (“virtual redirections”) of URLs in the <a>manifest</a> of the <a>Web Publication</a>.</p>
+            <p class="note">In some cases it may happen that the URL of a particular constituent resource would have two possible addresses: one its intrinsic URL as a resource on the Web, the other via the URL of the <a>Web Publication</a> using, e.g., a virtual redirection through the manifest file of the publication.</p>
+            </p>
           </dd>
 
           <dt>How does one locate the internal content of a particular resource?</dt>
-          <dd><p><a>Web Publications</a> should not include any new mechanism at this point; they should rather entirely rely on fragment identifiers as defined and widely used on the Web.</p>
+          <dd>
+            <p><a>Web Publications</a> should not include any new mechanism at this point; they should rather entirely rely on fragment identifiers as defined and widely used on the Web.</p>
 
-          <p class="note">As exampled for the power of fragment identifiers, the <a href="http://www.w3.org/annotation/">W3C Annotation Working Group</a> has a joint deliverable with the <a href="http://www.w3.org/WebPlatform/WG/">W3C Web Platform Working Group</a> called [[FindText]]. This deliverable will provide a general framework of identifying specific textual content within, e.g., and HTML file. Although defined within the framework of annotations, the specification can also be used for other fragment identification use cases. Similarly, the W3C Media Fragments specification[[media-frags]] may prove useful to address some of the use cases. </p>
+            <p class="note">As exampled for the power of fragment identifiers, the <a href="http://www.w3.org/annotation/">W3C Annotation Working Group</a> has a joint deliverable with the <a href="http://www.w3.org/WebPlatform/WG/">W3C Web Platform Working Group</a> called [[FindText]]. This deliverable will provide a general framework of identifying specific textual content within, e.g., and HTML file. Although defined within the framework of annotations, the specification can also be used for other fragment identification use cases. Similarly, the W3C Media Fragments specification[[media-frags]] may prove useful to address some of the use cases. </p>
           </dd>
        </dl>
 
