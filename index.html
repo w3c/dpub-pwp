@@ -464,15 +464,16 @@
       </section>
 
       <section id="package">
-        <h4>General Archive formats</h4>
+        <h4>Archive formats</h4>
 
-        <p>Regardless of the details of the practical architecture realizing <a>Portable Web Publications</a>, an archive format is necessary for the storage of a publication as one file (e.g., for distribution) defined as the <a>packed</a> state of a <a>Portable Web Publication</a>. A variety of formats for offline/archival storage of collections of digital resources exist today [[OCF]], [[ODF]], [[OOXML]], but none of them is universally recognized and supported across all ecosystems. Depending on the general architecture, <a>Portable Web Publications</a> may use, e.g., the current EPUB packaging format (based on [[OCF]]) or it may need to be based on the definition of an archive format that is generic and native to the Open Web Platform. </p>
+        <p>Regardless of the details of the practical architecture realizing <a>Portable Web Publications</a>, an archive format is necessary for the storage of a publication as one file (e.g., for distribution or possibly archiving) defined as the <a>packed</a> state of a <a>Portable Web Publication</a>. A variety of formats for offline/archival storage of collections of digital resources exist today [[OCF]], [[ODF]], [[OOXML]], but none of them is universally recognized and supported across all ecosystems. Depending on the general architecture, <a>Portable Web Publications</a> may use, e.g., the current EPUB packaging format (based on [[OCF]]) or it may need to be based on the definition of an archive format that is generic and native to the Open Web Platform. </p>
+
+        <p>W3C’s <a href="http://www.w3.org/WebPlatform/WG/">Web Platform Working Group</a> maintains a Working Draft for a Streamable Package Format for the Web[[web-packaging]] to encompass the needs of various applications (like installing Web Applications or downloading data for local processing). It is not clear at this moment whether browsers will adopt this format, though. However, the importance of streaming is not paramount for <a>Portable Web Publications</a>. Indeed, the same publication may be accessed by the same user from different clients; if some user-dependent management also keeps track of the latest reading position in the publication, switching from one client to the other may mean that a client would have to “jump” <em>into</em> the content, thereby bypassing streaming.</p>
+
+        <p>If the industry, eventually, requires the adoption of a single packaging format for <a>Portable Web Publications</a>, the choice will have to be balanced between the (possible) native availability of packaging facilities in the browsers (i.e., choosing the Streamable Package Format) and the wide availibility of tooling and industry distribution based on [[OCF]].</p>
 
         <div class="note">
-          <p>W3C’s <a href="http://www.w3.org/2008/webapps/">Web Application Working Group</a> has published a First Working Draft for a Streamable Package Format for the Web[[web-packaging]] to encompass the needs of various applications (like installing Web Applications or downloading data for local processing). It is may become advantageous for <a>Portable Web Publications</a> to adopt this format, thereby being compatible with what Web Browsers may implement anyway.
-          </p>
-
-          <p>The IETF has published an <a href="https://tools.ietf.org/html/draft-seantek-kerwin-arcmedia-type-01">informational draft on a top-level media type for archives</a>. Although that draft does not specify a specific archive format, and the work is currently on hold, it shows the overall interest in packaging on the Web, in line with the concerns of <a>Portable Web Publications</a>.</p>
+          <p>The IETF has published an <a href="https://tools.ietf.org/html/draft-seantek-kerwin-arcmedia-type-01">informational draft on a top-level media type for archives</a>. Although that draft does not specify a specific archive format, and the work is currently on hold, it shows the overall interest in packaging on the Web in line with the concerns of <a>Portable Web Publications</a>.</p>
         </div>
       </section>
 
