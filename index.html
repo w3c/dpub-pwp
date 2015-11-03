@@ -448,7 +448,7 @@
 
         <p id="sworkers">The latest evolution of browser technologies around Web Workers[[web-workers]] and Service Workers[[service-workers]] may fundamentally change the way browsers operate in terms of offline/online. Service Workers will provide a flexible and programmable way to efficiently implement local caching of <a>Web Resources</a>. Caching is implemented as a programmable network proxy, meaning that the browser’s rendering engine becomes oblivious on whether a resource originates from the local cache or diretly from the network. </p>
 
-        <p>This evolution makes it possible to bring <a>Portable Web Publications</a> under the same abstraction as a <a>Web Resource</a> identified by a URI. A specialized service worker can cache resources, i.e., can bridge the differences between the offline and online access of a document. Furthermore, by adding additional functionalities to the service worker, it can also deal with possible (un)packaging as well as bridging the differences between <a>protocol</a> and <a>file</a> states. In other words, the core rendering engine of a user agent can operate as if the <a>Portable Web Publication</a> was in <a>unpacked</a> and <a>protocol</a> states with all resources available; the differences are handled by the service worker acting as a proxy.</p>
+        <p>This evolution makes it possible to bring <a>Portable Web Publications</a> under the same abstraction as a <a>Web Resource</a> identified by a URI. A specialized service worker can cache resources, i.e., can bridge the differences between the offline and online access of a document. Furthermore, by adding additional functionalities to the service worker, it can also deal with possible (un)packaging as well as bridging the differences between <a>protocol</a> and <a>file</a> states. In other words, the core rendering engine of a user agent can operate <strong>as if the <a>Portable Web Publication</a> was in <a>unpacked</a> and <a>protocol</a> states, with all resources available</strong>; the differences are handled by the service worker acting as a proxy.</p>
 
         <figure style="text-align: center;" id="workers_basic">
           <img src="figures/Workers-basic.png" alt="A laptop computer gaining access to the unpackaged publication from a web browser connecting to a Server with HTTP requests.">
@@ -460,7 +460,7 @@
           <figcaption>Accessing a <a>Portable Web Publication</a> in <a>packed</a> state from the Web via a Service Worker. (Picture is available directly <a href="figures/Workers-package.svg">SVG</a> or <a href="figures/Workers-package.png">PNG</a> formats.)</figcaption>
         </figure>
 
-        <p class="note">Many of the details have to be worked out, also taking into accoount the fact that the Web Workers[[web-workers]] and Service Workers[[service-workers]] specifications are not yet finalized.</p>
+        <p class="note">This architecture needs some special care when handling a <a>Portable Web Publication</a> on a local file system. This is because Service Workers operate using the <code>HTTPS</code> (or <code>HTTP</code> for <code>localhost</code>) protocol only, i.e., the <code>file:///</code> protocol is not understood. A possible approach, already implemented in some experimental code, is to start up a local <code>HTTP</code> server serving the resources within the <a>Web Publication</a>.</p>
       </section>
 
       <section id="package">
