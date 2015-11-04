@@ -133,6 +133,29 @@
               "rawDate" : "2015-10",
               "status" : "Informational RFC",
               "publisher": "IETF"
+            },
+            "ISBN-URN" : {
+              "authors" : [
+                "J. Hakala",
+                "H. Walravens"
+              ],
+              "title" : "Using International Standard Book Numbers as Uniform Resource Names",
+              "href" : "http://tools.ietf.org/html/rfc3187",
+              "rawDate" : "2001-10",
+              "status" : "Informational RFC",
+              "publisher": "IETF"
+            },
+            "UUID" : {
+              "authors" : [
+                "P. Leach",
+                "M. Mealling",
+                "R. Salz"
+              ],
+              "title" : "A Universally Unique IDentifier (UUID) URN Namespace",
+              "href" : "http://tools.ietf.org/html/rfc4122",
+              "rawDate" : "2005-07",
+              "status" : "Informational RFC",
+              "publisher": "IETF"
             }
           },
 
@@ -364,13 +387,13 @@
 
     <section id="terminology">
       <h2>Terminology</h2>
-      <p>This document is based on the following defintions.</p>
+      <p>This document is based on the following definitions.</p>
 
       <section id="pwp_definition">
         <h2>Portable Web Publications</h2>
 
         <ul class="definition">
-          <li> A <dfn data-lt="Web Resource|Web Resources">Web Resource</dfn> is a digital resource that can be uniquely addressed by a Unified Resource Identifier (URI)[[URI]], and whose content can be accessed through standard network protocols like HTTP, FTP, or the File Protocol (i.e., based on the File URI Scheme[[file-uri-scheme]]), etc.</li>
+          <li> A <dfn data-lt="Web Resource|Web Resources">Web Resource</dfn> is a digital resource that can be uniquely addressed by a [[URL]] or a [[file-uri-scheme]], i.e., whose content can be accessed through standard network protocols such as HTTP, FTP, or the File Protocol.</li>
 
           <li><dfn data-lt="Content|content">Content</dfn> of a <a>Web Resource</a>: information and sensory experience to be communicated to the user by means of a user agent, including code or markup that defines the content’s structure, presentation, and interactions.</li>
 
@@ -380,7 +403,7 @@
 
           <li>A <dfn data-lt="Web Publication|Web Publications">Web Publication</dfn> is a <a>Web Resource</a> which itself is an aggregated set of interrelated <a>Web Resources</a>, and which is intended to be considered as a single <a>Web Resource</a>. Furthermore:
             <ul>
-              <li>As a <a>Web Resource</a>, a <a>Web Publication</a> has its own [[URI]] which identifies the <em>full set</em> of the constituent resources (as opposed to a particular <a>Web Resource</a> <em>within</em> the <a>Web Publication</a>).</li>
+              <li>As a <a>Web Resource</a>, a <a>Web Publication</a> has its own [[URL]] which refers to the <em>full set</em> of the constituent resources (as opposed to a particular <a>Web Resource</a> <em>within</em> the <a>Web Publication</a>).</li>
 
               <li>A <a>Web Publication</a> must be constructed of resources whose formats enable (individually or in conjunction with other resources in the same <a>Web Publication</a>) delivery of <a>essential content</a> and <a>functionality</a> when delivered via a variety of technologies or delivery platforms. In particular, the essential constituents of a <a>Web Publication</a> must be based on technologies of the <a href="https://www.w3.org/wiki/Open_Web_Platform">Open Web Platform</a>.</li>
 
@@ -397,6 +420,8 @@
           <li>A <dfn data-lt="Portable Web Publication|Portable Web Publications|PWP">Portable Web Publication</dfn> (PWP) is a <a>Web Publication</a> whose constituent <a>Web Resources</a> are all <a data-lt="Portable Web Resource">Portable</a>.</li>
         </ul>
 
+        <p class="note">See the separate section <a href="#identification"></a> for further details on addressing <a>Web Publications</a>.</p>
+
         <p id="pwp_content"><a>Web Resources</a> in a <a data-lt="Portable Web Publication">(Portable) Web Publication</a> are based on the core <a href="https://www.w3.org/wiki/Open_Web_Platform">Open Web Platform</a> technologies like [[html5]], [[svg]], [[css21]] and CSS3 modules, or [[ECMAScript]] API-s. A <a>Web Publication</a> may also include images, audio and video, metadata files, executable code in, for example, <a href="http://ipython.org/">iPython</a> or <a href="http://www.maplesoft.com/products/maple/">Maple</a> scripts, or datafiles in [[CSV]]: <a>Web Resources</a> that are needed to render the <a>essential content</a> of the publication.</p>
 
         <p>The differences between the distinguishing characteristics of <a>Web Publications</a> and <a data-lt="Portable Web Publication"><span style="text-decoration:underline">Portable</span> Web Publications</a> can be viewed as situational and gradual rather than as representative of bright-line distinctions. Consider the following example:</p>
@@ -406,6 +431,8 @@
         </aside>
 
         <p class="note">The concepts of <a>content</a>, <a>essential content</a>, and <a>functionality</a> have been taken over from the W3C Web Content Accessibility Guidelines[[WCAG20]], thought slightly modified for this context.</p>
+
+        <div class="issue" data-number="11">The reference to the File URI Scheme[[file-uri-scheme]] may be removed in future.</div>
 
       </section>
 
@@ -451,7 +478,7 @@
           </tbody>
         </table>
 
-        <p class="note">The difference between <a>protocol</a> and <a>file</a> states is not identical, although close, to the difference between the commonly used notions of “online” vs. “offline”. A PWP can be on a local disc but accessed through a Web Server running on that machine (i.e., through a <code>http://localhost</code> URI): the PWP is in a <a>protocol</a> state, though clearly “offline”. Similarly, a remote file system can be mount on a local disc, in which case a PWP can be accessed as a file, i.e., is in a <a>file</a> state, though possibly “online”. </p>
+        <p class="note">The difference between <a>protocol</a> and <a>file</a> states is not identical, although close, to the difference between the commonly used notions of “online” vs. “offline”. A PWP can be on a local disc but accessed through a Web Server running on that machine (i.e., through a <code>http://localhost</code> URL): the PWP is in a <a>protocol</a> state, though clearly “offline”. Similarly, a remote file system can be mount on a local disc, in which case a PWP can be accessed as a file, i.e., is in a <a>file</a> state, though possibly “online”. </p>
       </section>
     </section>
 
@@ -465,7 +492,7 @@
 
         <p id="sworkers">The latest evolution of browser technologies around Web Workers[[web-workers]] and Service Workers[[service-workers]] may fundamentally change the way browsers operate in terms of offline/online. Service Workers will provide a flexible and programmable way to efficiently implement local caching of <a>Web Resources</a>. Caching is implemented as a programmable network proxy, meaning that the browser’s rendering engine becomes oblivious on whether a resource originates from the local cache or diretly from the network. </p>
 
-        <p>This evolution makes it possible to bring <a>Portable Web Publications</a> under the same abstraction as a <a>Web Resource</a> identified by a URI. A specialized service worker can cache resources, i.e., can bridge the differences between the offline and online access of a document. Furthermore, by adding additional functionalities to the service worker, it can also deal with possible (un)packaging as well as bridging the differences between <a>protocol</a> and <a>file</a> states. In other words, the core rendering engine of a user agent can operate <strong>as if the <a>Portable Web Publication</a> was in <a>unpacked</a> and <a>protocol</a> states, with all resources available</strong>; the differences are handled by the service worker acting as a proxy.</p>
+        <p>This evolution makes it possible to bring <a>Portable Web Publications</a> under the same abstraction as a <a>Web Resource</a> identified by a URL. A specialized service worker can cache resources, i.e., can bridge the differences between the offline and online access of a document. Furthermore, by adding additional functionalities to the service worker, it can also deal with possible (un)packaging as well as bridging the differences between <a>protocol</a> and <a>file</a> states. In other words, the core rendering engine of a user agent can operate <strong>as if the <a>Portable Web Publication</a> was in <a>unpacked</a> and <a>protocol</a> states, with all resources available</strong>; the differences are handled by the service worker acting as a proxy.</p>
 
         <figure style="text-align: center;" id="workers_basic">
           <img src="figures/Workers-basic.png" alt="A laptop computer gaining access to the unpackaged publication from a web browser connecting to a Server with HTTP requests.">
@@ -477,7 +504,7 @@
           <figcaption>Accessing a <a>Portable Web Publication</a> in <a>packed</a> state from the Web via a Service Worker. (Picture is available directly <a href="figures/Workers-package.svg">SVG</a> or <a href="figures/Workers-package.png">PNG</a> formats.)</figcaption>
         </figure>
 
-        <p class="note">This architecture needs some special care when handling a <a>Portable Web Publication</a> on a local file system. This is because Service Workers operate using the <code>HTTPS</code> (or <code>HTTP</code> for <code>localhost</code>) protocol only, i.e., the <code>file:///</code> protocol is not understood. A possible approach, already implemented in some experimental code, is to start up a local <code>HTTP</code> server serving the resources within the <a>Web Publication</a>.</p>
+        <p class="note">This architecture needs some special care when handling a <a>Portable Web Publication</a> on a local file system. This is because Service Workers operate using the <code>HTTPS</code> (or <code>HTTP</code> for <code>localhost</code>) protocol only, i.e., the <code>file:///</code> protocol is not understood. A possible approach, already implemented in some experimental code, is to start up a local HTTP server serving the resources within the <a>Web Publication</a>. See also <a href="https://github.com/w3c/dpub-pwp/issues/11">Issue 11</a>.</p>
       </section>
 
       <section id="package">
@@ -507,9 +534,11 @@
       <section id="identification">
         <h3>Addressing and Identification</h3>
 
-        <p><code>HTTP(S)</code> URIs serve as the fundamental method of address a resource, or a fragment thereof, on the Web. Such URIs can also be used to uniquely <em>identify</em> a resource, although, often, the role of addressing and identification are taken separately. <em>Both</em> of these functionalities should be available for <a>Portable Web Publications</a>: a publication should be uniquely identified for, e.g., library catalogues or archival, and resource locator should be available so that the user could access the content. An <em>identifier</em> and a <em>locator</em> might be identical but might also be different: e.g., an identifier may refer to a specific publication by a specific publisher (e.g., using an <a href="https://www.isbn-international.org/">ISBN</a>), whereas the locator may refer to a personal copy of that publication that the owner can freely annotate for personal use. For the purpose of the general architecture of <a>Portable Web Publications</a> this documents concentrates on <em>locators</em>; as far as identifiers are concerned, the only important point is that such identifier SHOULD also exist and made available, and that they should be stable across, e.g., copying the publication or changing its location on the Web.</p>
+        <p><code>HTTP(S)</code> URLs serve as the fundamental method of address a resource, or a fragment thereof, on the Web. Such URLs can also be used to uniquely <em>identify</em> a resource, although, conceptually, the role of addressing and identification are taken separately. <em>Both</em> of these functionalities should be available for <a>Portable Web Publications</a>: a publication should be uniquely identified for, e.g., library catalogues or archival, and a resource locator should be available so that the user could access the content. An <em>identifier</em> and a <em>locator</em> might be identical but might also be different: e.g., an identifier may refer to a specific publication by a publisher (e.g., using an <a href="https://www.isbn-international.org/">ISBN</a>), whereas the locator may refer to a personal copy of that publication that the owner can freely annotate for personal use. For the purpose of the general architecture of <a>Portable Web Publications</a> this documents concentrates on <em>locators</em>; as far as identifiers are concerned, the only important point is that such identifier SHOULD also exist and made available, and that they should be stable across, e.g., copying the publication or changing its location on the Web.</p>
 
         <div class="note">
+          <p>A [[URI]] (as opposed to be restricted to a [[URL]]) can also serve as an <em>identifier</em> using, e.g., the [[ISBN-URN]] or [[UUID]] schemes.</p> 
+
           <p>There is no  ubiquitous method for identifying a publication among the various document formats available today (whether electronic or printed). Within the scholarly publishing industry, for example, initiatives such as <a href="http://www.doi.org">DOI</a> and <a href="http://crossref.org">CROSSREF</a> have addressed this problem by also providing explicit URN resolver services, but these services are not used by, e.g., traditional “trade” publishing that rely more on <a href="https://www.isbn-international.org/">ISBN</a> related services. The definition of <a>Portable Web Publication</a> should be oblivious to the exact identification method; this is left to specialized services and industry organizations. </p>
 
           <p>A typical, and extremely important use case is in academic and scholarly publishing. There are currently several methods for citing online works (diverging among style guides), but there is no equivalent standard method for citations to ebooks. Even if a reflowable ebook is by a scholar, she must refer to PDF, paper copy, or HTML version to cite it in her bibliography. Identifiers attached to <a>Portable Web Publications</a> should enable stable citations.</p>
@@ -520,12 +549,12 @@
         <p>There are number of issues that should be considered on the exact behavior when addressing <a>Portable Web Publication</a> (we will use the <code>http://www.ex.org/doc.pwp</code> in what follows). Some of these are follows:</p>
 
         <dl>
-          <dt>What should be the response of an <code>HTTP(S) GET</code> request on <code>http://www.ex.org/doc.pwp</code>? </dt>
+          <dt>What should be the response of an HTTP(S)&nbsp;GET request on <code>http://www.ex.org/doc.pwp</code>? </dt>
           <dd>
             <p>Conceptually, it should be the <a>manifest</a> of the publication. In practice, this means providing access to the corresponding manifest file through either:</p>
             <ul class="definition">
               <li>returning the <a>manifest</a> itself; or</li>
-              <li>returning another content (e.g., the first chapter in the document) but providing a link to the <a>manifest</a> through a <code>LINK:</code> in the <code>HTTP</code> response header; or</li>
+              <li>returning another content (e.g., the first chapter in the document) but providing a link to the <a>manifest</a> through a <code>LINK:</code> in the HTTP response header; or</li>
               <li>returning and HTML content (e.g., the first chapter in the document) but providing a link to the <a>manifest</a> through a <code>&lt;link&gt;</code> element.</li>
             </ul>
           </dd>
