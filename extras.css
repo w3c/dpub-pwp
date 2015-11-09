@@ -80,7 +80,7 @@ a.sec-ref:after  {
 }
 
 span.orcid:before {
-    content: url(figures/orcid_logo.png);
+    content: ", " url(figures/orcid_logo.png);
     margin-right: 2px;
 }
 
