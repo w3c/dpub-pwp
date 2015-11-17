@@ -5,6 +5,11 @@
     <title>Portable Web Publications for the Open Web Platform</title>
     <link rel="stylesheet" type="text/css" href="extras.css" />
     <script src="https://www.w3.org/Tools/respec/respec-w3c-common" async="" class="remove"></script>
+    <style type="text/css">
+      code {
+        font-size: 120%;
+      }
+    </style>
     <script class="remove">
       var respecConfig = {
          localBiblio: {
@@ -534,48 +539,55 @@
       <section id="identification">
         <h3>Addressing and Identification</h3>
 
-        <p>HTTP(S) URLs serve as the fundamental method for addressing a resource, or a fragment thereof, on the Web. Such URLs can also be used to uniquely <em>identify</em> a resource; however, conceptually, the role of addressing and identification are different. <em>Both</em> of these functionalities should be available for <a>Portable Web Publications</a>: a publication should be uniquely identified for, e.g., library catalogues or archival, and a resource locator should be available so that the user could access the content. In other words, a <a>Web Publication</a> (whether portable or not) SHOULD have both an <em>identifier</em> and a <em>locator</em>. These may be be identical but may also be different: e.g., an identifier may refer to a specific publication by a publisher (e.g., using an <a href="https://www.isbn-international.org/">ISBN</a>), whereas the locator may refer to a personal copy of that publication that the owner can freely annotate for personal use.</p> 
+        <p>HTTP(S) URLs serve as the fundamental method for addressing a resource, or a fragment thereof, on the Web. Such URLs can also be used to uniquely <em>identify</em> a resource; however, conceptually, the role of addressing and identification are different. <em>Both</em> of these functionalities should be available for <a>Portable Web Publications</a>: a publication should be uniquely identified for, e.g., library catalogues or archival, and a resource locator should be available so that the user could access the content. In other words, a <a>Web Publication</a> (whether portable or not) SHOULD have both one or even possibly several <em>identifier(s)</em> and one <em>locator</em>. These may be be identical but may also be different: e.g., an identifier may refer to a specific publication by a publisher (e.g., using an <a href="https://www.isbn-international.org/">ISBN</a>), whereas the locator may refer to a personal copy of that publication that the owner can freely annotate for personal use.</p> 
 
-        <p class="note">A typical, and extremely important use case for the presense of an <em>identifier</em> beyond the need for a <em>locator</em> is in academic and scholarly publishing. There are currently several methods for citing online works, but there is no equivalent standard method for citations to ebooks. Even if a reflowable ebook is by a scholar, she must refer to PDF, paper copy, or HTML version to cite it in her bibliography. Identifiers attached to <a>Portable Web Publications</a> should enable stable citations.</p>
+        <p class="note">A typical, and extremely important use case for the presense of an <em>identifier</em> beyond the need for a <em>locator</em> is in academic and scholarly publishing. There are currently several methods for citing online works, but there is no equivalent standard method for citations to ebooks. Even if a reflowable ebook is by a scholar, the author must refer to PDF, paper copy, or HTML version to cite it in her bibliography. Identifiers attached to <a>Portable Web Publications</a> should enable stable citations.</p>
 
-        <p class="note">A general [[URI]] (which includes the notion of [[URL]]) can serve as an <em>identifier</em> using, e.g., the [[ISBN-URN]] or [[UUID]] schemes. There is no  ubiquitous method for identifying a publication among the various document formats available today (whether electronic or printed). Within the scholarly publishing industry, for example, initiatives such as <a href="http://www.doi.org">DOI</a> and <a href="http://crossref.org">CROSSREF</a> have addressed this problem, whereas traditional “trade” publishing that rely more on <a href="https://www.isbn-international.org/">ISBN</a> related services. Some of these identifier schemes provide URN resolver services or a “standard” representation in term of [[URL]]. The definition of <a>Portable Web Publication</a> should be oblivious to the exact identification used; this issue is left to specialized services and industry organizations. </p>
+        <div class="note">
+          <p>A general [[URI]] (which includes the notion of [[URL]]) can serve as an <em>identifier</em> using, e.g., the [[ISBN-URN]] or [[UUID]] schemes. In other words, an identifier does not necessarily resolves to a location on the Web, although it is a good practice to have a dereferencable identifier.</p>
+
+          <p> There is no  ubiquitously accepted method for identifying a publication among the various document formats (whether electronic or printed). Within the scholarly publishing industry, for example, initiatives such as <a href="http://www.doi.org">DOI</a> and <a href="http://crossref.org">CROSSREF</a> have addressed this problem, whereas traditional “trade” publishing rely more on <a href="https://www.isbn-international.org/">ISBN</a> related services. Some of these identifier schemes provide resolver services or a “standard” representation in term of [[URL]]. The definition of <a>Portable Web Publication</a> should be oblivious to the exact identification used; this issue is left to specialized services and industry organizations. </p>
+        </div>
+
+        <div class="issue" data-number="12">Do we need a more general form of identification to represent scopes?</div>
 
         <p>For the purpose of the general architecture of <a>Portable Web Publications</a> this document concentrates on <em>locators</em>; as far as identifiers are concerned, the only important point is that such identifier SHOULD also exist and made available, and that they should be stable across, for example, copying the publication or changing its location on the Web. Also, based on the discussion in <a href="#arch"></a>, only the <a>unpacked</a> and <a>protocol</a> states of <a>Portable Web Publications</a> are discussed.</p>
 
-        <p>There are a number of questions that should be answered when addressing <a>Portable Web Publication</a> (we will use the <code>http://www.ex.org/doc.pwp</code> as an example URL). Some of these are follows:</p>
+        <p>There are a number of different aspects of addressing that should be specified for a <a>Portable Web Publication</a>. Some of these are follows:</p>
 
-        <dl>
-          <dt>What should be the response of an HTTP(S)&nbsp;GET request on <code>http://www.ex.org/doc.pwp</code>? </dt>
-          <dd>
-            <p>Conceptually, it should be the <a>manifest</a> of the publication. In practice, this means providing access to the corresponding manifest file through either:</p>
-            <ul class="definition">
-              <li>returning the <a>manifest</a> itself; or</li>
-              <li>returning another content (e.g., the first chapter in the document) but providing a link to the <a>manifest</a> through a <code>LINK:</code> in the HTTP response header; or</li>
-              <li>returning and HTML content (e.g., the first chapter in the document) but providing a link to the <a>manifest</a> through a <code>&lt;link&gt;</code> element.</li>
-            </ul>
-          </dd>
+        <section>
+          <h4>What should be the response of an HTTP(S)&nbsp;GET request?</h4>
+          <p>Conceptually, it should be the <a>manifest</a> of the publication which, in fact, “represents” the <a>Web Publication</a> as a whole. In practice, this means providing access to the corresponding manifest file through either:</p>
 
-          <dt>The <code>http://www.ex.org/doc.pwp</code> URL refers to the <a>Portable Web Publication</a> as a whole; what is the URL for one of its constituent resources, e.g., <code>chapter1.html</code>?</dt>
-          <dd>
-            <p>Several schemes are used in practice; just some examples:</p>
-            <ul class="definition">
-              <li>based on sort of a fragment identifier, e.g., [[EPUBCFI]]: <code>http://www.ex.org/doc.pwp#epubcfi(1/2/3)</code></li>
-              <li>explicit separator between the URL for the publication and the rest: <code>http://www.ex.org/doc.pwp!chapter1.html</code></li>
-              <li>simulate a purely folder view of the publication’s content: <code>http://www.ex.org/doc.pwp/chapter1.html</code></li>
-            </ul>
-            <p>Note that the first alternative would make identification of other fragments (see the next question) very complex; indeed, <em>only one</em> fragment is allowed in a URL (see the [[URL]] specification). The third alternative is the most “webby”, but relies on a particular, tree-like structure of the constituent resources of a <a>Web Publication</a>; this issue may be mitigated by adding mappings (“virtual redirections”) of URLs in the <a>manifest</a> of the <a>Web Publication</a>.</p>
+          <ul class="definition">
+            <li>returning the <a>manifest</a> itself; or</li>
+            <li>returning another content (e.g., the first chapter in the document) but providing a link to the <a>manifest</a> through a <code>LINK:</code> in the HTTP response header; or</li>
+            <li>returning and HTML content (e.g., the first chapter in the document) but providing a link to the <a>manifest</a> through a <code>&lt;link&gt;</code> element.</li>
+          </ul>
 
-            <p class="note">A particular constituent Resource may end up having two URL-s: one its intrinsic URL as a resource on the Web, the other via the URL of the <a>Web Publication</a> using, e.g., a virtual redirection through the manifest file of the publication.</p>
-          </dd>
+          <p>These possibilities are not mutually exclusive.</p>
+        </section>
 
-          <dt>How does one locate the internal content of a particular resource?</dt>
-          <dd>
-            <p><a>Web Publications</a> should not include any new mechanism at this point; they should rather entirely rely on fragment identifiers as defined and widely used on the Web.</p>
+        <section>
+          <h4>What is the URL for one of the resources <em>within</em> a <a>Portable Web Publication</a>?</h4>
 
-            <p class="note">As exampled for the power of fragment identifiers, the <a href="http://www.w3.org/annotation/">W3C Annotation Working Group</a> has a joint deliverable with the <a href="http://www.w3.org/WebPlatform/WG/">W3C Web Platform Working Group</a> called [[FindText]]. This deliverable will provide a general framework of identifying specific textual content within, e.g., and HTML file. Although defined within the framework of annotations, the specification can also be used for other fragment identification use cases. Similarly, the W3C Media Fragments specification[[media-frags]] may prove useful to address some of the use cases. </p>
-          </dd>
-       </dl>
+          <p>I.e.: if the <code>http://www.ex.org/doc.pwp</code> locator refers to the <a>Portable Web Publication</a> as a whole, what is the URL for one of its constituent resources, e.g., <code>chapter1.html</code>?</p>
 
+          <p>The simplest approach is to consider the URL of the <a>Web Publication</a> as the base for all relative URL-s, meaning that the location of the constituents are of the form: <code>http://www.ex.org/doc.pwp/chapter1.html</code> where <code>http://www.ex.org/</code> is the URL of the the <a>Web Publication</a> itself. In other words, the locator of the <a>Web Publication</a> sets the “context”.</p>
+
+          <p>This simple approach works well if the <a>Web Publication</a> is created from bottom up; however, it does rely on a particular organization of the resources. The scheme does not work if the <a>Web Publication</a> (which is defined to be a set of <a>Web Resources</a>) includes resources at many different places on the Web. This issue may be mitigated by adding mappings (“virtual redirections”) of URLs in the <a>manifest</a> of the <a>Web Publication</a>.</p>
+
+          <p class="note">When using the virtual redirections a particular constituent <a>Web Resource</a> may end up having two URL-s: one is its intrinsic URL as a resource on the Web, the other via the URL of the <a>Web Publication</a>.</p>
+
+          <p class="note">Another alternative that is used in practice is to use an explicit separator between the URL for the publication and the rest, yielding, e.g., <code>http://www.ex.org/doc.pwp!chapter1.html</code>. It is not clear what advantages this approach would have.</p>
+        </section>
+
+        <section>
+          <h4>How does one locate the internal content of a particular constituent resource?</h4>
+            <p>The definition of <a>Web Publications</a> should not include any new mechanism at this point; they should rather entirely rely on fragment identifiers as defined and widely used on the Web.</p>
+
+            <p class="note">As examples for the power of fragment identifiers, the <a href="http://www.w3.org/annotation/">W3C Annotation Working Group</a> has a joint deliverable with the <a href="http://www.w3.org/WebPlatform/WG/">W3C Web Platform Working Group</a> called [[FindText]]. Although the specification aims at a programmable API, it may also provide a general framework of identifying specific textual content within, e.g., and HTML file through the definion of a fragment identifier. Similarly, the W3C Media Fragments specification[[media-frags]] may prove useful to address some of the use cases. </p>
+        </section>
        </section>
 
       <section id="metadata">
