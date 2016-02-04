@@ -1,12 +1,3 @@
-figure {
-  margin-top : 0em;
-  margin-bottom: 2em;
-  page-break-inside: avoid;
-}
-
-figure img {
-  width: 70%;
-}
 
 .vision {
   font-style: italic;
