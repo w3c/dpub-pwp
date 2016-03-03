@@ -18,7 +18,7 @@ table.zebra {
   margin:1em;
 }
 
-table.zebra td {  
+table.zebra td {
   padding-left: 0.3em;
 }
 
@@ -26,12 +26,12 @@ table.zebra tr th:nth-child(1) {
   text-align: left;
 }
 
-table.zebra th {  
-  font-weight: bold;  
-  text-align: center;  
+table.zebra th {
+  font-weight: bold;
+  text-align: center;
   background-color: steelblue !important;
   font-size: 110%;
-  background: hsl(180, 30%, 50%); 
+  background: hsl(180, 30%, 50%);
   color: #fff;
 }
 
@@ -43,8 +43,8 @@ table.zebra th a:visited {
   color: #aaa;
 }
 
-table.zebra tr:nth-child(even) { 
-  background-color: hsl(180, 30%, 93%) 
+table.zebra tr:nth-child(even) {
+  background-color: hsl(180, 30%, 93%)
 }
 
 table.zebra th{border-bottom:1px solid #bbb;padding:.2em 1em;}
@@ -62,16 +62,25 @@ a.internalDFN {
     font-style: italic;
 }
 
-a.sec-ref:before { 
-    content: "“"; 
+a.sec-ref:before {
+    content: "“";
 }
 
-a.sec-ref:after  { 
-    content: "”"; 
+a.sec-ref:after  {
+    content: "”";
 }
 
-span.orcid:before {
+span.orcid a  {
+    text-decoration: none !important;
+    border: none !important;
+}
+
+span.orcid a img {
+    transform: translateY(3px);
+}
+
+
+/*span.orcid:before {
     content: url(figures/orcid_logo.png);
     margin-right: 2px;
-}
-
+}*/
