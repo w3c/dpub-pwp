@@ -211,32 +211,45 @@
           // only "name" is required
           editors:  [
              {
-                  name:       "Markus Gylling"
-              ,   mailto:     "mgylling@idpf.org"
-              ,   company:    "IDPF"
-              ,   companyURL: "http://idpf.org"
-              ,   w3cid:      "21614"
+                      name:       "Markus Gylling"
+                  ,   mailto:     "mgylling@idpf.org"
+                  ,   company:    "IDPF"
+                  ,   companyURL: "http://idpf.org"
+                  ,   w3cid:      "21614"
               },
               {
-                  name:       "Ivan Herman"
-              ,   mailto:     "ivan@w3.org"
-              ,   company:    "W3C"
-              ,   companyURL: "http://www.w3.org"
-              ,   url:        "http://www.w3.org/People/Ivan/"
-              ,   extras:     [{
-                    name:  "<img src='figures/orcid_logo.png' />",
-                    href:  "http://orcid.org/0000-0003-0782-2704",
-                    class: "orcid"
-                  }]
-              ,   w3cid:      "7382"
+                      name:       "Ivan Herman"
+                  ,   mailto:     "ivan@w3.org"
+                  ,   company:    "W3C"
+                  ,   companyURL: "http://www.w3.org"
+                  ,   url:        "http://www.w3.org/People/Ivan/"
+                  ,   extras:     [{
+                        name:  "<img src='figures/orcid_logo.png' />",
+                        href:  "http://orcid.org/0000-0003-0782-2704",
+                        class: "orcid"
+                      }]
+                  ,   w3cid:      "7382"
               },
               {
-                  name:       "Tzviya Siegman"
-              ,   mailto:     "tsiegman@wiley.com"
-              ,   company:    "John Wiley & Sons, Inc."
-              ,   companyURL: "http://www.wiley.com"
-              ,   w3cid:      "65542"
-              }
+                      name:       "Tzviya Siegman"
+                  ,   mailto:     "tsiegman@wiley.com"
+                  ,   company:    "John Wiley & Sons, Inc."
+                  ,   companyURL: "http://www.wiley.com"
+                  ,   w3cid:      "65542"
+              },
+              {
+                      name:       "Ben De Meester"
+                  ,   mailto:     "ben.demeester@ugent.be"
+                  ,   company:    "Ghent University - iMinds - Data Science Lab"
+                  ,   companyURL: "http://www.iminds.be/"
+                  ,   url:        "http://users.ugent.be/~bjdmeest/"
+                  ,   extras: [{
+                        name:  "<img src='figures/orcid_logo.png' />",
+                        href:  "http://orcid.org/0000-0003-0248-0987",
+                        class: "orcid"
+                      }]
+                  ,   w3cid:      "73403"
+              },
           ],
 
           // name of the WG
@@ -391,13 +404,12 @@
         <p class="note">The concepts of <a>content</a>, <a>essential content</a>, and <a>functionality</a> have been taken over from the W3C Web Content Accessibility Guidelines[[WCAG20]], thought slightly modified for this context.</p>
 
         <div class="issue" data-number="11">The reference to the File URI Scheme[[file-uri-scheme]] may be removed in future.</div>
-
       </section>
 
       <section id="state_definition">
         <h3>States of a Portable Web Publication</h3>
 
-        <p>The states of a <a>Portable Web Publication</a> can be separated into two different axes. These different states require a different behavior from the user agent, while some of the characteristics of the publication may be invariant across states. The different states are as follows:</p>
+        <p>The <dfn data-lt="state">states</a> of a <a>Portable Web Publication</a> can be separated into two different axes. These different states require a different behavior from the user agent, while some of the characteristics of the publication may be invariant across states. The different states are as follows:</p>
 
         <ol class="definition">
           <li><strong>States related to the organization of the <a data-lt="Web Resource">Web Resources</a></strong>: A <a>Portable Web Publication</a> is in
@@ -438,6 +450,76 @@
         </table>
 
         <p class="note">The difference between <a>protocol</a> and <a>file</a> states is not identical, although close, to the difference between the commonly used notions of “online” vs. “offline”. A PWP can be on a local disc but accessed through a Web Server running on that machine (i.e., through a <code>http://localhost</code> URL): the PWP is in a <a>protocol</a> state, though clearly “offline”. Similarly, a remote file system can be mounted as a local disc, in which case a PWP can be accessed as a file, i.e., is in a <a>file</a> state, though possibly “online”. </p>
+      </section>
+      <section id="locator_definitions">
+          <h2>Locators</h2>
+          <p>The term “locator” is used to denote a URI addressing a <a>Web Resource</a>. More specifically, in the context of <a>Portable Web Publications</a>:</p>
+
+          <ul class="definition">
+              <li>
+                  A <dfn>locator</dfn> is a URL that points to either an entire <a>PWP</a> or a resource <em>within</em> a <a>PWP</a>.
+              </li>
+
+              <li>
+                  A <dfn>PWP locator</dfn> is a <a>locator</a> to the <a>PWP</a> as a whole. This <a>PWP Locator</a> can be dereferenced via an HTTP(S) request and should return some information. As such, it is not the same as an identifier, although, it <em>could</em> be the same.
+              </li>
+
+              <li>A <dfn>relative locator</dfn> is a locator to a resource within a <a>PWP</a>, without specifying the location of the <a>PWP</a>.</li>
+
+              <li>An <dfn>absolute locator</dfn> is a combination of a <a>PWP locator</a> and a <a>relative locator</a>.</li>
+
+              <li>The <dfn>canonical locator</dfn> is an absolute, and <a>state</a> independent <a>PWP locator</a>. This is purely conceptual, i.e., the <a>PWP</a> does not have to be published unpacked online. For the purposes of this document, the canonical locator of a PWP is denoted by <strong>L</strong>.
+              </li>
+
+              <li>A <dfn data-lt="state locator|state locators">state locator</dfn> is a <a>PWP locator</a> that refers to a PWP in a particular <a>state</a>. For the purposes of this document, <strong>L<sub>u</sub></strong> denotes the <a>state locator</a> referring to an <a>unpacked state</a>, whereas <strong>L<sub>p</sub></strong> refers to a <a>state locator</a> referring to a <a>packed state</a>.
+
+                  <p>There is no requirement that the <a>canonical locator</a> <em>must</em> be different from the locator of the published, unpacked <a>state</a> of the <a>PWP</a>.</p>
+
+                  <p class="note">In practice, it may be possible to define several different PWP packaging formats, in which case there may be several <a>state locators</a> referring to packages. Their treatment, from the point of view of this document, are identical, hence this document is restricted to a single locator of this type. Also, the precise treatment of specific packaging formats (unpacking algorithms, etc.) are not relevant for this document.
+                  </p>
+
+                  <p class="note">
+                      There is no requirement that the publisher publishes all these states; it may choose to publish only one. I.e., there can be situations where the <a>PWP</a> is only published unpacked (so only the locator of the published unpacked <a>PWP</a> exists), or only published packed (so only that locator exists).
+                  </p>
+              </li>
+          </ul>
+      </section>
+      <section>
+          <h2>Miscellaneous Terms</h2>
+          <ul class="definition">
+              <li>A <dfn>reading system</dfn> has the responsibility of the rendering the contents of a <a>Portable Web Publication</a>.</li>
+
+              <li>A <dfn>PWP processor</dfn> is a piece of functionality that has the responsibility of interpreting the specificities of a <a>Portable Web Publication</a>, including mapping <a data-lt="locator">locators</a>, handling a <a>packed</a> state, etc. On a conceptual level the <a>PWP processor</a> ensures that the <a>reading system</a> can consider the content of a <a>Portable Web Publication</a> as if all its resources were available via the <a>canonical locator</a> of the <a>PWP</a> online.
+              </li>
+
+              <li>
+                  The <dfn>server</dfn> has the responsibility of serving the <a data-lt="Portable Web Publication">PWP-s</a> in their different states. As such, the is <a>server</a> always aware of all possible published states of the <a>PWP</a>.
+
+                  <p class='note'>A server can be configured in multiple ways to serve the various states of a <a data-lt="Portable Web Publication">PWP</a>, possibly respond to content negotations, etc. This specification does not require any particular configuration.
+                  </p>
+              </li>
+          </ul>
+      </section>
+      <section id="manifest_definitions">
+          <h2>Manifest terms</h2>
+          <ul class="definitions">
+              <li>A <dfn data-lt="manifest|manifest file" >manifest (file)</dfn> is a special resource containing fundamental information about a <a>PWP</a>. The serialization syntax and the full content of a manifest is not defined in this document. A media type (see [[rfc6838]]) is also associated with a manifest (or a particular serialization thereof), that can be used when a particular instance is retrieved through standard HTTP(S) protocol.</li>
+
+              <li>A <dfn data-lt="manifest item|manifest items">manifest item</dfn> is an information item within the <a>manifest file</a> that can be retrieved by, e.g., a <a>PWP Processor</a>. These may include metadata, information on rendering order and rendition, etc. For the purpose of this document it is important that
+              <a>state locators</a>, as well as the <a data-lt="canonical locator">canonical locators</a> are such manifest items, i.e., they can be part of a <a>manifest</a>.</li>
+
+              <li>A <dfn>PWP manifest</dfn> or <dfn>complete manifest</dfn> is a <a>manifest</a> that contains <em>all</em> <a>manifest items</a> that are required by a <a>PWP processor</a>. The complete list of required items are not defined here; for the purpose of this document it suffices to state that the <a>canonical locator</a>, as well as all <a>state locators</a> for all available <a data-lt="state">states</a>, MUST be part of a <a>PWP manifest</a>.</li>
+
+              <li>The <dfn>combination of manifests</dfn>, denoted by the&nbsp;⊕&nbsp;operation (as in <strong>M</strong>&nbsp;=&nbsp;<strong>M<sub>a</sub></strong>&nbsp;⊕&nbsp;<strong>M<sub>b</sub></strong>) is the creation of a new <a>manifest</a>, consisting of <a>manifest items</a> originating from <strong>M<sub>a</sub></strong> and <strong>M<sub>b</sub></strong>.
+
+                  <p>The precise definition of a <a>manifest</a> should also specify how different <a>manifest items</a> are combined during this operation. For the purpose of this document it is only required, that:</p>
+                  <ul>
+                      <li>the value of <strong>L</strong> MUST be identical, if present, in both <strong>M<sub>a</sub></strong> and <strong>M<sub>b</sub></strong>; and</li>
+
+                      <li>the value of <strong>L<sub>u</sub></strong> (resp. <strong>L<sub>p</sub></strong>) in <strong>M<sub>b</sub></strong> MUST have a higher priority. I.e., if present in <strong>M<sub>b</sub></strong>, this is the value added to <strong>M</strong>, regardless of whether a similar value is also specified in <strong>M<sub>a</sub></strong> or not.</li>
+                  </ul>
+              </li>
+          </ul>
       </section>
     </section>
 
@@ -483,7 +565,7 @@
       <section id="manifest">
         <h3>Publication Manifests</h3>
 
-        <p>The <dfn>manifest</dfn> of <a>Portable Web Publications</a> is a <a>Web Resource</a> that includes information pertaining to the overall publication structure, such as the default logical reading order(s) of the set of resources that comprise the publication (the “spine”), as well as predictable user-facing meta-structures, such as one or several tables of contents, glossaries, etc. As described in the separate section <a href="#identification"></a> that overall structural information may be what a client would return on a request for a <a>Portable Web Publication</a> instance, as an abstraction for a collection of <a data-lt="Web Resource">Web Resources</a>. For <a>Portable Web Publications</a> it may be imperative to optimize these data structures in a way that is native to the Open Web Platform and more easily supported in authoring tools, browsers, and Reading Systems. </p>
+        <p>The <a>manifest</a> of <a>Portable Web Publications</a> is a <a>Web Resource</a> that includes information pertaining to the overall publication structure, such as the default logical reading order(s) of the set of resources that comprise the publication (the “spine”), as well as predictable user-facing meta-structures, such as one or several tables of contents, glossaries, etc. As described in the separate section <a href="#identification"></a> that overall structural information may be what a client would return on a request for a <a>Portable Web Publication</a> instance, as an abstraction for a collection of <a data-lt="Web Resource">Web Resources</a>. For <a>Portable Web Publications</a> it may be imperative to optimize these data structures in a way that is native to the Open Web Platform and more easily supported in authoring tools, browsers, and Reading Systems. </p>
 
         <p class="note">The Manifest for web application format[[web-manifest]], currently developed at W3C, is one example of a technology that could potentially be used, or adopted, to achieve this goal. Note, however, that the [[web-manifest]] specification is (currently) geared towards Web Applications, which may not make it suitable for direct adoption for <a>Portable Web Publications</a>; hence the possible needs of adoption rather than using it directly.</p>
 
