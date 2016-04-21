@@ -1,14 +1,27 @@
 
+blockquote.quote {
+    margin-left: 2em;
+    margin-right: 3em;
+    border-left: none;
+    font-size: 95%;
+    font-style: italic;
+    text-align: justify;
+}
+blockquote.quote p.author {
+    font-size: 90%;
+    text-align: right;
+    margin-top: 0em !important;
+}
+
 .vision {
   font-style: italic;
   margin-left: 2em;
-  margin-right: 2em;
+  margin-right: 3em;
   padding: 0.8em;
   background: white;
   border: thin outset black;
   border-radius: 0.5em;
   text-align: justify;
-  font-size: 105%;
 }
 
 /* Table zebra style... */

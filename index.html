@@ -81,13 +81,13 @@
                 "status" : "Standard ECMA 376",
                 "publisher": "ECMA"
             },
-    		    "web-manifest": {
-    		        "title": "Manifest for web application",
-    		        "href" : "https://w3c.github.io/manifest/",
-    		        "rawDate": "2015-02-23",
-    		        "status" : "ED",
-    		        "publisher": "W3C"
-    		    },
+		    "web-manifest": {
+		        "title": "Manifest for web application",
+		        "href" : "https://w3c.github.io/manifest/",
+		        "rawDate": "2015-02-23",
+		        "status" : "ED",
+		        "publisher": "W3C"
+		    },
             "web-packaging": {
                 "authors": [
                   "Jeni Tennison"
@@ -106,7 +106,6 @@
                 "rawDate": "2014-01-02",
                 "publisher": "EDItEUR"
             },
-            "Sigarchian" : "Hajar Ghaem Sigarchian et al. <em>EPUB3 for Integrated and Customizable Representation of a Scientific Publication and its Associated Resources</em>. In: Proceedings of the 4th Workshop on Linked Science 2014. URL: <a href='http://linkedscience.org/wp-content/uploads/2014/10/lisc2014_submission_3.pdf'>http://linkedscience.org/wp-content/uploads/2014/10/lisc2014_submission_3.pdf</a>.",
 
             "BigJava" : "Cay Horstmann. <em>Big Java Late Objects</em>, John Wiley &amp; Sons, Inc., 2013",
             "web-workers" : {
@@ -161,6 +160,17 @@
               "rawDate" : "2005-07",
               "status" : "Informational RFC",
               "publisher": "IETF"
+            },
+            "dpub-pwp-ucr" : {
+                "authors" : [
+                    "Heather Flanagan",
+                    "Romain Deltour",
+                    "Dave Cramer"
+                ],
+                "title" : "Portable Web Publications Use Cases and Requirements",
+                "href" : "http://w3c.github.io/dpub-pwp-ucr/",
+                "publisher" : "W3C",
+                "status": "Editors’ Draft"
             }
           },
 
@@ -188,8 +198,8 @@
 
           // if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
           // and its maturity status
-          previousPublishDate:  "2015-10-15",
-          previousMaturity:  "FPWD",
+          previousPublishDate:  "2016-03-16",
+          previousMaturity:  "WD",
 
           // if there a publicly available Editor's Draft, this is the link
           edDraftURI:           "http://w3c.github.io/dpub-pwp/",
@@ -291,12 +301,15 @@
   </head>
   <body>
     <section id="abstract">
-      <p>This document introduces Portable Web Publications, a vision for the future of digital publishing that is based on a fully native representation of documents within the Open Web Platform. Portable Web Publications achieve full convergence between online and offline/portable document publishing: publishers and users won't need to choose one or the other, but can switch between them dynamically, at will.
+        <blockquote class="quote"><p>“A book is a discrete collection of text (and other media), that is designed by an author(s) as an internally complete representation of an idea, or set of ideas; emotion or set of emotions; and transmitted to readers in various formats.”</p>
+        <p class="author">Hugh McGuire, W3C Track on Digital Publishing at the WWW2016 Conference, April 2016</blockquote>
+
+      <p>This document introduces Portable Web Publications, a vision for the future of digital publishing that is based on a fully native representation of documents within the Open Web Platform. Portable Web Publications achieve full convergence between online and offline/portable document publishing: publishers and users won't need to choose one or the other, but can switch between them dynamically, at will. Authors can concentrate on the way they intend to transmit their ideas and emotions, without having to deal with the specificities of a particular format.
       </p>
     </section>
 
     <section id='sotd'>
-      <p>This document outlines a general vision and should not be considered a technical specification. Instead, its goal is to outline that vision and the possible technical directions to achieve it; more detailed technical work should be documented in separate documents. </p>
+      <p>This document outlines a general vision and should not be considered a technical specification. Instead, its goal is to outline that vision and a possible technical directions to achieve it. A more detailed and rigoruous specification should be done by a separated, dedicated Working Group.</p>
     </section>
 
     <section>
@@ -305,12 +318,18 @@
       <p class="vision">Our vision for <a>Portable Web Publications</a> is to define a class of documents on the Web that would be part of the Digital Publishing ecosystem but would also be fully native citizens of the <a href="https://www.w3.org/wiki/Open_Web_Platform">Open Web Platform</a>.  In this vision, the current format- and workflow-level separation between offline/portable and online (Web) document publishing is diminished to zero. These are merely two dynamic manifestations of the same publication: content authored with online use as the primary mode can easily be saved by the user for offline reading in portable document form. Content authored primarily for use as a portable document can be put online, without any need for refactoring the content. Publishers can choose to utilize either or both of these publishing modes, and users can choose either or both of these consumption modes. Essential features flow seamlessly between online and offline modes; examples include cross-references, user annotations, access to online databases, as well as licensing and rights management.
       </p>
 
-      <p>The precise definition of <a>Portable Web Publications</a> is provided in the section <a href='#pwp_definition'></a>. For the sake of this introduction, suffices to say that a <a>Portable Web Publication</a> is a collection of content items (e.g. pages, chapters, modules, articles) whose content is compatible with Web usage, and structured as a single, self-contained logical unit. Individual items can consist of text, images, graphics, possibly interactive mathematical or chemical formulae, as well as audio and video. These documents, by definition, have a default, linear “reading order”, however the user may choose to skip around in the content just as with a book on paper; alternatively, interactive aspects of the content may alter the reading order on behalf of the user.
+      <p>A more precise technical definition of <a>Portable Web Publications</a> is provided in the section <a href='#pwp_definition'></a>. For the sake of this introduction, suffices to say that a <a>Portable Web Publication</a> is a collection of content items (e.g. pages, chapters, modules, articles) whose content is compatible with Web usage, and structured as a single, self-contained logical unit. Individual items can consist of text, images, graphics, possibly interactive mathematical or chemical formulae, as well as audio and video. These documents, by definition, have a default, linear “reading order”, however the user may choose to skip around in the content just as with a book on paper; alternatively, interactive aspects of the content may alter the reading order on behalf of the user.
       </p>
     </section>
 
+    <figure id="pwp_figure" >
+      <img src="figures/pwp.svg" alt="Image showing a laptop accessing unpackaged multiple files for online use.  With same content packaged for use on a mobile cellphone.">
+      <figcaption>The same content can be turned into an archived file and back without any inherent changes to the core content or associated digital assets. (Picture is available directly <a href="figures/pwp.svg">SVG</a> or <a href="figures/pwp.png">PNG</a> formats.)</figcaption>
+    </figure>
+
     <section>
       <h2 id="whynow">Why work on this now?</h2>
+
       <p>Digital Publishing can be considered to be at a tipping point. Digital publishing formats like EPUB have been broadly adopted globally for trade ebooks, and are starting to gain adoption among textbook publishers as well as corporate marketing departments. However, these formats have largely been seen as “offline” formats up until now. Various browser extensions supporting such complex publications exist, and other solutions are available for delivering these publications in browsers. Browser- and cloud-based solutions require relatively complex server and/or client software. In many cases browser- and cloud-based solutions depend on a proprietary transformation of the packaged files into formats more suitable to network delivery. A focused effort to make digital publications first-class Open Web Platform citizens will result in a significant reduction in the complexity of deploying publishing content into browsers for both online and offline consumption. Further, this focused effort will increase the momentum of digital publication and associated Web adoption across communities who are looking for an open, non-proprietary, next-generation portable document format.</p>
 
       <p>The broader Web Platform can also be considered to be at a tipping point. Mobile platform web site use is diminishing in favor of native applications. Hybrid applications that use web content alongside native application technology, and web-technology-based system applications are growing. The specific means of delivering hybrid and web-technology-based system applications is currently proprietary to specific applications frameworks and/or browser platforms. The point of Portable Web Publications is to increase problem solving momentum in package, metadata, and offline support applicable to both portable publications and installed applications. Open and native solutions to replace proprietary packaging, metadata, and offline support are intended to ensure the broadest possible general adoption of the Open Web Platform.
@@ -319,95 +338,10 @@
       <p>In many respects, the convergence is already happening. In a number of areas (e.g., educational publications, travel books, etc.) publishers already exploit the advanced possibilities of packaged publishing formats to produce highly interactive documents whose features are very close to what one is used to on the Web (see the separate section <a href="#epub-relations"></a> for some examples). And the converse is also true: tutorial and introductory articles have appeared on the Web that have the quality of traditional publications that one was used to seeing in a scientific magazine, but combined with the interactive possibilities of the Web (<a href="http://bost.ocks.org/mike/algorithms/">Mike Bostock’s article on visualizing algorithms</a> or <a href="http://worrydream.com/LadderOfAbstraction/">Bret Victor’s article on visualization</a> are just two of several possible examples). However, the convergence still has a long way to go, and this is the topic that this document, and the concept of <a>Portable Web Publications</a>, aim to explore.
       </p>
 
-      <figure id="pwp_figure" style="width: 50rem">
-        <img src="figures/pwp.svg" alt="Image showing a laptop accessing unpackaged multiple files for online use.  With same content packaged for use on a mobile cellphone.">
-        <figcaption>The same content can be turned into an archived file and back without any inherent changes to the core content or associated digital assets. (Picture is available directly <a href="figures/pwp.svg">SVG</a> or <a href="figures/pwp.png">PNG</a> formats.)</figcaption>
-      </figure>
+      <p>A companion document&nbsp;[dpub-pwp-ucr] collects more detailed use cases and requirements for <a>Portable Web Publications</a>. The present document concentrates on the technical challenges to achieve this vision, and provides some technical directions addressing those challenges. None of the the technical solutions should be considered final; a more detailed and rigoruous specification should be done by a separate, dedicated Working Group.
+
     </section>
 
-    <section>
-      <h2>What are the areas of interest?</h2>
-
-      <p>The convergence of Digital Publishing and the Open Web Platform provides a common set of solutions and opportunities to various stakeholders:
-      </p>
-
-      <section>
-        <h3>Publishers</h3>
-        <p>Book publishers are investing in the development of technical expertise in web technologies. While gaining understanding of technical topics is important to new and future publishing workflows, the lack of communication between the trade publishers and web application developer communities is resulting in unnecessary duplication and investments in effort.</p>
-
-        <p>Collaboration between the Web content development and publishing communities will result in major benefits to publishers. Adopting a universal and interoperable format means publishers can concentrate on engaging content authors in the production of high quality content. The web content development community can be relied on to deal with sophisticated technical issues (e.g., CSS, SVG). Potential future web content formats (e.g., 3D rendering) and various interactive web programs (e.g., visualization tools like <a href="http://d3js.org">D3</a>) will naturally flow into the publishing realm through Portable Web Publications, hence increasing publishers' opportunities to sell new content products across the board.</p>
-
-        <p>Realizing new opportunities is a reality for publishers traditionally considered to be on the leading edge of technological advances in working with content. These publishers include <abbr title="Science, Technology, and Medical">STM</abbr> and educational publishing houses, as well as scholarly and journal publishing organizations (see the section <a href="#schol"></a>).</p>
-
-        <p>A converged platform will support more tools and services and a much larger population of trained practitioners compared to the current state of working in parallel universes.</p>
-      </section>
-
-      <section id="schol">
-        <h3>Scholarly Journal  and STM Publishers</h3>
-
-        <p>Scholarly journal publishers also provide articles for download these days. The most popular distribution format for journal articles continues to be [[PDF]] as a direct reflection of the scholarly community which highly prioritizes linear text and preservation of print typography. Indeed, the original goal for scholarly publishers to make files available online was to enable readers to download and print content directly, instead of borrowing a paper copy of a journal issue and photocopying relevant articles.</p>
-
-        <p>But things are changing. First of all, Web-only publications become part of the mainstream (e.g., the multidisciplinary <a href="http://www.plosone.org">PLOS ONE</a> or the new <a href="https://peerj.com/computer-science/">PeerJ CompSci</a> journals) with the main content being published using traditional Web technologies like HTML and CSS. And there is much more. Scholarly communication increasingly uses additional media such as video, audio, animated graphics, or very large images, and the trend is to consider these as integral parts of the scientific output. (<a href="http://bost.ocks.org/mike/algorithms/">Mike Bostock’s recent article on visualizing algorithms</a> or the “live” presentation of data in a <a href="http://f1000research.com/articles/3-176/v1#f3">paper published by F1000 Research</a> are good examples for the new possibilities.) Furthermore, publishing the scientific <em>data sources</em>, like the results of a sociological survey or measurement output of biochemical experiments in XML or CSV formats, alongside the “main” publication, is also coming to the fore, with some journals and institutions actually requiring public access to those. Gaining access to all these various media and contents both online and offline is important for scholars, whether the goal is to read the publication on the Web, or to download the papers for various reasons: reading the article offline, inclusion of the paper into bibliographic management systems like <a href="http://www.mendelay.com">Mendeley</a> or <a href="https://www.zotero.org">Zotero</a>, or peer-reviewing submissions. Any offline format for scholarly purposes should be adapted to these needs.</p>
-
-        <p>Having essentially identical online and offline versions of the same content, including the usage of various media, leads to similar reading experiences whether online or offline (see, e.g., [[Sigarchian]]). User annotations, formal reviews, etc., performed by the scholar on a small, mobile device while being offline can be automatically synchronized with the online version as soon as there is Internet access. Being based on a general archival format, Portable Web Publications provide an easy way to consistently include video, audio, interactive scripts, any kind of data, and can naturally contain active links to the scientific data published elsewhere on the Web in case the data is too large to be distributed offline. These and other possibilities provided by Portable Web Publications may contribute to fundamentally change the way scholarly publishing works.</p>
-      </section>
-
-      <section>
-        <h3>In-house Publishers</h3>
-        <p>A special form of document production is related to technical and/or user documentation of complex products as well as complex administrative documents. Such documents are often akin to STM or scholarly publications edited by traditional trade or scholarly publishers but, often, the sheer quantity and complexity of production, as well as confidentiality requirements, mean that the production are done in-house. In many respects major corporations such as IBM, Intel, Renault, or Boeing, or institutions like the European Commission, the FAO, or the UNESCO have become specialized publishers themselves.</p>
-
-        <p>The quantity of documentation makes it infeasible to produce these documents in print (or print-only); instead, publishing them on the public Web, an Intranet, and/or providing them through specialized mobile devices is the viable alternative. The production of these documents has similar challenges to scholarly publications like accessibility issues, portability of annotations, or the possible inclusion of complex media.</p>
-
-        <p>Just as for scientific publications, Portable Web Publications will provide new possibilities for these types of documents. Documentation in Portable Web Publications can be used offline in, for example, a cockpit, while being easily updated through the Web when possible. Inclusion of interactive animation, explanations, etc., become easy thanks to the possibilities provided by the Open Web Platform, whether online or offline.</p>
-      </section>
-
-      <section>
-        <h3>Reading System developers</h3>
-
-        <p>Reading system developers will also benefit. It is already true today that, due to the large scale use of the Open Web Platform technologies in publishing formats, reading systems often rely on existing Web browser “cores”. This means that the development of these reading systems already benefit from a level of synergy insofar as they can rely on software developments done elsewhere. Making Portable Web Publications “native” to browsers will mean that an even larger percentage of the necessary software will be available as part of the “core” and developers can concentrate on book-specific issues such as specialized user interfaces or connection to online bookstores.</p>
-
-        <p>But the main advantage of Portable Web Publications for reading systems is a vastly larger user base. Whilst, today, reading systems are mainly used to read traditional novels, the introduction of Portable Web Publications will open up new possibilities for, e.g., scholarly and educational use, journals and magazines, governmental usage, etc.</p>
-      </section>
-
-      <section>
-        <h3>Web page designers</h3>
-
-        <p>The synergy between the traditional publishing community and the Web site designers may help in greatly improving the quality of overall Web page design. Indeed, the publishing community has significant experience on issues like ergonomy, complex layout design, paged layout, or user interface problems when consuming, for example, long, elaborate, and mostly linear content. Publishers also have an experience in a proper editorial and curatorial workflow in producing content, which can be easily transposed from traditional publishing to Web site production. </p>
-
-        <p>Another aspect of Web page design is its adaption to various environments easily. Creating documents on the Web that could be uncompromisingly displayed both on traditional screens and on mobile devices with varying screen sizes is already a growing trend today; with Portable Web Publications, users will be able to create digitally native documents easily, whether the document is viewed online or offline.</p>
-      </section>
-
-      <section>
-        <h3>Web browsers</h3>
-
-        <p>Generation of an offline version of a Web page (mainly in terms of very long and complex content) is an area where browsers will benefit from Portable Web Publications. Such a facility is important: when roaming charging are often high, or when internet access may be of a low quality or not available at all, users need the possibility to create, in an ad-hoc and easy manner, an offline version of the Web page they are reading. Several browsers offer such facilities already, albeit in mutually incompatible formats. Making Portable Web Publications native to a browser means to standardize an archive format that can be used through a suitable user interface by anyone using a browser. Also, some of the facilities required by reading systems are also extremely useful for “traditional” Web content; annotation facilities are an obvious example. A joint development will therefore provide a welcome addition to the core browser facilities.</p>
-
-        <p>It must be emphasized, however, that Portable Web Publications are not meant to create an offline version of <em>any</em> Web page; the emphasis is on Web <em>publications</em> and not to, so to say, duplicate the Web. For example, it is not the goal of Portable Web Publications to store the page of a Web-based email client. The exact boundaries and limitations are specified in a separate section <a href="#terminology"></a>.</p>
-
-        <p>Note that, technically, the inclusion of Portable Web Publication capabilities in browsers is a matter of enhancement rather than addition of completely new capabilities: because Portable Web Publications documents are based on core Web Technologies, the “extras” to make them a native feature of the Web is limited to a smaller set of tasks like handling packages, dealing with features like reading order, dynamic pagination, and displaying tables of contents. An important goal of Portable Web Publications will be to further streamline these tasks, all while making sure it is feasible to include Portable Web Publications content handling even in mobile environments, where the computing and memory limits are more demanding.</p>
-      </section>
-
-      <section>
-        <h3>Libraries and archival services</h3>
-
-        <p>The archiving of digital assets is coming to the fore as a significant issue for dedicated institutions like national libraries. With the arrival of highly dynamic and possibly interactive Web Publications as primary content, the traditional means of archiving (i.e., storing an XML or HTML page on some backup device for long term preservation) is no longer adequate. Web Publications depend on a multitude of auxiliary files, like CSS style sheets, images, videos, javascript programs, etc. The completeness of a Portable Web Publication has a significant role to play in this respect: combined with archiving it provides means to store the content offline, making it appropriate for archival purposes. </p>
-      </section>
-
-      <section>
-        <h3>Financial Reporting</h3>
-          <p>The domain of financial reporting is increasingly making use of dynamic and interactive content for reports published on the Web, but in order to meet legal, audit, and market requirements it is important to be able to identify a specific, unchanging version of the document, including all auxilliary files that are referenced.</p>
-
-          <p>For example, financial reports must often be submitted to tax authorities, company registrars, stock exchanges, securities regulators, and other institutions, and it is critical to be able to identify the specific version that was filed, and to ensure that the document is not subsequently altered, including through changes to any external files that it references. Similarly, an auditor will give an opinion on a financial document, and it is important to be able to identify the exact version that was audited. These documents should be available both offline and online.</p>
-
-          <p>A Portable Web Publication could play a very useful role in providing a single artefact that encapsulates the report, and can be used as part of these processes together with suitable digital signing and non-repudiation mechanisms.</p>
-      </section>
-
-      <section>
-        <h3>Users</h3>
-
-        <p>Users will benefit, arguably the most, from a convergence of efforts between Portable Web Publications and other uses of Web technologies. Users will have the choice among different reading systems for the same content, ranging from specialized devices to traditional Web Browsers. Beyond the overall qualities of the reading environment the choice can also be made based on the content and usage: whereas a specialized device would work well for reading a novel on the beach, a Web browser or a high-end tablet may be preferred to consume highly interactive educational content in a class room. Publishers do not have to make this decision: users can do that. The same content can also smoothly migrate from one device or system to another, possibly carrying notes, annotations, but also the possibility to fill interactive Web forms offline (and “pushing” the results to its destination when on line again). Features for people with disabilities will also be provided consistently, whether the content is a portable document or a Web page. </p>
-      </section>
-    </section>
 
     <section id="terminology">
       <h2>Terminology</h2>
@@ -526,7 +460,7 @@
 
         <figure style="text-align: center;" id="workers_package">
           <img src="figures/Workers-package.png" alt="A laptop computer gaining access to the packaged publication from a web browser connecting to a Server via service workers.">
-          <figcaption>Accessing a <a>Portable Web Publication</a> in <a>packed</a> state from the Web via a Service Worker. (Picture is available directly <a href="figures/Workers-package.svg">SVG</a> or <a href="figures/Workers-package.png">PNG</a> formats.)</figcaption>
+          <figcaption>Accessing a <a>Portable Web Publication</a> in <a>packed</a> state from the Web via a PWP Processor. (Picture is available directly <a href="figures/Workers-package.svg">SVG</a> or <a href="figures/Workers-package.png">PNG</a> formats.)</figcaption>
         </figure>
 
         <p class="note">This architecture needs some special care when handling a <a>Portable Web Publication</a> on a local file system. This is because Service Workers operate using the <code>HTTPS</code> (or <code>HTTP</code> for <code>localhost</code>) protocol only, i.e., the <code>file:///</code> protocol is not understood. A possible approach, already implemented in some experimental code, is to start up a local HTTP server serving the resources within the <a>Web Publication</a>. See also <a href="https://github.com/w3c/dpub-pwp/issues/11">Issue 11</a>.</p>
