@@ -315,7 +315,7 @@
   <body>
     <section id="abstract">
         <blockquote class="quote"><p>“A book is a discrete collection of text (and other media), that is designed by an author(s) as an internally complete representation of an idea, or set of ideas; emotion or set of emotions; and transmitted to readers in various formats.”</p>
-        <p class="author">Hugh McGuire, W3C Track on Digital Publishing at the WWW2016 Conference, April 2016</blockquote>
+        <p class="author">Hugh McGuire, <a href="https://medium.com/@hughmcguire/what-books-can-learn-from-the-web-what-the-web-can-learn-from-books-64670171908f#.482p2ksyi">Medium, April 2016</a></blockquote>
 
       <p>This document introduces Portable Web Publications, a vision for the future of digital publishing that is based on a fully native representation of documents within the Open Web Platform. Portable Web Publications achieve full convergence between online and offline/portable document publishing: publishers and users won't need to choose one or the other, but can switch between them dynamically, at will. Authors can concentrate on the way they intend to transmit their ideas and emotions, without having to deal with the specificities of a particular format.
       </p>
@@ -336,7 +336,7 @@
     </section>
 
     <figure id="pwp_figure" >
-      <img src="figures/pwp.svg" alt="Image showing a laptop accessing unpackaged multiple files for online use.  With same content packaged for use on a mobile cellphone.">
+      <img src="figures/pwp.svg" alt="Image showing a laptop accessing unpackaged multiple files for online use.  With same content packaged for use on a mobile cellphone." style="width:80%">
       <figcaption>The same content can be turned into an archived file and back without any inherent changes to the core content or associated digital assets. (Picture is available directly <a href="figures/pwp.svg">SVG</a> or <a href="figures/pwp.png">PNG</a> formats.)</figcaption>
     </figure>
 
@@ -393,7 +393,7 @@
 
         <p class="note">See the separate section <a href="#identification"></a> for further details on addressing <a>Web Publications</a>.</p>
 
-        <p id="pwp_content"><a data-lt="Web Resource">Web Resources</a> in a <a data-lt="Portable Web Publication">(Portable) Web Publication</a> are based on the core <a href="https://www.w3.org/wiki/Open_Web_Platform">Open Web Platform</a> technologies like [[html5]], [[svg]], [[css21]] and CSS3 modules, or [[ECMAScript]] API-s. A <a>Web Publication</a> may also include images, audio and video, metadata files, executable code in, for example, <a href="http://ipython.org/">iPython</a> or <a href="http://www.maplesoft.com/products/maple/">Maple</a> scripts, or datafiles in [[CSV]]: <a data-lt="Web Resource">Web Resources</a> that are needed to render the <a>essential content</a> of the publication.</p>
+        <p id="pwp_content"><a data-lt="Web Resource">Web Resources</a> in a <a data-lt="Portable Web Publication">(Portable) Web Publication</a> are based on core <a href="https://www.w3.org/wiki/Open_Web_Platform">Open Web Platform</a> technologies like [[html5]], [[svg]], [[css21]] and CSS3 modules, or [[ECMAScript]] API-s. A <a>Web Publication</a> may also include images, audio and video, metadata files, executable code in, for example, <a href="http://ipython.org/">iPython</a> or <a href="http://www.maplesoft.com/products/maple/">Maple</a> scripts, or datafiles in [[CSV]]: <a data-lt="Web Resource">Web Resources</a> that are needed to render the <a>essential content</a> of the publication.</p>
 
         <p>The differences between the distinguishing characteristics of <a>Web Publications</a> and <a data-lt="Portable Web Publication"><span style="text-decoration:underline">Portable</span> Web Publications</a> can be viewed as situational and gradual rather than as representative of bright-line distinctions. Consider the following example:</p>
 
@@ -402,14 +402,12 @@
         </aside>
 
         <p class="note">The concepts of <a>content</a>, <a>essential content</a>, and <a>functionality</a> have been taken over from the W3C Web Content Accessibility Guidelines[[WCAG20]], thought slightly modified for this context.</p>
-
-        <div class="issue" data-number="11">The reference to the File URI Scheme[[file-uri-scheme]] may be removed in future.</div>
       </section>
 
       <section id="state_definition">
         <h3>States of a Portable Web Publication</h3>
 
-        <p>The <dfn data-lt="state">states</a> of a <a>Portable Web Publication</a> can be separated into two different axes. These different states require a different behavior from the user agent, while some of the characteristics of the publication may be invariant across states. The different states are as follows:</p>
+        <p>The <dfn data-lt="state">states</dfn> of a <a>Portable Web Publication</a> can be separated into two different axes. These different states require a different behavior from the user agent, while some of the characteristics of the publication may be invariant across states. The different states are as follows:</p>
 
         <ol class="definition">
           <li><strong>States related to the organization of the <a data-lt="Web Resource">Web Resources</a></strong>: A <a>Portable Web Publication</a> is in
@@ -487,15 +485,15 @@
       <section>
           <h2>Miscellaneous Terms</h2>
           <ul class="definition">
-              <li>A <dfn>reading system</dfn> has the responsibility of the rendering the contents of a <a>Portable Web Publication</a>.</li>
+              <li>A <dfn>rendering engine</dfn> has the responsibility of the rendering the contents of a <a>Portable Web Publication</a>. This is, typically, the core rendering engine of a traditional Web Browser, or a dedicated rendering subsystem of a Reading System</li>
 
-              <li>A <dfn>PWP processor</dfn> is a piece of functionality that has the responsibility of interpreting the specificities of a <a>Portable Web Publication</a>, including mapping <a data-lt="locator">locators</a>, handling a <a>packed</a> state, etc. On a conceptual level the <a>PWP processor</a> ensures that the <a>reading system</a> can consider the content of a <a>Portable Web Publication</a> as if all its resources were available via the <a>canonical locator</a> of the <a>PWP</a> online.
+              <li>A <dfn>PWP processor</dfn> is a piece of functionality that has the responsibility of interpreting the specificities of a <a>Portable Web Publication</a>, including mapping <a data-lt="locator">locators</a>, handling a <a>packed</a> state, etc. On a conceptual level the <a>PWP processor</a> ensures that the <a>rendering engine</a> can consider the content of a <a>Portable Web Publication</a> as if all its resources were available via the <a>canonical locator</a> of the <a>PWP</a> online.
               </li>
 
               <li>
-                  The <dfn>server</dfn> has the responsibility of serving the <a data-lt="Portable Web Publication">PWP-s</a> in their different states. As such, the is <a>server</a> always aware of all possible published states of the <a>PWP</a>.
+                  The <dfn>server</dfn> has the responsibility of serving the <a data-lt="Portable Web Publication">PWP-s</a> in their different states. As such, the <a>server</a> is always aware of all possible published states of the <a>PWP</a>.
 
-                  <p class='note'>A server can be configured in multiple ways to serve the various states of a <a data-lt="Portable Web Publication">PWP</a>, possibly respond to content negotations, etc. This specification does not require any particular configuration.
+                  <p class='note'>A server can be configured in multiple ways to serve the various <a>states</a> of a <a>PWP</a>, e.g., possibly respond to content negotations. This specification does not rely any particular configuration.
                   </p>
               </li>
           </ul>
@@ -524,42 +522,43 @@
     </section>
 
     <section>
-      <h2>Achieving convergence: work areas</h2>
+      <h2>Achieving convergence: technical challenges and draft approaches</h2>
 
-      <p>This section lists some of the work areas that activities around <a>Portable Web Publications</a> should engage in. The list is not exhaustive and there are only hints at the technical solutions; one of the main goals of the work ahead will be to clarify the requirements and technical details. It must be emphasized that the solutions to these problems may not come exclusively from W3C, but possibly from other, external organizations (document identification is a typical example).</p>
+      <p>This section lists some of the work areas that activities around <a>Portable Web Publications</a> should engage in. The list is not exhaustive and there are only hints at the technical solutions without claiming to be complete and tested for validity. It must also be emphasized that some of solutions to the problems listed below may not come from W3C, but possibly from other, external organizations (document identification is a typical example).</p>
+
+      <p>The <a href="#terminology"></a> section provides a conceptual framework for the technical discussion. The most important definition is the one of <a>Portable Web Publications</a>: the fact that a PWP, i.e., a single Web reference, identifies a <em>collection</em> of  <a data-lt="Web Resource">Web Resources</a> that conveys the “boundedness” which characterizes a publication (e.g. a book or an article). All technical issues in this section are, fundamentally, around the question on how this boundedness should co-exist with the opennes of the Web in general.
+      </p>
+
+      <figure id="pwp_one_url" >
+        <img src="figures/PWP-oneURL.svg" alt="Image showing a collection of resources, surrounded by a dotted line, and an arrow pointing at that dotted line" style="width:60%">
+        <figcaption>A <a>PWP</a> represents a <em>collection</em> of <a data-lt="Web Resource">Web Resources</a> that together form a publication, rather than the individual resources. (Picture is available directly in <a href="figures/PWP-oneURL.svg">SVG</a> or <a href="figures/PWP-oneURL.png">PNG</a> formats.)</figcaption>
+      </figure>
 
       <section id="arch">
-        <h3>General Architecture for Portable Web Publications</h3>
+        <h3>General Architecture for Portable Web Publications: PWP Processors</h3>
 
-        <p id="sworkers">The latest evolution of browser technologies around Web Workers[[web-workers]] and Service Workers[[service-workers]] may fundamentally change the way browsers operate in terms of offline/online. Service Workers will provide a flexible and programmable way to efficiently implement local caching of <a data-lt="Web Resource">Web Resources</a>. Caching is implemented as a programmable network proxy, meaning that the browser’s rendering engine becomes oblivious to whether a resource originates from the local cache or directly from the network. </p>
+        <p>The role of a <a>PWP Processor</a> is to shield the specificities of handling a PWP from the <a>rendering engine</a>. This <a>rendering engine</a>, typically the core rendering part of a browser, should consider that all content it renders, or it needs for rendering (e.g., CSS or font files) are retrived from the Web via, typically, HTTP(S) as separate resources. To use the terminology in <a href="#state_definition"></a>, <strong>the <a>rendering engine</a> may consider each PWP as being in an <a>unpacked</a> and <a>protocol</a> state, with all resources available.</strong> A <a>PWP Processor</a> makes it possible to bring <a>Portable Web Publications</a> under the same abstraction as a <a>Web Resource</a> identified by a URL. </p>
 
-        <p>This evolution makes it possible to bring <a>Portable Web Publications</a> under the same abstraction as a <a>Web Resource</a> identified by a URL. A specialized service worker can cache resources, i.e., can bridge the differences between the offline and online access of a document. Furthermore, by adding additional functionalities to the service worker, it can also deal with possible (un)packaging as well as bridging the differences between <a>protocol</a> and <a>file</a> states. In other words, the core rendering engine of a user agent can operate <strong>as if the <a>Portable Web Publication</a> was in <a>unpacked</a> and <a>protocol</a> states, with all resources available</strong>; the differences are handled by the service worker acting as a proxy.</p>
+        <p>The separation of a <a>PWP Processor</a> from the <a>rendering engine</a> helps to identify the PWP-specific features. To achieve this, a <a>PWP Processor</a> have to achieve several tasks:
+        </p>
+
+        <ul>
+            <li>Provide some sort of a local storage, or cache, of the PWP content. Alternatively, it has to have a direct access to content of a PWP if this latter is in a <a>file state</a>. To achieve this, the processor has to catch the HTTP(S) requests stemming from the <a>rendering engine</a> and has to, possibly, serve the content from its cache or the file. In other words, the <a>PWP Processor</a> has to act as a network proxy.</li>
+            <li>Take care, if necessary, of unpacking the content of a PWP on the fly if this latter is in a <a>packed state</a>. This, combined with a local cache, means that the <a>rendering engine</a> is oblivious to the <a>state</a> of the PWP.</a></li>
+            <li>Take care of the conversion of <a data-lt="locator">locators</a> to the consituent resources of a PWP, possibly convert from locators provide via <a>state locators</a> or a <a>canonical locator</a>: the differences among these different locators should become transparent to the <a>rendering engine</a>.
+        </ul>
 
         <figure style="text-align: center;" id="workers_basic">
-          <img src="figures/Workers-basic.png" alt="A laptop computer gaining access to the unpackaged publication from a web browser connecting to a Server with HTTP requests.">
+          <img src="figures/Workers-basic.png" alt="A laptop computer gaining access to the unpackaged publication from a web browser connecting to a Server with HTTP requests." style="width:80%">
           <figcaption>Accessing a <a>Portable Web Publication</a> in an <a>unpacked</a> state directly from the Web. (Picture is available directly <a href="figures/Workers-basic.svg">SVG</a> or <a href="figures/Workers-basic.png">PNG</a> formats.)</figcaption>
         </figure>
 
         <figure style="text-align: center;" id="workers_package">
-          <img src="figures/Workers-package.png" alt="A laptop computer gaining access to the packaged publication from a web browser connecting to a Server via service workers.">
+          <img src="figures/Workers-package.png" alt="A laptop computer gaining access to the packaged publication from a web browser connecting to a Server via service workers." style="width:80%">
           <figcaption>Accessing a <a>Portable Web Publication</a> in <a>packed</a> state from the Web via a PWP Processor. (Picture is available directly <a href="figures/Workers-package.svg">SVG</a> or <a href="figures/Workers-package.png">PNG</a> formats.)</figcaption>
         </figure>
 
-        <p class="note">This architecture needs some special care when handling a <a>Portable Web Publication</a> on a local file system. This is because Service Workers operate using the <code>HTTPS</code> (or <code>HTTP</code> for <code>localhost</code>) protocol only, i.e., the <code>file:///</code> protocol is not understood. A possible approach, already implemented in some experimental code, is to start up a local HTTP server serving the resources within the <a>Web Publication</a>. See also <a href="https://github.com/w3c/dpub-pwp/issues/11">Issue 11</a>.</p>
-      </section>
-
-      <section id="package">
-        <h4>Archive formats</h4>
-
-        <p>Regardless of the details of the practical architecture realizing <a>Portable Web Publications</a>, an archive format is necessary for the storage of a publication as one file (e.g., for distribution or possibly archiving) defined as the <a>packed</a> state of a <a>Portable Web Publication</a>. A variety of formats for offline/archival storage of collections of digital resources exist today [[OCF]], [[ODF]], [[OOXML]], but none of them is universally recognized and supported across all ecosystems. Depending on the general architecture, <a>Portable Web Publications</a> may use one of the deployed formats (e.g., the current EPUB packaging format based on [[OCF]]), or an archive format that is generic and native to the Open Web Platform. </p>
-
-        <p>W3C’s <a href="http://www.w3.org/WebPlatform/WG/">Web Platform Working Group</a> has published a Working Draft for a Streamable Package Format for the Web[[web-packaging]] to encompass the needs of various applications (like installing Web Applications or downloading data for local processing). It is not clear at this moment whether browsers will adopt this format, though. </p>
-
-        <p>However, the importance of streaming is not paramount for <a>Portable Web Publications</a>. Indeed, the same publication may be accessed by the same user from different clients; if some user-dependent management also keeps track of the latest reading position in the publication, switching from one client to the other may mean that a client would have to “jump” <em>into</em> the content, thereby bypassing streaming. Nevertheless, if browsers, eventually, do converge towards a browser and streaming friendly packaging format, adopting it for <a>Portable Web Publications</a> may become a real alternative. The community will have to balance native browser availability against the the wide availibility of tooling and industry distribution based on [[OCF]].</p>
-
-        <div class="note">
-          <p>The IETF has published an <a href="https://tools.ietf.org/html/draft-seantek-kerwin-arcmedia-type-01">informational draft on a top-level media type for archives</a>. Although that draft does not specify a specific archive format, and the work is currently on hold, it shows the overall interest in packaging on the Web in line with the concerns of <a>Portable Web Publications</a>.</p>
-        </div>
+        <p id="sworkers" class="note">The latest evolution of browser technologies around Web Workers[[web-workers]] and Service Workers[[service-workers]] make the development of a <a>PWP Processor</a> feasible. Service Workers will provide a flexible and programmable way to efficiently implement local caching of <a data-lt="Web Resource">Web Resources</a>. Caching is implemented as a programmable network proxy, meaning that the browser’s rendering engine becomes oblivious to whether a resource originates from the local cache or directly from the network: these are indeed some of the basic functionalities a <a>PWP Processor</a> must provide.  </p>
       </section>
 
       <section id="manifest">
@@ -633,6 +632,20 @@
         <p>While not contradicting the obvious use cases for out-of-line metadata records as used by publishers, retailers and libraries, <a>Portable Web Publications</a> must define a syntax for basic in-line metadata records that is agnostic to the publication’s states. This means that the syntax must seamlessly support discovery and harvesting by both generic Web search engines, as well as dedicated bibliographic/archival/retailer systems. While it is expected that <a>Portable Web Publications</a> will define a minimal set of required metadata (cf. the section <a href="#identification"></a>), development and adoption of other vocabularies in <a>Portable Web Publications</a> will most likely be deemed as out of scope. In other words, domain-specific metadata requirements are up to the domains themselves to define via a profiling mechanism, or similar yet-to-be-defined means. </p>
 
         <p class="note">The adoption of HTML as the vehicle for expressing publication-level metadata (i.e., using RDFa[[html-rdfa]] and/or Microdata[[microdata]] for metadata, like authors or title) would have the added benefits of better I18N support than XML or JSON formats.</p>
+      </section>
+
+      <section id="package">
+        <h4>Archive formats</h4>
+
+        <p>Regardless of the details of the practical architecture realizing <a>Portable Web Publications</a>, an archive format is necessary for the storage of a publication as one file (e.g., for distribution or possibly archiving) defined as the <a>packed</a> state of a <a>Portable Web Publication</a>. A variety of formats for offline/archival storage of collections of digital resources exist today [[OCF]], [[ODF]], [[OOXML]], but none of them is universally recognized and supported across all ecosystems. Depending on the general architecture, <a>Portable Web Publications</a> may use one of the deployed formats (e.g., the current EPUB packaging format based on [[OCF]]), or an archive format that is generic and native to the Open Web Platform. </p>
+
+        <p>W3C’s <a href="http://www.w3.org/WebPlatform/WG/">Web Platform Working Group</a> has published a Working Draft for a Streamable Package Format for the Web[[web-packaging]] to encompass the needs of various applications (like installing Web Applications or downloading data for local processing). It is not clear at this moment whether browsers will adopt this format, though. </p>
+
+        <p>However, the importance of streaming is not paramount for <a>Portable Web Publications</a>. Indeed, the same publication may be accessed by the same user from different clients; if some user-dependent management also keeps track of the latest reading position in the publication, switching from one client to the other may mean that a client would have to “jump” <em>into</em> the content, thereby bypassing streaming. Nevertheless, if browsers, eventually, do converge towards a browser and streaming friendly packaging format, adopting it for <a>Portable Web Publications</a> may become a real alternative. The community will have to balance native browser availability against the the wide availibility of tooling and industry distribution based on [[OCF]].</p>
+
+        <div class="note">
+          <p>The IETF has published an <a href="https://tools.ietf.org/html/draft-seantek-kerwin-arcmedia-type-01">informational draft on a top-level media type for archives</a>. Although that draft does not specify a specific archive format, and the work is currently on hold, it shows the overall interest in packaging on the Web in line with the concerns of <a>Portable Web Publications</a>.</p>
+        </div>
       </section>
 
       <section id="styling">
