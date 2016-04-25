@@ -447,14 +447,16 @@
           </tbody>
         </table>
 
-        <p class="note">The difference between <a>protocol</a> and <a>file</a> states is not identical, although close, to the difference between the commonly used notions of “online” vs. “offline”. A PWP can be on a local disc but accessed through a Web Server running on that machine (i.e., through a <code>http://localhost</code> URL): the PWP is in a <a>protocol</a> state, though clearly “offline”. Similarly, a remote file system can be mounted as a local disc, in which case a PWP can be accessed as a file, i.e., is in a <a>file</a> state, though possibly “online”. </p>
+        <aside class="note">The difference between <a>protocol</a> and <a>file</a> states is not identical, although close, to the difference between the commonly used notions of “online” vs. “offline”. A PWP can be on a local disc but accessed through a Web Server running on that machine (i.e., through a <code>http://localhost</code> URL): the PWP is in a <a>protocol</a> state, though clearly “offline”. Similarly, a remote file system can be mounted as a local disc, in which case a PWP can be accessed as a file, i.e., is in a <a>file</a> state, though possibly “online”. </aside>
       </section>
 
       <section id="locator_definitions">
           <h2>Locators</h2>
-          <p>The term “locator” is used to denote a URI addressing a <a>Web Resource</a>. More specifically, in the context of <a>Portable Web Publications</a>:</p>
+          <p>The term “locator” is used to denote a URI addressing a <a>Web Resource</a>. More specifically, in the context of <a>Portable Web Publications</a>, the following definitions hold:</p>
 
           <ul class="definition">
+              <li>An <dfn>identifier</dfn> is a string that uniquely identifies a <a>Portable Web Publication</a>. An identifier may be a string, a number, a URI, etc.; for the purpose of this document there are no restrictions although, on the Web, a URI is the preferred format. What exactly <em>is</em> identified (a work, like Shakespeare’s Hamlet, or a particular instance of that work in a particular library) is not addressed in this document and is left to specialized organizations.</li>
+
               <li>The (PWP) <dfn>server</dfn> has the responsibility of serving the <a data-lt="Portable Web Publication">PWP-s</a> in their different states. As such, the <a>server</a> is always aware of all possible published states of the <a>PWP</a>.
 
                 <p class='note'>A server can be configured in multiple ways to serve the various <a>states</a> of a <a>PWP</a>, e.g., possibly respond to content negotations. This specification does not rely any particular configuration.</p>
@@ -485,6 +487,8 @@
                   </p>
               </li>
           </ul>
+
+          <p>See the section <a href='#identification'></a> for further details on locators and identification.</p>
       </section>
 
       <section>
@@ -495,6 +499,10 @@
               <li>A <dfn>PWP processor</dfn> is a piece of functionality that has the responsibility of interpreting the specificities of a <a>Portable Web Publication</a>, including mapping <a data-lt="locator">locators</a>, handling a <a>packed</a> state, etc. On a conceptual level the <a>PWP processor</a> ensures that the <a>rendering engine</a> can consider the content of a <a>Portable Web Publication</a> as if all its resources were available via the <a>canonical locator</a> of the <a>PWP</a> online.
               </li>
           </ul>
+
+          <p>See the sections <a href="#arch"></a> and <a href="#locator-pwp-func"></a> for further details on PWP Processors</p>
+
+          </p>
       </section>
 
       <section id="manifest_definitions">
@@ -517,6 +525,7 @@
                   </ul>
               </li>
           </ul>
+          <p>See <a href="#manifest-details"></a> for further details on manifests.</p>
       </section>
     </section>
 
