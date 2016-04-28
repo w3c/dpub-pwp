@@ -24,6 +24,9 @@ blockquote.quote p.author {
   text-align: justify;
 }
 
+.extra-em {
+    text-decoration: underline;
+}
 /* Table zebra style... */
 table.zebra {
   font-size:inherit;

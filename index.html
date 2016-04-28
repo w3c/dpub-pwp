@@ -190,7 +190,7 @@
           // subtitle   :  "White Paper",
 
           // if you wish the publication date to be other than the last modification, set this
-          // publishDate:  "2015-06-30",
+          // publishDate:  "2016-04-28",
 
           // if the specification's copyright date is a range of years, specify
           // the start date here:
@@ -293,12 +293,12 @@
             }
            ],
 
-          alternateFormats: [
-            {
-              uri: "pwp.epub",
-              label: "ePub"
-            }
-          ],
+        //   alternateFormats: [
+        //     {
+        //       uri: "pwp.epub",
+        //       label: "ePub"
+        //     }
+        //   ],
 
           charterDisclosureURI : "http://www.w3.org/2004/01/pp-impl/64149/status",
 
@@ -331,7 +331,7 @@
       <p class="vision">Our vision for <a>Portable Web Publications</a> is to define a class of documents on the Web that would be part of the Digital Publishing ecosystem but would also be fully native citizens of the <a href="https://www.w3.org/wiki/Open_Web_Platform">Open Web Platform</a>.  In this vision, the current format- and workflow-level separation between offline/portable and online (Web) document publishing is diminished to zero. These are merely two dynamic manifestations of the same publication: content authored with online use as the primary mode can easily be saved by the user for offline reading in portable document form. Content authored primarily for use as a portable document can be put online, without any need for refactoring the content. Publishers can choose to utilize either or both of these publishing modes, and users can choose either or both of these consumption modes. Essential features flow seamlessly between online and offline modes; examples include cross-references, user annotations, access to online databases, as well as licensing and rights management.
       </p>
 
-      <p>A more precise technical definition of <a>Portable Web Publications</a> is provided in the section <a href='#pwp_definition'></a>. For the sake of this introduction, suffices to say that a <a>Portable Web Publication</a> is a collection of content items (e.g. pages, chapters, modules, articles) whose content is compatible with Web usage, and structured as a single, self-contained logical unit. Individual items can consist of text, images, graphics, possibly interactive mathematical or chemical formulae, as well as audio and video. These documents, by definition, have a default, linear “reading order”, however the user may choose to skip around in the content just as with a book on paper; alternatively, interactive aspects of the content may alter the reading order on behalf of the user.
+      <p>A more precise technical definition of <a>Portable Web Publications</a> is provided in the section <a href='#pwp_definition'></a>. For the sake of this introduction, suffices to say that a <a>Portable Web Publication</a> is a collection of resources (e.g. pages, chapters, modules, articles) whose content is compatible with Web usage, and structured as a single, self-contained logical unit. Individual items can consist of text, images, graphics, possibly interactive mathematical or chemical formulae, as well as audio and video. These documents, by definition, have a default, linear “reading order”, however the user may choose to skip around in the content just as with a book on paper; alternatively, interactive aspects of the content may alter the reading order on behalf of the user.
       </p>
     </section>
 
@@ -351,7 +351,7 @@
       <p>In many respects, the convergence is already happening. In a number of areas (e.g., educational publications, travel books, etc.) publishers already exploit the advanced possibilities of packaged publishing formats to produce highly interactive documents whose features are very close to what one is used to on the Web (see the separate section <a href="#epub-relations"></a> for some examples). And the converse is also true: tutorial and introductory articles have appeared on the Web that have the quality of traditional publications that one was used to seeing in a scientific magazine, but combined with the interactive possibilities of the Web (<a href="http://bost.ocks.org/mike/algorithms/">Mike Bostock’s article on visualizing algorithms</a> or <a href="http://worrydream.com/LadderOfAbstraction/">Bret Victor’s article on visualization</a> are just two of several possible examples). However, the convergence still has a long way to go, and this is the topic that this document, and the concept of <a>Portable Web Publications</a>, aim to explore.
       </p>
 
-      <p>A companion document&nbsp;[[dpub-pwp-ucr]] collects a set of more detailed use cases and requirements for <a>Portable Web Publications</a>. The present document concentrates on the technical challenges to achieve this vision, and provides some technical directions addressing those challenges. None of the the technical solutions should be considered final; a more detailed and rigoruous specification should be done by a separate, dedicated Working Group.</p>
+      <p>A companion document&nbsp;[[dpub-pwp-ucr]] collects a set of more detailed use cases and requirements for <a>Portable Web Publications</a>. The present document concentrates on the technical challenges to achieve this vision, and provides some technical directions possibly addressing those challenges. None of the the technical solutions should be considered final; a more detailed and rigoruous specification should be done by a separate, dedicated Working Group.</p>
 
     </section>
 
@@ -455,7 +455,7 @@
           <p>The term “locator” is used to denote a URI addressing a <a>Web Resource</a>. More specifically, in the context of <a>Portable Web Publications</a>, the following definitions hold:</p>
 
           <ul class="definition">
-              <li>An <dfn>identifier</dfn> is a string that uniquely identifies a <a>Portable Web Publication</a>. An identifier may be a string, a number, a URI, etc.; for the purpose of this document there are no restrictions although, on the Web, a URI is the preferred format. What exactly <em>is</em> identified (a work, like Shakespeare’s Hamlet, or a particular instance of that work in a particular library) is not addressed in this document and is left to specialized organizations.</li>
+              <li>An <dfn>identifier</dfn> is a string that uniquely identifies a <a>Portable Web Publication</a>. An identifier may be a generic string, a number, a URI, etc.; for the purpose of this document there are no restrictions although, on the Web, a URI is the preferred format. What exactly <em>is</em> identified (a work, like Shakespeare’s Hamlet, or a particular instance of that work in a particular library) is not addressed in this document and is left to specialized organizations.</li>
 
               <li>The (PWP) <dfn>server</dfn> has the responsibility of serving the <a data-lt="Portable Web Publication">PWP-s</a> in their different states. As such, the <a>server</a> is always aware of all possible published states of the <a>PWP</a>.
 
@@ -472,7 +472,7 @@
 
               <li>An <dfn>absolute locator</dfn> is a combination of a <a>PWP locator</a> and a <a>relative locator</a>.</li>
 
-              <li>The <dfn>canonical locator</dfn> is an absolute, and <a>state</a> independent <a>PWP locator</a>. This is purely conceptual, i.e., the <a>PWP</a> does not have to be published unpacked online. For the purposes of this document, the canonical locator of a PWP is denoted by <strong>L</strong>.
+              <li>The <dfn>canonical locator</dfn> is an absolute, and <a data-lt="state">state independent</a> <a>PWP locator</a>. This is purely conceptual, i.e., the <a>PWP</a> does not have to be published unpacked online, for example. For the purposes of this document, the canonical locator of a PWP is denoted by <strong>L</strong>.
               </li>
 
               <li>A <dfn data-lt="state locator|state locators">state locator</dfn> is a <a>PWP locator</a> that refers to a PWP in a particular <a>state</a>. For the purposes of this document, <strong>L<sub>u</sub></strong> denotes the <a>state locator</a> referring to an <a>unpacked state</a>, whereas <strong>L<sub>p</sub></strong> refers to a <a>state locator</a> referring to a <a>packed state</a>.
@@ -494,9 +494,9 @@
       <section>
           <h2>PWP Processor</h2>
           <ul class="definition">
-              <li>A <dfn>rendering engine</dfn> has the responsibility of the rendering the contents of a <a>Portable Web Publication</a>. This is, typically, the core rendering engine of a traditional Web Browser, or a dedicated rendering subsystem of a Reading System</li>
+              <li>A <dfn>rendering engine</dfn> has the responsibility of the rendering the contents of a <a>Portable Web Publication</a>. This is, typically, the core rendering engine of a traditional Web Browser, or a dedicated rendering subsystem of a Reading System.</li>
 
-              <li>A <dfn>PWP processor</dfn> is a piece of functionality that has the responsibility of interpreting the specificities of a <a>Portable Web Publication</a>, including mapping <a data-lt="locator">locators</a>, handling a <a>packed</a> state, etc. On a conceptual level the <a>PWP processor</a> ensures that the <a>rendering engine</a> can consider the content of a <a>Portable Web Publication</a> as if all its resources were available via the <a>canonical locator</a> of the <a>PWP</a> online.
+              <li>A <dfn>PWP processor</dfn> is a piece of functionality that has the responsibility of interpreting the specificities of a <a>Portable Web Publication</a>, including mapping <a data-lt="locator">locators</a>, handling a <a>packed</a> state, etc. <strong>On a conceptual level the <a>PWP processor</a> ensures that the <a>rendering engine</a> can consider the content of a <a>Portable Web Publication</a> as if all its resources were available via the <a>canonical locator</a> of the <a>PWP</a> online</strong> (i.e., with no packaging involved).
               </li>
           </ul>
 
@@ -511,9 +511,9 @@
               <li>A <dfn data-lt="manifest|manifest file" >manifest (file)</dfn> is a special resource containing fundamental information about a <a>PWP</a>. The serialization syntax and the full content of a manifest is not defined in this document. A media type (see [[rfc6838]]) is also associated with a manifest (or a particular serialization thereof), that can be used when a particular instance is retrieved through standard HTTP(S) protocol.</li>
 
               <li>A <dfn data-lt="manifest item|manifest items">manifest item</dfn> is an information item within the <a>manifest file</a> that can be retrieved by, e.g., a <a>PWP Processor</a>. These may include metadata, information on rendering order and rendition, etc. For the purpose of this document it is important that
-              <a>state locators</a>, as well as the <a data-lt="canonical locator">canonical locators</a> are such manifest items, i.e., they can be part of a <a>manifest</a>.</li>
+              <a>state locators</a>, as well as the <a data-lt="canonical locator">canonical locators</a> can be described as such manifest items, i.e., they can be part of a <a>manifest</a>.</li>
 
-              <li>A <dfn>PWP manifest</dfn> or <dfn>complete manifest</dfn> is a <a>manifest</a> that contains <em>all</em> <a>manifest items</a> that are required by a <a>PWP processor</a>. The complete list of required items are not defined here; for the purpose of this document it suffices to state that the <a>canonical locator</a>, as well as all <a>state locators</a> for all available <a data-lt="state">states</a>, MUST be part of a <a>PWP manifest</a>.</li>
+              <li>A <dfn>PWP manifest</dfn> or <dfn>complete manifest</dfn> is a <a>manifest</a> that contains <em class="extra-em">all</em> <a>manifest items</a> that are required by a <a>PWP processor</a>. The complete list of required items are not defined here; for the purpose of this document it suffices to state that the <a>canonical locator</a>, as well as all <a>state locators</a> for all available <a data-lt="state">states</a>, MUST be part of a <a>PWP manifest</a>.</li>
 
               <li>The <dfn>combination of manifests</dfn>, denoted by the&nbsp;⊕&nbsp;operation (as in <strong>M</strong>&nbsp;=&nbsp;<strong>M<sub>a</sub></strong>&nbsp;⊕&nbsp;<strong>M<sub>b</sub></strong>) is the creation of a new <a>manifest</a>, consisting of <a>manifest items</a> originating from <strong>M<sub>a</sub></strong> and <strong>M<sub>b</sub></strong>.
 
@@ -532,7 +532,7 @@
     <section>
       <h2>Achieving convergence: technical challenges and draft approaches</h2>
 
-      <p>This section lists some of the work areas that activities around <a>Portable Web Publications</a> should engage in. The list is not exhaustive and there are only hints at the technical solutions without claiming to be complete and tested for validity. It must also be emphasized that some of solutions to the problems listed below may not come from W3C, but possibly from other, external organizations (document identification is a typical example).</p>
+      <p>This section considers some of the technical work areas that should be clarified for a more precise and detailed specification of <a>Portable Web Publications</a>. The list is not exhaustive and there are only hints at the technical solutions without claiming to be complete and tested for validity. It must also be emphasized that some of solutions to the problems listed below may not come from W3C, but possibly from other, external organizations (document identification is a typical example).</p>
 
       <p>The <a href="#terminology"></a> section provides a conceptual framework for the technical discussion. The most important definition is the one of <a>Portable Web Publications</a>: the fact that a PWP, i.e., a single Web reference, identifies a <em>collection</em> of  <a data-lt="Web Resource">Web Resources</a> that conveys the “boundedness” which characterizes a publication (e.g. a book or an article). All technical issues in this section are, fundamentally, around the question on how this boundedness should co-exist with the opennes of the Web in general.
       </p>
@@ -547,14 +547,14 @@
 
         <p id="abstraction">The role of a <a>PWP Processor</a> is to shield the specificities of handling a PWP from the <a>rendering engine</a>. This <a>rendering engine</a>, typically the core rendering part of a browser, should consider that all content it renders, or it needs for rendering (e.g., CSS or font files) are retrived from the Web via, typically, HTTP(S) as separate resources. To use the terminology in <a href="#state_definition"></a>, <strong>the <a>rendering engine</a> may consider each PWP as being in an <a>unpacked</a> and <a>protocol</a> state, with all resources available.</strong> A <a>PWP Processor</a> makes it possible to bring <a>Portable Web Publications</a> under the same abstraction as a <a>Web Resource</a> identified by a URL. </p>
 
-        <p>More specifically, a <a>PWP Processor</a> have to achieve several tasks:</p>
+        <p>More specifically, a <a>PWP Processor</a> has to achieve several tasks:</p>
 
         <ul>
             <li>Provide some sort of a local storage, or cache, of the PWP content. Alternatively, it has to have a direct access to content of a PWP if this latter is in a <a>file state</a>. To achieve this, the processor has to catch the HTTP(S) requests stemming from the <a>rendering engine</a> and has to, possibly, serve the content from its cache or the file. In other words, the <a>PWP Processor</a> has to act as a network proxy.</li>
 
             <li>Take care, if necessary, of unpacking the content of a PWP on the fly if this latter is in a <a>packed state</a>. This, combined with a local cache, means that the <a>rendering engine</a> is oblivious to the <a>state</a> of the PWP.</a></li>
 
-            <li>Take care of the conversion of <a data-lt="locator">locators</a> to the consituent resources of a PWP, possibly convert from locators provide via <a>state locators</a> or a <a>canonical locator</a>: the differences among these different locators should become transparent to the <a>rendering engine</a>. See <a href="pwp-processor-loc"></a> for further details.
+            <li>Take care of the conversion of <a data-lt="locator">locators</a> to the consituent resources of a PWP, possibly convert from locators provide via <a>state locators</a> or a <a>canonical locator</a>: the differences among these different locators should become transparent to the <a>rendering engine</a>. See <a href="#locator-pwp-func"></a> for further details.
         </ul>
 
         <figure style="text-align: center;" id="workers_basic">
@@ -567,19 +567,19 @@
           <figcaption>Accessing a <a>Portable Web Publication</a> in <a>packed</a> state from the Web via a PWP Processor. (Picture is available directly <a href="figures/Workers-package.svg">SVG</a> or <a href="figures/Workers-package.png">PNG</a> formats.)</figcaption>
         </figure>
 
-        <p id="sworkers" class="note">The latest evolution of browser technologies around Web Workers[[web-workers]] and Service Workers[[service-workers]] make the development of a <a>PWP Processor</a> feasible. Service Workers will provide a flexible and programmable way to efficiently implement local caching of <a data-lt="Web Resource">Web Resources</a>. Caching is implemented as a programmable network proxy, meaning that the browser’s rendering engine becomes oblivious to whether a resource originates from the local cache or directly from the network: these are indeed some of the basic functionalities a <a>PWP Processor</a> must provide.  </p>
+        <p id="sworkers" class="note">The latest evolution of browser technologies around Web Workers&nbsp;[[web-workers]] and Service Workers&nbsp;[[service-workers]] make the development of a <a>PWP Processor</a> feasible. Service Workers will provide a flexible and programmable way to efficiently implement local caching of <a data-lt="Web Resource">Web Resources</a>. Caching is implemented as a programmable network proxy, meaning that the browser’s rendering engine becomes oblivious to whether a resource originates from the local cache or directly from the network: these are indeed some of the basic functionalities a <a>PWP Processor</a> must provide.  </p>
       </section>
 
       <section id="identification">
         <h3>Addressing and Identification</h3>
 
-        <p>HTTP(S) URLs serve as the fundamental method for addressing a resource, or a fragment thereof, on the Web. Such URLs can also be used to uniquely identify a resource; however, conceptually, <em>the role of addressing and identification are different</em>. <em>Both</em> of these functionalities should be available for <a>Portable Web Publications</a>: a publication should be uniquely identified for, e.g., library catalogues or archival, and a resource locator should be available so that the user could access the content. In other words, a <a>Web Publication</a> (whether portable or not) SHOULD have both one or even possibly several <em>identifier(s)</em> and one <em>locator</em>. These may be be identical but may also be different: e.g., an identifier may refer to a specific publication by a publisher (e.g., using an <a href="https://www.isbn-international.org/">ISBN</a>), whereas the locator may refer to a personal copy of that publication that the owner can freely annotate for personal use.</p>
+        <p>HTTP(S) URLs serve as the fundamental method for addressing a resource, or a fragment thereof, on the Web. Such URLs can also be used to uniquely identify a resource; however, conceptually, <em class="extra-em">the role of addressing and identification are different</em>. <em>Both</em> of these functionalities should be available for <a>Portable Web Publications</a>: a publication should be uniquely identified for, e.g., library catalogues or archival, and a resource locator should be available so that the user could access the content. In other words, a <a>Web Publication</a> (whether portable or not) SHOULD have both one or even possibly several <em>identifier(s)</em> and one <em>locator</em>. These may be be identical but may also be different: e.g., an identifier may refer to a specific publication by a publisher (e.g., using an <a href="https://www.isbn-international.org/">ISBN</a>), whereas the locator may refer to a personal copy of that publication that the owner can freely annotate for personal use.</p>
 
         <p class="note">A typical use case for the presense of an <em>identifier</em> beyond the need for a <em>locator</em> is in academic and scholarly publishing. There are currently several methods for citing online works, but there is no equivalent standard method for citations to ebooks. Even if a reflowable ebook is by a scholar, the author must refer to PDF, paper copy, or HTML version to cite it in her bibliography. Identifiers attached to <a>Portable Web Publications</a> should enable stable citations.</p>
 
-        <p>A general [[URI]] (which includes the notion of [[URL]]) MAY serve as an <em>identifier</em> using, e.g., the [[ISBN-URN]] or [[UUID]] schemes. In other words, an identifier does not necessarily resolves to a location on the Web, although it is a good practice to have a dereferencable identifier.</p>
+        <p>A general [[URI]] (which includes the notion of [[URL]]) MAY serve as an <em>identifier</em> using, e.g., the [[ISBN-URN]] or [[UUID]] schemes. But an identifier does not necessarily resolves to a location on the Web, although it is a good practice to have a dereferencable identifier.</p>
 
-        <p> There is no  ubiquitously accepted method for identifying a publication among the various document formats (whether electronic or printed). Within the scholarly publishing industry, for example, initiatives such as <a href="http://www.doi.org">DOI</a> and <a href="http://crossref.org">CROSSREF</a> have addressed this problem, whereas traditional “trade” publishing rely more on <a href="https://www.isbn-international.org/">ISBN</a> related services. Some of these identifier schemes provide resolver services or a “standard” representation in term of [[URL]]. <em>The definition of <a>Portable Web Publication</a> should be oblivious to the exact identification used; this issue is left to specialized services and industry organizations.</em> Architecturally, the only requirement, regarding identifiers, is that the <a>complete manifest</a> of a  <a>Portable Web Publication</a> MUST include a <a>manifest item</a> for one, or more, identifiers, and that these should be stable across, for example, copying the publication or changing its location on the Web. This document concentrates on addressing only, i.e., on the management of <a data-lt="locator">locator</a>.</p>
+        <p> There is no  ubiquitously accepted method for identifying a publication among the various document formats (whether electronic or printed). Within the scholarly publishing industry, for example, initiatives such as <a href="http://www.doi.org">DOI</a> and <a href="http://crossref.org">CROSSREF</a> have addressed this problem, whereas traditional “trade” publishing rely more on <a href="https://www.isbn-international.org/">ISBN</a> related services. Some of these identifier schemes provide resolver services or a “standard” representation in term of [[URL]]. <em>The definition of <a>Portable Web Publication</a> should be oblivious to the exact identification used; this issue is left to specialized services and industry organizations.</em> Architecturally, the only requirement, regarding identifiers, is that the <a>complete manifest</a> of a  <a>Portable Web Publication</a> MUST include a <a>manifest item</a> for one, or more, identifiers, and that these should be stable across, for example, copying the publication or changing its location on the Web. This document concentrates on addressing only, i.e., on the management of <a data-lt="locator">locators</a>.</p>
 
         <div class="issue" data-number="12">Do we need a more general form of identification to represent fragments?</div>
 
@@ -588,7 +588,7 @@
         <section id="locator-pwp-func">
             <h2>Locators functionalities of PWP Processors</h2>
 
-            <p>A <a>PWP</a> is published on the <a>server</a>. This <a>PWP</a> includes, e.g., the resource for an image, and it is published in at least one of the different states:
+            <p>A <a>PWP</a> is published on the <a>server</a>. This <a>PWP</a> includes, e.g., the resource for an image, and is published in at least one of the different states:
             </p>
 
             <ul>
@@ -613,11 +613,11 @@
                 <li>extract, based on a specific <a>state locator</a>, the exact locators for additional, internal resources</li>
             </ol>
 
-            <p>This functionality is based on the requirement that the <a>complete manifest</a> of a PWP MUST include both the <a>canonical locator</a> as well as all available <a>state locators</a>. Consequently, in order to retrieve the <a>state locators</a>, the PWP must first retrieve the <a>PWP manifest</a> using the <a data-lt="canonical locator">canonical locator</a>. (See the separate section <a href="#manifest"></a> on the details on the retrieval of the <a>complete manifest</a>.) Once the <a>complete manifest</a> is available, the full <a>PWP</a>, or a resource therein, can be retrieved by first deriving the <a>relative locator</a> for a resource (e.g., <code>img/mona_lisa.jpg</code>) and then combining it with the <a>absolute locator</a> corresponding to the <a>state</a> of the PWP as referred to by the <a>rendering engine</a>.</p>
+            <p>This functionality is based on the requirement that the <a>complete manifest</a> of a PWP MUST include both the <a>canonical locator</a> as well as all available <a>state locators</a>. Consequently, in order to retrieve the <a>state locators</a>, the PWP must first retrieve the <a>PWP manifest</a> using the <a data-lt="canonical locator">canonical locator</a>. (See the separate section <a href="#manifest-details"></a> on the details of the <a>complete manifest</a> retrieval.) Once the <a>complete manifest</a> is available a resource within a PWP can be retrieved by first deriving the <a>relative locator</a> for a resource (e.g., <code>img/mona_lisa.jpg</code>) and then combining it with the <a>absolute locator</a> corresponding to the <a>state</a> of the PWP as referred to by the <a>rendering engine</a>.</p>
 
             <p class="note">There may be “smarter” <a data-lt="PWP processor">PWP Processors</a> that make use of local facilities like caching, but those do not modify these conceptual approaches.
 
-            <p class="note">An important feature of the manifest retrieval algorithm is that it defines a priority for the values of the <a>state locators</a> in case they are contained by different manifests. This provides a flexibility to publish copies of <a>PWP</a>-s on the <a>server</a> without the necessity to change, e.g., the <a>packed</a> versions.</p>
+            <p class="note">An important feature of the <a href="#manifest_algorithm">manifest retrieval algorithm</a> is that it defines a priority for the values of the <a>state locators</a> in case they are contained by different manifests. This provides a flexibility to publish copies of <a>PWP</a>-s on the <a>server</a> without the necessity to change, e.g., the <a>packed</a> versions.</p>
 
             </p>
         </section>
@@ -625,20 +625,20 @@
         <section id="breadcrumbs">
             <h2>Breadcrumbs</h2>
 
-            <p>A different problems, related to locators (possibly identifiers) is to record changes when a specific <a>PWP</a> is copied, re-published, etc. Handling this “history” is particularly important if an existing <a>PWP</a> cannot be altered, i.e., it is only possible to create a <em>new</em> <a>PWP</a> that is derived from an existing <a>PWP</a>.</p>
+            <p>A different problem, related to locators (and possibly identifiers) is to record changes when a specific <a>PWP</a> is copied, re-published, etc. Handling this “history” is particularly important if an existing <a>PWP</a> cannot be altered, i.e., it is only possible to create a <em>new</em> <a>PWP</a> that is derived from an existing <a>PWP</a>.</p>
 
             <p>Tha approach that can be taken is to store, in the <a>complete manifest</a> of the PWP, a “breadcrumb”, i.e., a list of (canonical) <a data-lt="locator">locators</a>, and possibly a list of identifiers, as specific <a date-lt="manifest item">manifest items</a>. Because the creation of the <a>complete manifest</a> is based on an algorithm that includes the <a>combination of manifests</a>, a proper <a>server</a> setup may provide such an information even if the original publication cannot be altered. A <a>PWP Processor</a> can make use of this breadcrumb information to reference various instances and addresses of the history of the current <a>PWP</a>.</p>
 
             <div class="note">
-                <p>To take a specific example, let us consider a <a>PWP</a>, denoted as <code>P</code>, with <a>canonical locator</a> <code>L</code>; this is the copy of the publication used by a teacher, to which he/she may have added a number of annotations. Using an ad-hoc syntax, the <a>complete manifest</a> of <code>P</code> contains <code>canonical:&nbsp;L, breadcrumbs:&nbsp;[]</code>.</p>
+                <p>To take a specific example, let us consider a <a>PWP</a>, denoted as <code>P</code> and with <a>canonical locator</a> <code>L</code>. This is the copy of the publication used by a teacher, to which he/she may have added a number of annotations. Using an ad-hoc syntax, the <a>complete manifest</a> of <code>P</code> contains <code>canonical:&nbsp;L, breadcrumbs:&nbsp;[]</code>.</p>
 
-                <p><code>P</code> might be published at the school of the teacher, under <code>https://example.org/course/french/frenchbook</code> (and thus with a different <a>canonical locator</a>, e.g., <code>L'</code>). This is, conceptually, a new <a>PWP</a> (<code>P'</code>), and its <a>manifest</a> contains <code>canonical:&nbsp;L', breadcrumbs:&nbsp;[L]</code>.
+                <p><code>P</code> might be published at the school of the teacher, under <code>https://example.org/course/french/frenchbook</code> (and thus with a different <a>canonical locator</a>, e.g., <code>L'</code>). This is, conceptually, a new <a>PWP</a> (<code>P'</code>), with a <a>manifest</a> that contains <code>canonical:&nbsp;L', breadcrumbs:&nbsp;[L]</code>.
                 </p>
 
-                <p>A student may then again copy <code>P'</code> to her own web space, to make her own annotations, yielding <code>P''</code> under <code>https://example.org/student/1/frenchbook</code> as a locator <code>L''</code>. The manifest of <code>P''</code> will thus contain <code>canonical:&nbsp;L'', breadcrumbs:&nbsp;[L,&nbsp;L']</code>.
+                <p>A student may then again copy <code>P'</code> to her own web space to make her own annotations, yielding <code>P''</code> under <code>https://example.org/student/1/frenchbook</code> as a locator <code>L''</code>. The manifest of <code>P''</code> will thus contain <code>canonical:&nbsp;L'', breadcrumbs:&nbsp;[L,&nbsp;L']</code>.
                 </p>
 
-                <p>References to <code>P</code> or <code>P'</code> might thus be interpreted by a <a>PWP processor</a> for <code>P''</code> to link back to the original <code>L</code> and locate, if necessary, the annotations originally prepared by the teacher.
+                <p>References to <code>P</code> or <code>P'</code> might be interpreted by a <a>PWP processor</a> for <code>P''</code> to, for example, link back to the original <code>L</code> and locate, if necessary, the annotations originally prepared by the teacher.
                 </p>
             </div>
         </section>
@@ -671,7 +671,7 @@
 
             <p class="note">An important consequence of the algorithm is that it defines a priority for the various <a data-lt="manifest item">manifest items</a>, e.g.,the <a>state locators</a>, in case they are contained by different manifests. Especially, locator values retrieved via the response header of the <code>HTTP</code> header have the highest priority.</p>
 
-        <p class="note">The Manifest for web application format[[web-manifest]], currently developed at W3C, is one example of a technology that could potentially be used, or adopted, to define the final formats for PWP manifests. The current [[web-manifest]] drafts is geared towards Web Applications, which may not make it suitable for direct adoption for <a>Portable Web Publications</a>; however, that draft may also include extension points to define different manifests that could be, for example, used for the purpose of Portable Web Publications.
+        <p class="note">The Manifest for web application format&nbsp;[[web-manifest]], currently developed at W3C, is one example of a technology that could potentially be used, or adopted, to define the final formats for PWP manifests. The current&nbsp;[[web-manifest]] drafts is geared towards Web Applications, which may not make it suitable for direct adoption for <a>Portable Web Publications</a>; however, that draft may also include extension points to define different manifests that could be, for example, used to specify further manifest items.
         </p>
 
       </section>
