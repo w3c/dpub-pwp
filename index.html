@@ -81,13 +81,13 @@
                 "status" : "Standard ECMA 376",
                 "publisher": "ECMA"
             },
-    		    "web-manifest": {
-    		        "title": "Manifest for web application",
-    		        "href" : "https://w3c.github.io/manifest/",
-    		        "rawDate": "2015-02-23",
-    		        "status" : "ED",
-    		        "publisher": "W3C"
-    		    },
+		    "web-manifest": {
+		        "title": "Manifest for web application",
+		        "href" : "https://w3c.github.io/manifest/",
+		        "rawDate": "2015-02-23",
+		        "status" : "ED",
+		        "publisher": "W3C"
+		    },
             "web-packaging": {
                 "authors": [
                   "Jeni Tennison"
@@ -106,7 +106,6 @@
                 "rawDate": "2014-01-02",
                 "publisher": "EDItEUR"
             },
-            "Sigarchian" : "Hajar Ghaem Sigarchian et al. <em>EPUB3 for Integrated and Customizable Representation of a Scientific Publication and its Associated Resources</em>. In: Proceedings of the 4th Workshop on Linked Science 2014. URL: <a href='http://linkedscience.org/wp-content/uploads/2014/10/lisc2014_submission_3.pdf'>http://linkedscience.org/wp-content/uploads/2014/10/lisc2014_submission_3.pdf</a>.",
 
             "BigJava" : "Cay Horstmann. <em>Big Java Late Objects</em>, John Wiley &amp; Sons, Inc., 2013",
             "web-workers" : {
@@ -161,6 +160,17 @@
               "rawDate" : "2005-07",
               "status" : "Informational RFC",
               "publisher": "IETF"
+            },
+            "dpub-pwp-ucr" : {
+                "authors" : [
+                    "Heather Flanagan",
+                    "Romain Deltour",
+                    "Dave Cramer"
+                ],
+                "title" : "Portable Web Publications Use Cases and Requirements",
+                "href" : "http://w3c.github.io/dpub-pwp-ucr/",
+                "publisher" : "W3C",
+                "status": "Editors’ Draft"
             }
           },
 
@@ -180,7 +190,7 @@
           // subtitle   :  "White Paper",
 
           // if you wish the publication date to be other than the last modification, set this
-          // publishDate:  "2015-06-30",
+          // publishDate:  "2016-04-28",
 
           // if the specification's copyright date is a range of years, specify
           // the start date here:
@@ -188,8 +198,8 @@
 
           // if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
           // and its maturity status
-          previousPublishDate:  "2015-10-15",
-          previousMaturity:  "FPWD",
+          previousPublishDate:  "2016-03-16",
+          previousMaturity:  "WD",
 
           // if there a publicly available Editor's Draft, this is the link
           edDraftURI:           "http://w3c.github.io/dpub-pwp/",
@@ -201,32 +211,45 @@
           // only "name" is required
           editors:  [
              {
-                  name:       "Markus Gylling"
-              ,   mailto:     "mgylling@idpf.org"
-              ,   company:    "IDPF"
-              ,   companyURL: "http://idpf.org"
-              ,   w3cid:      "21614"
+                      name:       "Markus Gylling"
+                  ,   mailto:     "mgylling@idpf.org"
+                  ,   company:    "IDPF"
+                  ,   companyURL: "http://idpf.org"
+                  ,   w3cid:      "21614"
               },
               {
-                  name:       "Ivan Herman"
-              ,   mailto:     "ivan@w3.org"
-              ,   company:    "W3C"
-              ,   companyURL: "http://www.w3.org"
-              ,   url:        "http://www.w3.org/People/Ivan/"
-              ,   extras:     [{
-                    name:  "<img src='figures/orcid_logo.png' />",
-                    href:  "http://orcid.org/0000-0003-0782-2704",
-                    class: "orcid"
-                  }]
-              ,   w3cid:      "7382"
+                      name:       "Ivan Herman"
+                  ,   mailto:     "ivan@w3.org"
+                  ,   company:    "W3C"
+                  ,   companyURL: "http://www.w3.org"
+                  ,   url:        "http://www.w3.org/People/Ivan/"
+                  ,   extras:     [{
+                        name:  "<img src='figures/orcid_logo.png' />",
+                        href:  "http://orcid.org/0000-0003-0782-2704",
+                        class: "orcid"
+                      }]
+                  ,   w3cid:      "7382"
               },
               {
-                  name:       "Tzviya Siegman"
-              ,   mailto:     "tsiegman@wiley.com"
-              ,   company:    "John Wiley & Sons, Inc."
-              ,   companyURL: "http://www.wiley.com"
-              ,   w3cid:      "65542"
-              }
+                      name:       "Tzviya Siegman"
+                  ,   mailto:     "tsiegman@wiley.com"
+                  ,   company:    "John Wiley & Sons, Inc."
+                  ,   companyURL: "http://www.wiley.com"
+                  ,   w3cid:      "65542"
+              },
+              {
+                      name:       "Ben De Meester"
+                  ,   mailto:     "ben.demeester@ugent.be"
+                  ,   company:    "Ghent University - iMinds - Data Science Lab"
+                  ,   companyURL: "http://www.iminds.be/"
+                  ,   url:        "http://users.ugent.be/~bjdmeest/"
+                  ,   extras: [{
+                        name:  "<img src='figures/orcid_logo.png' />",
+                        href:  "http://orcid.org/0000-0003-0248-0987",
+                        class: "orcid"
+                      }]
+                  ,   w3cid:      "73403"
+              },
           ],
 
           // name of the WG
@@ -270,12 +293,12 @@
             }
            ],
 
-          alternateFormats: [
-            {
-              uri: "pwp.epub",
-              label: "ePub"
-            }
-          ],
+        //   alternateFormats: [
+        //     {
+        //       uri: "pwp.epub",
+        //       label: "ePub"
+        //     }
+        //   ],
 
           charterDisclosureURI : "http://www.w3.org/2004/01/pp-impl/64149/status",
 
@@ -291,12 +314,15 @@
   </head>
   <body>
     <section id="abstract">
-      <p>This document introduces Portable Web Publications, a vision for the future of digital publishing that is based on a fully native representation of documents within the Open Web Platform. Portable Web Publications achieve full convergence between online and offline/portable document publishing: publishers and users won't need to choose one or the other, but can switch between them dynamically, at will.
+        <blockquote class="quote"><p>“A book is a discrete collection of text (and other media), that is designed by an author(s) as an internally complete representation of an idea, or set of ideas; emotion or set of emotions; and transmitted to readers in various formats.”</p>
+        <p class="author">Hugh McGuire, <a href="https://medium.com/@hughmcguire/what-books-can-learn-from-the-web-what-the-web-can-learn-from-books-64670171908f#.482p2ksyi">Medium, April 2016</a></blockquote>
+
+      <p>This document introduces Portable Web Publications, a vision for the future of digital publishing that is based on a fully native representation of documents within the Open Web Platform. Portable Web Publications achieve full convergence between online and offline/portable document publishing: publishers and users won't need to choose one or the other, but can switch between them dynamically, at will. Authors can concentrate on the way they intend to transmit their ideas and emotions, without having to deal with the specificities of a particular format.
       </p>
     </section>
 
     <section id='sotd'>
-      <p>This document outlines a general vision and should not be considered a technical specification. Instead, its goal is to outline that vision and the possible technical directions to achieve it; more detailed technical work should be documented in separate documents. </p>
+      <p>This document outlines a general vision and should not be considered a technical specification. Instead, its goal is to outline that vision and a possible technical directions to achieve it. A more detailed and rigoruous specification should be done by a separated, dedicated Working Group.</p>
     </section>
 
     <section>
@@ -305,12 +331,18 @@
       <p class="vision">Our vision for <a>Portable Web Publications</a> is to define a class of documents on the Web that would be part of the Digital Publishing ecosystem but would also be fully native citizens of the <a href="https://www.w3.org/wiki/Open_Web_Platform">Open Web Platform</a>.  In this vision, the current format- and workflow-level separation between offline/portable and online (Web) document publishing is diminished to zero. These are merely two dynamic manifestations of the same publication: content authored with online use as the primary mode can easily be saved by the user for offline reading in portable document form. Content authored primarily for use as a portable document can be put online, without any need for refactoring the content. Publishers can choose to utilize either or both of these publishing modes, and users can choose either or both of these consumption modes. Essential features flow seamlessly between online and offline modes; examples include cross-references, user annotations, access to online databases, as well as licensing and rights management.
       </p>
 
-      <p>The precise definition of <a>Portable Web Publications</a> is provided in the section <a href='#pwp_definition'></a>. For the sake of this introduction, suffices to say that a <a>Portable Web Publication</a> is a collection of content items (e.g. pages, chapters, modules, articles) whose content is compatible with Web usage, and structured as a single, self-contained logical unit. Individual items can consist of text, images, graphics, possibly interactive mathematical or chemical formulae, as well as audio and video. These documents, by definition, have a default, linear “reading order”, however the user may choose to skip around in the content just as with a book on paper; alternatively, interactive aspects of the content may alter the reading order on behalf of the user.
+      <p>A more precise technical definition of <a>Portable Web Publications</a> is provided in the section <a href='#pwp_definition'></a>. For the sake of this introduction, suffices to say that a <a>Portable Web Publication</a> is a collection of resources (e.g. pages, chapters, modules, articles) whose content is compatible with Web usage, and structured as a single, self-contained logical unit. Individual items can consist of text, images, graphics, possibly interactive mathematical or chemical formulae, as well as audio and video. These documents, by definition, have a default, linear “reading order”, however the user may choose to skip around in the content just as with a book on paper; alternatively, interactive aspects of the content may alter the reading order on behalf of the user.
       </p>
     </section>
 
+    <figure id="pwp_figure" >
+      <img src="figures/pwp.svg" alt="Image showing a laptop accessing unpackaged multiple files for online use.  With same content packaged for use on a mobile cellphone." style="width:80%">
+      <figcaption>The same content can be turned into an archived file and back without any inherent changes to the core content or associated digital assets. (Picture is available directly <a href="figures/pwp.svg">SVG</a> or <a href="figures/pwp.png">PNG</a> formats.)</figcaption>
+    </figure>
+
     <section>
       <h2 id="whynow">Why work on this now?</h2>
+
       <p>Digital Publishing can be considered to be at a tipping point. Digital publishing formats like EPUB have been broadly adopted globally for trade ebooks, and are starting to gain adoption among textbook publishers as well as corporate marketing departments. However, these formats have largely been seen as “offline” formats up until now. Various browser extensions supporting such complex publications exist, and other solutions are available for delivering these publications in browsers. Browser- and cloud-based solutions require relatively complex server and/or client software. In many cases browser- and cloud-based solutions depend on a proprietary transformation of the packaged files into formats more suitable to network delivery. A focused effort to make digital publications first-class Open Web Platform citizens will result in a significant reduction in the complexity of deploying publishing content into browsers for both online and offline consumption. Further, this focused effort will increase the momentum of digital publication and associated Web adoption across communities who are looking for an open, non-proprietary, next-generation portable document format.</p>
 
       <p>The broader Web Platform can also be considered to be at a tipping point. Mobile platform web site use is diminishing in favor of native applications. Hybrid applications that use web content alongside native application technology, and web-technology-based system applications are growing. The specific means of delivering hybrid and web-technology-based system applications is currently proprietary to specific applications frameworks and/or browser platforms. The point of Portable Web Publications is to increase problem solving momentum in package, metadata, and offline support applicable to both portable publications and installed applications. Open and native solutions to replace proprietary packaging, metadata, and offline support are intended to ensure the broadest possible general adoption of the Open Web Platform.
@@ -319,95 +351,10 @@
       <p>In many respects, the convergence is already happening. In a number of areas (e.g., educational publications, travel books, etc.) publishers already exploit the advanced possibilities of packaged publishing formats to produce highly interactive documents whose features are very close to what one is used to on the Web (see the separate section <a href="#epub-relations"></a> for some examples). And the converse is also true: tutorial and introductory articles have appeared on the Web that have the quality of traditional publications that one was used to seeing in a scientific magazine, but combined with the interactive possibilities of the Web (<a href="http://bost.ocks.org/mike/algorithms/">Mike Bostock’s article on visualizing algorithms</a> or <a href="http://worrydream.com/LadderOfAbstraction/">Bret Victor’s article on visualization</a> are just two of several possible examples). However, the convergence still has a long way to go, and this is the topic that this document, and the concept of <a>Portable Web Publications</a>, aim to explore.
       </p>
 
-      <figure id="pwp_figure" style="width: 50rem">
-        <img src="figures/pwp.svg" alt="Image showing a laptop accessing unpackaged multiple files for online use.  With same content packaged for use on a mobile cellphone.">
-        <figcaption>The same content can be turned into an archived file and back without any inherent changes to the core content or associated digital assets. (Picture is available directly <a href="figures/pwp.svg">SVG</a> or <a href="figures/pwp.png">PNG</a> formats.)</figcaption>
-      </figure>
+      <p>A companion document&nbsp;[[dpub-pwp-ucr]] collects a set of more detailed use cases and requirements for <a>Portable Web Publications</a>. The present document concentrates on the technical challenges to achieve this vision, and provides some technical directions possibly addressing those challenges. None of the the technical solutions should be considered final; a more detailed and rigoruous specification should be done by a separate, dedicated Working Group.</p>
+
     </section>
 
-    <section>
-      <h2>What are the areas of interest?</h2>
-
-      <p>The convergence of Digital Publishing and the Open Web Platform provides a common set of solutions and opportunities to various stakeholders:
-      </p>
-
-      <section>
-        <h3>Publishers</h3>
-        <p>Book publishers are investing in the development of technical expertise in web technologies. While gaining understanding of technical topics is important to new and future publishing workflows, the lack of communication between the trade publishers and web application developer communities is resulting in unnecessary duplication and investments in effort.</p>
-
-        <p>Collaboration between the Web content development and publishing communities will result in major benefits to publishers. Adopting a universal and interoperable format means publishers can concentrate on engaging content authors in the production of high quality content. The web content development community can be relied on to deal with sophisticated technical issues (e.g., CSS, SVG). Potential future web content formats (e.g., 3D rendering) and various interactive web programs (e.g., visualization tools like <a href="http://d3js.org">D3</a>) will naturally flow into the publishing realm through Portable Web Publications, hence increasing publishers' opportunities to sell new content products across the board.</p>
-
-        <p>Realizing new opportunities is a reality for publishers traditionally considered to be on the leading edge of technological advances in working with content. These publishers include <abbr title="Science, Technology, and Medical">STM</abbr> and educational publishing houses, as well as scholarly and journal publishing organizations (see the section <a href="#schol"></a>).</p>
-
-        <p>A converged platform will support more tools and services and a much larger population of trained practitioners compared to the current state of working in parallel universes.</p>
-      </section>
-
-      <section id="schol">
-        <h3>Scholarly Journal  and STM Publishers</h3>
-
-        <p>Scholarly journal publishers also provide articles for download these days. The most popular distribution format for journal articles continues to be [[PDF]] as a direct reflection of the scholarly community which highly prioritizes linear text and preservation of print typography. Indeed, the original goal for scholarly publishers to make files available online was to enable readers to download and print content directly, instead of borrowing a paper copy of a journal issue and photocopying relevant articles.</p>
-
-        <p>But things are changing. First of all, Web-only publications become part of the mainstream (e.g., the multidisciplinary <a href="http://www.plosone.org">PLOS ONE</a> or the new <a href="https://peerj.com/computer-science/">PeerJ CompSci</a> journals) with the main content being published using traditional Web technologies like HTML and CSS. And there is much more. Scholarly communication increasingly uses additional media such as video, audio, animated graphics, or very large images, and the trend is to consider these as integral parts of the scientific output. (<a href="http://bost.ocks.org/mike/algorithms/">Mike Bostock’s recent article on visualizing algorithms</a> or the “live” presentation of data in a <a href="http://f1000research.com/articles/3-176/v1#f3">paper published by F1000 Research</a> are good examples for the new possibilities.) Furthermore, publishing the scientific <em>data sources</em>, like the results of a sociological survey or measurement output of biochemical experiments in XML or CSV formats, alongside the “main” publication, is also coming to the fore, with some journals and institutions actually requiring public access to those. Gaining access to all these various media and contents both online and offline is important for scholars, whether the goal is to read the publication on the Web, or to download the papers for various reasons: reading the article offline, inclusion of the paper into bibliographic management systems like <a href="http://www.mendelay.com">Mendeley</a> or <a href="https://www.zotero.org">Zotero</a>, or peer-reviewing submissions. Any offline format for scholarly purposes should be adapted to these needs.</p>
-
-        <p>Having essentially identical online and offline versions of the same content, including the usage of various media, leads to similar reading experiences whether online or offline (see, e.g., [[Sigarchian]]). User annotations, formal reviews, etc., performed by the scholar on a small, mobile device while being offline can be automatically synchronized with the online version as soon as there is Internet access. Being based on a general archival format, Portable Web Publications provide an easy way to consistently include video, audio, interactive scripts, any kind of data, and can naturally contain active links to the scientific data published elsewhere on the Web in case the data is too large to be distributed offline. These and other possibilities provided by Portable Web Publications may contribute to fundamentally change the way scholarly publishing works.</p>
-      </section>
-
-      <section>
-        <h3>In-house Publishers</h3>
-        <p>A special form of document production is related to technical and/or user documentation of complex products as well as complex administrative documents. Such documents are often akin to STM or scholarly publications edited by traditional trade or scholarly publishers but, often, the sheer quantity and complexity of production, as well as confidentiality requirements, mean that the production are done in-house. In many respects major corporations such as IBM, Intel, Renault, or Boeing, or institutions like the European Commission, the FAO, or the UNESCO have become specialized publishers themselves.</p>
-
-        <p>The quantity of documentation makes it infeasible to produce these documents in print (or print-only); instead, publishing them on the public Web, an Intranet, and/or providing them through specialized mobile devices is the viable alternative. The production of these documents has similar challenges to scholarly publications like accessibility issues, portability of annotations, or the possible inclusion of complex media.</p>
-
-        <p>Just as for scientific publications, Portable Web Publications will provide new possibilities for these types of documents. Documentation in Portable Web Publications can be used offline in, for example, a cockpit, while being easily updated through the Web when possible. Inclusion of interactive animation, explanations, etc., become easy thanks to the possibilities provided by the Open Web Platform, whether online or offline.</p>
-      </section>
-
-      <section>
-        <h3>Reading System developers</h3>
-
-        <p>Reading system developers will also benefit. It is already true today that, due to the large scale use of the Open Web Platform technologies in publishing formats, reading systems often rely on existing Web browser “cores”. This means that the development of these reading systems already benefit from a level of synergy insofar as they can rely on software developments done elsewhere. Making Portable Web Publications “native” to browsers will mean that an even larger percentage of the necessary software will be available as part of the “core” and developers can concentrate on book-specific issues such as specialized user interfaces or connection to online bookstores.</p>
-
-        <p>But the main advantage of Portable Web Publications for reading systems is a vastly larger user base. Whilst, today, reading systems are mainly used to read traditional novels, the introduction of Portable Web Publications will open up new possibilities for, e.g., scholarly and educational use, journals and magazines, governmental usage, etc.</p>
-      </section>
-
-      <section>
-        <h3>Web page designers</h3>
-
-        <p>The synergy between the traditional publishing community and the Web site designers may help in greatly improving the quality of overall Web page design. Indeed, the publishing community has significant experience on issues like ergonomy, complex layout design, paged layout, or user interface problems when consuming, for example, long, elaborate, and mostly linear content. Publishers also have an experience in a proper editorial and curatorial workflow in producing content, which can be easily transposed from traditional publishing to Web site production. </p>
-
-        <p>Another aspect of Web page design is its adaption to various environments easily. Creating documents on the Web that could be uncompromisingly displayed both on traditional screens and on mobile devices with varying screen sizes is already a growing trend today; with Portable Web Publications, users will be able to create digitally native documents easily, whether the document is viewed online or offline.</p>
-      </section>
-
-      <section>
-        <h3>Web browsers</h3>
-
-        <p>Generation of an offline version of a Web page (mainly in terms of very long and complex content) is an area where browsers will benefit from Portable Web Publications. Such a facility is important: when roaming charging are often high, or when internet access may be of a low quality or not available at all, users need the possibility to create, in an ad-hoc and easy manner, an offline version of the Web page they are reading. Several browsers offer such facilities already, albeit in mutually incompatible formats. Making Portable Web Publications native to a browser means to standardize an archive format that can be used through a suitable user interface by anyone using a browser. Also, some of the facilities required by reading systems are also extremely useful for “traditional” Web content; annotation facilities are an obvious example. A joint development will therefore provide a welcome addition to the core browser facilities.</p>
-
-        <p>It must be emphasized, however, that Portable Web Publications are not meant to create an offline version of <em>any</em> Web page; the emphasis is on Web <em>publications</em> and not to, so to say, duplicate the Web. For example, it is not the goal of Portable Web Publications to store the page of a Web-based email client. The exact boundaries and limitations are specified in a separate section <a href="#terminology"></a>.</p>
-
-        <p>Note that, technically, the inclusion of Portable Web Publication capabilities in browsers is a matter of enhancement rather than addition of completely new capabilities: because Portable Web Publications documents are based on core Web Technologies, the “extras” to make them a native feature of the Web is limited to a smaller set of tasks like handling packages, dealing with features like reading order, dynamic pagination, and displaying tables of contents. An important goal of Portable Web Publications will be to further streamline these tasks, all while making sure it is feasible to include Portable Web Publications content handling even in mobile environments, where the computing and memory limits are more demanding.</p>
-      </section>
-
-      <section>
-        <h3>Libraries and archival services</h3>
-
-        <p>The archiving of digital assets is coming to the fore as a significant issue for dedicated institutions like national libraries. With the arrival of highly dynamic and possibly interactive Web Publications as primary content, the traditional means of archiving (i.e., storing an XML or HTML page on some backup device for long term preservation) is no longer adequate. Web Publications depend on a multitude of auxiliary files, like CSS style sheets, images, videos, javascript programs, etc. The completeness of a Portable Web Publication has a significant role to play in this respect: combined with archiving it provides means to store the content offline, making it appropriate for archival purposes. </p>
-      </section>
-
-      <section>
-        <h3>Financial Reporting</h3>
-          <p>The domain of financial reporting is increasingly making use of dynamic and interactive content for reports published on the Web, but in order to meet legal, audit, and market requirements it is important to be able to identify a specific, unchanging version of the document, including all auxilliary files that are referenced.</p>
-
-          <p>For example, financial reports must often be submitted to tax authorities, company registrars, stock exchanges, securities regulators, and other institutions, and it is critical to be able to identify the specific version that was filed, and to ensure that the document is not subsequently altered, including through changes to any external files that it references. Similarly, an auditor will give an opinion on a financial document, and it is important to be able to identify the exact version that was audited. These documents should be available both offline and online.</p>
-
-          <p>A Portable Web Publication could play a very useful role in providing a single artefact that encapsulates the report, and can be used as part of these processes together with suitable digital signing and non-repudiation mechanisms.</p>
-      </section>
-
-      <section>
-        <h3>Users</h3>
-
-        <p>Users will benefit, arguably the most, from a convergence of efforts between Portable Web Publications and other uses of Web technologies. Users will have the choice among different reading systems for the same content, ranging from specialized devices to traditional Web Browsers. Beyond the overall qualities of the reading environment the choice can also be made based on the content and usage: whereas a specialized device would work well for reading a novel on the beach, a Web browser or a high-end tablet may be preferred to consume highly interactive educational content in a class room. Publishers do not have to make this decision: users can do that. The same content can also smoothly migrate from one device or system to another, possibly carrying notes, annotations, but also the possibility to fill interactive Web forms offline (and “pushing” the results to its destination when on line again). Features for people with disabilities will also be provided consistently, whether the content is a portable document or a Web page. </p>
-      </section>
-    </section>
 
     <section id="terminology">
       <h2>Terminology</h2>
@@ -417,15 +364,15 @@
         <h2>Portable Web Publications</h2>
 
         <ul class="definition">
-          <li> A <dfn data-lt="Web Resource|Web Resources">Web Resource</dfn> is a digital resource that can be uniquely addressed by a [[URL]] or a [[file-uri-scheme]], i.e., whose content can be accessed through standard network protocols such as HTTP, FTP, or the File Protocol.</li>
+          <li> A <dfn>Web Resource</dfn> is a digital resource that can be uniquely addressed by a [[URL]] or a [[file-uri-scheme]], i.e., whose content can be accessed through standard network protocols such as HTTP, FTP, or the File Protocol.</li>
 
-          <li><dfn data-lt="Content|content">Content</dfn> of a <a>Web Resource</a>: information and sensory experience to be communicated to the user by means of a user agent, including code or markup that defines the content’s structure, presentation, and interactions.</li>
+          <li><dfn>Content</dfn> of a <a>Web Resource</a>: information and sensory experience to be communicated to the user by means of a user agent, including code or markup that defines the content’s structure, presentation, and interactions.</li>
 
-          <li><dfn data-lt="Essential Content|essential content|essential">Essential Content</dfn> of a <a>Web Resource</a>: <a>content</a> which, if removed, would fundamentally change the information or <a>functionality</a> of the <a>Web Resource</a>.</li>
+          <li><dfn data-lt="essential">Essential Content</dfn> of a <a>Web Resource</a>: <a>content</a> which, if removed, would fundamentally change the information or <a>functionality</a> of the <a>Web Resource</a>.</li>
 
-          <li><dfn data-lt="Functionality|functionality">Functionality</dfn> related to a <a>Web Resource</a>: processes and outcomes achievable through user action.</li>
+          <li><dfn>Functionality</dfn> related to a <a>Web Resource</a>: processes and outcomes achievable through user action.</li>
 
-          <li>A <dfn data-lt="Web Publication|Web Publications">Web Publication</dfn> is a <a>Web Resource</a> which itself is an aggregated set of interrelated <a>Web Resources</a>, and which is intended to be considered as a single <a>Web Resource</a>. Furthermore:
+          <li>A <dfn data-lt="Web Publications">Web Publication</dfn> is a <a>Web Resource</a> which itself is an aggregated set of interrelated <a data-lt="Web Resource">Web Resources</a>, and which is intended to be considered as a single <a>Web Resource</a>. Furthermore:
             <ul>
               <li>As a <a>Web Resource</a>, a <a>Web Publication</a> has its own [[URL]] which refers to the <em>full set</em> of the constituent resources (as opposed to a particular <a>Web Resource</a> <em>within</em> the <a>Web Publication</a>).</li>
 
@@ -439,14 +386,14 @@
             </ul>
           </li>
 
-          <li>A <dfn data-lt="Portable Web Resource|Portable Web Resources">Web Resource</dfn> within a <a>Web Publication</a> is <dfn>Portable</dfn> if an OWP compliant user agent can render its <a>essential content</a> by relying essentially on the <a>Web Resources</a> within the same <a>Web Publication</a></li>
+          <li>A <a>Web Resource</a> within a <a>Web Publication</a> is <dfn data-lt="Portable Web Resource|Portable Web Resources">Portable</dfn> if an OWP compliant user agent can render its <a>essential content</a> by relying essentially on the <a data-lt="Web Resource">Web Resources</a> within the same <a>Web Publication</a></li>
 
-          <li>A <dfn data-lt="Portable Web Publication|Portable Web Publications|PWP">Portable Web Publication</dfn> (PWP) is a <a>Web Publication</a> whose constituent <a>Web Resources</a> are all <a data-lt="Portable Web Resource">Portable</a>.</li>
+          <li>A <dfn data-lt="Portable Web Publication|Portable Web Publications|PWP">Portable Web Publication</dfn> (PWP) is a <a>Web Publication</a> whose constituent <a data-lt="Web Resource">Web Resources</a> are all <a data-lt="Portable Web Resource">Portable</a>.</li>
         </ul>
 
         <p class="note">See the separate section <a href="#identification"></a> for further details on addressing <a>Web Publications</a>.</p>
 
-        <p id="pwp_content"><a>Web Resources</a> in a <a data-lt="Portable Web Publication">(Portable) Web Publication</a> are based on the core <a href="https://www.w3.org/wiki/Open_Web_Platform">Open Web Platform</a> technologies like [[html5]], [[svg]], [[css21]] and CSS3 modules, or [[ECMAScript]] API-s. A <a>Web Publication</a> may also include images, audio and video, metadata files, executable code in, for example, <a href="http://ipython.org/">iPython</a> or <a href="http://www.maplesoft.com/products/maple/">Maple</a> scripts, or datafiles in [[CSV]]: <a>Web Resources</a> that are needed to render the <a>essential content</a> of the publication.</p>
+        <p id="pwp_content"><a data-lt="Web Resource">Web Resources</a> in a <a data-lt="Portable Web Publication">(Portable) Web Publication</a> are based on core <a href="https://www.w3.org/wiki/Open_Web_Platform">Open Web Platform</a> technologies like [[html5]], [[svg]], [[css21]] and CSS3 modules, or [[ECMAScript]] API-s. A <a>Web Publication</a> may also include images, audio and video, metadata files, executable code in, for example, <a href="http://ipython.org/">iPython</a> or <a href="http://www.maplesoft.com/products/maple/">Maple</a> scripts, or datafiles in [[CSV]]: <a data-lt="Web Resource">Web Resources</a> that are needed to render the <a>essential content</a> of the publication.</p>
 
         <p>The differences between the distinguishing characteristics of <a>Web Publications</a> and <a data-lt="Portable Web Publication"><span style="text-decoration:underline">Portable</span> Web Publications</a> can be viewed as situational and gradual rather than as representative of bright-line distinctions. Consider the following example:</p>
 
@@ -455,28 +402,25 @@
         </aside>
 
         <p class="note">The concepts of <a>content</a>, <a>essential content</a>, and <a>functionality</a> have been taken over from the W3C Web Content Accessibility Guidelines[[WCAG20]], thought slightly modified for this context.</p>
-
-        <div class="issue" data-number="11">The reference to the File URI Scheme[[file-uri-scheme]] may be removed in future.</div>
-
       </section>
 
       <section id="state_definition">
         <h3>States of a Portable Web Publication</h3>
 
-        <p>The states of a <a>Portable Web Publication</a> can be separated into two different axes. These different states require a different behavior from the user agent, while some of the characteristics of the publication may be invariant across states. The different states are as follows:</p>
+        <p>The <dfn data-lt="state">states</dfn> of a <a>Portable Web Publication</a> can be separated into two different axes. These different states require a different behavior from the user agent, while some of the characteristics of the publication may be invariant across states. The different states are as follows:</p>
 
         <ol class="definition">
-          <li><strong>States related to the organization of the <a>Web Resources</a></strong>: A <a>Portable Web Publication</a> is in
+          <li><strong>States related to the organization of the <a data-lt="Web Resource">Web Resources</a></strong>: A <a>Portable Web Publication</a> is in
             <ul>
-              <li><dfn data-lt="packed|Packed|packed state|Packed State">Packed State</dfn>: when all constituents <a>Web Resources</a> are combined into one unit for storage in a file system, network transfer, etc.</li>
-              <li><dfn data-lt="unpacked|Unpacked|unpacked state|Unpacked State">Unpacked State</dfn>: when all constituent <a>Web Resources</a> can be directly accessed individually through standard network protocols like HTTP, FTP, etc., or through file system access</li>
+              <li><dfn data-lt="Packed">Packed State</dfn>: when all constituents <a data-lt="Web Resource">Web Resources</a> are combined into one unit for storage in a file system, network transfer, etc.</li>
+              <li><dfn data-lt="Unpacked">Unpacked State</dfn>: when all constituent <a data-lt="Web Resource">Web Resources</a> can be directly accessed individually through standard network protocols like HTTP, FTP, etc., or through file system access</li>
             </ul>
           </li>
 
-          <li><strong>States related to the access of <a>Web Resources</a></strong>: A <a>Portable Web Publication</a> is in
+          <li><strong>States related to the access of <a data-lt="Web Resource">Web Resources</a></strong>: A <a>Portable Web Publication</a> is in
             <ul>
-              <li><dfn data-lt="protocol|Protocol|protocol state|Protocol State">Protocol State</dfn>: when all constituent <a>Web Resources</a>, as well as the <a>Portable Web Publication</a> itself, are accessed through network protocols like HTTP, HTTPS, or FTP</li>
-              <li><dfn data-lt="file|File|file state|File State">File State</dfn>: when all constituent <a>Web Resources</a>, as well as the <a>Portable Web Publication</a> itself, are accessed as files on a local file system</li>
+              <li><dfn data-lt="Protocol">Protocol State</dfn>: when all constituent <a data-lt="Web Resource">Web Resources</a>, as well as the <a>Portable Web Publication</a> itself, are accessed through network protocols like HTTP, HTTPS, or FTP</li>
+              <li><dfn data-lt="File">File State</dfn>: when all constituent <a data-lt="Web Resource">Web Resources</a>, as well as the <a>Portable Web Publication</a> itself, are accessed as files on a local file system</li>
             </ul>
           </li>
         </ol>
@@ -503,33 +447,242 @@
           </tbody>
         </table>
 
-        <p class="note">The difference between <a>protocol</a> and <a>file</a> states is not identical, although close, to the difference between the commonly used notions of “online” vs. “offline”. A PWP can be on a local disc but accessed through a Web Server running on that machine (i.e., through a <code>http://localhost</code> URL): the PWP is in a <a>protocol</a> state, though clearly “offline”. Similarly, a remote file system can be mounted as a local disc, in which case a PWP can be accessed as a file, i.e., is in a <a>file</a> state, though possibly “online”. </p>
+        <aside class="note">The difference between <a>protocol</a> and <a>file</a> states is not identical, although close, to the difference between the commonly used notions of “online” vs. “offline”. A PWP can be on a local disc but accessed through a Web Server running on that machine (i.e., through a <code>http://localhost</code> URL): the PWP is in a <a>protocol</a> state, though clearly “offline”. Similarly, a remote file system can be mounted as a local disc, in which case a PWP can be accessed as a file, i.e., is in a <a>file</a> state, though possibly “online”. </aside>
+      </section>
+
+      <section id="locator_definitions">
+          <h2>Locators</h2>
+          <p>The term “locator” is used to denote a URI addressing a <a>Web Resource</a>. More specifically, in the context of <a>Portable Web Publications</a>, the following definitions hold:</p>
+
+          <ul class="definition">
+              <li>An <dfn>identifier</dfn> is a string that uniquely identifies a <a>Portable Web Publication</a>. An identifier may be a generic string, a number, a URI, etc.; for the purpose of this document there are no restrictions although, on the Web, a URI is the preferred format. What exactly <em>is</em> identified (a work, like Shakespeare’s Hamlet, or a particular instance of that work in a particular library) is not addressed in this document and is left to specialized organizations.</li>
+
+              <li>The (PWP) <dfn>server</dfn> has the responsibility of serving the <a data-lt="Portable Web Publication">PWP-s</a> in their different states. As such, the <a>server</a> is always aware of all possible published states of the <a>PWP</a>.
+
+                <p class='note'>A server can be configured in multiple ways to serve the various <a>states</a> of a <a>PWP</a>, e.g., possibly respond to content negotations. This specification does not rely any particular configuration.</p>
+              </li>
+
+              <li>A <dfn>locator</dfn> is a URL that points to either an entire <a>PWP</a> or a resource <em>within</em> a <a>PWP</a>.
+              </li>
+
+              <li>A <dfn>PWP locator</dfn> is a <a>locator</a> to the <a>PWP</a> as a whole. This <a>PWP Locator</a> can be dereferenced via an HTTP(S) request and should return some information. As such, it is not the same as an identifier, although, it <em>could</em> be the same.
+              </li>
+
+              <li>A <dfn>relative locator</dfn> is a locator to a resource within a <a>PWP</a>, without specifying the location of the <a>PWP</a>.</li>
+
+              <li>An <dfn>absolute locator</dfn> is a combination of a <a>PWP locator</a> and a <a>relative locator</a>.</li>
+
+              <li>The <dfn>canonical locator</dfn> is an absolute, and <a data-lt="state">state independent</a> <a>PWP locator</a>. This is purely conceptual, i.e., the <a>PWP</a> does not have to be published unpacked online, for example. For the purposes of this document, the canonical locator of a PWP is denoted by <strong>L</strong>.
+              </li>
+
+              <li>A <dfn data-lt="state locator|state locators">state locator</dfn> is a <a>PWP locator</a> that refers to a PWP in a particular <a>state</a>. For the purposes of this document, <strong>L<sub>u</sub></strong> denotes the <a>state locator</a> referring to an <a>unpacked state</a>, whereas <strong>L<sub>p</sub></strong> refers to a <a>state locator</a> referring to a <a>packed state</a>.
+
+                  <p>There is no requirement that the <a>canonical locator</a> <em>must</em> be different from the locator of the published, unpacked <a>state</a> of the <a>PWP</a>.</p>
+
+                  <p class="note">In practice, it may be possible to define several different PWP packaging formats, in which case there may be several <a>state locators</a> referring to packages. Their treatment, from the point of view of this document, are identical, hence this document is restricted to a single locator of this type. Also, the precise treatment of specific packaging formats (unpacking algorithms, etc.) are not relevant for this document.
+                  </p>
+
+                  <p class="note">
+                      There is no requirement that the publisher publishes all these states; it may choose to publish only one. I.e., there can be situations where the <a>PWP</a> is only published unpacked (so only the locator of the published unpacked <a>PWP</a> exists), or only published packed (so only that locator exists).
+                  </p>
+              </li>
+          </ul>
+
+          <p>See the section <a href='#identification'></a> for further details on locators and identification.</p>
+      </section>
+
+      <section>
+          <h2>PWP Processor</h2>
+          <ul class="definition">
+              <li>A <dfn>rendering engine</dfn> has the responsibility of the rendering the contents of a <a>Portable Web Publication</a>. This is, typically, the core rendering engine of a traditional Web Browser, or a dedicated rendering subsystem of a Reading System.</li>
+
+              <li>A <dfn>PWP processor</dfn> is a piece of functionality that has the responsibility of interpreting the specificities of a <a>Portable Web Publication</a>, including mapping <a data-lt="locator">locators</a>, handling a <a>packed</a> state, etc. <strong>On a conceptual level the <a>PWP processor</a> ensures that the <a>rendering engine</a> can consider the content of a <a>Portable Web Publication</a> as if all its resources were available via the <a>canonical locator</a> of the <a>PWP</a> online</strong> (i.e., with no packaging involved).
+              </li>
+          </ul>
+
+          <p>See the sections <a href="#arch"></a> and <a href="#locator-pwp-func"></a> for further details on PWP Processors</p>
+
+          </p>
+      </section>
+
+      <section id="manifest_definitions">
+          <h2>Manifest terms</h2>
+          <ul class="definitions">
+              <li>A <dfn data-lt="manifest|manifest file" >manifest (file)</dfn> is a special resource containing fundamental information about a <a>PWP</a>. The serialization syntax and the full content of a manifest is not defined in this document. A media type (see [[rfc6838]]) is also associated with a manifest (or a particular serialization thereof), that can be used when a particular instance is retrieved through standard HTTP(S) protocol.</li>
+
+              <li>A <dfn data-lt="manifest item|manifest items">manifest item</dfn> is an information item within the <a>manifest file</a> that can be retrieved by, e.g., a <a>PWP Processor</a>. These may include metadata, information on rendering order and rendition, etc. For the purpose of this document it is important that
+              <a>state locators</a>, as well as the <a data-lt="canonical locator">canonical locators</a> can be described as such manifest items, i.e., they can be part of a <a>manifest</a>.</li>
+
+              <li>A <dfn>PWP manifest</dfn> or <dfn>complete manifest</dfn> is a <a>manifest</a> that contains <em class="extra-em">all</em> <a>manifest items</a> that are required by a <a>PWP processor</a>. The complete list of required items are not defined here; for the purpose of this document it suffices to state that the <a>canonical locator</a>, as well as all <a>state locators</a> for all available <a data-lt="state">states</a>, MUST be part of a <a>PWP manifest</a>.</li>
+
+              <li>The <dfn>combination of manifests</dfn>, denoted by the&nbsp;⊕&nbsp;operation (as in <strong>M</strong>&nbsp;=&nbsp;<strong>M<sub>a</sub></strong>&nbsp;⊕&nbsp;<strong>M<sub>b</sub></strong>) is the creation of a new <a>manifest</a>, consisting of <a>manifest items</a> originating from <strong>M<sub>a</sub></strong> and <strong>M<sub>b</sub></strong>.
+
+                  <p>The precise definition of a <a>manifest</a> should also specify how different <a>manifest items</a> are combined during this operation. For the purpose of this document it is only required, that:</p>
+                  <ul>
+                      <li>the value of <strong>L</strong> MUST be identical, if present, in both <strong>M<sub>a</sub></strong> and <strong>M<sub>b</sub></strong>; and</li>
+
+                      <li>the value of <strong>L<sub>u</sub></strong> (resp. <strong>L<sub>p</sub></strong>) in <strong>M<sub>b</sub></strong> MUST have a higher priority. I.e., if present in <strong>M<sub>b</sub></strong>, this is the value added to <strong>M</strong>, regardless of whether a similar value is also specified in <strong>M<sub>a</sub></strong> or not.</li>
+                  </ul>
+              </li>
+          </ul>
+          <p>See <a href="#manifest-details"></a> for further details on manifests.</p>
       </section>
     </section>
 
     <section>
-      <h2>Achieving convergence: work areas</h2>
+      <h2>Achieving convergence: technical challenges and draft approaches</h2>
 
-      <p>This section lists some of the work areas that activities around <a>Portable Web Publications</a> should engage in. The list is not exhaustive and there are only hints at the technical solutions; one of the main goals of the work ahead will be to clarify the requirements and technical details. It must be emphasized that the solutions to these problems may not come exclusively from W3C, but possibly from other, external organizations (document identification is a typical example).</p>
+      <p>This section considers some of the technical work areas that should be clarified for a more precise and detailed specification of <a>Portable Web Publications</a>. The list is not exhaustive and there are only hints at the technical solutions without claiming to be complete and tested for validity. It must also be emphasized that some of solutions to the problems listed below may not come from W3C, but possibly from other, external organizations (document identification is a typical example).</p>
+
+      <p>The <a href="#terminology"></a> section provides a conceptual framework for the technical discussion. The most important definition is the one of <a>Portable Web Publications</a>: the fact that a PWP, i.e., a single Web reference, identifies a <em>collection</em> of  <a data-lt="Web Resource">Web Resources</a> that conveys the “boundedness” which characterizes a publication (e.g. a book or an article). All technical issues in this section are, fundamentally, around the question on how this boundedness should co-exist with the opennes of the Web in general.
+      </p>
+
+      <figure id="pwp_one_url" >
+        <img src="figures/PWP-oneURL.svg" alt="Image showing a collection of resources, surrounded by a dotted line, and an arrow pointing at that dotted line" style="width:60%">
+        <figcaption>A <a>PWP</a> represents a <em>collection</em> of <a data-lt="Web Resource">Web Resources</a> that together form a publication, rather than the individual resources. (Picture is available directly in <a href="figures/PWP-oneURL.svg">SVG</a> or <a href="figures/PWP-oneURL.png">PNG</a> formats.)</figcaption>
+      </figure>
 
       <section id="arch">
-        <h3>General Architecture for Portable Web Publications</h3>
+        <h3>General Architecture for Portable Web Publications: PWP Processors</h3>
 
-        <p id="sworkers">The latest evolution of browser technologies around Web Workers[[web-workers]] and Service Workers[[service-workers]] may fundamentally change the way browsers operate in terms of offline/online. Service Workers will provide a flexible and programmable way to efficiently implement local caching of <a>Web Resources</a>. Caching is implemented as a programmable network proxy, meaning that the browser’s rendering engine becomes oblivious to whether a resource originates from the local cache or directly from the network. </p>
+        <p id="abstraction">The role of a <a>PWP Processor</a> is to shield the specificities of handling a PWP from the <a>rendering engine</a>. This <a>rendering engine</a>, typically the core rendering part of a browser, should consider that all content it renders, or it needs for rendering (e.g., CSS or font files) are retrived from the Web via, typically, HTTP(S) as separate resources. To use the terminology in <a href="#state_definition"></a>, <strong>the <a>rendering engine</a> may consider each PWP as being in an <a>unpacked</a> and <a>protocol</a> state, with all resources available.</strong> A <a>PWP Processor</a> makes it possible to bring <a>Portable Web Publications</a> under the same abstraction as a <a>Web Resource</a> identified by a URL. </p>
 
-        <p>This evolution makes it possible to bring <a>Portable Web Publications</a> under the same abstraction as a <a>Web Resource</a> identified by a URL. A specialized service worker can cache resources, i.e., can bridge the differences between the offline and online access of a document. Furthermore, by adding additional functionalities to the service worker, it can also deal with possible (un)packaging as well as bridging the differences between <a>protocol</a> and <a>file</a> states. In other words, the core rendering engine of a user agent can operate <strong>as if the <a>Portable Web Publication</a> was in <a>unpacked</a> and <a>protocol</a> states, with all resources available</strong>; the differences are handled by the service worker acting as a proxy.</p>
+        <p>More specifically, a <a>PWP Processor</a> has to achieve several tasks:</p>
+
+        <ul>
+            <li>Provide some sort of a local storage, or cache, of the PWP content. Alternatively, it has to have a direct access to content of a PWP if this latter is in a <a>file state</a>. To achieve this, the processor has to catch the HTTP(S) requests stemming from the <a>rendering engine</a> and has to, possibly, serve the content from its cache or the file. In other words, the <a>PWP Processor</a> has to act as a network proxy.</li>
+
+            <li>Take care, if necessary, of unpacking the content of a PWP on the fly if this latter is in a <a>packed state</a>. This, combined with a local cache, means that the <a>rendering engine</a> is oblivious to the <a>state</a> of the PWP.</a></li>
+
+            <li>Take care of the conversion of <a data-lt="locator">locators</a> to the consituent resources of a PWP, possibly convert from locators provide via <a>state locators</a> or a <a>canonical locator</a>: the differences among these different locators should become transparent to the <a>rendering engine</a>. See <a href="#locator-pwp-func"></a> for further details.
+        </ul>
 
         <figure style="text-align: center;" id="workers_basic">
-          <img src="figures/Workers-basic.png" alt="A laptop computer gaining access to the unpackaged publication from a web browser connecting to a Server with HTTP requests.">
+          <img src="figures/Workers-basic.png" alt="A laptop computer gaining access to the unpackaged publication from a web browser connecting to a Server with HTTP requests." style="width:80%">
           <figcaption>Accessing a <a>Portable Web Publication</a> in an <a>unpacked</a> state directly from the Web. (Picture is available directly <a href="figures/Workers-basic.svg">SVG</a> or <a href="figures/Workers-basic.png">PNG</a> formats.)</figcaption>
         </figure>
 
         <figure style="text-align: center;" id="workers_package">
-          <img src="figures/Workers-package.png" alt="A laptop computer gaining access to the packaged publication from a web browser connecting to a Server via service workers.">
-          <figcaption>Accessing a <a>Portable Web Publication</a> in <a>packed</a> state from the Web via a Service Worker. (Picture is available directly <a href="figures/Workers-package.svg">SVG</a> or <a href="figures/Workers-package.png">PNG</a> formats.)</figcaption>
+          <img src="figures/Workers-package.png" alt="A laptop computer gaining access to the packaged publication from a web browser connecting to a Server via service workers." style="width:80%">
+          <figcaption>Accessing a <a>Portable Web Publication</a> in <a>packed</a> state from the Web via a PWP Processor. (Picture is available directly <a href="figures/Workers-package.svg">SVG</a> or <a href="figures/Workers-package.png">PNG</a> formats.)</figcaption>
         </figure>
 
-        <p class="note">This architecture needs some special care when handling a <a>Portable Web Publication</a> on a local file system. This is because Service Workers operate using the <code>HTTPS</code> (or <code>HTTP</code> for <code>localhost</code>) protocol only, i.e., the <code>file:///</code> protocol is not understood. A possible approach, already implemented in some experimental code, is to start up a local HTTP server serving the resources within the <a>Web Publication</a>. See also <a href="https://github.com/w3c/dpub-pwp/issues/11">Issue 11</a>.</p>
+        <p id="sworkers" class="note">The latest evolution of browser technologies around Web Workers&nbsp;[[web-workers]] and Service Workers&nbsp;[[service-workers]] make the development of a <a>PWP Processor</a> feasible. Service Workers will provide a flexible and programmable way to efficiently implement local caching of <a data-lt="Web Resource">Web Resources</a>. Caching is implemented as a programmable network proxy, meaning that the browser’s rendering engine becomes oblivious to whether a resource originates from the local cache or directly from the network: these are indeed some of the basic functionalities a <a>PWP Processor</a> must provide.  </p>
+      </section>
+
+      <section id="identification">
+        <h3>Addressing and Identification</h3>
+
+        <p>HTTP(S) URLs serve as the fundamental method for addressing a resource, or a fragment thereof, on the Web. Such URLs can also be used to uniquely identify a resource; however, conceptually, <em class="extra-em">the role of addressing and identification are different</em>. <em>Both</em> of these functionalities should be available for <a>Portable Web Publications</a>: a publication should be uniquely identified for, e.g., library catalogues or archival, and a resource locator should be available so that the user could access the content. In other words, a <a>Web Publication</a> (whether portable or not) SHOULD have both one or even possibly several <em>identifier(s)</em> and one <em>locator</em>. These may be be identical but may also be different: e.g., an identifier may refer to a specific publication by a publisher (e.g., using an <a href="https://www.isbn-international.org/">ISBN</a>), whereas the locator may refer to a personal copy of that publication that the owner can freely annotate for personal use.</p>
+
+        <p class="note">A typical use case for the presense of an <em>identifier</em> beyond the need for a <em>locator</em> is in academic and scholarly publishing. There are currently several methods for citing online works, but there is no equivalent standard method for citations to ebooks. Even if a reflowable ebook is by a scholar, the author must refer to PDF, paper copy, or HTML version to cite it in her bibliography. Identifiers attached to <a>Portable Web Publications</a> should enable stable citations.</p>
+
+        <p>A general [[URI]] (which includes the notion of [[URL]]) MAY serve as an <em>identifier</em> using, e.g., the [[ISBN-URN]] or [[UUID]] schemes. But an identifier does not necessarily resolves to a location on the Web, although it is a good practice to have a dereferencable identifier.</p>
+
+        <p> There is no  ubiquitously accepted method for identifying a publication among the various document formats (whether electronic or printed). Within the scholarly publishing industry, for example, initiatives such as <a href="http://www.doi.org">DOI</a> and <a href="http://crossref.org">CROSSREF</a> have addressed this problem, whereas traditional “trade” publishing rely more on <a href="https://www.isbn-international.org/">ISBN</a> related services. Some of these identifier schemes provide resolver services or a “standard” representation in term of [[URL]]. <em>The definition of <a>Portable Web Publication</a> should be oblivious to the exact identification used; this issue is left to specialized services and industry organizations.</em> Architecturally, the only requirement, regarding identifiers, is that the <a>complete manifest</a> of a  <a>Portable Web Publication</a> MUST include a <a>manifest item</a> for one, or more, identifiers, and that these should be stable across, for example, copying the publication or changing its location on the Web. This document concentrates on addressing only, i.e., on the management of <a data-lt="locator">locators</a>.</p>
+
+        <div class="issue" data-number="12">Do we need a more general form of identification to represent fragments?</div>
+
+        <div class="issue"><a href="https://github.com/w3c/dpub-pwp-loc/issues/28">Issue 28 on Locators</a>: do we need several, possibly a hierarchy of identifiers?</div>
+
+        <section id="locator-pwp-func">
+            <h2>Locators functionalities of PWP Processors</h2>
+
+            <p>A <a>PWP</a> is published on the <a>server</a>. This <a>PWP</a> includes, e.g., the resource for an image, and is published in at least one of the different states:
+            </p>
+
+            <ul>
+                <li>In an <a>unpacked</a> state. The “top level” of this unpacked state is available, say, through the URL <code>https://example.org/books/1/</code>: in this setup, the URL of the image is, say, <code>https://example.org/books/1/img/mona_lisa.jpg</code>. This is the <a>absolute locator</a> of the image <em>in this state</em>.
+                </li>
+
+                <li>In a <a>packed</a> state. This is available through the URL, say, <code>https://example.org/packed-books/1/package.zip</code>. This is the <a>absolute locator</a> of the <a>PWP</a> <em>in this state</em>, and the locator for the image depends on the structure of the package format.
+                </li>
+            </ul>
+
+            <p>The published <a>PWP</a> is also assigned a <a>canonical locator</a>, e.g., the URL <code>https://example.org/published-books/1</code>. Reflecting the unpacked state in terms of (file) structure the <a>canonical locator</a> of the same image is <code>https://example.org/published-books/1/img/mona_lisa.jpg</code>.
+            </p>
+
+            <p>To ensure the smooth transtion among states (see <a href="#arch"></a>) the <a>PWP Processor</a> must ensure a smooth transition among the different locators of any resource within a <a>PWP</a> (the image file in this example). </p>
+
+            <p class="note">From a user/author point of view, whenever possible the <a>canonical locator</a> should be used when referring to the <a>PWP</a> in, e.g., annotations. This is also true for URL-s derived from the <a>canonical locator</a>, like <code>https://example.org/published-books/1/img/mona_lisa.jpg</code>. This means the addressing unequivocal; however, a <a>PWP Processor</a> must be prepared for the more general case.
+            </p>
+
+            <p>In view of the above, the functionalities of the <a>PWP processor</a> can be divided into two steps:</p>
+            <ol>
+                <li>finding, based on the <a>canonical locator</a>, the right values of the various <a>state locators</a></li>
+                <li>extract, based on a specific <a>state locator</a>, the exact locators for additional, internal resources</li>
+            </ol>
+
+            <p>This functionality is based on the requirement that the <a>complete manifest</a> of a PWP MUST include both the <a>canonical locator</a> as well as all available <a>state locators</a>. Consequently, in order to retrieve the <a>state locators</a>, the PWP must first retrieve the <a>PWP manifest</a> using the <a data-lt="canonical locator">canonical locator</a>. (See the separate section <a href="#manifest-details"></a> on the details of the <a>complete manifest</a> retrieval.) Once the <a>complete manifest</a> is available a resource within a PWP can be retrieved by first deriving the <a>relative locator</a> for a resource (e.g., <code>img/mona_lisa.jpg</code>) and then combining it with the <a>absolute locator</a> corresponding to the <a>state</a> of the PWP as referred to by the <a>rendering engine</a>.</p>
+
+            <p class="note">There may be “smarter” <a data-lt="PWP processor">PWP Processors</a> that make use of local facilities like caching, but those do not modify these conceptual approaches.
+
+            <p class="note">An important feature of the <a href="#manifest_algorithm">manifest retrieval algorithm</a> is that it defines a priority for the values of the <a>state locators</a> in case they are contained by different manifests. This provides a flexibility to publish copies of <a>PWP</a>-s on the <a>server</a> without the necessity to change, e.g., the <a>packed</a> versions.</p>
+
+            </p>
+        </section>
+
+        <section id="breadcrumbs">
+            <h2>Breadcrumbs</h2>
+
+            <p>A different problem, related to locators (and possibly identifiers) is to record changes when a specific <a>PWP</a> is copied, re-published, etc. Handling this “history” is particularly important if an existing <a>PWP</a> cannot be altered, i.e., it is only possible to create a <em>new</em> <a>PWP</a> that is derived from an existing <a>PWP</a>.</p>
+
+            <p>Tha approach that can be taken is to store, in the <a>complete manifest</a> of the PWP, a “breadcrumb”, i.e., a list of (canonical) <a data-lt="locator">locators</a>, and possibly a list of identifiers, as specific <a date-lt="manifest item">manifest items</a>. Because the creation of the <a>complete manifest</a> is based on an algorithm that includes the <a>combination of manifests</a>, a proper <a>server</a> setup may provide such an information even if the original publication cannot be altered. A <a>PWP Processor</a> can make use of this breadcrumb information to reference various instances and addresses of the history of the current <a>PWP</a>.</p>
+
+            <div class="note">
+                <p>To take a specific example, let us consider a <a>PWP</a>, denoted as <code>P</code> and with <a>canonical locator</a> <code>L</code>. This is the copy of the publication used by a teacher, to which he/she may have added a number of annotations. Using an ad-hoc syntax, the <a>complete manifest</a> of <code>P</code> contains <code>canonical:&nbsp;L, breadcrumbs:&nbsp;[]</code>.</p>
+
+                <p><code>P</code> might be published at the school of the teacher, under <code>https://example.org/course/french/frenchbook</code> (and thus with a different <a>canonical locator</a>, e.g., <code>L'</code>). This is, conceptually, a new <a>PWP</a> (<code>P'</code>), with a <a>manifest</a> that contains <code>canonical:&nbsp;L', breadcrumbs:&nbsp;[L]</code>.
+                </p>
+
+                <p>A student may then again copy <code>P'</code> to her own web space to make her own annotations, yielding <code>P''</code> under <code>https://example.org/student/1/frenchbook</code> as a locator <code>L''</code>. The manifest of <code>P''</code> will thus contain <code>canonical:&nbsp;L'', breadcrumbs:&nbsp;[L,&nbsp;L']</code>.
+                </p>
+
+                <p>References to <code>P</code> or <code>P'</code> might be interpreted by a <a>PWP processor</a> for <code>P''</code> to, for example, link back to the original <code>L</code> and locate, if necessary, the annotations originally prepared by the teacher.
+                </p>
+            </div>
+        </section>
+      </section>
+
+      <section id="manifest-details">
+        <h3>PWP Manifests</h3>
+
+        <p>The <a>manifest</a> of <a>Portable Web Publications</a> is a <a>Web Resource</a> that includes information pertaining to the overall publication structure, such as the default logical reading order(s) of the set of resources that comprise the publication (the “spine”), as well as predictable user-facing meta-structures, such as one or several tables of contents, glossaries, etc. As described in the section <a href="#identification"></a>, the <a>manifest</a> also provides the necessary information to address the different <a data-lt="state">states</a> of a <a>PWP</a>. Finally, the <a>PWP manifest</a> may also include various metadata (either directly or via further references) that are essential for the overall publishing workflow. The exact definition of all possible <a data-lt="manifest item">manifest items</a>, the internal structure and serialization syntax of a <a>manifest</a>, etc., will require additional work as part of a more detailed specification of <a>Portable Web Publications</a>. However, based on the general architectural approach outlined in this document, it is already expected that the <a>complete manifest</a> of a PWP MUST include the <a>canonical locator</a>, all available <a>state locators</a>, as well as the identifiers of the PWP instance.</p>
+
+        <p>The fundamental question that must be answered is how does a <a>PWP Processor</a> get hold of the <a>complete manifest</a> if only the <a>canonical locator</a> is known. There are some fundamental issues that should be considered.</p>
+
+        <ul>
+            <li>The <a>server</a> may provide the PWP in various (one or several) <a href="state">states</a>; to ensure state independence, there should be a clear algorithm on what the <a>PWP Processor</a>, as a client, should receive if an HTTP request to the <a>canonical locator</a> is issued, and how the returned resource relates to the <a>PWP manifest</a>.</li>
+
+            <li>The usage patterns of Portable Web Publications involves the possibility of copying, re-publishing the publications (e.g., a copy is created for library lending, copies are made for students in a class, etc.). Not all users involved in these operations have the possibility, access, or indeed the skill of modifying the manifests if, for example, they are incorporated into a PWP in a <a>packed</a> state. As a consequence, a <a>complete manifest</a> may have to be combined from different pieces: some <a data-lt="manifest item">manifest items</a> may be part of the PWP as stored on a <a>server</a> (e.g., basic metadata like author or title), while other items may have to be provided by the <a>server</a> itself (e.g., the locators) possibly without changing the PWP itself.</li>
+        </ul>
+
+        <p>To provide the necessary flexibility, it is therefore essential that the <a>PWP Processor</a> is prepared to <em>gather</em> the <a data-lt="manifest item">manifest items</a> from several possible sources, i.e., from several different <a class="manifest">manifest</a>, which are then <a data-lt="combination of manifests">combined</a> through a well-specified algorithm. The essential steps of the retrieval and combination process are described in a separate section (see <a href="#manifest_algorithm"></a>); a high level description of the steps is as follows:</p>
+
+        <ol>
+            <li>The <a>PWP Processor</a> issues a <code>HTTP GET</code> request using the value of the <a>canonical locator</a>.</li>
+
+            <li>Depending on the type of the returned resource, an initial value for the <a>PWP manifest</a> is established. The simplest case is when the returned resource is itself a <a data-lt="manifest">manifest;</a> otherwise the <a>PWP manifest</a> has to be extracted from the returned payload by possibly <a data-lt="combination of manifests">combining</a> manifests of different origins.</li>
+
+            <li>Furthermore, the response header of the <code>HTTP</code> request may also refer to another, different, <a>manifest</a>. If so, this is <a data-lt="combination of manifests">combined</a> with the manifest retrieved from the payload in the previous step, yielding the final <a>PWP manifest</a>.</li>
+        </ol>
+
+        <p> This algorithm is typically performed by the <a>PWP Processor</a> when initialized with the canonical locator of a particular <a>PWP</a> instance.</p>
+
+            <p class="note">An important consequence of the algorithm is that it defines a priority for the various <a data-lt="manifest item">manifest items</a>, e.g.,the <a>state locators</a>, in case they are contained by different manifests. Especially, locator values retrieved via the response header of the <code>HTTP</code> header have the highest priority.</p>
+
+        <p class="note">The Manifest for web application format&nbsp;[[web-manifest]], currently developed at W3C, is one example of a technology that could potentially be used, or adopted, to define the final formats for PWP manifests. The current&nbsp;[[web-manifest]] drafts is geared towards Web Applications, which may not make it suitable for direct adoption for <a>Portable Web Publications</a>; however, that draft may also include extension points to define different manifests that could be, for example, used to specify further manifest items.
+        </p>
+
+      </section>
+
+      <section id="metadata">
+        <h3>Metadata: discovery</h3>
+        <p>Throughout the digital publishing industry, highly specialized metadata vocabularies, and serialization forms thereof, are being used. Within book trade publishing as an example, ONIX[[ONIX]] has attained a dominant status as a metadata package that typically exists (in XML form) independently of the publication, and contains not only bibliographic metadata, but also trade information such as pricing. Scholarly publishing, on the other hand, often uses various derivatives of the ubiquitous BibTeX vocabulary.</p>
+
+        <p>While not contradicting the obvious use cases for out-of-line metadata records as used by publishers, retailers and libraries, <a>Portable Web Publications</a> must define a syntax for basic in-line metadata records that is agnostic to the publication’s states. This means that the syntax must seamlessly support discovery and harvesting by both generic Web search engines, as well as dedicated bibliographic/archival/retailer systems. While it is expected that <a>Portable Web Publications</a> will define a minimal set of required metadata (cf. the section <a href="#identification"></a>), development and adoption of other vocabularies in <a>Portable Web Publications</a> will most likely be deemed as out of scope. In other words, domain-specific metadata requirements are up to the domains themselves to define via a profiling mechanism, or similar yet-to-be-defined means. </p>
+
+        <p class="note">The adoption of HTML as the vehicle for expressing publication-level metadata (i.e., using RDFa[[html-rdfa]] and/or Microdata[[microdata]] for metadata, like authors or title) would have the added benefits of better I18N support than XML or JSON formats.</p>
       </section>
 
       <section id="package">
@@ -544,79 +697,6 @@
         <div class="note">
           <p>The IETF has published an <a href="https://tools.ietf.org/html/draft-seantek-kerwin-arcmedia-type-01">informational draft on a top-level media type for archives</a>. Although that draft does not specify a specific archive format, and the work is currently on hold, it shows the overall interest in packaging on the Web in line with the concerns of <a>Portable Web Publications</a>.</p>
         </div>
-      </section>
-
-      <section id="manifest">
-        <h3>Publication Manifests</h3>
-
-        <p>The <dfn>manifest</dfn> of <a>Portable Web Publications</a> is a <a>Web Resource</a> that includes information pertaining to the overall publication structure, such as the default logical reading order(s) of the set of resources that comprise the publication (the “spine”), as well as predictable user-facing meta-structures, such as one or several tables of contents, glossaries, etc. As described in the separate section <a href="#identification"></a> that overall structural information may be what a client would return on a request for a <a>Portable Web Publication</a> instance, as an abstraction for a collection of <a>Web Resources</a>. For <a>Portable Web Publications</a> it may be imperative to optimize these data structures in a way that is native to the Open Web Platform and more easily supported in authoring tools, browsers, and Reading Systems. </p>
-
-        <p class="note">The Manifest for web application format[[web-manifest]], currently developed at W3C, is one example of a technology that could potentially be used, or adopted, to achieve this goal. Note, however, that the [[web-manifest]] specification is (currently) geared towards Web Applications, which may not make it suitable for direct adoption for <a>Portable Web Publications</a>; hence the possible needs of adoption rather than using it directly.</p>
-
-        <p class="note">Whilst these information objects are important for larger and/or more complex publications, it is unnecessary for other use cases of <a>Portable Web Publications</a>. A typical example is the archival of a single Web page with all the necessary style sheets, images, and similar resources. The definition for <a>Portable Web Publications</a> should therefore include the definition of a set of “defaults”, i.e., it should not require the presence of, say, a spine if the publication contains one single HTML file.</p>
-      </section>
-
-      <section id="identification">
-        <h3>Addressing and Identification</h3>
-
-        <p>HTTP(S) URLs serve as the fundamental method for addressing a resource, or a fragment thereof, on the Web. Such URLs can also be used to uniquely <em>identify</em> a resource; however, conceptually, the role of addressing and identification are different. <em>Both</em> of these functionalities should be available for <a>Portable Web Publications</a>: a publication should be uniquely identified for, e.g., library catalogues or archival, and a resource locator should be available so that the user could access the content. In other words, a <a>Web Publication</a> (whether portable or not) SHOULD have both one or even possibly several <em>identifier(s)</em> and one <em>locator</em>. These may be be identical but may also be different: e.g., an identifier may refer to a specific publication by a publisher (e.g., using an <a href="https://www.isbn-international.org/">ISBN</a>), whereas the locator may refer to a personal copy of that publication that the owner can freely annotate for personal use.</p>
-
-        <p class="note">A typical, and extremely important use case for the presense of an <em>identifier</em> beyond the need for a <em>locator</em> is in academic and scholarly publishing. There are currently several methods for citing online works, but there is no equivalent standard method for citations to ebooks. Even if a reflowable ebook is by a scholar, the author must refer to PDF, paper copy, or HTML version to cite it in her bibliography. Identifiers attached to <a>Portable Web Publications</a> should enable stable citations.</p>
-
-        <div class="note">
-          <p>A general [[URI]] (which includes the notion of [[URL]]) can serve as an <em>identifier</em> using, e.g., the [[ISBN-URN]] or [[UUID]] schemes. In other words, an identifier does not necessarily resolves to a location on the Web, although it is a good practice to have a dereferencable identifier.</p>
-
-          <p> There is no  ubiquitously accepted method for identifying a publication among the various document formats (whether electronic or printed). Within the scholarly publishing industry, for example, initiatives such as <a href="http://www.doi.org">DOI</a> and <a href="http://crossref.org">CROSSREF</a> have addressed this problem, whereas traditional “trade” publishing rely more on <a href="https://www.isbn-international.org/">ISBN</a> related services. Some of these identifier schemes provide resolver services or a “standard” representation in term of [[URL]]. The definition of <a>Portable Web Publication</a> should be oblivious to the exact identification used; this issue is left to specialized services and industry organizations. </p>
-        </div>
-
-        <div class="issue" data-number="12">Do we need a more general form of identification to represent scopes?</div>
-
-        <p>For the purpose of the general architecture of <a>Portable Web Publications</a> this document concentrates on <em>locators</em>; as far as identifiers are concerned, the only important point is that such identifier SHOULD also exist and made available, and that they should be stable across, for example, copying the publication or changing its location on the Web. Also, based on the discussion in <a href="#arch"></a>, only the <a>unpacked</a> and <a>protocol</a> states of <a>Portable Web Publications</a> are discussed.</p>
-
-        <p>There are a number of different aspects of addressing that should be specified for a <a>Portable Web Publication</a>. Some of these are follows:</p>
-
-        <section>
-          <h4>What should be the response of an HTTP(S)&nbsp;GET request?</h4>
-          <p>Conceptually, it should be the <a>manifest</a> of the publication which, in fact, “represents” the <a>Web Publication</a> as a whole. In practice, this means providing access to the corresponding manifest file through either:</p>
-
-          <ul class="definition">
-            <li>returning the <a>manifest</a> itself; or</li>
-            <li>returning another content (e.g., the first chapter in the document) but providing a link to the <a>manifest</a> through a <code>LINK:</code> in the HTTP response header; or</li>
-            <li>returning and HTML content (e.g., the first chapter in the document) but providing a link to the <a>manifest</a> through a <code>&lt;link&gt;</code> element.</li>
-          </ul>
-
-          <p>These possibilities are not mutually exclusive.</p>
-        </section>
-
-        <section>
-          <h4>What is the URL for one of the resources <em>within</em> a <a>Portable Web Publication</a>?</h4>
-
-          <p>I.e.: if the <code>http://www.ex.org/doc.pwp</code> locator refers to the <a>Portable Web Publication</a> as a whole, what is the URL for one of its constituent resources, e.g., <code>chapter1.html</code>?</p>
-
-          <p>The simplest approach is to consider the URL of the <a>Web Publication</a> as the base for all relative URL-s, meaning that the location of the constituents are of the form: <code>http://www.ex.org/doc.pwp/chapter1.html</code> where <code>http://www.ex.org/</code> is the URL of the the <a>Web Publication</a> itself. In other words, the locator of the <a>Web Publication</a> sets the “context”.</p>
-
-          <p>This simple approach works well if the <a>Web Publication</a> is created from bottom up; however, it does rely on a particular organization of the resources. The scheme does not work if the <a>Web Publication</a> (which is defined to be a set of <a>Web Resources</a>) includes resources at many different places on the Web. This issue may be mitigated by adding mappings (“virtual redirections”) of URLs in the <a>manifest</a> of the <a>Web Publication</a>.</p>
-
-          <p class="note">When using the virtual redirections a particular constituent <a>Web Resource</a> may end up having two URL-s: one is its intrinsic URL as a resource on the Web, the other via the URL of the <a>Web Publication</a>.</p>
-
-          <p class="note">Another alternative that is used in practice is to use an explicit separator between the URL for the publication and the rest, yielding, e.g., <code>http://www.ex.org/doc.pwp!chapter1.html</code>. It is not clear what advantages this approach would have.</p>
-        </section>
-
-        <section>
-          <h4>How does one locate the internal content of a particular constituent resource?</h4>
-            <p>The definition of <a>Web Publications</a> should not include any new mechanism at this point; they should rather entirely rely on fragment identifiers as defined and widely used on the Web.</p>
-
-            <p class="note">As examples for the power of fragment identifiers, the <a href="http://www.w3.org/annotation/">W3C Annotation Working Group</a> has a joint deliverable with the <a href="http://www.w3.org/WebPlatform/WG/">W3C Web Platform Working Group</a> called [[FindText]]. Although the specification aims at a programmable API, it may also provide a general framework of identifying specific textual content within, e.g., and HTML file through the definion of a fragment identifier. Similarly, the W3C Media Fragments specification[[media-frags]] may prove useful to address some of the use cases. </p>
-        </section>
-       </section>
-
-      <section id="metadata">
-        <h3>Metadata: discovery</h3>
-        <p>Throughout the digital publishing industry, highly specialized metadata vocabularies, and serialization forms thereof, are being used. Within book trade publishing as an example, ONIX[[ONIX]] has attained a dominant status as a metadata package that typically exists (in XML form) independently of the publication, and contains not only bibliographic metadata, but also trade information such as pricing. Scholarly publishing, on the other hand, often uses various derivatives of the ubiquitous BibTeX vocabulary.</p>
-
-        <p>While not contradicting the obvious use cases for out-of-line metadata records as used by publishers, retailers and libraries, <a>Portable Web Publications</a> must define a syntax for basic in-line metadata records that is agnostic to the publication’s states. This means that the syntax must seamlessly support discovery and harvesting by both generic Web search engines, as well as dedicated bibliographic/archival/retailer systems. While it is expected that <a>Portable Web Publications</a> will define a minimal set of required metadata (cf. the section <a href="#identification"></a>), development and adoption of other vocabularies in <a>Portable Web Publications</a> will most likely be deemed as out of scope. In other words, domain-specific metadata requirements are up to the domains themselves to define via a profiling mechanism, or similar yet-to-be-defined means. </p>
-
-        <p class="note">The adoption of HTML as the vehicle for expressing publication-level metadata (i.e., using RDFa[[html-rdfa]] and/or Microdata[[microdata]] for metadata, like authors or title) would have the added benefits of better I18N support than XML or JSON formats.</p>
       </section>
 
       <section id="styling">
@@ -670,6 +750,123 @@
       <h2>Conclusions</h2>
       <p>This document outlines a vision for the convergence between the Open Web Platform and portable documents while also significantly advancing and expanding the existing digital publishing ecosystem. The realization of this vision would require a strong cooperation between the traditional publishing and Web communities, based on a close collaboration between the W3C and other relevant organizations, like <a href="http://idpf.org">IDPF</a>, <a href="http://editeur.org/">EDItEUR</a>, <a href="http://www.bisg.org">BISG</a>, or others. While it is envisaged that most of the work could be done in one or more dedicated Working Groups (within W3C or elsewhere, depending on the exact charter), it must be emphasized that many of the features will affect and will be affected by work done elsewhere, within or outside these organizations. The starting point will be to explore and plan for the detailed technical challenges to gain a better insight into the work ahead; this exploration should be done together with the various interested communities.
       </p>
+    </section>
+
+
+    <section class="appendix" id="manifest_algorithm">
+        <h2>Algorithm to retrieve the <a>PWP manifest</a></h2>
+
+        <p>The goal of this algorithm is to obtain the <a>PWP manifest</a></em> based on the value of the <a>canonical locator</a> <strong>L</strong>. This algorithm is performed by the <a>PWP Processor</a>, typically when it is initialized with the canonical locator <strong>L</strong> of a particular <a>PWP</a> instance. The core of the algorithm consists of retrieving the <a>PWP manifest</a> based on the HTTP(S) responses on a <code>HTTP GET</code> request on <strong>L</strong>.</p>
+
+        <p class="note">
+            If the <a>PWP processor</a> already has the cached publication, than that will probably prevail (modulo cache state) and there may be no HTTP request in the first place. This section really refers to the situation of a first access.
+        </p>
+
+        <p>In what follows, as an abuse of notation, <code>HTTP&nbsp;GET&nbsp;U</code>, for a URL <code>U</code>, refers to an <code>HTTP</code> or <code>HTTPS</code> request issued to the domain part of <code>U</code>, using the path from <code>U</code>. I.e., if <code>U</code> is <code>http://www.ex.org/a/b/c</code>, then <code>HTTP&nbsp;GET&nbsp;U</code> stands for:</p>
+
+        <pre><code>GET /a/b/c HTTP/1.1
+Host: www.ex.org</code></pre>
+
+        <p>See [[rfc2616]] for further details.</p>
+
+        <p>As another abuse of notation, the algorithm refers to a <a>manifest</a> retrieved <code>HTTP</code> and then manipulated via, e.g., the <a>combination of manifests</a>; that step, in fact, involves <em>parsing</em> the serialized <a data-lt="manifest">manifest file</a> and manipulate the abstract content instead in an implementation specific way.</p>
+
+        <p>With these prerequisites, the algorithm is as follows (see also <a href="#fig-flow-get-l">the figure</a> as a visual aid to the algorithm). The input to the algorithm is the <a>canonical locator</a> of the <a>PWP</a> instance, <strong>L</strong>.</p>
+
+        <ol class="algorithm" id="algorithm">
+            <li>Create two, initially empty, <a data-lt="manifest">manifests</a>, denoted respectively <strong>M<sub>2</sub></strong> and <strong>M<sub>3</sub></strong>.</li>
+
+            <li>Issue an <code>HTTP&nbsp;GET&nbsp;L</code> request.</li>
+
+            <li>If the response is not successful (e.g., the response code is a 404), the process fails with no results.</li>
+
+            <li>Otherwise, perform the two, independent processing steps below, yielding possibly new values to <strong>M<sub>2</sub></strong> and <strong>M<sub>3</sub></strong>, respectively.
+                <ol>
+                    <li>Consider the resource returned by the <code>HTTP</code> request to, possibly, provide a new value to <strong>M<sub>2</sub></strong> as follows. Depending on the media type of the response, take the following actions:
+                        <ol>
+                            <li>If the response is a packaged PWP instance (identified via the media type to be specified for the packed <a>state</a> of a PWP):
+                                <ol>
+                                    <li>Unpack the package, and retrieve the <a>manifest</a> embedded in the package as (to be) specified by the packed state of a PWP.</li>
+                                    <li><strong>M<sub>2</sub></strong> is set to the retrieved manifest.</li>
+                                </ol>
+                            </li>
+
+                            <li>Otherwise, if the resource is a PWP <a>manifest</a>, as identified by its media type, set <strong>M<sub>2</sub></strong> to this resource.</li>
+
+                            <li>Otherwise the resource is an HTML file. Take the following actions:
+                                <ol>
+                                    <li>Create two, initially empty, <a data-lt="manifest">manifests</a>, respectively <strong>M<sub>1,0</sub></strong> and <strong>M<sub>1,1</sub></strong></li>
+
+                                    <li>Perform the two, independent processing steps below, yielding possibly new values to <strong>M<sub>1,0</sub></strong> and <strong>M<sub>1,1</sub></strong>, respectively.
+                                        <ol>
+                                            <li>If the HTML content includes a <code>&lt;link&nbsp;rel="pwp_manifest"&nbsp;href="URI&gt;</code> in the header:
+                                                <ol>
+                                                    <li>Issue a <code>HTTP&nbsp;GET&nbsp;URI</code> request</li>
+                                                    <li>If the response is successful, <strong>M<sub>1,0</sub></strong> is set to the content returned in the response</li>
+                                                </ol>
+                                            </li>
+
+                                            <li>If the HTML content includes a <a>manifest</a> content embedded in a <code>&lt;script&gt;</code> element, serialized in to one of the accepted serializations for PWP manifests
+                                                <ol>
+                                                    <li>Retrieve and parse the content of the <code>&lt;script&gt;</code> element</li>
+                                                    <li>If parsing is successful, <strong>M<sub>1,1</sub></strong> is set to the parsed manifest</li>
+                                                </ol>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                    <li>Set <strong>M<sub>2</sub></strong>&nbsp;=&nbsp;<strong>M<sub>1,0</sub></strong>&nbsp;⊕&nbsp;<strong>M<sub>1,1</sub></strong></li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>Consider the HTTP Response header to, possibly, provide a new value to <strong>M3</strong> as follows.
+                        <ol>
+                            <li>If the response header includes a header of the form <code>LINK&nbsp;&lt;URI&gt;;&nbsp;rel="pwp_manifest"</code> (see [[rfc5988]]) then
+                                <ol>
+                                    <li>Issue an <code>HTTP&nbsp;GET&nbsp;URI</code> request</li>
+                                    <li>If the response is successful, <strong>M<sub>3</sub></strong> is set to the content returned in the response.</li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+            </li>
+            <li>The final <a>PWP manifest</a> is set to <strong>M</strong>&nbsp;=&nbsp;<strong>M<sub>2</sub></strong>&nbsp;⊕&nbsp;<strong>M<sub>3</sub></strong> and returned.</li>
+        </ol>
+
+        <p>An important point of the algorithm is that it defines a priority for the <a>manifest items</a> in case several <a>manifest</a> instances contains respective values (see the definition for the <a>combination of manifests</a>). At present, the priority is as follows, in decreasing priority order:</p>
+
+        <ol>
+            <li>Manifest referred to by the <code>HTTP</code> Link Header</li>
+            <li>Manifest extracted from the payload; if that means retrieving the manifest from the HTML content, then:
+                <ol>
+                    <li>Manifest embedded in the HTML</li>
+                    <li>Manifest referred to by a <code>&lt;link&gt;</code> element.</li>
+                </ol>
+                <p>otherwise the access to the manifest via a package or directly through the payload are mutually exclusive, i.e., priority among them do not apply</p>
+            </li>
+        </ol>
+
+        <ul class="note">
+
+            <li>The algorithm considers only HTML as a possible non-packaged and non-manifest response format. It may become possible to allow, for example, SVG as another, possible format for a <a>PWP</a>; this depends on the final specification of a PWP. The algorithm should then be adapted accordingly by adding a relevant branch (e.g., the specification of SVG includes <code>&lt;script&gt;</code> element that can be used to embed a manifest, but does not have a <code>&lt;link&gt;</code> element).</li>
+
+            <li>It may become possible for HTML file to includes several <code>&lt;link&gt;</code> elements referring to a <a>manifest</a> each. If that becomes allowed by a PWP specification, the corresponding step could be modified by taking all link elements into account, and sequentially combining the manifest files in document order to yield <strong>M<sub>1,0</sub></strong>. The same note is valid for (possible) several <code>&lt;script&gt;</code> elements and <strong>M<sub>1,1</sub></strong>, respectively.</li>
+
+            <li>Similarly, if a PWP specification allows for several different serialization syntaxes for manifests, the processor should be able to recognize and parse them accordingly. The expectation is that the various possible serializations MUST serialize the <em>same</em> content, i.e., these do not influence the final result.</li>
+
+            <li>The algorithm is silent on the details on how a manifest should be retrieved from a package. This depends on the detailed specification of packaging, on whether a manifest would have to be at a known location within a package, on whether there might be several manifest instances within a package, etc. It is also possible that the details would follow a similar approach as described in this algorithm, i.e., relying on embedded and linked manifests of a top level HTML file, for example. As far as the algorithm described in this section is concerned, these details do not influence the final result.</li>
+
+            <li>The algorithm makes use of the constant <code>pwp_manifest</code>; the exact value of this constant must be defined, and registered, through a more precise specification of PWP-s. It is used here for illustrative purpose only.</li>
+
+            <li>The PWP Processor MAY include an <code>Accept</code> header (see [[rfc7231]]) when issuing a <code>HTTP GET</code> to express its preference for, e.g., a packed state of a PWP over manifest payload, or in favor of a particular serialization of the manifest content. Whether this is done or not, and whether the server honors this preference, does not influence the details of the algorithm.</li>
+        </ul>
+
+        <figure id="fig-flow-get-l" class="overlarge">
+            <img src="figures/PWPClient.svg" alt="Flowchart of what happens when a Portable Web Publication is retrieved by the user and how this leads to the PWP manifest" longdesc="#algorithm"/>
+            <figcaption>Visual representation of the <a href="#algorithm">algorithm</a> to retrieve the <a>PWP manifest</a>. The figure is also available in <a href="figures/PWPClient.png">PNG</a> format.</figcaption>
+        </figure>
+
     </section>
   </body>
 </html>
