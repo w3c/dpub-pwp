@@ -413,7 +413,7 @@
           <li><strong>States related to the organization of the <a data-lt="Web Resource">Web Resources</a></strong>: A <a>Portable Web Publication</a> is in
             <ul>
               <li><dfn data-lt="Packed">Packed State</dfn>: when all constituent <a data-lt="Web Resource">Web Resources</a> are combined into one unit for storage in a file system, network transfer, etc.</li>
-              <li><dfn data-lt="Unpacked">Unpacked State</dfn>: when all constituent <a data-lt="Web Resource">Web Resources</a> can be directly accessed individually through standard network protocols like HTTP, FTP, etc., or through file system access</li>
+              <li><dfn data-lt="Unpacked">Unpacked State</dfn>: when all constituent <a data-lt="Web Resource">Web Resources</a> can be directly accessed individually.</li>
             </ul>
           </li>
 
@@ -472,7 +472,7 @@
 
               <li>An <dfn>absolute locator</dfn> is a combination of a <a>PWP locator</a> and a <a>relative locator</a>.</li>
 
-              <li>The <dfn>canonical locator</dfn> is an absolute, and <a data-lt="state">state independent</a> <a>PWP locator</a>. This is purely conceptual, i.e., the <a>PWP</a> does not have to be published unpacked online, for example. For the purposes of this document, the canonical locator of a PWP is denoted by <strong>L</strong>.
+              <li>The <dfn>canonical locator</dfn> is an absolute, and <a data-lt="state">state independent</a> <a>PWP locator</a>. For the purposes of this document, the canonical locator of a PWP is denoted by <strong>L</strong>.
               </li>
 
               <li>A <dfn data-lt="state locator|state locators">state locator</dfn> is a <a>PWP locator</a> that refers to a PWP in a particular <a>state</a>. For the purposes of this document, <strong>L<sub>u</sub></strong> denotes the <a>state locator</a> referring to an <a>unpacked state</a>, whereas <strong>L<sub>p</sub></strong> refers to a <a>state locator</a> referring to a <a>packed state</a>.
@@ -616,9 +616,6 @@
             <p>This functionality is based on the requirement that the <a>complete manifest</a> of a PWP MUST include both the <a>canonical locator</a> as well as all available <a>state locators</a>. Consequently, in order to retrieve the <a>state locators</a>, the PWP must first retrieve the <a>PWP manifest</a> using the <a data-lt="canonical locator">canonical locator</a>. (See the separate section <a href="#manifest-details"></a> on the details of the <a>complete manifest</a> retrieval.) Once the <a>complete manifest</a> is available a resource within a PWP can be retrieved by first deriving the <a>relative locator</a> for a resource (e.g., <code>img/mona_lisa.jpg</code>) and then combining it with the <a>absolute locator</a> corresponding to the <a>state</a> of the PWP as referred to by the <a>rendering engine</a>.</p>
 
             <p class="note">There may be “smarter” <a data-lt="PWP processor">PWP Processors</a> that make use of local facilities like caching, but those do not modify these conceptual approaches.
-
-            <p class="note">An important feature of the <a href="#manifest_algorithm">manifest retrieval algorithm</a> is that it defines a priority for the values of the <a>state locators</a> in case they are contained by different manifests. This provides a flexibility to publish copies of <a>PWP</a>-s on the <a>server</a> without the necessity to change, e.g., the <a>packed</a> versions.</p>
-
             </p>
         </section>
 
@@ -669,7 +666,7 @@
 
         <p> This algorithm is typically performed by the <a>PWP Processor</a> when initialized with the canonical locator of a particular <a>PWP</a> instance.</p>
 
-            <p class="note">An important consequence of the algorithm is that it defines a priority for the various <a data-lt="manifest item">manifest items</a>, e.g.,the <a>state locators</a>, in case they are contained by different manifests. Especially, locator values retrieved via the response header of the <code>HTTP</code> header have the highest priority.</p>
+        <p>An important feature of the algorithm (see the <a href="#manifest_algorithm">section below</a> for the details) is that it defines a priority for the various <a data-lt="manifest item">manifest items</a>, e.g.,the <a>state locators</a>, in case they are contained by different manifests. For example, locator values retrieved via the response header of the <code>HTTP</code> response have the highest priority. This provides a flexibility to publish copies of <a>PWP</a>-s on the <a>server</a> without the necessity to change, e.g., the <a>packed</a> versions.</p>
 
         <p class="note">The Manifest for web application format&nbsp;[[web-manifest]], currently developed at W3C, is one example of a technology that could potentially be used, or adopted, to define the final formats for PWP manifests. The current&nbsp;[[web-manifest]] drafts is geared towards Web Applications, which may not make it suitable for direct adoption for <a>Portable Web Publications</a>; however, that draft may also include extension points to define different manifests that could be, for example, used to specify further manifest items.
         </p>
