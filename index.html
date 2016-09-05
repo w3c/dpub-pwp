@@ -301,31 +301,53 @@
   </head>
   <body>
     <section id="abstract">
-        <blockquote class="quote"><p>“A book is a discrete collection of text (and other media), that is designed by an author(s) as an internally complete representation of an idea, or set of ideas; emotion or set of emotions; and transmitted to readers in various formats.”</p>
-        <p class="author">Hugh McGuire, <a href="https://medium.com/@hughmcguire/what-books-can-learn-from-the-web-what-the-web-can-learn-from-books-64670171908f#.482p2ksyi">Medium, April 2016</a></blockquote>
+        <blockquote class="quote">
+            <p>“A book is a discrete collection of text (and other media), that is designed by an author(s) as an internally complete representation of an idea, or set of ideas; emotion or set of emotions; and transmitted to readers in various formats.”</p>
+            <p>“Books can learn from the Web how to be bounded, but open.<br>
+                The Web can learn from books how to be open, but bounded.”</p>
+                <p class="author">Hugh McGuire, <a href="https://medium.com/@hughmcguire/what-books-can-learn-from-the-web-what-the-web-can-learn-from-books-64670171908f#.482p2ksyi">Medium, April 2016</a>
+        </blockquote>
 
       <p>This document introduces Portable Web Publications, a vision for the future of digital publishing that is based on a fully native representation of documents within the Open Web Platform. Portable Web Publications achieve full convergence between online and offline/portable document publishing: publishers and users won't need to choose one or the other, but can switch between them dynamically, at will. Authors can concentrate on the way they intend to transmit their ideas and emotions, without having to deal with the specificities of a particular format.
       </p>
     </section>
 
     <section id='sotd'>
-      <p>This document outlines a general vision and should not be considered a technical specification. Instead, its goal is to outline that vision and possible technical directions to achieve it, and reflects the discussions that occured in the Digital Publishing Interest Group. As such, some of the sections are more detailed and more mature than others. A more detailed and rigoruous specification should be done by a separated, dedicated Working Group in the future.</p>
+      <p>This document outlines a general vision and should not be considered a technical specification. Instead, its goal is to outline that vision and possible technical directions to achieve it, and reflects the discussions that occured in the Digital Publishing Interest Group. In partiucular, this document looks at some of the technical implications, and possible solutions, arising from the use cases and requirements collected by the Digital Publishing Interest Group, and documented in a separate UCR document&nbsp[[pwp-ucr]]. As such, some of the sections are more detailed and more mature than others. A more detailed and rigoruous specification should be done by a separated, dedicated Working Group in the future.</p>
     </section>
 
     <section>
-      <h2 id="introduction">Our Vision</h2>
+      <h2 id="introduction">The vision of publishing on the Web</h2>
+      <section>
+            <h2>The high level vision</h2>
 
-      <p class="vision">Our vision for <a>Portable Web Publications</a> is to define a class of documents on the Web that would be part of the Digital Publishing ecosystem but would also be fully native citizens of the <a href="https://www.w3.org/wiki/Open_Web_Platform">Open Web Platform</a>.  In this vision, the current format- and workflow-level separation between offline/portable and online (Web) document publishing is diminished to zero. These are merely two dynamic manifestations of the same publication: content authored with online use as the primary mode can easily be saved by the user for offline reading in portable document form. Content authored primarily for use as a portable document can be put online, without any need for refactoring the content. Publishers can choose to utilize either or both of these publishing modes, and users can choose either or both of these consumption modes. Essential features flow seamlessly between online and offline modes; examples include cross-references, user annotations, access to online databases, as well as licensing and rights management.
-      </p>
+            <p>The Web emerged in 1994, based on a model of individual pages loosely joined by hyperlinks. Clustering within domains, with explicit navigation elements built into them, webpages evolved into websites. This model however inherited very little from an existing, powerful and much older page-based media: books.</p>
 
-      <p>A more precise technical definition of <a>Portable Web Publications</a> is provided in the section <a href='#pwp_definition'></a>. For the sake of this introduction, it suffices to say that a <a>Portable Web Publication</a> is a collection of resources (e.g. pages, chapters, modules, articles) whose content is compatible with Web usage, and structured as a single, self-contained logical unit. Individual items can consist of text, images, graphics, possibly interactive mathematical or chemical formulae, as well as audio and video. These documents, by definition, have a default, linear “reading order”, however the user may choose to skip around in the content just as with a book on paper; alternatively, interactive aspects of the content may alter the reading order on behalf of the user.
-      </p>
+            <p>Over centuries, “books” have assumed many forms: journals, magazines, pamphlets of longform articles and essays, newspapers, atlases, comics, notebooks, albums of all sorts. We can define these different manifestations as “publications”: bound editions of meaningful media, made public.</p>
+
+            <p>We believe there is great value in combining this older tradition—of portable, bounded publications—with the pervasive accessibility, addressability, and interconnectedness of the <a href="https://www.w3.org/wiki/Open_Web_Platform">Open Web Platform</a>. New models of economic sustainability, innovative experiences of knowledge and invigorated socio-cultural engagement depend on this.</p>
+
+            <p>It is the task of this W3C Digital Publishing Interest Group to explore the uniqueness, desirability, and feasibility of bringing these two great models of publishing together. This document explores the technical feasibility and some of the challenges arising from real use cases that arise when exploring this vision further. Many of these challenges arise from the various use cases, documented in the separate note on PWP Use Cases and Requirement&nbsp;[[pwp-ucr]]
+            </p>
+      </section>
+      <section>
+          <h2>The technical vision</h2>
+
+          <p>From a technical viewpoint, our vision for <a>Portable Web Publications</a> is to define a class of documents on the Web that would be part of the Digital Publishing ecosystem but would also be fully native citizens of the <a href="https://www.w3.org/wiki/Open_Web_Platform">Open Web Platform</a>.  In this vision, the current format- and workflow-level separation between offline/portable and online (Web) document publishing is diminished to zero. These are merely two dynamic manifestations of the same publication: content authored with online use as the primary mode can easily be saved by the user for offline reading in portable document form. Content authored primarily for use as a portable document can be put online, without any need for refactoring the content. Publishers can choose to utilize either or both of these publishing modes, and users can choose either or both of these consumption modes. Essential features flow seamlessly between online and offline modes; examples include cross-references, user annotations, access to online databases, as well as licensing and rights management.
+          </p>
+
+          <p>A more precise technical definition of <a>Portable Web Publications</a> is provided in the section <a href='#pwp_definition'></a>. For the sake of this introduction, it suffices to say that a <a>Portable Web Publication</a> is a collection of resources (e.g. pages, chapters, modules, articles) whose content is compatible with Web usage, and structured as a single, self-contained logical unit. Individual items can consist of text, images, graphics, possibly interactive mathematical or chemical formulae, as well as audio and video. These documents, by definition, have a default, linear “reading order”, however the user may choose to skip around in the content just as with a book on paper; alternatively, interactive aspects of the content may alter the reading order on behalf of the user.
+          </p>
+
+          <p>As mentioned already, a companion document&nbsp;[[pwp-ucr]] collects a set of more detailed use cases and requirements for <a>Portable Web Publications</a>. The present document concentrates on the technical challenges to achieve this vision, and provides some technical directions aiming to address some of those challenges. None of the technical solutions should be considered final; a more detailed and rigorous specification should be done by a separate, dedicated Working Group.</p>
+
+          <figure id="pwp_figure" >
+            <img src="figures/pwp.svg" alt="Image showing a laptop accessing unpackaged multiple files for online use.  With same content packaged for use on a mobile cellphone." style="width:80%">
+            <figcaption>The same content can be turned into an archived file and back without any inherent changes to the core content or associated digital assets. (Picture is available separately in <a href="figures/pwp.svg">SVG</a> or <a href="figures/pwp.png">PNG</a> formats.)</figcaption>
+          </figure>
+      </section>
     </section>
 
-    <figure id="pwp_figure" >
-      <img src="figures/pwp.svg" alt="Image showing a laptop accessing unpackaged multiple files for online use.  With same content packaged for use on a mobile cellphone." style="width:80%">
-      <figcaption>The same content can be turned into an archived file and back without any inherent changes to the core content or associated digital assets. (Picture is available directly in <a href="figures/pwp.svg">SVG</a> or <a href="figures/pwp.png">PNG</a> formats.)</figcaption>
-    </figure>
 
     <section>
       <h2 id="whynow">Why work on this now?</h2>
@@ -337,8 +359,6 @@
 
       <p>In many respects, the convergence is already happening. In a number of areas (e.g., educational publications, travel books, etc.) publishers already exploit the advanced possibilities of packaged publishing formats to produce highly interactive documents whose features are very close to what one is used to on the Web (see the separate section <a href="#epub-relations"></a> for some examples). And the converse is also true: tutorial and introductory articles have appeared on the Web that have the quality of traditional publications that one was used to seeing in a scientific magazine, but combined with the interactive possibilities of the Web (<a href="http://bost.ocks.org/mike/algorithms/">Mike Bostock’s article on visualizing algorithms</a> or <a href="http://worrydream.com/LadderOfAbstraction/">Bret Victor’s article on visualization</a> are just two of several possible examples). However, the convergence still has a long way to go, and this is the topic that this document, and the concept of <a>Portable Web Publications</a>, aim to explore.
       </p>
-
-      <p>A companion document&nbsp;[[pwp-ucr]] collects a set of more detailed use cases and requirements for <a>Portable Web Publications</a>. The present document concentrates on the technical challenges to achieve this vision, and provides some technical directions possibly addressing those challenges. None of the technical solutions should be considered final; a more detailed and rigorous specification should be done by a separate, dedicated Working Group.</p>
 
     </section>
 
@@ -850,6 +870,15 @@ Host: www.ex.org</code></pre>
             <img src="figures/PWPClient.svg" alt="Flowchart of what happens when a Portable Web Publication is retrieved by the user and how this leads to the PWP manifest" longdesc="#algorithm"/>
             <figcaption>Visual representation of the <a href="#algorithm">algorithm</a> to retrieve the <a>PWP manifest</a>. The figure is also available in <a href="figures/PWPClient.png">PNG</a> format.</figcaption>
         </figure>
+
+    </section>
+    <section class="appendix">
+        <h2>Acknowledgements</h2>
+        <p>The following people have been instrumental in providing thoughts, feedback, reviews, content, criticism, and input in the creation of this document:</p>
+
+        <div style="margin-left: 3em">
+            Boris Anthony (Rebus Foundation), Luc Audrain (Hachette Livre), Nick Barreto (Invited Expert), Baldur Bjarnason (Rebus Foundation), Timothy Cole (University of Illinois at Urbana-Champaign), Garth Conboy (Google), Dave Cramer (Hachette Livre), Romain Deltour (DAISY Consortium), Brady Duga (Google), Heather Flanagan (Invited Expert), Markus Gylling (IDPF), Ivan Herman (W3C), Deborah Kaplan (Invited Expert), Bill Kasdorf (BISG), George Kerscher (DAISY Consortium), Peter Krautzberger (Invited Expert), Charles LaPierre (Benetech), Laurent Le Meur (EDRLab), Vladimir Levantovsky (Monotype), Mia Lipner (Pearson), Christofer Maden (University of Illinois at Urbana-Champaign), Shane McCarron (Spec-Ops), William McCoy (IDPF), Hugh McGuire (Rebus Foundation), Ben De Meester (iMinds), Liam Quin (W3C), Leonard Rosenthol (Adobe), Nicholas Ruffilo (Invited Expert), Rob Sanderson (Stanford University), Avneesh Singh (DAISY Consortium), Alan Stearns (Adobe), Ayla Stein (University of Illinois at Urbana-Champaign), Tzviya Siegman (Wiley), Ralph Swick (W3C), Nicholas Taylor (Stanford University), Benjamin Young (Wiley), and Daniel Weck (DAISY Consortium)
+        </div>
 
     </section>
   </body>
