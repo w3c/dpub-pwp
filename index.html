@@ -113,7 +113,6 @@
                 "rawDate": "2014-01-02",
                 "publisher": "EDItEUR"
             },
-
             "BigJava" : "Cay Horstmann. <em>Big Java Late Objects</em>, John Wiley &amp; Sons, Inc., 2013",
             "web-workers" : {
                 "authors": [
@@ -168,16 +167,16 @@
               "status" : "Informational RFC",
               "publisher": "IETF"
             },
-            "dpub-pwp-ucr" : {
+            "pwp-ucr" : {
                 "authors" : [
                     "Heather Flanagan",
-                    "Romain Deltour",
-                    "Dave Cramer"
+                    "Ivan Herman"
                 ],
                 "title" : "Portable Web Publications Use Cases and Requirements",
-                "href" : "http://w3c.github.io/dpub-pwp-ucr/",
+                "href" : "http://www.w3.org/TR/pwp-ucr/",
                 "publisher" : "W3C",
-                "status": "Editors’ Draft"
+                "rawDate": "2016-09-13",
+                "status": "Working Draft"
             }
           },
 
@@ -185,44 +184,48 @@
           // postProcess : [ postProc ],
 
           doRdfa: "true",
-
           // specification status (e.g. WD, LCWD, WG-NOTE, etc.). If in doubt use ED.
           specStatus:           "ED",
-
           // the specification's short name, as in http://www.w3.org/TR/short-name/
           shortName:            "pwp",
-
           // if your specification has a subtitle that goes below the main
           // formal title, define it here
           // subtitle   :  "White Paper",
-
           // if you wish the publication date to be other than the last modification, set this
           // publishDate:  "2016-04-28",
-
           // if the specification's copyright date is a range of years, specify
           // the start date here:
           copyrightStart: "2015",
-
           // if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
           // and its maturity status
           previousPublishDate:  "2016-03-16",
           previousMaturity:  "WD",
-
           // if there a publicly available Editor's Draft, this is the link
           edDraftURI:           "http://w3c.github.io/dpub-pwp/",
-
           // if this is a LCWD, uncomment and set the end of its review period
           // lcEnd: "2009-08-05",
-
           // editors, add as many as you like
           // only "name" is required
           editors:  [
              {
                       name:       "Markus Gylling"
-                  ,   mailto:     "mgylling@idpf.org"
-                  ,   company:    "IDPF"
-                  ,   companyURL: "http://idpf.org"
+                  ,   mailto:     "markus.gylling@gmail.com"
+                  ,   company:    "DAISY Consortium"
+                  ,   companyURL: "http://www.daisy.org/"
                   ,   w3cid:      "21614"
+              },
+              {
+                      name:       "Ben De Meester"
+                  ,   mailto:     "ben.demeester@ugent.be"
+                  ,   company:    "Ghent University - iMinds - Data Science Lab"
+                  ,   companyURL: "http://www.iminds.be/"
+                  ,   url:        "http://users.ugent.be/~bjdmeest/"
+                  ,   extras: [{
+                        name:  "<img src='figures/orcid_logo.png' />",
+                        href:  "http://orcid.org/0000-0003-0248-0987",
+                        class: "orcid"
+                      }]
+                  ,   w3cid:      "73403"
               },
               {
                       name:       "Ivan Herman"
@@ -244,35 +247,15 @@
                   ,   companyURL: "http://www.wiley.com"
                   ,   w3cid:      "65542"
               },
-              {
-                      name:       "Ben De Meester"
-                  ,   mailto:     "ben.demeester@ugent.be"
-                  ,   company:    "Ghent University - iMinds - Data Science Lab"
-                  ,   companyURL: "http://www.iminds.be/"
-                  ,   url:        "http://users.ugent.be/~bjdmeest/"
-                  ,   extras: [{
-                        name:  "<img src='figures/orcid_logo.png' />",
-                        href:  "http://orcid.org/0000-0003-0248-0987",
-                        class: "orcid"
-                      }]
-                  ,   w3cid:      "73403"
-              },
           ],
-
-          // name of the WG
+          // name of the Group
           wg:           "Digital Publishing Interest Group",
-
-          // URI of the public WG page
+          // URI of the public Group page
           wgURI:        "http://www.w3.org/dpub/IG/",
-
           // name (without the @w3c.org) of the public mailing to which comments are due
           wgPublicList: "public-digipub-ig",
-
           issueBase: "https://github.com/w3c/dpub-pwp/issues/",
-
-
           noRecTrack : "true",
-
           otherLinks: [
             {
               key: "Repository",
@@ -299,16 +282,13 @@
               }]
             }
            ],
-
-        //   alternateFormats: [
-        //     {
-        //       uri: "pwp.epub",
-        //       label: "ePub"
-        //     }
-        //   ],
-
+           alternateFormats: [
+               {
+                   uri: "pwp.epub",
+                   label: "ePub"
+               }
+           ],
           charterDisclosureURI : "http://www.w3.org/2004/01/pp-impl/64149/status",
-
           // URI of the patent status for this WG, for Rec-track documents
           // !!!! IMPORTANT !!!!
           // This is important for Rec-track documents, do not copy a patent URI from a random
@@ -358,7 +338,7 @@
       <p>In many respects, the convergence is already happening. In a number of areas (e.g., educational publications, travel books, etc.) publishers already exploit the advanced possibilities of packaged publishing formats to produce highly interactive documents whose features are very close to what one is used to on the Web (see the separate section <a href="#epub-relations"></a> for some examples). And the converse is also true: tutorial and introductory articles have appeared on the Web that have the quality of traditional publications that one was used to seeing in a scientific magazine, but combined with the interactive possibilities of the Web (<a href="http://bost.ocks.org/mike/algorithms/">Mike Bostock’s article on visualizing algorithms</a> or <a href="http://worrydream.com/LadderOfAbstraction/">Bret Victor’s article on visualization</a> are just two of several possible examples). However, the convergence still has a long way to go, and this is the topic that this document, and the concept of <a>Portable Web Publications</a>, aim to explore.
       </p>
 
-      <p>A companion document&nbsp;[[dpub-pwp-ucr]] collects a set of more detailed use cases and requirements for <a>Portable Web Publications</a>. The present document concentrates on the technical challenges to achieve this vision, and provides some technical directions possibly addressing those challenges. None of the technical solutions should be considered final; a more detailed and rigorous specification should be done by a separate, dedicated Working Group.</p>
+      <p>A companion document&nbsp;[[pwp-ucr]] collects a set of more detailed use cases and requirements for <a>Portable Web Publications</a>. The present document concentrates on the technical challenges to achieve this vision, and provides some technical directions possibly addressing those challenges. None of the technical solutions should be considered final; a more detailed and rigorous specification should be done by a separate, dedicated Working Group.</p>
 
     </section>
 
