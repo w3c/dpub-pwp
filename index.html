@@ -673,13 +673,12 @@
 
         <p>The <a>manifest</a> of <a>Portable Web Publications</a> is a <a>Web Resource</a> that includes information pertaining to the overall publication structure, such as the default logical reading order(s) of the set of resources that comprise the publication (the “spine”), as well as predictable user-facing meta-structures, such as one or several tables of contents, glossaries, etc. As described in the section <a href="#identification"></a>, the <a>manifest</a> also provides the necessary information to address the different <a data-lt="state">states</a> of a <a>PWP</a>. Finally, the <a>PWP manifest</a> may also include various metadata (either directly or via further references) that are essential for the overall publishing workflow. The exact definition of all possible <a data-lt="manifest item">manifest items</a>, the internal structure and serialization syntax of a <a>manifest</a>, etc., will require additional work as part of a more detailed specification of <a>Portable Web Publications</a>. However, based on the general architectural approach outlined in this document, it is already expected that the <a>complete manifest</a> of a PWP MUST include the <a>state independent locator</a>, all available <a>state locators</a>, as well as the identifiers of the PWP instance.</p>
 
-        <aside class="annotation">A reference to the EPUB3.1 WG work on BFF should be referred to as well.</aside>
-        <p>The “Web App Manifest”&nbsp;[[web-manifest]], currently developed at W3C, is one example of a technology that could be used, or adopted, to define the final formats for PWP manifests. Although the current&nbsp;[[web-manifest]] drafts is geared towards Web Applications, that draft also includes extension points to define further manifest items necessary for PWP.
-        </p>
-
         <p>A fundamental question that must be answered is how does a <a>PWP Processor</a> get hold of the <a>complete manifest</a> if only the <a>state independent locator</a> is known. Because the publication patterns of PWP-s can be different, depending on publishers, authors, etc., there should be different ways of accessing the manifests: it can be referred to via a <code>link</code> element in an HTML file, can be in an agreed-upon-position within a package, or can be conveyed through a <code>LINK</code> header of an <code>HTTP(S)</code> request. The PWP Processor gets hold of the <a>complete manifest</a> by following a hierarchy of these different possibilities; a separate <a href="#simple-manifest-access">section</a> in the appendix provides more details. (Note that accessing a manifest also has some security issues; the <a href="https://w3c.github.io/manifest/#obtaining">“Obtaining a manifest”</a> of the “Web App Manifest”&nbsp;[[web-manifest]] document provides some further details that could be adopted, too.)
 
         <p> This algorithm is typically performed by the <a>PWP Processor</a> when initialized with the state independent locator of a particular <a>PWP</a> instance.</p>
+
+        <p>The “Web App Manifest”&nbsp;[[web-manifest]], currently developed at W3C, is one example of a technology that could be used, or adopted, to define the final formats for PWP manifests. Although the current&nbsp;[[web-manifest]] drafts is geared towards Web Applications, it also includes extension points to define further manifest items necessary for PWP. Some of these extra manifest items have been already explored within the framework of the <a href="https://github.com/dauwhe/epub31-bff">“Browser Friendly Manifestation”</a> work of the EPUB3.1 Working Group at the IDPF.
+        </p>
 
         <aside class="issue" data-number=22 title="Is it necessary to have the concept of manifest combination?">
             There is a <a href="https://w3c.github.io/dpub-pwp-ucr/index.html#h-there-should-be-a-possibility-to-combine-manifests-from-several-origins">use case documented in the PWP UCR document</a> which refers to the possibility of <em>combining</em> manifest coming from different origins, instead adopting the simple approach of taking the first available manifest. This approach, which leads to significant complications, is further explored in the <a href="#complex-manifest-access">separate Appendix</a> below.
@@ -744,6 +743,9 @@
     <section id="epub-relations">
       <h2>Portable Web Publications and EPUB&nbsp;3</h2>
 
+      <aside class="annotation">
+          This paragraph may have to be rewritten as the discussions with IDPF progress.
+      </aside>
       <p>The development of the definitions of <a>Portable Web Publications</a> should not be made in isolation, given the diverse publishing ecosystems that already exist. Rather, the development should rely as much as possible on existing and deployed formats, which include both the various Open Web Platform technologies and digital publishing formats.</p>
 
       <p>Several document formats exist in the digital publishing domain; however, the only vendor independent and HTML based format is EPUB&nbsp;3&nbsp;[[EPUB3]], which emphasizes a dynamic determination of content presentation and a closer alignment with the Open Web Platform.  EPUB&nbsp;3 is built on Web Standards, and the individual items that make up an EPUB publication are identical to types of content on a Web site: [[html5]], [[svg]], [[css21]], [[ECMAScript]], [[JPEG]] and [[png]] images, etc. Various browser extensions supporting EPUB exist (e.g., <a href="https://chrome.google.com/webstore/detail/readium/fepbnnnkkadjhjahcafoaglimekefifl">Readium in Chrome</a>, <a href="http://www.epubread.com/en/">EPUBReader</a> in Firefox). Other solutions exist for delivering these files in browsers (<a href="http://readium.org/">Readium-Cloud</a>, <a href="https://github.com/futurepress/epub.js/">EPUB.js</a>, <a href="https://www.safaribooksonline.com/">Safari Books Online</a>, etc.). Publishers are actively exploring the new and possibly interactive possibilities offered by EPUB&nbsp;3; a good example is <a href="http://bcs.wiley.com/he-bcs/Books?action=index&bcsId=7005&itemId=1118087887">Cay Horstmann’s “Big Java, Late Objects”</a>&nbsp;[[BigJava]] that combines the feel of a traditional book with interactive learning materials that makes it reminiscent of similar, Web based tutorials (see the <a href="http://www.wiley.com/college/sc/horstmann/">video</a> on a companion page for the book)</p>
@@ -763,7 +765,90 @@
     </section>
 
     <section class="appendix" id="simple-manifest-access">
-        <h2>Simple manifest access</h2>
+        <h2>Algorithm to retrieve the manifest for a PWP</h2>
+
+        <p>The goal of this algorithm is to obtain the <a>PWP manifest</a> based on the value of the <a>state independent locator</a> <strong>L</strong>. This algorithm is performed by the <a>PWP Processor</a>, typically when it is initialized with the state independent locator <strong>L</strong> of a particular <a>PWP</a> instance. The algorithm retrieves the <a>PWP manifest</a> based on the HTTP(S) responses on a <code>HTTP GET</code> request on <strong>L</strong>.</p>
+
+        <p class="note">
+            If the <a>PWP processor</a> already has the cached publication, than that will probably prevail (modulo cache state) and there may be no HTTP request in the first place. This section really refers to the situation of a first access.
+        </p>
+
+        <p>In what follows, as an abuse of notation, <code>HTTP&nbsp;GET&nbsp;U</code>, for a URL <code>U</code>, refers to an <code>HTTP</code> or <code>HTTPS</code> request issued to the domain part of <code>U</code>, using the path from <code>U</code>. I.e., if <code>U</code> is <code>http://www.ex.org/a/b/c</code>, then <code>HTTP&nbsp;GET&nbsp;U</code> stands for:</p>
+
+        <pre><code>GET /a/b/c HTTP/1.1
+Host: www.ex.org</code></pre>
+
+        <p>See [[rfc2616]] for further details.</p>
+
+        <p>With these prerequisites, the algorithm is as follows (see also <a href="#fig-flow-get-1">the figure</a> as a visual aid to the algorithm). The input to the algorithm is the <a>state independent locator</a> of the <a>PWP</a> instance, <strong>L</strong>.</p>
+
+        <ol class="algorithm" id="simple_algorithm">
+            <li>Issue an <code>HTTP&nbsp;GET&nbsp;L</code> request, possibly returning the message body <strong>B</strong>.</li>
+
+            <li>If the response is not successful (e.g., the response code is a 404), the process fails with no results.</li>
+
+            <li>Otherwise, consider the HTTP Response headers:
+                <ol>
+                    <li>If the headers include an entry of the form  <code>LINK&nbsp;&lt;URI&gt;;&nbsp;rel="pwp_manifest"</code> (see [[rfc5988]]) then issue an <code>HTTP&nbsp;GET&nbsp;URI</code> request. </li>
+
+                    <li>If that response is successful, the algorithm stops by returning the response message body to the caller as the <a>PWP manifest</a>.</li>
+
+                    <li>(Otherwise, the algorithm continues.)</li>
+                </ol>
+            </li>
+            <li>Consider the media type of the original message body <strong>B</strong>. If it is:
+                <ol>
+                    <li>A <em>manifest</em>, as identified by its media type (to be defined), the algorithm stops by returning the response content <strong>B</strong> to the caller as the <a>PWP manifest</a>.</li>
+
+                    <li>A <em>packaged PWP instance</em> (identified via the media type to be specified for the packed <a>state</a> of a PWP):
+                        <ol>
+                            <li>Unpack the package, and retrieve the <a>manifest</a> embedded in the package as (to be) specified by the packed state of a PWP.</li>
+                            <li>The algorithm stops by returning the manifest retrieved from the package to the caller as the <a>PWP manifest</a></li>
+                        </ol>
+                    </li>
+
+                    <li>An <em>HTML document</em>, then
+                        <ol>
+                            <li>If the HTML content includes a <a>manifest</a> content embedded in a <code>&lt;script&gt;</code> element, serialized in to one of the accepted serializations for PWP manifests:
+                                <ol>
+                                    <li>Retrieve and parse the content of the <code>&lt;script&gt;</code> element.</li>
+                                    <li>If parsing is successful, the algorithm stops by returning the parsed manifest content to the caller as the <a>PWP manifest</a>.</li>
+                                    <li>Otherwise, the algorithm continues</li>
+                                </ol>
+                            </li>
+                            <li>If the HTML content includes a <code>&lt;link&nbsp;rel="pwp_manifest"&nbsp;href="URI"&gt;</code> in the header:
+                                <ol>
+                                    <li>Issue a <code>HTTP&nbsp;GET&nbsp;URI</code> request</li>
+                                    <li>If the response is successful, the algorithm stops by returning the response message body to the caller as the <a>PWP manifest</a>.</li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+            </li>
+            <li>If the algorithm gets to this points, it fails with no results.</li>
+        </ol>
+
+        <ul class="note" id="man_alg_notes">
+
+            <li>The algorithm considers only HTML as a possible non-packaged and non-manifest response format. It may become possible to allow, for example, SVG as another, possible format for a <a>PWP</a>; this depends on the final specification of a PWP. The algorithm should then be adapted accordingly by adding a relevant branch (e.g., the specification of SVG includes <code>&lt;script&gt;</code> element that can be used to embed a manifest, but does not have a <code>&lt;link&gt;</code> element).</li>
+
+            <li>It may be possible for HTML file to includes several <code>&lt;link&gt;</code> elements referring to a <a>manifest</a> each. If that becomes allowed by a PWP specification, the corresponding step could be modified by taking all link elements into account, and sequentially considering the manifest files in document order to yield the manifest. The same note is valid for several <code>&lt;script&gt;</code> elements.</li>
+
+            <li>Similarly, if a PWP specification allows for several different serialization syntaxes for manifests, the processor should be able to recognize and parse them accordingly. The expectation is that the various possible serializations MUST serialize the <em>same</em> content, i.e., these do not influence the final result.</li>
+
+            <li>The algorithm is silent on the details on how a manifest should be retrieved from a package. This depends on the detailed specification of packaging, on whether a manifest would have to be at a known location within a package, on whether there might be several manifest instances within a package, etc. It is also possible that the details would follow a similar approach as described in this algorithm, i.e., relying on embedded and linked manifests of a top level HTML file, for example. As far as the algorithm described in this section is concerned, these details do not influence the final result.</li>
+
+            <li>The algorithm makes use of the constant <code>pwp_manifest</code>; the exact value of this constant must be defined, and registered, through a more precise specification of PWP-s. It is used here for illustrative purpose only.</li>
+
+            <li>The PWP Processor MAY include an <code>Accept</code> header (see [[rfc7231]]) when issuing a <code>HTTP GET</code> to express its preference for, e.g., a packed state of a PWP over manifest payload, or in favor of a particular serialization of the manifest content. Whether this is done or not, and whether the server honors this preference, does not influence the details of the algorithm.</li>
+        </ul>
+
+
+        <figure id="fig-flow-get-l">
+            <img src="figures/Simple_manifest_access.svg" width="100%" alt="Flowchart of what happens when a Portable Web Publication is retrieved by the user and how this leads to the PWP manifest; manifest are not combined, first one is used" longdesc="#algorithm"/>
+            <figcaption>Visual representation of the simple <a href="#simple_algorithm">algorithm</a> to retrieve the <a>PWP manifest</a>. The figure is also available in <a href="figures/Simple_manifest_access.svg">SVG</a> and <a href="figures/Simple_manifest_access.png">PNG</a> formats.</figcaption>
+        </figure>
     </section>
 
     <section class="appendix">
@@ -808,16 +893,12 @@
 
         <p> This algorithm is typically performed by the <a>PWP Processor</a> when initialized with the state independent locator of a particular <a>PWP</a> instance.</p>
 
-        <p>An important feature of the algorithm (see the <a href="#manifest_algorithm">section below for the details</a> for the details) is that it defines a priority for the various <a data-lt="manifest item">manifest items</a>, e.g.,the <a>state locators</a>, in case they are contained by different manifests. For example, locator values retrieved via the response header of the <code>HTTP</code> response have the highest priority. This provides a flexibility to publish copies of <a>PWP</a>-s on the <a>server</a> without the necessity to change, e.g., the <a>packed</a> versions.</p>
+        <p>An important feature of the algorithm (see the <a href="#comples_manifest_algorithm">section below for the details</a> for the details) is that it defines a priority for the various <a data-lt="manifest item">manifest items</a>, e.g.,the <a>state locators</a>, in case they are contained by different manifests. For example, locator values retrieved via the response header of the <code>HTTP</code> response have the highest priority. This provides a flexibility to publish copies of <a>PWP</a>-s on the <a>server</a> without the necessity to change, e.g., the <a>packed</a> versions.</p>
 
-        <section class="appendix" id="manifest_algorithm">
-            <h2>Algorithm to retrieve the <a>PWP manifest</a></h2>
+        <section class="appendix" id="complex_manifest_algorithm">
+            <h2>Algorithm to retrieve the <a>PWP manifest</a> with possible combination of manifests</h2>
 
-            <p>The goal of this algorithm is to obtain the <a>PWP manifest</a></em> based on the value of the <a>state independent locator</a> <strong>L</strong>. This algorithm is performed by the <a>PWP Processor</a>, typically when it is initialized with the state independent locator <strong>L</strong> of a particular <a>PWP</a> instance. The core of the algorithm consists of retrieving the <a>PWP manifest</a> based on the HTTP(S) responses on a <code>HTTP GET</code> request on <strong>L</strong>.</p>
-
-            <p class="note">
-                If the <a>PWP processor</a> already has the cached publication, than that will probably prevail (modulo cache state) and there may be no HTTP request in the first place. This section really refers to the situation of a first access.
-            </p>
+            <p>The goal of this algorithm is to obtain the <a>PWP manifest</a> based on the value of the <a>state independent locator</a> <strong>L</strong>. This algorithm is performed by the <a>PWP Processor</a>, typically when it is initialized with the state independent locator <strong>L</strong> of a particular <a>PWP</a> instance. The core of the algorithm consists of retrieving the <a>PWP manifest</a> based on the HTTP(S) responses on a <code>HTTP GET</code> request on <strong>L</strong>.</p>
 
             <p>In what follows, as an abuse of notation, <code>HTTP&nbsp;GET&nbsp;U</code>, for a URL <code>U</code>, refers to an <code>HTTP</code> or <code>HTTPS</code> request issued to the domain part of <code>U</code>, using the path from <code>U</code>. I.e., if <code>U</code> is <code>http://www.ex.org/a/b/c</code>, then <code>HTTP&nbsp;GET&nbsp;U</code> stands for:</p>
 
@@ -828,9 +909,9 @@
 
             <p>As another abuse of notation, the algorithm refers to a <a>manifest</a> retrieved <code>HTTP</code> and then manipulated via, e.g., the <a>combination of manifests</a>; that step, in fact, involves <em>parsing</em> the serialized <a data-lt="manifest">manifest file</a> and manipulate the abstract content instead in an implementation specific way.</p>
 
-            <p>With these prerequisites, the algorithm is as follows (see also <a href="#fig-flow-get-l">the figure</a> as a visual aid to the algorithm). The input to the algorithm is the <a>state independent locator</a> of the <a>PWP</a> instance, <strong>L</strong>.</p>
+            <p>With these prerequisites, the algorithm is as follows (see also <a href="#fig-flow-get-2">the figure</a> as a visual aid to the algorithm). The input to the algorithm is the <a>state independent locator</a> of the <a>PWP</a> instance, <strong>L</strong>.</p>
 
-            <ol class="algorithm" id="algorithm">
+            <ol class="algorithm" id="complex_algorithm">
                 <li>Create two, initially empty, <a data-lt="manifest">manifests</a>, denoted respectively <strong>M<sub>2</sub></strong> and <strong>M<sub>3</sub></strong>.</li>
 
                 <li>Issue an <code>HTTP&nbsp;GET&nbsp;L</code> request.</li>
@@ -856,7 +937,7 @@
 
                                         <li>Perform the two, independent processing steps below, yielding possibly new values to <strong>M<sub>1,0</sub></strong> and <strong>M<sub>1,1</sub></strong>, respectively.
                                             <ol>
-                                                <li>If the HTML content includes a <code>&lt;link&nbsp;rel="pwp_manifest"&nbsp;href="URI&gt;</code> in the header:
+                                                <li>If the HTML content includes a <code>&lt;link&nbsp;rel="pwp_manifest"&nbsp;href="URI"&gt;</code> in the header:
                                                     <ol>
                                                         <li>Issue a <code>HTTP&nbsp;GET&nbsp;URI</code> request</li>
                                                         <li>If the response is successful, <strong>M<sub>1,0</sub></strong> is set to the content returned in the response</li>
@@ -904,24 +985,13 @@
                 </li>
             </ol>
 
-            <ul class="note">
+            <p>
+                See also the <a href="#man_alg_notes">notes on the simple manifest extraction algorithm</a>; those are relevant for this version of the algorithm, too.
+            </p>
 
-                <li>The algorithm considers only HTML as a possible non-packaged and non-manifest response format. It may become possible to allow, for example, SVG as another, possible format for a <a>PWP</a>; this depends on the final specification of a PWP. The algorithm should then be adapted accordingly by adding a relevant branch (e.g., the specification of SVG includes <code>&lt;script&gt;</code> element that can be used to embed a manifest, but does not have a <code>&lt;link&gt;</code> element).</li>
-
-                <li>It may become possible for HTML file to includes several <code>&lt;link&gt;</code> elements referring to a <a>manifest</a> each. If that becomes allowed by a PWP specification, the corresponding step could be modified by taking all link elements into account, and sequentially combining the manifest files in document order to yield <strong>M<sub>1,0</sub></strong>. The same note is valid for (possible) several <code>&lt;script&gt;</code> elements and <strong>M<sub>1,1</sub></strong>, respectively.</li>
-
-                <li>Similarly, if a PWP specification allows for several different serialization syntaxes for manifests, the processor should be able to recognize and parse them accordingly. The expectation is that the various possible serializations MUST serialize the <em>same</em> content, i.e., these do not influence the final result.</li>
-
-                <li>The algorithm is silent on the details on how a manifest should be retrieved from a package. This depends on the detailed specification of packaging, on whether a manifest would have to be at a known location within a package, on whether there might be several manifest instances within a package, etc. It is also possible that the details would follow a similar approach as described in this algorithm, i.e., relying on embedded and linked manifests of a top level HTML file, for example. As far as the algorithm described in this section is concerned, these details do not influence the final result.</li>
-
-                <li>The algorithm makes use of the constant <code>pwp_manifest</code>; the exact value of this constant must be defined, and registered, through a more precise specification of PWP-s. It is used here for illustrative purpose only.</li>
-
-                <li>The PWP Processor MAY include an <code>Accept</code> header (see [[rfc7231]]) when issuing a <code>HTTP GET</code> to express its preference for, e.g., a packed state of a PWP over manifest payload, or in favor of a particular serialization of the manifest content. Whether this is done or not, and whether the server honors this preference, does not influence the details of the algorithm.</li>
-            </ul>
-
-            <figure id="fig-flow-get-l" class="overlarge">
-                <img src="figures/PWPClient.svg" alt="Flowchart of what happens when a Portable Web Publication is retrieved by the user and how this leads to the PWP manifest" longdesc="#algorithm"/>
-                <figcaption>Visual representation of the <a href="#algorithm">algorithm</a> to retrieve the <a>PWP manifest</a>. The figure is also available in <a href="figures/PWPClient.png">PNG</a> format.</figcaption>
+            <figure id="fig-flow-get-2" class="overlarge">
+                <img src="figures/Complex_manifest_access.svg" width="70%" alt="Flowchart of what happens when a Portable Web Publication is retrieved by the user and how this leads to the PWP manifest; manifest are combined" longdesc="#complex_algorithm"/>
+                <figcaption>Visual representation of the <a href="#algorithm">algorithm</a> to retrieve the <a>PWP manifest</a> with a possibility for combination. The figure is also available in <a href="figures/Complex_manifest_access.svg">SVG</a> and <a href="figures/Complex_manifest_access.png">PNG</a> formats.</figcaption>
             </figure>
         </section>
     </section>
