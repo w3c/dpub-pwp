@@ -218,6 +218,13 @@
           previousMaturity:  "WD",
           // if there a publicly available Editor's Draft, this is the link
           edDraftURI:           "http://w3c.github.io/dpub-pwp/",
+          // Possibility to add permalinks (a § character) to each id-d section
+          //   includePermalinks: "true",
+          //   permalinkEdge: "true",
+          //   permalinkHide: "true",
+
+
+          githubAPI: "https://api.github.com/repos/w3c/dpub-pwp",
           // if this is a LCWD, uncomment and set the end of its review period
           // lcEnd: "2009-08-05",
           // editors, add as many as you like
@@ -332,8 +339,8 @@
       <p>This document outlines a general vision and should not be considered a technical specification. Instead, its goal is to outline that vision and possible technical directions to achieve it, and reflects the discussions that occured in the Digital Publishing Interest Group. In partiucular, this document looks at some of the technical implications, and possible solutions, arising from the use cases and requirements collected by the Digital Publishing Interest Group, and documented in a separate UCR document&nbsp[[pwp-ucr]]. As such, some of the sections are more detailed and more mature than others. A more detailed and rigoruous specification should be done by a separated, dedicated Working Group in the future.</p>
     </section>
 
-    <section>
-      <h2 id="introduction">The vision of publishing on the Web</h2>
+    <section id="introduction">
+      <h2>The vision of publishing on the Web</h2>
       <section>
             <h2>The high level vision</h2>
 
@@ -365,8 +372,8 @@
     </section>
 
 
-    <section>
-      <h2 id="whynow">Why work on this now?</h2>
+    <section id="whynow">
+      <h2>Why work on this now?</h2>
 
       <p>Digital Publishing can be considered to be at a tipping point. Digital publishing formats like EPUB have been broadly adopted globally for trade ebooks, and are starting to gain adoption among textbook publishers as well as corporate marketing departments. However, these formats have largely been seen as “offline” formats up until now. Various browser extensions supporting such complex publications exist, and other solutions are available for delivering these publications in browsers. Browser- and cloud-based solutions require relatively complex server and/or client software. In many cases browser- and cloud-based solutions depend on a proprietary transformation of the packaged files into formats more suitable to network delivery. A focused effort to make digital publications first-class Open Web Platform citizens will result in a significant reduction in the complexity of deploying publishing content into browsers for both online and offline consumption. Further, this focused effort will increase the momentum of digital publication and associated Web adoption across communities who are looking for an open, non-proprietary, next-generation portable document format.</p>
 
@@ -518,7 +525,7 @@
           <p>See the section <a href='#identification'></a> for further details on locators and identification.</p>
       </section>
 
-      <section>
+      <section id="pwp_processor">
           <h2>PWP Processor</h2>
           <ul class="definition">
               <li>A <dfn>rendering engine</dfn> has the responsibility of the rendering the contents of a <a>Portable Web Publication</a>. This is, typically, the core rendering engine of a traditional Web Browser, or a dedicated rendering subsystem of a Reading System.</li>
@@ -547,7 +554,7 @@
       </section>
     </section>
 
-    <section>
+    <section id="achieving_convergence">
       <h2>Achieving convergence: technical challenges and draft approaches</h2>
 
       <p>This section considers some of the technical work areas that should be clarified for a more precise and detailed specification of <a>Portable Web Publications</a>. The list is not exhaustive and there are only hints at the technical solutions without claiming to be complete and tested for validity. It must also be emphasized that some of solutions to the problems listed below may not come from W3C, but possibly from other, external organizations (document identification is a typical example).</p>
@@ -717,13 +724,13 @@
         <p class="note">Note that the <a href="https://wiki.css-houdini.org/">“Houdini” Task Force</a>, recently started jointly by the W3C CSS WG and the W3C TAG, may open new avenues to handle pagination.</p>
       </section>
 
-      <section>
+      <section id="security_models">
         <h3>Security Models</h3>
 
         <p>The security model of the Web, based primarily on the same-origin policy and the concept of “site”, does not apply to portable documents, as the notion of “origin” is based on HTTP properties that are invalidated/non-existent when a document transitions from its online state to the portable state. Portable Web Publications must incorporate a state agnostic security model that defines rules for both the online and portable states.</p>
       </section>
 
-      <section>
+      <section id="personalization">
         <h3>Presentation Control and Personalization</h3>
 
         <p>When reading long-form (and sometimes mission-critical) publications, personalization—i.e., the ability for users to adapt the presentation to suit their needs—is of a great importance. While technologies such as CSS Media Queries have come a long way in terms of adapting content to devices, this is not the same thing as adapting to a user. Presentation control features are often available in e-book readers of different kinds, for example the possibility to dynamically change font size or background/foreground color schemes, but implementations are brittle and limited due to the lack of an underlying framework that explicitly supports user adaptation.</p>
@@ -731,7 +738,7 @@
         <p><a>Portable Web Publications</a> needs to incorporate an explicit framework for achieving advanced and predictable user-triggered presentation control. (Note that from this perspective, accessibility can be seen just a radical case of personalization.)</p>
       </section>
 
-      <section>
+      <section id="domain_specific_restrictions_extensions">
         <h3>Models for embracing domain-specific restrictions and extensions</h3>
 
         <p>Different domains of digital publishing have vastly different expectations and/or requirements on the nature of the content and their presentation. In the digital comics domain for example, the default presentation form is, traditionally at least, pre-paginated, fixed-form, and image-based, possibly with a set of omnipresent (i.e., cross-publisher) user interaction patterns that are expected to be enabled. On the other hand, for trade publishing the default form is fully reflowable content, where user interaction patterns are defined entirely by the user agent. In educational publishing, the ability to control structure, to include rich domain-specific structural semantics and extensive specialized metadata, are at the basis for enhanced reading system behaviors, as well as predictable content discovery and repurposing. </p>
@@ -758,7 +765,7 @@
       </p>
     </section>
 
-    <section>
+    <section id="conclusion">
       <h2>Conclusions</h2>
       <p>This document outlines a vision for the convergence between the Open Web Platform and portable documents while also significantly advancing and expanding the existing digital publishing ecosystem. The realization of this vision would require a strong cooperation between the traditional publishing and Web communities, based on a close collaboration between the W3C and other relevant organizations, like <a href="http://idpf.org">IDPF</a>, <a href="http://editeur.org/">EDItEUR</a>, <a href="http://www.bisg.org">BISG</a>, or others. While it is envisaged that most of the work could be done in one or more dedicated Working Groups (within W3C or elsewhere, depending on the exact charter), it must be emphasized that many of the features will affect and will be affected by work done elsewhere, within or outside these organizations. The starting point will be to explore and plan for the detailed technical challenges to gain a better insight into the work ahead; this exploration should be done together with the various interested communities.
       </p>
@@ -851,13 +858,22 @@ Host: www.ex.org</code></pre>
         </figure>
     </section>
 
-    <section class="appendix">
+    <section class="appendix" id="acknowledgements">
         <h2>Acknowledgements</h2>
         <p>The following people have been instrumental in providing thoughts, feedback, reviews, content, criticism, and input in the creation of this document:</p>
 
         <div style="margin-left: 3em">
             Boris Anthony (Rebus Foundation), Luc Audrain (Hachette Livre), Nick Barreto (Invited Expert), Baldur Bjarnason (Rebus Foundation), Timothy Cole (University of Illinois at Urbana-Champaign), Garth Conboy (Google), Dave Cramer (Hachette Livre), Romain Deltour (DAISY Consortium), Brady Duga (Google), Heather Flanagan (Invited Expert), Markus Gylling (IDPF), Ivan Herman (W3C), Deborah Kaplan (Invited Expert), Bill Kasdorf (BISG), George Kerscher (DAISY Consortium), Peter Krautzberger (Invited Expert), Charles LaPierre (Benetech), Laurent Le Meur (EDRLab), Vladimir Levantovsky (Monotype), Mia Lipner (Pearson), Christofer Maden (University of Illinois at Urbana-Champaign), Shane McCarron (Spec-Ops), William McCoy (IDPF), Hugh McGuire (Rebus Foundation), Ben De Meester (iMinds), Liam Quin (W3C), Leonard Rosenthol (Adobe), Nicholas Ruffilo (Invited Expert), Rob Sanderson (Stanford University), Avneesh Singh (DAISY Consortium), Alan Stearns (Adobe), Ayla Stein (University of Illinois at Urbana-Champaign), Tzviya Siegman (Wiley), Ralph Swick (W3C), Nicholas Taylor (Stanford University), Benjamin Young (Wiley), and Daniel Weck (DAISY Consortium)
         </div>
+
+        <!--
+        <p>
+            The following people, besides the editors, have made editorial contributions to the document:
+        </p>
+        <div style="margin-left: 3em" id="gh-contributors">
+
+        </div>
+    -->
     </section>
 
     <section class="appendix" id="complex-manifest-access">
