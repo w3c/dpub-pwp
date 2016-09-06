@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 18.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 700 576.562" style="enable-background:new 0 0 700 576.562;" xml:space="preserve">
+	 viewBox="0 65 700 520" style="enable-background:new 0 65 700 576.562;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#C8DDBA;stroke:#000000;stroke-miterlimit:10;}
 	.st1{fill:#BAF4ED;stroke:#000000;stroke-miterlimit:10;}
@@ -28,7 +28,7 @@
 	<rect x="343.733" y="214.752" class="st2" width="225.68" height="208.519"/>
 	<text transform="matrix(1 0 0 1 343.7324 235.6448)"><tspan x="0" y="0" class="st5 st4">{</tspan><tspan x="0" y="13.677" class="st5 st4">  &quot;metadata&quot; {</tspan><tspan x="0" y="27.355" class="st5 st4">    &quot;dc:title&quot; : &quot;PWP&quot;,</tspan><tspan x="0" y="41.032" class="st5 st4">    &quot;dc:creator&quot; : [</tspan><tspan x="0" y="54.71" class="st5 st4">      &quot;Markus Gylling&quot;,</tspan><tspan x="0" y="68.388" class="st5 st4">      &quot;Tzviya Siegman&quot;,</tspan><tspan x="0" y="82.065" class="st5 st4">      &quot;Ivan Herman:&quot;</tspan><tspan x="0" y="95.743" class="st5 st4">    ],</tspan><tspan x="0" y="109.42" class="st5 st4">    &quot;dc:language&quot; : &quot;en-US&quot;</tspan><tspan x="0" y="123.098" class="st5 st4">  },</tspan><tspan x="0" y="136.775" class="st5 st4">  &quot;manifest&quot; {</tspan><tspan x="0" y="150.453" class="st5 st4">    …</tspan><tspan x="0" y="164.13" class="st5 st4">  }</tspan><tspan x="0" y="177.808" class="st5 st4">}</tspan></text>
 	<rect x="217.496" y="448.713" class="st0" width="210.453" height="85.435"/>
-	
+
 		<image style="overflow:visible;" width="1021" height="405" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABAAAAAFyCAYAAABrz6juAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
 bWFnZVJlYWR5ccllPAAAyjZJREFUeNrsvQd8FdeZ9/+7XV1XBRUkJFFsuhHGNq5BbIzjtjG2E6c4
 Wctvkk2ym13jJG+yb5IN+L+bHgfbyTp2mnASx05cwJvYcUsQNmDAhd5MkRCiCAnUby//c86dQaPh
