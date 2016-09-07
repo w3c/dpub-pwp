@@ -13,20 +13,15 @@ blockquote.quote p.author {
     margin-top: 0em !important;
 }
 
-.vision {
-  font-style: italic;
-  margin-left: 2em;
-  margin-right: 3em;
-  padding: 0.8em;
-  background: white;
-  border: thin outset black;
-  border-radius: 0.5em;
-  text-align: justify;
-}
 
 .extra-em {
     text-decoration: underline;
 }
+
+code {
+  font-size: 120%;
+}
+
 /* Table zebra style... */
 table.zebra {
   font-size:inherit;
@@ -92,7 +87,7 @@ span.orcid a  {
 }
 
 span.orcid a img {
-    transform: translateY(3px);
+    transform: translateY(3px) translateX(-0.18em);
 }
 
 
@@ -100,3 +95,18 @@ span.orcid a img {
     content: url(figures/orcid_logo.png);
     margin-right: 2px;
 }*/
+
+aside.annotation {
+    float: right;
+    background: yellow;
+    width: 30%;
+    padding:1em;
+    margin-left: 1em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    border: 1px solid black;
+    transform: translateX(-1em);
+}
+span.annotation {
+    background:yellow;
+}
