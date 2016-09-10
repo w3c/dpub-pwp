@@ -9,7 +9,7 @@
 *
 *    <a href="URIUCR#id">Req. 1</a>
 *
-* If, additionally, the data-reqtext attribute is also used, the full requirement description will be added to the text.
+* If, additionally, the element has the class 'fullReqRef', the full requirement description will be added to the text.
 *
 * To use it
 *   - set the URI for the UCR document in the ucrdoc variable below
@@ -21,7 +21,7 @@
 /* jshint shadow: true, unused: false, laxbreak:true, laxcomma:true, asi: true, eqeqeq: false, strict: implied, jquery: true */
 /* global $, require */
 
-var ucrdoc = "https://www.w3.org/TR/dpub-ucr/#";
+var ucrdoc = "https://www.w3.org/TR/dpub-ucr/";
 
 require(["core/pubsubhub"], function(respecEvents) {
 	respecEvents.sub("start-all", function() {
@@ -32,11 +32,10 @@ require(["core/pubsubhub"], function(respecEvents) {
 			reqInfo.forEach( function(element, index, array) {
 				if( element.id === id ) {
 					// alert("Bingo " + id)
-					$ref.attr("href", ucrdoc + id);
+					$ref.attr("href", ucrdoc + '#' + id);
 					$ref.removeAttr("data-reqref");
-					if( $ref.data('reqtext') !== undefined ) {
+					if( $ref.hasClass('fullReqRef') ) {
 						$ref.text(element.title + ": " + element.content);
-						$ref.removeAttr("data-reqtext");
 					} else {
 						$ref.text(element.title);
 					}
