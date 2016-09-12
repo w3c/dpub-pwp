@@ -4,9 +4,9 @@
     <meta content="text/html; charset=utf-8" http-equiv="content-type">
     <title>Portable Web Publications for the Open Web Platform</title>
     <link rel="stylesheet" type="text/css" href="extras.css" />
-    <script src="https://www.w3.org/Tools/respec/respec-w3c-common" class="remove"></script>
+    <script src="https://www.w3.org/Tools/respec/respec-w3c-common" class="remove" async></script>
     <script src="scripts/reqInfo.js" class="remove"></script>
-    <script src="scripts/reqsrefer.js" class="remove"></script>
+    <script src="scripts/rdisplay.js" class="remove"></script>
     <style type="text/css">
         .vision {
           font-style: italic;
@@ -184,7 +184,8 @@
           },
 
           // These may become useful if the document gets a more 'official' status
-          // postProcess : [ postProc ],
+          preProcess : [ rdisplay ],
+          ucrUri: "https://www.w3.org/TR/dpub-pwp-ucr/",
 
           doRdfa: "true",
           // specification status (e.g. WD, LCWD, WG-NOTE, etc.). If in doubt use ED.
@@ -339,11 +340,6 @@
 
             <p>It is the task of this W3C Digital Publishing Interest Group to explore the uniqueness, desirability, and feasibility of bringing these two great models of publishing together. This document explores the technical feasibility and some of the challenges arising from real use cases that arise when exploring this vision further. Many of these challenges arise from the various use cases, documented in the separate note on PWP Use Cases and Requirement&nbsp;[[pwp-ucr]]
             </p>
-
-            <p>
-                @@@@Experimenting with <a data-reqref="r_browser" class="nami"></a> and with <a data-reqref="r_pag" data-reqtext class="fullReqRef"></a>.</p>
-            </p>
-
       </section>
       <section>
           <h2>The technical vision</h2>
