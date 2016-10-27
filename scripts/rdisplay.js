@@ -1,8 +1,8 @@
 /**
 *
-* Note: T
-*    The code for the popup was shamelessly stolen (with his permission:-) from Shane McCarron
-*    The code for setting and numbering a requirement is based on the requirement.js code in respec
+* Note:
+*    - The code for the popup was shamelessly stolen (with his permission:-) from Shane McCarron
+*    - The code for setting and numbering a requirement is based on the requirement.js code in respec
 *
 **/
 
@@ -11,16 +11,20 @@
 
 function rdisplay() {
 	ucrUri = respecConfig.ucrUri === undefined ? "" : respecConfig.ucrUri ;
-	$(".req-ref,.req-ref-full").each(function(i) {
+	$(".req-ref,.req-ref-descr,.req-ref-full").each(function(i) {
 		var id = $(this).attr("href");
 		var $ref = $(this);
 		reqInfo.forEach( function(element, index, array) {
 			if( ('#' + element.id) === id ) {
-				$ref.attr("href", ucrUri + id)
-				if($ref.hasClass('req-ref-full')) {
-					$ref.append(element.title + ": " + element.content);
+				if($ref.hasClass("req-ref-descr")) {
+					$ref.replaceWith("<span>" + element.content + "</span>")
 				} else {
-					$ref.append(element.title)
+					$ref.attr("href", ucrUri + id)
+					if($ref.hasClass('req-ref-full')) {
+						$ref.append(element.title + ": " + element.content);
+					} else {
+						$ref.append(element.title)
+					}
 				}
 			}
 		});
