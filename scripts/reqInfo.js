@@ -1,302 +1,152 @@
 var reqInfo = [
 	{
 		"number": 1,
-		"content": "The publication should be readable in a browser",
+		"content": "Web Publications should be able to make use of all\n                features offered by the OWP",
 		"title": "Req.&nbsp;1",
-		"id": "r_browser"
-	},
-	{
-		"number": 2,
-		"content": "PWPs should be able to make use of all facilities offered by the OWP",
-		"title": "Req.&nbsp;2",
 		"id": "r_owp"
 	},
 	{
-		"number": 3,
-		"content": "It should be possible to see the publication in a “paginated” view",
-		"title": "Req.&nbsp;3",
-		"id": "r_pag"
-	},
-	{
-		"number": 4,
-		"content": "The same PWP should be available both online and offline",
-		"title": "Req.&nbsp;4",
-		"id": "r_onloffl"
-	},
-	{
-		"number": 5,
-		"content": "There should be a smooth transition between offline and online states of the same publication",
-		"title": "Req.&nbsp;5",
-		"id": "r_statetrans"
-	},
-	{
-		"number": 6,
-		"content": "It should be possible to create and distribute a PWP as a uniquely identified single resource unit",
-		"title": "Req.&nbsp;6",
-		"id": "r_uniqres"
-	},
-	{
-		"number": 7,
-		"content": "A publication may consist of a collection of resources",
-		"title": "Req.&nbsp;7",
-		"id": "r_pwpcoll"
-	},
-	{
-		"number": 8,
-		"content": "The notion of a PWP should enable specific publications like audio books, graphics books, and mixed media",
-		"title": "Req.&nbsp;8",
-		"id": "r_multimedia"
-	},
-	{
-		"number": 9,
-		"content": "The reader must have the possibility to personalize his or her reading experience",
-		"title": "Req.&nbsp;9",
-		"id": "r_p13n"
-	},
-	{
-		"number": 10,
-		"content": "The publication must be discoverable",
-		"title": "Req.&nbsp;10",
-		"id": "r_discover"
-	},
-	{
-		"number": 11,
-		"content": "There should be a way to control versioning and revisioning",
-		"title": "Req.&nbsp;11",
-		"id": "r_version"
-	},
-	{
-		"number": 12,
-		"content": "There should be a way to differentiate between essential and non-essential resources",
-		"title": "Req.&nbsp;12",
-		"id": "r_essential"
-	},
-	{
-		"number": 13,
-		"content": "A PWP should allow for access control and write protections of the resource",
-		"title": "Req.&nbsp;13",
-		"id": "r_protections"
-	},
-	{
-		"number": 14,
-		"content": "The publication should conform to\n            all the requirements of horizontal dependencies",
-		"title": "Req.&nbsp;14",
+		"number": 2,
+		"content": "A Web Publication should conform to the requirements of all horizontal dependencies",
+		"title": "Req.&nbsp;2",
 		"id": "r_horizdep"
 	},
 	{
-		"number": 15,
-		"content": "User agents must treat a PWP, regardless of the number of components, as a single unit as opposed to individual documents",
-		"title": "Req.&nbsp;15",
-		"id": "r_single"
+		"number": 3,
+		"content": "The notion of a Web Publication should\n                enable specific publications like audio books, graphics books, and\n                mixed media",
+		"title": "Req.&nbsp;3",
+		"id": "r_multimedia"
 	},
 	{
-		"number": 16,
-		"content": "The information regarding the constituent resources of a PWP must be easily discovered",
-		"title": "Req.&nbsp;16",
-		"id": "r_con-res"
-	},
-	{
-		"number": 17,
-		"content": "Find the (default) reading order of the resources of a PWP easily",
-		"title": "Req.&nbsp;17",
-		"id": "r_read-order"
-	},
-	{
-		"number": 18,
-		"content": "There should be a way to uniquely identify a publication regardless of its state",
-		"title": "Req.&nbsp;18",
-		"id": "r_uniq-id-state"
-	},
-	{
-		"number": 19,
-		"content": "The PWP needs to have an explicit\n              “offline mode” alternative",
-		"title": "Req.&nbsp;19",
-		"id": "r_dyn-content"
-	},
-	{
-		"number": 20,
-		"content": "The distribution of a PWP should not affect its versioning",
-		"title": "Req.&nbsp;20",
-		"id": "r_distro"
-	},
-	{
-		"number": 21,
-		"content": "The distribution of PWPs should conform to the standard processes and expectations of commercial publishing channels",
-		"title": "Req.&nbsp;21",
-		"id": "r_process"
-	},
-	{
-		"number": 22,
-		"content": "PWPs should support cross-references that can be resolved locally or externally",
-		"title": "Req.&nbsp;22",
-		"id": "r_cross-ref"
-	},
-	{
-		"number": 23,
-		"content": "Several PWPs may share external resources",
-		"title": "Req.&nbsp;23",
-		"id": "r_extres"
-	},
-	{
-		"number": 24,
-		"content": "PWPs should be able to access external data",
-		"title": "Req.&nbsp;24",
-		"id": "r_extdata"
-	},
-	{
-		"number": 25,
-		"content": "Manifests should include the technical and descriptive metadata, and basic characteristics of the constituent resources",
-		"title": "Req.&nbsp;25",
-		"id": "r_manifest-metadata"
-	},
-	{
-		"number": 26,
-		"content": "Manifest should make it possible to provide a streamlined access to disjoint parts of the publication",
-		"title": "Req.&nbsp;26",
-		"id": "r_streamlining"
-	},
-	{
-		"number": 27,
-		"content": "Manifest should include information of new content",
-		"title": "Req.&nbsp;27",
-		"id": "r_changenotice"
-	},
-	{
-		"number": 28,
-		"content": "Manifest should include means to use links to resources, regardless of location",
-		"title": "Req.&nbsp;28",
-		"id": "r_manifest-links"
-	},
-	{
-		"number": 29,
-		"content": "The manifest may include alternative reading orders",
-		"title": "Req.&nbsp;29",
-		"id": "r_manifest-reading"
-	},
-	{
-		"number": 30,
-		"content": "The access methods for retrieving a manifest should allow for significant flexibility",
-		"title": "Req.&nbsp;30",
-		"id": "r_manifest-flex"
-	},
-	{
-		"number": 31,
-		"content": "There should be a possibility to combine manifests from several origins",
-		"title": "Req.&nbsp;31",
-		"id": "r_manifest-comb"
-	},
-	{
-		"number": 32,
-		"content": "A common, state-independent locator needs to exist",
-		"title": "Req.&nbsp;32",
-		"id": "r_locator-ind-dep"
-	},
-	{
-		"number": 33,
-		"content": "There must also be a separation between state-independent and state-dependent locators",
-		"title": "Req.&nbsp;33",
-		"id": "r_locator_fi_fd"
-	},
-	{
-		"number": 34,
-		"content": "It should be possible to use, in all circumstances, a relative locator to refer to content within a PWP",
-		"title": "Req.&nbsp;34",
-		"id": "r_locator-rel"
-	},
-	{
-		"number": 35,
-		"content": "When providing a pointer to any or all of a publication, this should be robust across <a href=\"#states\">states</a>",
-		"title": "Req.&nbsp;35",
-		"id": "r_locator-state"
-	},
-	{
-		"number": 36,
-		"content": "Identifiers must be persistent and usable across states, and not conflict with locators",
-		"title": "Req.&nbsp;36",
-		"id": "r_identifier"
-	},
-	{
-		"number": 37,
-		"content": "The locations of all PWP components should be discoverable",
-		"title": "Req.&nbsp;37",
-		"id": "r_archdisc"
-	},
-	{
-		"number": 38,
-		"content": "There should be a way to discover that a new version of one or more PWP components have been published",
-		"title": "Req.&nbsp;38",
-		"id": "r_archnewvers"
-	},
-	{
-		"number": 39,
-		"content": "There should be a way to discover that one or more new components have been added to a PWP",
-		"title": "Req.&nbsp;39",
-		"id": "r_archnewcomp"
-	},
-	{
-		"number": 40,
-		"content": "There should be a way to discover that one or more PWP components have been removed from a PWP",
-		"title": "Req.&nbsp;40",
-		"id": "r_archdelcomp"
-	},
-	{
-		"number": 41,
-		"content": "There should be a way to indicate whether one or more PWP components contain structured descriptive metadata",
-		"title": "Req.&nbsp;41",
-		"id": "r_archmetadata"
-	},
-	{
-		"number": 42,
-		"content": " Accessibility of a PWP must be discoverable",
-		"title": "Req.&nbsp;42",
-		"id": "r_acc-metadata"
-	},
-	{
-		"number": 43,
-		"content": "A PWP must support the ability to include multiple renditions of a publication",
-		"title": "Req.&nbsp;43",
-		"id": "r_acc-alt-media"
-	},
-	{
-		"number": 44,
-		"content": "A PWP needs to support the ability to construct a limited package with only a subset of the necessary content",
-		"title": "Req.&nbsp;44",
-		"id": "r_custompwp"
-	},
-	{
-		"number": 45,
-		"content": "A PWP needs to support both time-based media and text",
-		"title": "Req.&nbsp;45",
+		"number": 4,
+		"content": "A Web Publication needs to support both time-based media and text",
+		"title": "Req.&nbsp;4",
 		"id": "r_time"
 	},
 	{
-		"number": 46,
-		"content": "When annotations are distributed and associated with a PWP, the content of the annotation must be compatible with assistive technology",
-		"title": "Req.&nbsp;46",
-		"id": "r_acc-annotation"
+		"number": 5,
+		"content": "Web Publications should be able to include data as <a href=\"#constituent-resources\">resources</a>, just as it does with text, images, etc",
+		"title": "Req.&nbsp;5",
+		"id": "r_extdata"
 	},
 	{
-		"number": 47,
-		"content": "User agents must be allowed to limit the capabilities of a PWP",
-		"title": "Req.&nbsp;47",
-		"id": "r_sec-limit"
+		"number": 6,
+		"content": "A Web Publication should also be available offline",
+		"title": "Req.&nbsp;6",
+		"id": "r_onloffl"
 	},
 	{
-		"number": 48,
-		"content": "It should be possible to discover the capabilities a PWP will have access to",
-		"title": "Req.&nbsp;48",
-		"id": "r_sec-discovery"
+		"number": 7,
+		"content": "User agents must treat a Web Publication as a single\n                logical resource with its own URL, beyond the references to individual, constituent resources",
+		"title": "Req.&nbsp;7",
+		"id": "r_single"
 	},
 	{
-		"number": 49,
-		"content": "PWP authors should be able to embed guidance policies in their documents that inform the user agent of their preferences as to how the integrity and security of the document itself should be preserved",
-		"title": "Req.&nbsp;49",
-		"id": "r_sec-integrity"
+		"number": 8,
+		"content": "There should be a way to\n                uniquely identify a Web Publication",
+		"title": "Req.&nbsp;8",
+		"id": "r_unique-identifier"
 	},
 	{
-		"number": 50,
-		"content": "User agents may provide a method for escalating trust",
-		"title": "Req.&nbsp;50",
-		"id": "r_sec-trust"
+		"number": 9,
+		"content": "All constitutent resources, and their contents, should be uniquely identifiable",
+		"title": "Req.&nbsp;9",
+		"id": "r_identify_const_resources"
+	},
+	{
+		"number": 10,
+		"content": "It should be possible to see the\n                 Web Publication in a “paginated” view",
+		"title": "Req.&nbsp;10",
+		"id": "r_pagination"
+	},
+	{
+		"number": 11,
+		"content": "The user must have the possibility to\n                  personalize his or her reading experience",
+		"title": "Req.&nbsp;11",
+		"id": "r_p13n"
+	},
+	{
+		"number": 12,
+		"content": "There should be a means to\n              indicate the author’s preferred navigation structure among the resources\n              of a Web Publication",
+		"title": "Req.&nbsp;12",
+		"id": "r_reading-order"
+	},
+	{
+		"number": 13,
+		"content": "Authors of a Web Publication should\n                be able to provide the user agent with information to\n                access random parts of the publication",
+		"title": "Req.&nbsp;13",
+		"id": "r_random-access"
+	},
+	{
+		"number": 14,
+		"content": "The information regarding the\n                constituent resources of a Web Publication must be easily discovered\n                and there should be a way to differentiate between essential and\n                non-essential resources",
+		"title": "Req.&nbsp;14",
+		"id": "r_con-res"
+	},
+	{
+		"number": 15,
+		"content": "A Web Publication should be able to express the access control and write protections of the publication",
+		"title": "Req.&nbsp;15",
+		"id": "r_protections"
+	},
+	{
+		"number": 16,
+		"content": "Web Publications should include technical and descriptive metadata as well as any additional characteristics of the <a href=\"#constituent-resources\">constituent resources.</a>",
+		"title": "Req.&nbsp;16",
+		"id": "r_manifest-metadata"
+	},
+	{
+		"number": 17,
+		"content": "It should be possible to create and distribute a Web Publication as a single unit over different protocols or physical media",
+		"title": "Req.&nbsp;17",
+		"id": "r_pwp"
+	},
+	{
+		"number": 18,
+		"content": "The distribution of a Packaged Web Publication should\n          not affect its iterations",
+		"title": "Req.&nbsp;18",
+		"id": "r_distro"
+	},
+	{
+		"number": 19,
+		"content": "The distribution of Packaged Web Publications should\n        respect the existing processes and expectations of professional publishing\n        channels as well as ad-hoc methods of distribution (eg. email). ",
+		"title": "Req.&nbsp;19",
+		"id": "r_pwp-process"
+	},
+	{
+		"number": 20,
+		"content": "There should be a way to\n             indicate whether one or more Packaged Web Publication components\n             contain (embedded) descriptive metadata",
+		"title": "Req.&nbsp;20",
+		"id": "r_archmetadata"
+	},
+	{
+		"number": 21,
+		"content": "There should be a way to discover that one or more new components have been added to or deleted from a Web Publication",
+		"title": "Req.&nbsp;21",
+		"id": "r_component-change"
+	},
+	{
+		"number": 22,
+		"content": "A PWP should include means to map the identification of a constituent resource between the Web and its equivalent in a package",
+		"title": "Req.&nbsp;22",
+		"id": "r_remap_links"
+	},
+	{
+		"number": 23,
+		"content": "The publisher should be able to provide information in a Portable Web Publication proving that the publication has not been tampered with during delivery.\n             ",
+		"title": "Req.&nbsp;23",
+		"id": "r_check_integrity"
+	},
+	{
+		"number": 24,
+		"content": "The publisher should be able to provide information in a Portable Web Publication that can be used to check the origin of the publication and its authenticity.\n             ",
+		"title": "Req.&nbsp;24",
+		"id": "r_check_origin"
+	},
+	{
+		"number": 25,
+		"content": "User agents may provide a method for escalating trust for a specific publication",
+		"title": "Req.&nbsp;25",
+		"id": "r_escalating_trust"
 	}
 ]
