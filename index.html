@@ -638,7 +638,7 @@ Host: www.ex.org</code></pre>
 
             <li>Otherwise, consider the HTTP Response headers:
                 <ol>
-                    <li>If the headers include an entry of the form  <code>LINK&nbsp;&lt;URI&gt;;&nbsp;rel="pwp_manifest"</code> (see [[rfc5988]]) then issue an <code>HTTP&nbsp;GET&nbsp;URI</code> request. </li>
+                    <li>If the headers include an entry of the form  <code>LINK&nbsp;&lt;URI&gt;;&nbsp;rel="manifest"</code> (see [[rfc5988]]) then issue an <code>HTTP&nbsp;GET&nbsp;URI</code> request. </li>
 
                     <li>If that response is successful, the algorithm stops by returning the response message body to the caller as the <a>PWP manifest</a>.</li>
 
@@ -665,7 +665,7 @@ Host: www.ex.org</code></pre>
                                     <li>Otherwise, the algorithm continues</li>
                                 </ol>
                             </li>
-                            <li>If the HTML content includes a <code>&lt;link&nbsp;rel="pwp_manifest"&nbsp;href="URI"&gt;</code> in the header:
+                            <li>If the HTML content includes a <code>&lt;link&nbsp;rel="manifest"&nbsp;href="URI"&gt;</code> in the header:
                                 <ol>
                                     <li>Issue a <code>HTTP&nbsp;GET&nbsp;URI</code> request</li>
                                     <li>If the response is successful, the algorithm stops by returning the response message body to the caller as the <a>PWP manifest</a>.</li>
@@ -688,7 +688,7 @@ Host: www.ex.org</code></pre>
 
             <li>The algorithm is silent on the details on how a manifest should be retrieved from a package. This depends on the detailed specification of packaging, on whether a manifest would have to be at a known location within a package, on whether there might be several manifest instances within a package, etc. It is also possible that the details would follow a similar approach as described in this algorithm, i.e., relying on embedded and linked manifests of a top level HTML file, for example. As far as the algorithm described in this section is concerned, these details do not influence the final result.</li>
 
-            <li>The algorithm makes use of the constant <code>pwp_manifest</code>; the exact value of this constant must be defined, and registered, through a more precise specification of PWP-s. It is used here for illustrative purpose only.</li>
+            <li>The algorithm makes use of the constant <code>manifest</code>; Which is also used by the Web App Manifest to indicate the relationship between a resource and its manifest.</li>
 
             <li>The PWP Processor MAY include an <code>Accept</code> header (see [[rfc7231]]) when issuing a <code>HTTP GET</code> to express its preference for, e.g., a packed state of a PWP over manifest payload, or in favor of a particular serialization of the manifest content. Whether this is done or not, and whether the server honors this preference, does not influence the details of the algorithm.</li>
         </ul>
