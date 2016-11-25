@@ -339,74 +339,77 @@
     </section>
 
     <section id="introduction">
-      <h2>The vision of publishing on the Web</h2>
-      <section>
-            <h2>The high level vision</h2>
+        <h2>Introduction</h2>
+        <section id="vision">
+          <h3>The Vision of Publishing on the Web</h3>
+          <section>
+                <h4>The High Level Vision</h4>
 
-            <p>The Web emerged in 1994, based on a model of individual pages loosely joined by hyperlinks. Clustering within domains, with explicit navigation elements built into them, webpages evolved into websites. This model however inherited very little from an existing, powerful and much older page-based media: books.</p>
+                <p>The Web emerged in 1994, based on a model of individual pages loosely joined by hyperlinks. Clustering within domains, with explicit navigation elements built into them, Web pages evolved into Web sites. This model however inherited very little from an existing, powerful and much older page-based media: books.</p>
 
-            <p>Over centuries, “books” have assumed many forms: journals, magazines, pamphlets of longform articles and essays, newspapers, atlases, comics, notebooks, albums of all sorts. We can define these different manifestations as “publications”: bound editions of meaningful media, made public.</p>
+                <p>Over centuries, “books” have assumed many forms: journals, magazines, pamphlets of longform articles and essays, newspapers, atlases, comics, notebooks, albums of all sorts. We can define these different manifestations as “publications”: bound editions of meaningful media, made public.</p>
 
-            <p>We believe there is great value in combining this older tradition—of portable, bounded publications—with the pervasive accessibility, addressability, and interconnectedness of the <a href="https://www.w3.org/wiki/Open_Web_Platform">Open Web Platform</a>. New models of economic sustainability, innovative experiences of knowledge and invigorated socio-cultural engagement depend on this.</p>
+                <p>We believe there is great value in combining this older tradition—of portable, bounded publications—with the pervasive accessibility, addressability, and interconnectedness of the <a href="https://www.w3.org/wiki/Open_Web_Platform">Open Web Platform</a>. New models of economic sustainability, innovative experiences of knowledge and invigorated socio-cultural engagement depend on this.</p>
 
-            <p>It is the task of the W3C <a href="https://www.w3.org/dpub/IG/">Digital Publishing Interest Group</a> to explore the uniqueness, desirability, and feasibility of bringing these two great models of publishing together. This document explores the technical feasibility and some of the challenges arising from real use cases that arise when exploring this vision further. Many of these challenges arise from the various use cases, documented in the separate note on PWP Use Cases and Requirement&nbsp;[[pwp-ucr]]
-            </p>
-      </section>
-      <section>
-          <h2>The technical vision</h2>
+                <p>It is the task of the W3C <a href="https://www.w3.org/dpub/IG/">Digital Publishing Interest Group</a> to explore the uniqueness, desirability, and feasibility of bringing these two great models of publishing together. This document explores the technical feasibility and some of the challenges arising from real use cases that arise when exploring this vision further. Many of these challenges arise from the various use cases, documented in the separate note on PWP Use Cases and Requirement&nbsp;[[pwp-ucr]]
+                </p>
+          </section>
+          <section>
+              <h4>The Technical Vision</h4>
 
+              <aside class="annotation">
+                  This section should be rewritten to emphasize the difference between packaged and non-packaged
+              </aside>
+              <p>From a technical viewpoint, our vision for <a>Web Publications</a> is to define a class of documents on the Web that would be part of the Digital Publishing ecosystem but would also be fully native citizens of the <a href="https://www.w3.org/wiki/Open_Web_Platform">Open Web Platform</a>.  In this vision, the current format- and workflow-level separation between offline/portable and online (Web) document publishing is diminished to zero. These are merely two dynamic manifestations of the same publication: content authored with online use as the primary mode can easily be saved by the user for offline reading in portable document form. Content authored primarily for use as a portable document can be put online, without any need for refactoring the content. Publishers can choose to utilize either or both of these publishing modes, and users can choose either or both of these consumption modes. Essential features flow seamlessly between online and offline modes; examples include cross-references, user annotations, access to online databases, as well as licensing and rights management. Publications can
+              </p>
+              <p>A more precise technical definition of <a>Web Publications</a> is provided in the section <a href='#pwp_definition'></a>. For the sake of this introduction, it suffices to say that a <a>Web Publication</a> is a collection of resources (e.g. pages, chapters, modules, articles) whose content is compatible with Web usage, and structured as a single, self-contained logical unit. Individual items can consist of text, images, graphics, possibly interactive mathematical or chemical formulae, as well as audio and video. These documents, by definition, have a default, linear “reading order”, however the user may choose to skip around in the content just as with a book on paper; alternatively, interactive aspects of the content may alter the reading order on behalf of the user.
+              </p>
+
+              <p>As mentioned already, a companion document&nbsp;[[pwp-ucr]] collects a set of more detailed use cases and requirements for <a>Web Publications</a>. The present document concentrates on the technical challenges to achieve this vision, and provides some technical directions aiming to address some of those challenges. None of the technical solutions should be considered final; a more detailed and rigorous specification should be done by a separate, dedicated Working Group.</p>
+
+              <figure id="pwp_figure" >
+                <img src="figures/pwp.svg" alt="Image showing a laptop accessing unpackaged multiple files for online use.  With same content packaged for use on a mobile cellphone." style="width:80%">
+                <figcaption>The same content can be turned into an archived file and back without any inherent changes to the core content or associated digital assets. (Picture is available separately in <a href="figures/pwp.svg">SVG</a> or <a href="figures/pwp.png">PNG</a> formats.)</figcaption>
+              </figure>
+          </section>
+        </section>
+        <section id="whynow">
+          <h3>Why Work on This Now?</h3>
+
+          <p>Digital Publishing can be considered to be at a tipping point. Digital publishing formats like EPUB have been broadly adopted globally for trade ebooks, and are starting to gain adoption among textbook publishers as well as corporate marketing departments. However, these formats have largely been seen as “offline” formats up until now. Various browser extensions supporting such complex publications exist, and other solutions are available for delivering these publications in browsers. Browser- and cloud-based solutions require relatively complex server and/or client software. In many cases browser- and cloud-based solutions depend on a proprietary transformation of the packaged files into formats more suitable to network delivery. A focused effort to make digital publications first-class Open Web Platform citizens will result in a significant reduction in the complexity of deploying publishing content into browsers for both online and offline consumption. Further, this focused effort will increase the momentum of digital publication and associated Web adoption across communities who are looking for an open, non-proprietary, next-generation portable document format.</p>
+
+          <p>A convergence between Digital Publications and the Web in general is also beneficial for “traditional” Web content; many of the use cases described in&nbsp;[[pwp-ucr]] (e.g., usage of pagination for long form publications, the fact of considering a collection of resources as a single unit, etc.) are relevant for highly informative, albeit possibly less interactive Web content as well. The experience in ergonomy, production workflow, editorial craftmanship, etc., that the (Digital) Publishing industry has developed over the centuries may also have a positive influence on the evolution of Web content at large. Technically, in many respect, the development of Packaged Web Publications is in line with <a href="https://en.wikipedia.org/wiki/Progressive_web_app">Progressive Web Apps</a> coming to the fore, insofar as breaking the boundaries between Web sites and Mobile Applications, an emphasis on “offline” paradigms, etc. (It is also worth noting that the technical approach explored in this document rely on the same technologies.)
+          </p>
+
+          <p>In many respects, the convergence is already happening. In a number of areas (e.g., educational publications, travel books, etc.) publishers already exploit the advanced possibilities of packaged publishing formats to produce highly interactive documents whose features are very close to what one is used to on the Web (see the separate section <a href="#epub-relations"></a> for some examples). And the converse is also true: tutorial and introductory articles have appeared on the Web that have the quality of traditional publications that one was used to seeing in a scientific magazine, but combined with the interactive possibilities of the Web (<a href="http://bost.ocks.org/mike/algorithms/">Mike Bostock’s article on visualizing algorithms</a> or <a href="http://worrydream.com/LadderOfAbstraction/">Bret Victor’s article on visualization</a> are just two of several possible examples). “Traditional” publications (for example in scholarly publishing) are increasingly moving on-line, exploring new possibilities and publishing paradigms, but also facing issues in combining their traditional requirements with the reality of the Web today. All in all, the convergence still has a long way to go, and this is the topic that this document, and the concept of <a>Packaged Web Publications</a>, aim to explore.
+          </p>
+        </section>
+        <section id="terminology">
+          <h3>Terminology</h3>
+          <p>This document is based on the following definitions.</p>
           <aside class="annotation">
-              This section should be rewritten to emphasize the difference between packaged and non-packaged
+              We may have to provide a definition for "Locator", possibly "Canonical Locator"
           </aside>
-          <p>From a technical viewpoint, our vision for <a>Web Publications</a> is to define a class of documents on the Web that would be part of the Digital Publishing ecosystem but would also be fully native citizens of the <a href="https://www.w3.org/wiki/Open_Web_Platform">Open Web Platform</a>.  In this vision, the current format- and workflow-level separation between offline/portable and online (Web) document publishing is diminished to zero. These are merely two dynamic manifestations of the same publication: content authored with online use as the primary mode can easily be saved by the user for offline reading in portable document form. Content authored primarily for use as a portable document can be put online, without any need for refactoring the content. Publishers can choose to utilize either or both of these publishing modes, and users can choose either or both of these consumption modes. Essential features flow seamlessly between online and offline modes; examples include cross-references, user annotations, access to online databases, as well as licensing and rights management. Publications can
-          </p>
-          <p>A more precise technical definition of <a>Web Publications</a> is provided in the section <a href='#pwp_definition'></a>. For the sake of this introduction, it suffices to say that a <a>Web Publication</a> is a collection of resources (e.g. pages, chapters, modules, articles) whose content is compatible with Web usage, and structured as a single, self-contained logical unit. Individual items can consist of text, images, graphics, possibly interactive mathematical or chemical formulae, as well as audio and video. These documents, by definition, have a default, linear “reading order”, however the user may choose to skip around in the content just as with a book on paper; alternatively, interactive aspects of the content may alter the reading order on behalf of the user.
-          </p>
+          <ul class="terms">
+              <li>This document uses the term <dfn>user agent</dfn>, as used by the Web community; see, for example, the <a href="https://www.w3.org/WAI/UA/work/wiki/Definition_of_User_Agent">WAI glossary entry</a>. The publishing community often uses the term “reading system” for roughly the same notion; while there may be subtle differences, it is better to stick to a single term for the purposes of this document.</li>
 
-          <p>As mentioned already, a companion document&nbsp;[[pwp-ucr]] collects a set of more detailed use cases and requirements for <a>Web Publications</a>. The present document concentrates on the technical challenges to achieve this vision, and provides some technical directions aiming to address some of those challenges. None of the technical solutions should be considered final; a more detailed and rigorous specification should be done by a separate, dedicated Working Group.</p>
+              <li>A <dfn>Web Publication</dfn> (WP) is a collection of one or more constituent resources, organized together in a uniquely identifiable grouping, and presented using standard Open Web Platform technologies.</li>
 
-          <figure id="pwp_figure" >
-            <img src="figures/pwp.svg" alt="Image showing a laptop accessing unpackaged multiple files for online use.  With same content packaged for use on a mobile cellphone." style="width:80%">
-            <figcaption>The same content can be turned into an archived file and back without any inherent changes to the core content or associated digital assets. (Picture is available separately in <a href="figures/pwp.svg">SVG</a> or <a href="figures/pwp.png">PNG</a> formats.)</figcaption>
-          </figure>
-      </section>
-    </section>
-    <section id="whynow">
-      <h2>Why work on this now?</h2>
+              <li>A <dfn data-lt="Packaged Web Publications">Packaged Web Publication</dfn> (PWP) is a <a>Web Publication</a> whose constituent resources are combined into a single distributable file, using some standard packaging format.</li>
 
-      <p>Digital Publishing can be considered to be at a tipping point. Digital publishing formats like EPUB have been broadly adopted globally for trade ebooks, and are starting to gain adoption among textbook publishers as well as corporate marketing departments. However, these formats have largely been seen as “offline” formats up until now. Various browser extensions supporting such complex publications exist, and other solutions are available for delivering these publications in browsers. Browser- and cloud-based solutions require relatively complex server and/or client software. In many cases browser- and cloud-based solutions depend on a proprietary transformation of the packaged files into formats more suitable to network delivery. A focused effort to make digital publications first-class Open Web Platform citizens will result in a significant reduction in the complexity of deploying publishing content into browsers for both online and offline consumption. Further, this focused effort will increase the momentum of digital publication and associated Web adoption across communities who are looking for an open, non-proprietary, next-generation portable document format.</p>
+              <li>In this document, <dfn>manifest</dfn> refers to an abstract means to contain information necessary to the proper management, rendering, and so on, of a publication. This is opposed to metadata that contains information on the content of the publication like author, publication date, and so on. The precise format of how such a manifest is stored is not considered in this document.</li>
 
-      <p>A convergence between Digital Publications and the Web in general is also beneficial for “traditional” Web content; many of the use cases described in&nbsp;[[pwp-ucr]] (e.g., usage of pagination for long form publications, the fact of considering a collection of resources as a single unit, etc.) are relevant for highly informative, albeit possibly less interactive Web content as well. The experience in ergonomy, production workflow, editorial craftmanship, etc., that the (Digital) Publishing industry has developed over the centuries may also have a positive influence on the evolution of Web content at large. Technically, in many respect, the development of Packaged Web Publications is in line with <a href="https://en.wikipedia.org/wiki/Progressive_web_app">Progressive Web Apps</a> coming to the fore, insofar as breaking the boundaries between Web sites and Mobile Applications, an emphasis on “offline” paradigms, etc. (It is also worth noting that the technical approach explored in this document rely on the same technologies.)
-      </p>
+              <li>A <dfn>WP processor</dfn> is a piece of functionality that has the responsibility of interpreting the specificities of a <a>Web Publication</a>, handling offline vs. online, user interaction beyond what a usual user agent does etc. It is a conceptual entity for the purpose of this document.
+              </li>
 
-      <p>In many respects, the convergence is already happening. In a number of areas (e.g., educational publications, travel books, etc.) publishers already exploit the advanced possibilities of packaged publishing formats to produce highly interactive documents whose features are very close to what one is used to on the Web (see the separate section <a href="#epub-relations"></a> for some examples). And the converse is also true: tutorial and introductory articles have appeared on the Web that have the quality of traditional publications that one was used to seeing in a scientific magazine, but combined with the interactive possibilities of the Web (<a href="http://bost.ocks.org/mike/algorithms/">Mike Bostock’s article on visualizing algorithms</a> or <a href="http://worrydream.com/LadderOfAbstraction/">Bret Victor’s article on visualization</a> are just two of several possible examples). “Traditional” publications (for example in scholarly publishing) are increasingly moving on-line, exploring new possibilities and publishing paradigms, but also facing issues in combining their traditional requirements with the reality of the Web today. All in all, the convergence still has a long way to go, and this is the topic that this document, and the concept of <a>Packaged Web Publications</a>, aim to explore.
-      </p>
-    </section>
-    <section id="terminology">
-      <h2>Terminology</h2>
-      <p>This document is based on the following definitions.</p>
-      <aside class="annotation">
-          We may have to provide a definition for "Locator", possibly "Canonical Locator"
-      </aside>
-      <ul class="terms">
-          <li>This document uses the term <dfn>user agent</dfn>, as used by the Web community; see, for example, the <a href="https://www.w3.org/WAI/UA/work/wiki/Definition_of_User_Agent">WAI glossary entry</a>. The publishing community often uses the term “reading system” for roughly the same notion; while there may be subtle differences, it is better to stick to a single term for the purposes of this document.</li>
-
-          <li>A <dfn>Web Publication</dfn> (WP) is a collection of one or more constituent resources, organized together in a uniquely identifiable grouping, and presented using standard Open Web Platform technologies.</li>
-
-          <li>A <dfn data-lt="Packaged Web Publications">Packaged Web Publication</dfn> (PWP) is a <a>Web Publication</a> whose constituent resources are combined into a single distributable file, using some standard packaging format.</li>
-
-          <li>In this document, <dfn>manifest</dfn> refers to an abstract means to contain information necessary to the proper management, rendering, and so on, of a publication. This is opposed to metadata that contains information on the content of the publication like author, publication date, and so on. The precise format of how such a manifest is stored is not considered in this document.</li>
-
-          <li>A <dfn>WP processor</dfn> is a piece of functionality that has the responsibility of interpreting the specificities of a <a>Web Publication</a>, handling offline vs. online, user interaction beyond what a usual user agent does etc. It is a conceptual entity for the purpose of this document.
-          </li>
-
-          <li>A <dfn>PWP processor</dfn> is an extension of a <a>WP processor</a> to accomodate <a>Packaged Web Publications</a> handling also (un)packaging. It is a conceptual entity for the purpose of this document.
-          </li>
-      </ul>
+              <li>A <dfn>PWP processor</dfn> is an extension of a <a>WP processor</a> to accomodate <a>Packaged Web Publications</a> handling also (un)packaging. It is a conceptual entity for the purpose of this document.
+              </li>
+          </ul>
+        </section>
     </section>
 
     <section id="technical-challenges">
-        <h2>Some Technical Challenges</h2>
+        <h2>Technical Challenges</h2>
 
         <p>This section considers some of the technical work areas that should be clarified for a more precise and detailed specification of <a>Web Publications</a>. The list is not exhaustive and there are only hints at the technical solutions without claiming to be complete and tested for validity. It must also be emphasized that some of solutions to the problems listed below may not come from W3C, but possibly from other, external organizations (document identification is a typical example).</p>
 
@@ -475,7 +478,7 @@
             <h3>WP Manifests</h3>
             <p>The <a>manifest</a> of <a>Web Publications</a> is a <a>Web Resource</a> that includes information pertaining to the overall publication structure, such as the default logical reading order(s) of the set of resources that comprise the publication (the “spine”), as well as predictable user-facing meta-structures, such as one or several tables of contents, glossaries, etc. The <a>WP manifest</a> may also include various metadata (either directly or via further references) that are essential for the overall publishing workflow. The exact definition of all possible manifest items, the internal structure and serialization syntax of a <a>manifest</a>, etc., will require additional work as part of a more detailed specification of <a>Web Publications</a>.</p>
 
-            <p>A fundamental question that must be answered is how does a <a>WP Processor</a> get hold of the manifest. Because the publication patterns of WP-s can be different depending on publishers, authors, etc., there should be different ways of accessing the manifests: it can be referred to via a <code>link</code> element in an HTML file, can be in an agreed-upon-position within a package, or can be conveyed through a <code>LINK</code> header of an <code>HTTP(S)</code> request. The WP Processor gets hold of the <a>manifest</a> by following a hierarchy of these different possibilities; a separate <a href="#simple-manifest-access">section</a> in the appendix provides more details. (Note that accessing a manifest also has some security issues; the <a href="https://w3c.github.io/manifest/#obtaining">“Obtaining a manifest”</a> of the “Web App Manifest”&nbsp;[[web-manifest]] document provides some further details that could be adopted, too.)
+            <p>A fundamental question that must be answered is how does a <a>WP Processor</a> get hold of the manifest. Because the publication patterns of WPs can be different depending on publishers, authors, etc., there should be different ways of accessing the manifests: it can be referred to via a <code>link</code> element in an HTML file, can be in an agreed-upon-position within a package, or can be conveyed through a <code>LINK</code> header of an <code>HTTP(S)</code> request. The WP Processor gets hold of the <a>manifest</a> by following a hierarchy of these different possibilities; a separate <a href="#simple-manifest-access">section</a> in the appendix provides more details. (Note that accessing a manifest also has some security issues; the <a href="https://w3c.github.io/manifest/#obtaining">“Obtaining a manifest”</a> of the “Web App Manifest”&nbsp;[[web-manifest]] document provides some further details that could be adopted, too.)
 
             <p> This algorithm is typically performed by the <a>PWP Processor</a> when initialized with the state independent locator of a particular <a>WP</a> instance.</p>
 
@@ -484,7 +487,7 @@
           </section>
 
           <section id="metadata">
-            <h3>Metadata: discovery</h3>
+            <h3>Metadata Discovery</h3>
             <p>Throughout the digital publishing industry, highly specialized metadata vocabularies, and serialization forms thereof, are being used. Within book trade publishing as an example, ONIX&nbsp;[[ONIX]] has attained a dominant status as a metadata package that typically exists (in XML form) independently of the publication, and contains not only bibliographic metadata, but also trade information such as pricing. Scholarly publishing, on the other hand, often uses various derivatives of the ubiquitous BibTeX vocabulary.</p>
 
             <p>While not contradicting the obvious use cases for out-of-line metadata records as used by publishers, retailers and libraries, <a>Web Publications</a> must define a syntax for basic in-line metadata records that is agnostic to the publication’s states. This means that the syntax must seamlessly support discovery and harvesting by both generic Web search engines, as well as dedicated bibliographic/archival/retailer systems. While it is expected that <a>Web Publications</a> will define a minimal set of required metadata (cf. the section <a href="#identification"></a>), development and adoption of other vocabularies in <a>Web Publications</a> will most likely be deemed as out of scope. In other words, domain-specific metadata requirements are up to the domains themselves to define via a profiling mechanism, or similar yet-to-be-defined means. </p>
@@ -493,10 +496,10 @@
           </section>
 
           <section>
-              <h2>Web Publication API-s</h2>
+              <h2>Web Publication APIs</h2>
               <p>Access to the specific features of Web Publications via programming API is an important feature when it comes to Web Applicaitons making use of Web Publications. </p>
 
-              <p class="note">These API-s would have to be specified through a separate incubation phase. Indeed, their specification requires a different expertise than most of what is described in this document, and for the most part there is no prior art for them.</p>
+              <p class="note">These APIs would have to be specified through a separate incubation phase. Indeed, their specification requires a different expertise than most of what is described in this document, and for the most part there is no prior art for them.</p>
 
               <section>
                   <h2>Document Collection Interface and API</h2>
@@ -543,7 +546,7 @@
         <section>
             <h3>Packaged Web Publications</h3>
             <section id="package">
-              <h4>Archive formats</h4>
+              <h4>Archive Formats</h4>
 
               <p>Regardless of the details of the practical architecture realizing <a>Web Publications</a>, an archive format is necessary for the storage of a publication as one file (e.g., for distribution or possibly archiving) defined as the <a>packed</a> state of a <a>Packaged Web Publication</a>. A variety of formats for offline/archival storage of collections of digital resources exist today (e.g., [[OCF]], [[ODF]], and [[OOXML]]), but none of them is universally recognized and supported across all ecosystems. Depending on the general architecture, <a>Packaged Web Publications</a> may use one of the deployed formats (e.g., the current EPUB packaging format based on [[OCF]]), or an archive format that is generic and native to the Open Web Platform. </p>
 
@@ -598,7 +601,7 @@
         </section>
     </section>
     <section id="profiling">
-        <h2>Profiling (P)WP-s?</h2>
+        <h2>Profiling Web Publications</h2>
 
         <p>Different domains of digital publishing have vastly different expectations and/or requirements on the nature of the content and their presentation. In the digital comics domain for example, the default presentation form is, traditionally at least, pre-paginated, fixed-form, and image-based, possibly with a set of omnipresent (i.e., cross-publisher) user interaction patterns that are expected to be enabled. On the other hand, for trade publishing the default form is fully reflowable content, where user interaction patterns are defined entirely by the user agent. In educational publishing, the ability to control structure, to include rich domain-specific structural semantics and extensive specialized metadata, are at the basis for enhanced reading system behaviors, as well as predictable content discovery and repurposing. </p>
 
@@ -626,7 +629,7 @@
       </p>
     </section>
     <section class="appendix" id="simple-manifest-access">
-        <h2>Algorithm to retrieve the manifest for a PWP</h2>
+        <h2>Algorithm to Retrieve the Manifest for a PWP</h2>
 
         <aside class="annotation">
             This section may have to be revised thoroughly. Indeed
