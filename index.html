@@ -493,12 +493,32 @@
           </section>
 
           <section>
-              <h2>Additional API-s</h2>
+              <h2>Web Publication API-s</h2>
+              <p>Access to the specific features of Web Publications via programming API is an important feature when it comes to Web Applicaitons making use of Web Publications. </p>
+
+              <p class="note">These API-s would have to be specified through a separate incubation phase. Indeed, their specification requires a different expertise than most of what is described in this document, and for the most part there is no prior art for them.</p>
+
               <section>
-                  <h2>Document Collection API-s</h2>
+                  <h2>Document Collection Interface and API</h2>
+                  <p>At the moment, Web Resources used in a Web Publication (e.g., HTML or SVG) can be accessed, programatically, via the <a href="https://html.spec.whatwg.org/multipage/dom.html#document">Document</a> interface, that provides attributes and methods to access the full tree-like structure of, say, the HTML content, the various attributes on each level, or the textual content. Programs make use of these possibilities, as well as related interfaces, to implement a multitude of operations on a single document.</p>
+
+                  <p>However, a <a>Web Publication</a> is a <em>collection</em> of documents; consequently, a number of operations are to be performed on that collection as a whole. Typical examples are: </p>
+
+                  <ul>
+                      <li>full text search over the full Web Publication;</li>
+                      <li>ensure a continuous section, list, table, etc., numbering when the corresponding Web Resources are read continuously, i.e., as part of the Web Publication;</li>
+                      <li>provide an outlining and/or table of content generation over the Web Publication</li>
+                  </ul>
+
+                  <p>Although these operations may be performed via the current standard interfaces, but any such program would have to construct and manage a collection of such document interfaces. It would therefore improve interoperability to define such a Document Collection Interface, together with a set of suitable attributes and methods. </p>
               </section>
               <section>
-                  <h2>Publication Object Model and API-s</h2>
+                  <h2>Publication Object Model and API</h2>
+                  <p>Many programmatic steps on Web Publications rely on the interplay of the individual resources and information stored elsewhere, for example in the <a href="#manifest-details">manifest</a> of the Web Publication. These include the creation of the Document Collection Interface object for the Web Publication itself, access to the various metadata items to display, e.g., the titles and other information to the reader, providing information on the publication’s semantic sructure (that may go beyond the structure of the HTML elements in the resources), etc. Furthermore, these information may have to be changed by, e.g., a dynamic editor of a Web Publication.</p>
+
+                  <p>These operations may be performed individually by, e.g., retrieving the information from the manifest or parsing the metadata that can make use of different syntaxes, it would improve the interoperability of implementations to define a standard Model and API that would represent a Web Publication in all its complexity. </p>
+
+                  <p class="note">There is, currently, a separate <a href="https://www.w3.org/community/pom/">W3C Community Group on Publication Object Models</a>. At this moment no report has yet been published, though.</p>
               </section>
           </section>
 
