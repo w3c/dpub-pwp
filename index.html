@@ -603,9 +603,14 @@
     <section id="profiling">
         <h2>Profiling Web Publications</h2>
 
-        <p>Different domains of digital publishing have vastly different expectations and/or requirements on the nature of the content and their presentation. In the digital comics domain for example, the default presentation form is, traditionally at least, pre-paginated, fixed-form, and image-based, possibly with a set of omnipresent (i.e., cross-publisher) user interaction patterns that are expected to be enabled. On the other hand, for trade publishing the default form is fully reflowable content, where user interaction patterns are defined entirely by the user agent. In educational publishing, the ability to control structure, to include rich domain-specific structural semantics and extensive specialized metadata, are at the basis for enhanced reading system behaviors, as well as predictable content discovery and repurposing. </p>
+        <p>Web Publications, by design, must be able to accommodate publications of all sorts, from all domains, and to utilize all available web technologies.</p>
+	    
+	<p>However, in order to address the needs of their constituents and to streamline the authoring and interchange of publications in their ecosystems, certain domains or communities of interest may benefit from limiting the options that could be available or requiring certain features that would necessarily be optional for Web Publications in general. These would result in profiles of Web Publications that would in all respects be valid Web Publications: Web Publications done in a certain way to achieve those benefits.</p>
 
-        <p>To allow for the predictability of content within those domains that need it, <a>Web Publications</a> may need to incorporate a notion of “profiles” that content can be authored and validated against, and that user agent implementations can use to trigger enhanced behaviors, if any. To allow for agile feature-set extensions and innovation, <a>Web Publications</a> profiles also needs to embrace the notion of “feature addons” that can be included by a publisher without risking to invalidate the integrity and functionality of the basic publication.</p>
+	<p>For example, the current publication supply chain based on EPUB benefits from requirements such as a certain packaging format, navigation features, and metadata that presumably would be a subset of the options available to Web Publications in general; it may be desirable for what is currently an EPUB to become a particular type (and thus a profile) of Packaged Web Publication. Likewise, there could be a profile optimized for education that would require certain features for accessibility and to optimize interoperability with Learning Management Systems (LMSs) or Virtual Learning Environments (VLEs), or a profile for scientific publications requiring citations to be in a particular form and optimized for the publication of data.</p>
+	
+	<p>Such profiles may need to be able to be recursive, in the way that the current EPUB for Education specification (commonly known as EDUPUB) is a profile of EPUB.</p>
+
     </section>
     <section>
         <h2>EPUB and PWP</h2>
