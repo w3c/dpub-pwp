@@ -548,13 +548,12 @@
         <section>
             <h3>Packaged Web Publications</h3>
             <section id="package">
-                <h4>Archive Formats</h4>
+                <h4>Packaging Formats</h4>
+                
+                <p>Transmitting, storing, sharing, or archiving a web publication is easier if it can be packaged as a single file. Several such packaging formats exist today, often using some combination of ZIP and XML manifest. Examples include [[OCF]] for EPUB, and [[ODF]] or [[OOXML]] for office documents. None of thes are universally recognized and supported across all publishing or web environments. We hope packaging will not be tightly coupled to the architecture of web publications, so that different packaging formats may be used for different purposes. </p>
 
-                <p>Regardless of the details of the practical architecture realizing <a>Web Publications</a>, an archive format is necessary for the storage of a publication as one file (e.g., for distribution or possibly archiving) defined as the <a>packed</a> state of a <a>Packaged Web Publication</a>. A variety of formats for offline/archival storage of collections of digital resources exist today (e.g., [[OCF]], [[ODF]], and [[OOXML]]), but none of them is universally recognized and supported across all ecosystems. Depending on the general architecture, <a>Packaged Web Publications</a> may use one of the deployed formats (e.g., the current EPUB packaging format based on [[OCF]]), or an archive format that is generic and native to the Open Web Platform. </p>
-
-                <p>W3C’s <a href="http://www.w3.org/WebPlatform/WG/">Web Platform Working Group</a> has published a Working Draft for a Streamable Package Format for the Web&nbsp;[[web-packaging]] to encompass the needs of various applications (like installing Web Applications or downloading data for local processing). It is not clear at this moment whether browsers will adopt this format, though. </p>
-
-                <p>However, the importance of streaming is not paramount for <a>Packaged Web Publications</a>. Indeed, the same publication may be accessed by the same user from different clients; if some user-dependent management also keeps track of the latest reading position in the publication, switching from one client to the other may mean that a client would have to “jump” <em>into</em> the content, thereby bypassing streaming. Nevertheless, if browsers, eventually, do converge towards a browser and streaming friendly packaging format, adopting it for <a>Packaged Web Publications</a> may become a real alternative. The community will have to balance native browser availability against the the wide availibility of tooling and industry distribution based on [[OCF]].</p>
+                <p>The W3C has published a Working Draft for "Packaging on the Web" [[web-packaging]], to be used to package bundles of web resources for <a href="https://github.com/dimich-g/webpackage/blob/master/README.md">web caches, local sharing, and CDNs</a>. This format should allow streaming, although it's not clear how important streaming is for our use cases.</p>
+                
 
                 <div class="note">
                     <p>The IETF has published an <a href="https://tools.ietf.org/html/draft-seantek-kerwin-arcmedia-type-01">informational draft on a top-level media type for archives</a>. Although that draft does not specify a specific archive format, and the work is currently on hold, it shows the overall interest in packaging on the Web in line with the concerns of <a>Packaged Web Publications</a>.</p>
