@@ -480,7 +480,19 @@
 
             <section id="manifest-details">
                 <h3>WP Manifests</h3>
-                <p>A <a>Web Publication</a> is a whole that may consist of many parts. We need a way to describe this whole, a place to store information about the publication and its components. We will use the term <a>manifest</a>, in the sense of a document describing the contents of a ship. A <a>Manifest</a> may include publication metadata, a list of publication components, the default sequencing of primary components, and any other relevant information.</p>
+                <p>A <a>Web Publication</a> is a whole that may consist of many parts. We need a way to describe this whole, a place to store information about the publication and its components. We will use the term <a>manifest</a>, in the sense of a document describing the contents of a ship. A <a>Manifest</a> may include:</p>
+                
+                <ul>
+                <li>Publication metadata, directly or by reference.</li>
+                <li>A list of publication resources, and information about them.</li>
+                <li>The default sequencing of primary publication components.</li>
+                <li>References to tables of contents, glossaries, and other navigational or pedagogical aids.</li>
+                <li>References to alternative manifestations of the publication.</li>
+                <li>Hints to the user agent about how to present the publication.</li>
+                
+                </ul>
+                
+                
                 
                 
                  <p>The “Web App Manifest”&nbsp;[[web-manifest]], currently being developed at W3C, is one example of a technology that could define a PWP manifest format. Although the current&nbsp;[[web-manifest]] draft is geared towards Web Applications, it also includes extension points to add information necessary for PWPs. Some of these extra manifest members have already been explored in the <a href="https://github.com/dauwhe/epub31-bff">“Browser Friendly Format”</a> work of the EPUB3.1 Working Group. Given the broad range of uses we envision for <a>Web Publications</a>, there may be several alternatives for serializing the manifest, including EPUB’s package file. </p>
