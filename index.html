@@ -370,7 +370,7 @@
                 <p>A <a>Web Publication</a> (WP) is a bounded collection of resources, envisioned and created as a whole, that can be presented using Open Web Platform technologies. A <a>Web Publication</a> is not just a collection of links—the act of publishing involves obtaining resources and organizing them into a publication, which must be “manifested” (in the FRBR&nbsp;[[frbr]] sense) by having files on a Web server. Thus the publisher provides an origin for the WP, and a URL that can uniquely identify that manifestation. </p>
 
                 <p>A <a>Web Publication</a> must provide a default ordering of the primary constituent resources, although that order may be changed by user interaction or scripting. A reader must also be able to access any primary resource directly, via navigation provided by the publisher or the user agent.</p>
-                
+
 
                 <p>A <a>Web Publication</a> may be packaged (and become a PWP—<a>Portable Web Publication</a>) by having all its constituent resources combined into a single file. The package must include the unique identifier of the manifestation—a <a data-lt="Web Publication">Web Publication’s</a> origin is essential information if a PWP becomes portable. The act of packaging must be reversible; one must be able to recover the original structure and organization. In particular, relative URLs within the publication must not be altered. References relative to a publication should remain stable. We consider the unpackaged state of a web publication to be canonical. Packaging provides a convenient way to to transmit and store a publication, but user agents are not required to display, annotate, or reference such content in packaged form. </p>
 
@@ -481,7 +481,7 @@
             <section id="manifest-details">
                 <h3>WP Manifests</h3>
                 <p>A <a>Web Publication</a> is a whole that may consist of many parts. We need a way to describe this whole, a place to store information about the publication and its components. We will use the term <a>manifest</a>, in the sense of a document describing the contents of a ship. A <a>Manifest</a> may include:</p>
-                
+
                 <ul>
                 <li>Publication metadata, directly or by reference.</li>
                 <li>A list of publication resources, and information about them.</li>
@@ -489,20 +489,20 @@
                 <li>References to tables of contents, glossaries, and other navigational or pedagogical aids.</li>
                 <li>References to alternative manifestations of the publication.</li>
                 <li>Hints to the user agent about how to present the publication.</li>
-                
+
                 </ul>
-                
-                
-                
-                
-                 <p>The “Web App Manifest”&nbsp;[[web-manifest]], currently being developed at W3C, is one example of a technology that could define a PWP manifest format. Although the current&nbsp;[[web-manifest]] draft is geared towards Web Applications, it also includes extension points to add information necessary for PWPs. Some of these extra manifest members have already been explored in the <a href="https://github.com/dauwhe/epub31-bff">“Browser Friendly Format”</a> work of the EPUB3.1 Working Group. Given the broad range of uses we envision for <a>Web Publications</a>, there may be several alternatives for serializing the manifest, including EPUB’s package file. </p>
-                 
-                 
+
+
+
+
+                 <p>The “Web App Manifest”&nbsp;[[web-manifest]], currently being developed at W3C, is one example of a technology that could define a PWP manifest format. Although the current&nbsp;[[web-manifest]] draft is geared towards Web Applications, it also includes extension points to add information necessary for PWPs. Some of these extra manifest members have already been explored in the <a href="https://github.com/dauwhe/epub31-bff">“Browser Friendly Format”</a> work of the EPUB3.1 Working Group. Given the broad range of uses we envision for <a>Web Publications</a>, there may even be several alternatives for serializing the manifest. </p>
+
+
                  <p>A fundamental question is how a <a>user agent</a> obtains the manifest. Because the publication patterns of WPs can be different depending on publishers, authors, etc., there should be different ways of accessing the manifest: it can be referred to via a <code>link</code> element in an HTML file, can be in an agreed-upon-position within a package, or can be conveyed through a <code>LINK</code> header of an <code>HTTP(S)</code> request. The user agent obtains the <a>manifest</a> by following a hierarchy of these different possibilities; a separate <a href="#simple-manifest-access">section</a> in the appendix provides more details. (Note that accessing a manifest also has some security issues; the <a href="https://w3c.github.io/manifest/#obtaining">“Obtaining a manifest”</a> of the “Web App Manifest”&nbsp;[[web-manifest]] document provides some further details.)</p>
 
                 <p> This algorithm is typically performed by the <a>user agent</a> when initialized with the state independent locator of a particular <a>WP</a> instance.</p>
 
-               
+
             </section>
 
             <section id="metadata">
@@ -566,11 +566,11 @@
             <h3>Packaged Web Publications</h3>
             <section id="package">
                 <h4>Packaging Formats</h4>
-                
+
                 <p>Transmitting, storing, sharing, or archiving a web publication is easier if it can be packaged as a single file. Several such packaging formats exist today, often using some combination of ZIP and XML manifest. Examples include [[OCF]] for EPUB, and [[ODF]] or [[OOXML]] for office documents. None of thes are universally recognized and supported across all publishing or web environments. We hope packaging will not be tightly coupled to the architecture of web publications, so that different packaging formats may be used for different purposes. </p>
 
                 <p>The W3C has published a Working Draft for "Packaging on the Web" [[web-packaging]], to be used to package bundles of web resources for <a href="https://github.com/dimich-g/webpackage/blob/master/README.md">web caches, local sharing, and CDNs</a>. This format should allow streaming, although it's not clear how important streaming is for our use cases. If browsers adopt such a packaging format, we would hope to use it for <a>Packaged Web Publications</a>.</p>
-                
+
 
                 <div class="note">
                     <p>The IETF has published an <a href="https://tools.ietf.org/html/draft-seantek-kerwin-arcmedia-type-01">informational draft on a top-level media type for archives</a>. Although that draft does not specify a specific archive format, and the work is currently on hold, it shows the overall interest in packaging on the Web in line with the concerns of <a>Packaged Web Publications</a>.</p>
@@ -621,7 +621,7 @@
 
 	    <p>However, in order to address the needs of their constituents and to streamline the authoring and interchange of publications in their ecosystems, certain domains or communities of interest may benefit from limiting the options that could be available or requiring certain features that would necessarily be optional for Web Publications in general. These would result in profiles of Web Publications that would in all respects be valid Web Publications: Web Publications done in a certain way to achieve those benefits.</p>
 
-	    <p>For example, the current publication supply chain based on EPUB benefits from requirements such as a certain packaging format, navigation features, and metadata that presumably would be a subset of the options available to Web Publications in general; it may be desirable for what is currently an EPUB to become a particular type (and thus a profile) of Packaged Web Publication. Likewise, there could be a profile optimized for education that would require certain features for accessibility and to optimize interoperability with Learning Management Systems (LMSs) or Virtual Learning Environments (VLEs), or a profile for scientific publications requiring citations to be in a particular form and optimized for the publication of data.</p>
+	    <p>For example, the current publication supply chain based on EPUB benefits from requirements such as a certain packaging format, navigation features, and metadata that presumably would be a subset of the options available to Web Publications in general; it may be desirable for what is currently an EPUB to become a particular type (and thus a profile) of Packaged Web Publication. Such a profile may specify a packaging format, or the exact serialization syntax for its manifest (possibly aligning it with those of the current EPUB specification). Likewise, there could be a profile optimized for education that would require certain features for accessibility and to optimize interoperability with Learning Management Systems (LMSs) or Virtual Learning Environments (VLEs), or a profile for scientific publications requiring citations to be in a particular form and optimized for the publication of data.</p>
 
 	    <p>Such profiles may need to be able to be recursive, in the way that the current <a href="http://www.idpf.org/epub/profiles/edu/spec/">EPUB for Education</a> specification (commonly known as EDUPUB) is a profile of EPUB.</p>
     </section>
