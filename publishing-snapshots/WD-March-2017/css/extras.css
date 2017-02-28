@@ -1,0 +1,112 @@
+
+blockquote.quote {
+    margin-left: 2em;
+    margin-right: 3em;
+    border-left: none;
+    font-size: 95%;
+    font-style: italic;
+    text-align: justify;
+}
+blockquote.quote p.author {
+    font-size: 90%;
+    text-align: right;
+    margin-top: 0em !important;
+}
+
+
+.extra-em {
+    text-decoration: underline;
+}
+
+code {
+  font-size: 120%;
+}
+
+/* Table zebra style... */
+table.zebra {
+  font-size:inherit;
+  font:100%;
+  margin:1em;
+}
+
+table.zebra td {
+  padding-left: 0.3em;
+}
+
+table.zebra tr th:nth-child(1) {
+  text-align: left;
+}
+
+table.zebra th {
+  font-weight: bold;
+  text-align: center;
+  background-color: steelblue !important;
+  font-size: 110%;
+  background: hsl(180, 30%, 50%);
+  color: #fff;
+}
+
+table.zebra th a:link {
+  color: #fff;
+}
+
+table.zebra th a:visited {
+  color: #aaa;
+}
+
+table.zebra tr:nth-child(even) {
+  background-color: hsl(180, 30%, 93%)
+}
+
+table.zebra th{border-bottom:1px solid #bbb;padding:.2em 1em;}
+table.zebra td{border-bottom:1px solid #ddd;padding:.2em 1em;}
+
+ul.definition li, ol.definition li {
+  margin-bottom: 0.3em;
+}
+ul.definition li ul, ol.definition li ul {
+  margin-top: 0.3em;
+}
+
+a.internalDFN {
+    border-bottom:  0px solid #99c !important;
+    font-style: italic;
+}
+
+a.sec-ref:before {
+    content: "“";
+}
+
+a.sec-ref:after  {
+    content: "”";
+}
+
+span.orcid a  {
+    text-decoration: none !important;
+    border: none !important;
+}
+
+span.orcid a img {
+    transform: translateY(3px) translateX(-0.18em);
+}
+
+
+/*span.orcid:before {
+    content: url(figures/orcid_logo.png);
+    margin-right: 2px;
+}*/
+
+aside.annotation {
+    float: right;
+    background: yellow;
+    width: 30%;
+    padding:1em;
+    margin-left: 1em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    border: 1px solid black;
+    transform: translateX(-1em);
+}
+span.annotation {
+    background:yellow;
+}
