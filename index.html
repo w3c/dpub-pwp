@@ -177,12 +177,12 @@
                 ],
                 "title" : "Web Publications Use Cases and Requirements",
                 // Using the editor's draft for now...
-                "href" : "https://w3c.github.io/dpub-pwp-ucr/",
+                "href" : "http://www.w3.org/TR/pwp-ucr/",
                 // "href" : "http://www.w3.org/TR/pwp-ucr/",
                 "publisher" : "W3C",
-                "rawDate": "2016-11-09",
+                "rawDate": "2017-03-14",
                 // "status": "Working Draft"
-                "status": "Editors' Draft"
+                "status": "Working Draft"
             },
             "frbr" : {
                 "authors" : [
@@ -221,10 +221,10 @@
           copyrightStart: "2015",
           // if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
           // and its maturity status
-          previousPublishDate:  "2016-03-16",
+          previousPublishDate:  "2015-11-26",
           previousMaturity:  "WD",
           // if there a publicly available Editor's Draft, this is the link
-          edDraftURI:           "http://w3c.github.io/dpub-pwp/",
+          edDraftURI:           "https://w3c.github.io/dpub-pwp/",
           // Possibility to add permalinks (a § character) to each id-d section
           includePermalinks: "true",
           //   permalinkEdge: "true",
@@ -293,13 +293,13 @@
                         href:  "http://orcid.org/0000-0001-5600-2185",
                         class: "orcid"
                       }]
-                  ,   w3cid:      ""
+                  ,   w3cid:      "42485"
               }
          ],
           // name of the Group
           wg:           "Digital Publishing Interest Group",
           // URI of the public Group page
-          wgURI:        "http://www.w3.org/dpub/IG/",
+          wgURI:        "https://www.w3.org/dpub/IG/",
           // name (without the @w3c.org) of the public mailing to which comments are due
           wgPublicList: "public-digipub-ig",
           issueBase: "https://github.com/w3c/dpub-pwp/issues/",
@@ -338,13 +338,13 @@
         //            label: "ePub"
         //        }
         //    ],
-          charterDisclosureURI : "http://www.w3.org/2004/01/pp-impl/64149/status",
+          charterDisclosureURI : "https://www.w3.org/2004/01/pp-impl/64149/status",
           // URI of the patent status for this WG, for Rec-track documents
           // !!!! IMPORTANT !!!!
           // This is important for Rec-track documents, do not copy a patent URI from a random
           // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
           // Team Contact.
-          wgPatentURI:  "http://www.w3.org/2004/01/pp-impl/64149/status",
+          wgPatentURI:  "https://www.w3.org/2004/01/pp-impl/64149/status",
           // !!!! IMPORTANT !!!! MAKE THE ABOVE BLINK IN YOUR HEAD
       };
     </script>
@@ -441,7 +441,7 @@
             A reader must also be able to access any primary resource directly,
             via navigation provided by the publication itself or the user agent.</p>
 
-            <p>A <a>Web Publication</a> may be packaged (and become a PWP—<a>Portable Web Publication</a>)
+            <p>A <a>Web Publication</a> may be packaged (and become a PWP—<a>Packaged Web Publication</a>)
             by having some or all of its constituent resources combined into a single file.
             The package must include the unique identifier of the manifestation.
             The act of packaging must be reversible; one must be able to recover the original structure and organization.
@@ -463,13 +463,12 @@
             <p>A Web Publication must be available and functional while the user is offline.
             A user should, as much as possible, have a seamless experience of interacting with a Web Publication
             regardless of their network connection.
-            We make no distinction between online and offline when defining web publications. </p>
+            We make no distinction between online and offline when defining Web Publications. </p>
 
             <p>A Web Publication, having an identity and nature beyond its constituent resources,
             will have metadata that describes the publication as a whole.
-            We also introduce the abstract concept of a manifest,
-            which serves to carry information about the constituent resources of the publication,
-            their sequence, and presentation. </p>
+			We also introduce the abstract concept of a manifest, which serves to carry information about the constituent resources of the publication.
+			The metadata and manifest will also incorporate information about the sequence and presentation of the content. </p>
 
             <p>At this early stage, we are not defining how Web Publications should be packaged,
             how they are identified, or how we will store information about the publication as a whole.
@@ -500,13 +499,15 @@
             <ul class="terms">
                 <li>This document uses the term <dfn>user agent</dfn>, as used by the Web community; see, for example, the <a href="https://www.w3.org/WAI/UA/work/wiki/Definition_of_User_Agent">WAI glossary entry</a>. The publishing community often uses the term “reading system” for roughly the same notion; while there may be subtle differences, it is better to stick to a single term for the purposes of this document.</li>
 
-                <li>A <dfn>Web Publication</dfn> (WP) is a collection of one or more constituent resources, organized together in a uniquely identifiable grouping that may be presented using standard Open Web Platform technologies.</li>
+                <li>A <dfn data-lt="Web Publications|WP">Web Publication</dfn> (WP) is a collection of one or more constituent resources, organized together in a uniquely identifiable grouping that may be presented using standard Open Web Platform technologies.</li>
 
-                <li>A <dfn data-lt="Packaged Web Publications">Packaged Web Publication</dfn> (PWP) is a <a>Web Publication</a> whose constituent resources are combined into a single distributable file, using some standard packaging format.</li>
+                <li>A <dfn data-lt="Packaged Web Publications|PWP">Packaged Web Publication</dfn> (PWP) is a <a>Web Publication</a> whose constituent resources are combined into a single distributable file, using some standard packaging format.</li>
 
-                <li>In this document, <dfn>manifest</dfn> refers to an abstract means to contain information necessary to the proper management, rendering, and so on, of a publication. This is opposed to metadata that contains information on the content of the publication like author, publication date, and so on. The precise format of how such a manifest is stored is not considered in this document.</li>
+                <li>In this document, <dfn data-lt="PWP manifest|WP manifest">manifest</dfn> refers to an abstract means to contain information necessary to the proper management, rendering, and so on, of a publication. This is opposed to metadata that contains information on the content of the publication like author, publication date, and so on. The precise format of how such a manifest is stored is not considered in this document.</li>
 
-                <li>A <dfn>locator</dfn> is the means by which a user agent is able to to locate a constituent resource of a WP. Since a WP may be online or offline, as well as packaged or not, it may require more than a simple URL.
+                <li>A <dfn>locator</dfn> is the means by which a user agent is able to to locate a constituent resource of a WP. Since a WP may be online or offline, as well as packaged or not, it may require more than a simple URL.</li>
+
+				<li>A <dfn data-lt"Web Resources">Web Resource</dfn> is an abstract resource that is identified by a URI and can be accessed through standard Web protocols. See [[WCA-terms]] for further details.</li>
             </ul>
         </section>
     </section>
@@ -666,39 +667,6 @@
                     <p>The IETF has published an <a href="https://tools.ietf.org/html/draft-seantek-kerwin-arcmedia-type-01">informational draft on a top-level media type for archives</a>. Although that draft does not specify a specific archive format, and the work is currently on hold, it shows the overall interest in packaging on the Web in line with the concerns of <a>Packaged Web Publications</a>.</p>
                 </div>
             </section>
-
-            <!--
-            <section id="locator-pwp-func">
-                <h2>Canonical Locators Mapping in user agents</h2>
-
-                <p>A <a>PWP</a> is published on the <a>server</a>. This <a>PWP</a> includes, e.g., the resource for an image, and is published in at least one of the different states:
-                </p>
-
-                <ul>
-                    <li>Simply on the Web. The “top level” of this state is available, say, through the URL <code>https://example.org/books/1/</code>: in this setup, the URL of the image is, say, <code>https://example.org/books/1/img/mona_lisa.jpg</code>. This is the <a>absolute locator</a> of the image <em>in this state</em>. </li>
-
-                    <li>In a package. This is available through the URL, say, <code>https://example.org/packed-books/1/package.zip</code>. This is the <a>absolute locator</a> of the <a>PWP</a> <em>in this state</em>, and the locator for the image depends on the structure of the package format.</li>
-                </ul>
-
-                <p>The published <a>PWP</a> is also assigned a <a>state independent locator</a>, e.g., the URL <code>https://example.org/published-books/1</code>. Reflecting the unpacked state in terms of (file) structure the <a>state independent locator</a> of the same image is <code>https://example.org/published-books/1/img/mona_lisa.jpg</code>. </p>
-
-                <p>To ensure the smooth transtion among states the <a>user agent</a> must ensure a smooth transition among the different locators of any resource within a <a>PWP</a> (the image file in this example). </p>
-
-                <p class="note">From a user/author point of view, whenever possible, the <a>state independent locator</a> should be used when referring to the <a>PWP</a> in, e.g., annotations. This is also true for URL-s derived from the <a>state independent locator</a>, like <code>https://example.org/published-books/1/img/mona_lisa.jpg</code>. This means the addressing unequivocal; however, a <a>user agent</a> must be prepared for the more general case. </p>
-
-                <p>In view of the above, the functionalities of the <a>user agent</a> can be divided into two steps:</p>
-                <ol>
-                    <li>finding, based on the <a>state independent locator</a>, the right values of the various <a>state locators</a></li>
-                    <li>extract, based on a specific <a>state locator</a>, the exact locators for additional, internal resources</li>
-                </ol>
-
-                <p>This functionality is based on the requirement that the <a>complete manifest</a> of a PWP MUST include both the <a>state independent locator</a> as well as all available <a>state locators</a>. Consequently, in order to retrieve the <a>state locators</a>, the PWP must first retrieve the <a>PWP manifest</a> using the <a data-lt="state independent locator">state independent locator</a>. (See the separate section <a href="#manifest-details"></a> on the details of the <a>complete manifest</a> retrieval.) Once the <a>complete manifest</a> is available a resource within a PWP can be retrieved by first deriving the <a>relative locator</a> for a resource (e.g., <code>img/mona_lisa.jpg</code>) and then combining it with the <a>absolute locator</a> corresponding to the <a>state</a> of the PWP as referred to by the <a>rendering engine</a>.</p>
-
-                <p class="note">There may be “smarter” <a data-lt="user agent">user agents</a> that make use of local facilities like caching, but those do not modify these conceptual approaches.
-                </p>
-            </section>
-            -->
-
             <section id="security_models">
                 <h3>Security Models</h3>
 
@@ -733,7 +701,7 @@
             </ul>
         </aside>
 
-        <p>The goal of this algorithm is to obtain the <a>PWP manifest</a> based on the value of the <a>state independent locator</a> <strong>L</strong>. This algorithm is performed by the <a>user agent</a>, typically when it is initialized with the state independent locator <strong>L</strong> of a particular <a>PWP</a> instance. The algorithm retrieves the <a>PWP manifest</a> based on the HTTP(S) responses on a <code>HTTP GET</code> request on <strong>L</strong>.</p>
+        <p>The goal of this algorithm is to obtain the <a>PWP manifest</a> based on the value of the state independent locator <strong>L</strong>. This algorithm is performed by the <a>user agent</a>, typically when it is initialized with the state independent locator <strong>L</strong> of a particular <a>PWP</a> instance. The algorithm retrieves the <a>PWP manifest</a> based on the HTTP(S) responses on a <code>HTTP GET</code> request on <strong>L</strong>.</p>
 
         <p class="note">
             If the <a>user agent</a> already has the cached publication, than that will probably prevail (modulo cache state) and there may be no HTTP request in the first place. This section really refers to the situation of a first access.
@@ -746,7 +714,7 @@ Host: www.ex.org</code></pre>
 
         <p>See [[rfc2616]] for further details.</p>
 
-        <p>With these prerequisites, the algorithm is as follows (see also <a href="#fig-flow-get-1">the figure</a> as a visual aid to the algorithm). The input to the algorithm is the <a>state independent locator</a> of the <a>PWP</a> instance, <strong>L</strong>.</p>
+        <p>With these prerequisites, the algorithm is as follows (see also <a href="#fig-flow-get-1">the figure</a> as a visual aid to the algorithm). The input to the algorithm is the state independent locator of the <a>PWP</a> instance, <strong>L</strong>.</p>
 
         <ol class="algorithm" id="simple_algorithm">
             <li>Issue an <code>HTTP&nbsp;GET&nbsp;L</code> request, possibly returning the message body <strong>B</strong>.</li>
@@ -766,7 +734,7 @@ Host: www.ex.org</code></pre>
                 <ol>
                     <li>A <em>manifest</em>, as identified by its media type (to be defined), the algorithm stops by returning the response content <strong>B</strong> to the caller as the <a>PWP manifest</a>.</li>
 
-                    <li>A <em>packaged PWP instance</em> (identified via the media type to be specified for the packed <a>state</a> of a PWP):
+                    <li>A <em>packaged PWP instance</em> (identified via the media type to be specified for the packed state of a PWP):
                         <ol>
                             <li>Unpack the package, and retrieve the <a>manifest</a> embedded in the package as (to be) specified by the packed state of a PWP.</li>
                             <li>The algorithm stops by returning the manifest retrieved from the package to the caller as the <a>PWP manifest</a></li>
