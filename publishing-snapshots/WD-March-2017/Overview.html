@@ -1175,8 +1175,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       </p>
       <p>Reducing or eliminating the gap between what publications require and what the Web can do will greatly reduce the complexity involved for both authoring and publishing.</p>
 
-      <p>This convergence is already happening. Travel and educational publishers, to name just a few, already exploit the advanced possibilities of packaged publishing formats to produce highly interactive documents whose features are very close to what one is used to on the Web (see the separate section
-        <a href="#epub-relations"></a> for some examples). And the converse is also true: tutorial and introductory articles have appeared on the Web that have the quality of traditional publications that one was used to seeing in a scientific magazine, but combined with the interactive possibilities of the Web (<a href="http://bost.ocks.org/mike/algorithms/">Mike Bostock’s article on visualizing algorithms</a> or <a href="http://worrydream.com/LadderOfAbstraction/">Bret Victor’s article on visualization</a> are just two of several possible examples). “Traditional” publications (for example in scholarly publishing) are increasingly moving on-line, exploring new possibilities and publishing paradigms, but also facing issues in combining their traditional requirements with the reality of the Web today. All of these factors also apply in ad-hoc publishing, where the use of (optionally secure) "micro-sites" has also grown in recent years </p>
+      <p>This convergence is already happening. Travel and educational publishers, to name just a few, already exploit the advanced possibilities of packaged publishing formats to produce highly interactive documents whose features are very close to what one is used to on the Web. And the converse is also true: tutorial and introductory articles have appeared on the Web that have the quality of traditional publications that one was used to seeing in a scientific magazine, but combined with the interactive possibilities of the Web (<a href="http://bost.ocks.org/mike/algorithms/">Mike Bostock’s article on visualizing algorithms</a> or <a href="http://worrydream.com/LadderOfAbstraction/">Bret Victor’s article on visualization</a> are just two of several possible examples). “Traditional” publications (for example in scholarly publishing) are increasingly moving on-line, exploring new possibilities and publishing paradigms, but also facing issues in combining their traditional requirements with the reality of the Web today. All of these factors also apply in ad-hoc publishing, where the use of (optionally secure) "micro-sites" has also grown in recent years </p>
 
       <p>Today’s web would also benefit. Many of the use cases described in&nbsp;[<cite><a class="bibref" href="#bib-pwp-ucr">pwp-ucr</a></cite>], such as pagination or coping with a collection of resources, are relevant for much document-oriented web content as well. Publishers have also developed workflows, editorial knowledge, and typographic and design skills that could positively influence the evolution of Web content at large.</p>
 
@@ -1474,13 +1473,16 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       </span>
     </h2>
 
-    <aside class="annotation">
-      This section may have to be revised thoroughly. Indeed
-      <ul>
-        <li>There is a major push back on accessing a manifest file (e.g., a JSON file) directly, meaning that the appropriate branch may have to go</li>
-        <li>If the publication manifest is on top of a Web App Manifest, then this algorithm should actually be removed and rely on whatever that specification provides. </li>
-      </ul>
-    </aside>
+    <div class="ednote">
+      <div class="ednote-title marker" aria-level="3" role="heading" id="h-ednote1"><span>Editor's Note</span></div>
+      <aside class="">
+        This section may have to be revised thoroughly. Indeed
+        <ul>
+          <li>There is a major push back on accessing a manifest file (e.g., a JSON file) directly, meaning that the appropriate branch may have to go</li>
+          <li>If the publication manifest is on top of a Web App Manifest, then this algorithm should actually be removed and rely on whatever that specification provides. </li>
+        </ul>
+      </aside>
+    </div>
 
     <p>The goal of this algorithm is to obtain the <a href="#dfn-manifest" class="internalDFN" data-link-type="dfn">PWP manifest</a> based on the value of the state independent locator <strong>L</strong>. This algorithm is performed by the <a href="#dfn-user-agent" class="internalDFN" data-link-type="dfn">user agent</a>, typically when it is initialized with the state independent locator <strong>L</strong> of a particular <a href="#dfn-packaged-web-publication" class="internalDFN" data-link-type="dfn">PWP</a> instance. The algorithm retrieves the <a href="#dfn-manifest" class="internalDFN" data-link-type="dfn">PWP manifest</a> based on the HTTP(S) responses on a <code>HTTP GET</code> request on <strong>L</strong>.</p>
 
@@ -1498,7 +1500,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
     <p>See [<cite><a class="bibref" href="#bib-rfc2616">rfc2616</a></cite>] for further details.</p>
 
-    <p>With these prerequisites, the algorithm is as follows (see also <a href="#fig-flow-get-1">the figure</a> as a visual aid to the algorithm). The input to the algorithm is the state independent locator of the <a href="#dfn-packaged-web-publication" class="internalDFN" data-link-type="dfn">PWP</a> instance, <strong>L</strong>.</p>
+    <p>With these prerequisites, the algorithm is as follows (see also <a href="#fig-flow-get" class="fig-ref">the figure</a> as a visual aid to the algorithm). The input to the algorithm is the state independent locator of the <a href="#dfn-packaged-web-publication" class="internalDFN" data-link-type="dfn">PWP</a> instance, <strong>L</strong>.</p>
 
     <ol class="algorithm" id="simple_algorithm">
       <li>Issue an <code>HTTP&nbsp;GET&nbsp;L</code> request, possibly returning the message body <strong>B</strong>.</li>
@@ -1564,7 +1566,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       </ul>
     </div>
 
-    <figure id="fig-flow-get-l">
+    <figure id="fig-flow-get">
       <img src="figures/Simple_manifest_access.svg" style="width:100%" alt="Flowchart of what happens when a Packaged Web Publication is retrieved by the user and how this leads to the PWP manifest; manifest are not combined, first one is used">
       <figcaption>Fig. <span class="figno">4</span> <span class="fig-title">Visual representation of the simple <a href="#simple_algorithm">algorithm</a> to retrieve the <a href="#dfn-manifest" class="internalDFN" data-link-type="dfn">PWP manifest</a>. The figure is also available in <a href="figures/Simple_manifest_access.svg">SVG</a> and <a href="figures/Simple_manifest_access.png">PNG</a> formats.</span></figcaption>
     </figure>

@@ -486,7 +486,7 @@
 
             <p>Reducing or eliminating the gap between what publications require and what the Web can do will greatly reduce the complexity involved for both authoring and publishing.</p>
 
-            <p>This convergence is already happening. Travel and educational publishers, to name just a few, already exploit the advanced possibilities of packaged publishing formats to produce highly interactive documents whose features are very close to what one is used to on the Web (see the separate section <a href="#epub-relations"></a> for some examples). And the converse is also true: tutorial and introductory articles have appeared on the Web that have the quality of traditional publications that one was used to seeing in a scientific magazine, but combined with the interactive possibilities of the Web (<a href="http://bost.ocks.org/mike/algorithms/">Mike Bostock’s article on visualizing algorithms</a> or <a href="http://worrydream.com/LadderOfAbstraction/">Bret Victor’s article on visualization</a> are just two of several possible examples). “Traditional” publications (for example in scholarly publishing) are increasingly moving on-line, exploring new possibilities and publishing paradigms, but also facing issues in combining their traditional requirements with the reality of the Web today. All of these factors also apply in ad-hoc publishing, where the use of (optionally secure) "micro-sites" has also grown in recent years </p>
+            <p>This convergence is already happening. Travel and educational publishers, to name just a few, already exploit the advanced possibilities of packaged publishing formats to produce highly interactive documents whose features are very close to what one is used to on the Web. And the converse is also true: tutorial and introductory articles have appeared on the Web that have the quality of traditional publications that one was used to seeing in a scientific magazine, but combined with the interactive possibilities of the Web (<a href="http://bost.ocks.org/mike/algorithms/">Mike Bostock’s article on visualizing algorithms</a> or <a href="http://worrydream.com/LadderOfAbstraction/">Bret Victor’s article on visualization</a> are just two of several possible examples). “Traditional” publications (for example in scholarly publishing) are increasingly moving on-line, exploring new possibilities and publishing paradigms, but also facing issues in combining their traditional requirements with the reality of the Web today. All of these factors also apply in ad-hoc publishing, where the use of (optionally secure) "micro-sites" has also grown in recent years </p>
 
             <p>Today’s web would also benefit. Many of the use cases described in&nbsp;[[pwp-ucr]], such as pagination or coping with a collection of resources, are relevant for much document-oriented web content as well. Publishers have also developed workflows, editorial knowledge, and typographic and design skills that could positively influence the evolution of Web content at large.</p>
 
@@ -693,7 +693,7 @@
     <section class="appendix" id="simple-manifest-access">
         <h2>Algorithm to Retrieve the Manifest for a PWP</h2>
 
-        <aside class="annotation">
+        <aside class="ednote">
             This section may have to be revised thoroughly. Indeed
             <ul>
                 <li>There is a major push back on accessing a manifest file (e.g., a JSON file) directly, meaning that the appropriate branch may have to go</li>
@@ -714,7 +714,7 @@ Host: www.ex.org</code></pre>
 
         <p>See [[rfc2616]] for further details.</p>
 
-        <p>With these prerequisites, the algorithm is as follows (see also <a href="#fig-flow-get-1">the figure</a> as a visual aid to the algorithm). The input to the algorithm is the state independent locator of the <a>PWP</a> instance, <strong>L</strong>.</p>
+        <p>With these prerequisites, the algorithm is as follows (see also <a href="#fig-flow-get">the figure</a> as a visual aid to the algorithm). The input to the algorithm is the state independent locator of the <a>PWP</a> instance, <strong>L</strong>.</p>
 
         <ol class="algorithm" id="simple_algorithm">
             <li>Issue an <code>HTTP&nbsp;GET&nbsp;L</code> request, possibly returning the message body <strong>B</strong>.</li>
@@ -777,7 +777,7 @@ Host: www.ex.org</code></pre>
             <li>The user agent MAY include an <code>Accept</code> header (see [[rfc7231]]) when issuing a <code>HTTP GET</code> to express its preference for, e.g., a packed state of a PWP over manifest payload, or in favor of a particular serialization of the manifest content. Whether this is done or not, and whether the server honors this preference, does not influence the details of the algorithm.</li>
         </ul>
 
-        <figure id="fig-flow-get-l">
+        <figure id="fig-flow-get">
             <img src="figures/Simple_manifest_access.svg" style="width:100%" alt="Flowchart of what happens when a Packaged Web Publication is retrieved by the user and how this leads to the PWP manifest; manifest are not combined, first one is used"/>
             <figcaption>Visual representation of the simple <a href="#simple_algorithm">algorithm</a> to retrieve the <a>PWP manifest</a>. The figure is also available in <a href="figures/Simple_manifest_access.svg">SVG</a> and <a href="figures/Simple_manifest_access.png">PNG</a> formats.</figcaption>
         </figure>
