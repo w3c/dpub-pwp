@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta content="text/html; charset=utf-8" http-equiv="content-type">
-    <title>Web Publications</title>
+    <title>Web Publications for the Open Web Platform: Vision And Technical Challenges</title>
     <link rel="stylesheet" type="text/css" href="css/extras.css" />
     <script src="https://www.w3.org/Tools/respec/respec-w3c-common" class="remove"></script>
     <script src="scripts/reqInfo.js" class="remove"></script>
@@ -24,29 +24,26 @@
          localBiblio: {
             "EPUB3": {
                 "authors": [
-                  "Garth Conboy",
-                  "Matt Garrish",
                   "Markus Gylling",
-                  "William McCoy",
-                  "Murata Makoto",
-                  "Daniel Weck"
+                  "Tzviya Siegman",
+                  "Matt Garrish"
                 ],
-                "title": "EPUB 3 Overview",
-                "href" : "http://www.idpf.org/epub/301/spec/epub-overview-20140626.html",
-                "rawDate": "2014-06-26",
-                "status" : "Recommended Specification",
-                "publisher": "IDPF"
+                "title": "EPUB 3.1",
+                "href" : "https://www.w3.org/Submission/2017/SUBM-epub31-20170125/",
+                "rawDate": "2017-01-25",
+                "status" : "W3C Member Submission",
+                "publisher": "W3C"
             },
             "OCF": {
                 "authors": [
                   "James Pritchett",
                   "Markus Gylling"
                 ],
-                "title": "EPUB Open Container Format (OCF) 3.0",
-                "href" : "http://www.idpf.org/epub/301/spec/epub-ocf-20140626.html",
-                "rawDate": "2014-06-26",
-                "status" : "Recommended Specification",
-                "publisher": "IDPF"
+                "title": "EPUB Open Container Format (OCF) 3.1",
+                "href" : "https://www.w3.org/Submission/2017/SUBM-epub-ocf-20170125/",
+                "rawDate": "2017-01-25",
+                "status" : "W3C Member Submission",
+                "publisher": "W3C"
             },
             "EPUBCFI": {
                  "authors": [
@@ -176,13 +173,10 @@
                     "Leonard Rosenthol"
                 ],
                 "title" : "Web Publications Use Cases and Requirements",
-                // Using the editor's draft for now...
                 "href" : "http://www.w3.org/TR/pwp-ucr/",
-                // "href" : "http://www.w3.org/TR/pwp-ucr/",
                 "publisher" : "W3C",
-                "rawDate": "2017-03-09",
-                // "status": "Working Draft"
-                "status": "Working Draft"
+                "rawDate": "2017-05-02",
+                "status": "Interest Group Note"
             },
             "frbr" : {
                 "authors" : [
@@ -208,25 +202,25 @@
 
           doRdfa: "true",
           // specification status (e.g. WD, LCWD, WG-NOTE, etc.). If in doubt use ED.
-          specStatus:           "ED",
+          specStatus:           "IG-NOTE",
           // the specification's short name, as in http://www.w3.org/TR/short-name/
           shortName:            "pwp",
           // if your specification has a subtitle that goes below the main
           // formal title, define it here
           // subtitle   :  "White Paper",
           // if you wish the publication date to be other than the last modification, set this
-          // publishDate:  "2016-04-28",
+          publishDate:  "2017-05-02",
           // if the specification's copyright date is a range of years, specify
           // the start date here:
           copyrightStart: "2015",
           // if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
           // and its maturity status
-          previousPublishDate:  "2015-11-26",
+          previousPublishDate:  "2017-03-09",
           previousMaturity:  "WD",
           // if there a publicly available Editor's Draft, this is the link
           edDraftURI:           "https://w3c.github.io/dpub-pwp/",
           // Possibility to add permalinks (a § character) to each id-d section
-          includePermalinks: "true",
+          // includePermalinks: "true",
           //   permalinkEdge: "true",
           //   permalinkHide: "true",
           githubAPI: "https://api.github.com/repos/w3c/dpub-pwp",
@@ -332,12 +326,12 @@
               }]
             }
            ],
-        //    alternateFormats: [
-        //        {
-        //            uri: "pwp.epub",
-        //            label: "ePub"
-        //        }
-        //    ],
+           alternateFormats: [
+               {
+                   uri: "pwp.epub",
+                   label: "ePub"
+               }
+           ],
           charterDisclosureURI : "https://www.w3.org/2004/01/pp-impl/64149/status",
           // URI of the patent status for this WG, for Rec-track documents
           // !!!! IMPORTANT !!!!

@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" typeof="bibo:Document " prefix="bibo: http://purl.org/ontology/bibo/ w3p: http://www.w3.org/2001/02pd/rec54#">
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta lang="" property="dc:language" content="en">
+  <style>
+    /*
+
+github.com style (c) Vasily Polovnyov <vast@whiteants.net>
+
+*/
+
+    .hljs {
+      display: block;
+      overflow-x: auto;
+      padding: 0.5em;
+      color: #333;
+      background: #f8f8f8;
+    }
+
+    .hljs-comment,
+    .hljs-quote {
+      color: #998;
+      font-style: italic;
+    }
+
+    .hljs-keyword,
+    .hljs-selector-tag,
+    .hljs-subst {
+      color: #333;
+      font-weight: bold;
+    }
+
+    .hljs-number,
+    .hljs-literal,
+    .hljs-variable,
+    .hljs-template-variable,
+    .hljs-tag .hljs-attr {
+      color: #008080;
+    }
+
+    .hljs-string,
+    .hljs-doctag {
+      color: #d14;
+    }
+
+    .hljs-title,
+    .hljs-section,
+    .hljs-selector-id {
+      color: #900;
+      font-weight: bold;
+    }
+
+    .hljs-subst {
+      font-weight: normal;
+    }
+
+    .hljs-type,
+    .hljs-class .hljs-title {
+      color: #458;
+      font-weight: bold;
+    }
+
+    .hljs-tag,
+    .hljs-name,
+    .hljs-attribute {
+      color: #000080;
+      font-weight: normal;
+    }
+
+    .hljs-regexp,
+    .hljs-link {
+      color: #009926;
+    }
+
+    .hljs-symbol,
+    .hljs-bullet {
+      color: #990073;
+    }
+
+    .hljs-built_in,
+    .hljs-builtin-name {
+      color: #0086b3;
+    }
+
+    .hljs-meta {
+      color: #999;
+      font-weight: bold;
+    }
+
+    .hljs-deletion {
+      background: #fdd;
+    }
+
+    .hljs-addition {
+      background: #dfd;
+    }
+
+    .hljs-emphasis {
+      font-style: italic;
+    }
+
+    .hljs-strong {
+      font-weight: bold;
+    }
+  </style>
+  <style>
+    /* --- ISSUES/NOTES --- */
+
+    div.issue-title,
+    div.note-title,
+    div.ednote-title,
+    div.warning-title {
+      padding-right: 1em;
+      min-width: 7.5em;
+      color: #b9ab2d;
+    }
+
+    div.issue-title {
+      color: #e05252;
+    }
+
+    div.note-title,
+    div.ednote-title {
+      color: #2b2;
+    }
+
+    div.warning-title {
+      color: #f22;
+    }
+
+    div.issue-title span,
+    div.note-title span,
+    div.ednote-title span,
+    div.warning-title span {
+      text-transform: uppercase;
+    }
+
+    div.note,
+    div.issue,
+    div.ednote,
+    div.warning {
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
+
+    .note>p:first-child,
+    .ednote>p:first-child,
+    .issue>p:first-child,
+    .warning>p:first-child {
+      margin-top: 0
+    }
+
+    .issue,
+    .note,
+    .ednote,
+    .warning {
+      padding: .5em;
+      border-left-width: .5em;
+      border-left-style: solid;
+    }
+
+    div.issue,
+    div.note,
+    div.ednote,
+    div.warning {
+      padding: 1em 1.2em 0.5em;
+      margin: 1em 0;
+      position: relative;
+      clear: both;
+    }
+
+    span.note,
+    span.ednote,
+    span.issue,
+    span.warning {
+      padding: .1em .5em .15em;
+    }
+
+    .issue {
+      border-color: #e05252;
+      background: #fbe9e9;
+    }
+
+    .note,
+    .ednote {
+      border-color: #52e052;
+      background: #e9fbe9;
+    }
+
+    .warning {
+      border-color: #f11;
+      border-width: .2em;
+      border-style: solid;
+      background: #fbe9e9;
+    }
+
+    .warning-title:before {
+      content: "⚠";
+      /*U+26A0 WARNING SIGN*/
+      font-size: 3em;
+      float: left;
+      height: 100%;
+      padding-right: .3em;
+      vertical-align: top;
+      margin-top: -0.5em;
+    }
+
+    li.task-list-item {
+      list-style: none;
+    }
+
+    input.task-list-item-checkbox {
+      margin: 0 0.35em 0.25em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+
+  <title>Web Publications for the Open Web Platform: Vision And Technical Challenges</title>
+  <link rel="stylesheet" type="text/css" href="css/extras.css">
+
+
+
+  <style type="text/css">
+    .vision {
+      font-style: italic;
+      margin-left: 2em;
+      margin-right: 3em;
+      padding: 0.8em;
+      background: white;
+      border: thin outset black;
+      border-radius: 0.5em;
+      text-align: justify;
+    }
+  </style>
+
+  <style id="respec-mainstyle">
+    /*****************************************************************
+ * ReSpec 3 CSS
+ * Robin Berjon - http://berjon.com/
+ *****************************************************************/
+    /* Override code highlighter background */
+
+    .hljs {
+      background: transparent !important;
+    }
+    /* --- INLINES --- */
+
+    em.rfc2119 {
+      text-transform: lowercase;
+      font-style: normal;
+      color: #900;
+    }
+
+    h1 acronym,
+    h2 acronym,
+    h3 acronym,
+    h4 acronym,
+    h5 acronym,
+    h6 acronym,
+    a acronym,
+    h1 abbr,
+    h2 abbr,
+    h3 abbr,
+    h4 abbr,
+    h5 abbr,
+    h6 abbr,
+    a abbr {
+      border: none;
+    }
+
+    dfn {
+      font-weight: bold;
+    }
+
+    a.internalDFN {
+      color: inherit;
+      border-bottom: 1px solid #99c;
+      text-decoration: none;
+    }
+
+    a.externalDFN {
+      color: inherit;
+      border-bottom: 1px dotted #ccc;
+      text-decoration: none;
+    }
+
+    a.bibref {
+      text-decoration: none;
+    }
+
+    cite .bibref {
+      font-style: normal;
+    }
+
+    code {
+      color: #C83500;
+    }
+
+    th code {
+      color: inherit;
+    }
+    /* --- TOC --- */
+
+    .toc a,
+    .tof a {
+      text-decoration: none;
+    }
+
+    a .secno,
+    a .figno {
+      color: #000;
+    }
+
+    ul.tof,
+    ol.tof {
+      list-style: none outside none;
+    }
+
+    .caption {
+      margin-top: 0.5em;
+      font-style: italic;
+    }
+    /* --- TABLE --- */
+
+    table.simple {
+      border-spacing: 0;
+      border-collapse: collapse;
+      border-bottom: 3px solid #005a9c;
+    }
+
+    .simple th {
+      background: #005a9c;
+      color: #fff;
+      padding: 3px 5px;
+      text-align: left;
+    }
+
+    .simple th[scope="row"] {
+      background: inherit;
+      color: inherit;
+      border-top: 1px solid #ddd;
+    }
+
+    .simple td {
+      padding: 3px 10px;
+      border-top: 1px solid #ddd;
+    }
+
+    .simple tr:nth-child(even) {
+      background: #f0f6ff;
+    }
+    /* --- DL --- */
+
+    .section dd>p:first-child {
+      margin-top: 0;
+    }
+
+    .section dd>p:last-child {
+      margin-bottom: 0;
+    }
+
+    .section dd {
+      margin-bottom: 1em;
+    }
+
+    .section dl.attrs dd,
+    .section dl.eldef dd {
+      margin-bottom: 0;
+    }
+
+    #respec-ui {
+      position: fixed;
+      display: flex;
+      flex-direction: row-reverse;
+      top: 20px;
+      right: 20px;
+      width: 202px;
+      text-align: right;
+      z-index: 9000;
+    }
+
+    #respec-pill,
+    .respec-info-button {
+      background: #fff;
+      height: 2.5em;
+      color: rgb(120, 120, 120);
+      border: 1px solid #ccc;
+      box-shadow: 1px 1px 8px 0 rgba(100, 100, 100, .5);
+    }
+
+    .respec-info-button {
+      border: none;
+      opacity: .75;
+      border-radius: 2em;
+      margin-right: 1em;
+      min-width: 3.5em;
+    }
+
+    .respec-info-button:focus,
+    .respec-info-button:hover {
+      opacity: 1;
+      transition: opacity .2s;
+    }
+
+    #respec-pill:disabled {
+      font-size: 2.8px;
+      text-indent: -9999em;
+      border-top: 1.1em solid rgba(40, 40, 40, 0.2);
+      border-right: 1.1em solid rgba(40, 40, 40, 0.2);
+      border-bottom: 1.1em solid rgba(40, 40, 40, 0.2);
+      border-left: 1.1em solid #ffffff;
+      transform: translateZ(0);
+      animation: respec-spin .5s infinite linear;
+      box-shadow: none;
+    }
+
+    #respec-pill:disabled,
+    #respec-pill:disabled:after {
+      border-radius: 50%;
+      width: 10em;
+      height: 10em;
+    }
+
+    @keyframes respec-spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    #respec-pill:hover,
+    #respec-pill:focus {
+      color: rgb(0, 0, 0);
+      background-color: rgb(245, 245, 245);
+      transition: color .2s;
+    }
+
+    #respec-menu {
+      position: absolute;
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background: #fff;
+      box-shadow: 1px 1px 8px 0 rgba(100, 100, 100, .5);
+      width: 200px;
+      display: none;
+      text-align: left;
+      margin-top: 32px;
+      font-size: .8em;
+    }
+
+    #respec-menu li {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .respec-save-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(47%, 2fr));
+      grid-gap: .5cm;
+      padding: .5cm;
+    }
+
+    .respec-save-button:link {
+      padding-top: 16px;
+      color: rgb(240, 240, 240);
+      background: rgb(42, 90, 168);
+      /*justify-self: stretch;*/
+      height: 1cm;
+      text-decoration: none;
+      text-align: center;
+      font-size: inherit;
+      border: none;
+      border-radius: 0.2cm;
+    }
+
+    .respec-save-button:link:hover {
+      color: white;
+      background: rgb(42, 90, 168);
+      padding: 0;
+      margin: 0;
+      border: 0;
+      padding-top: 16px;
+    }
+
+
+    #respec-ui button:focus,
+    #respec-pill:focus,
+    .respec-option:focus {
+      outline: 0;
+      outline-style: none;
+    }
+
+    #respec-pill-error {
+      background-color: red;
+      color: white;
+    }
+
+    #respec-pill-warning {
+      background-color: orange;
+      color: white;
+    }
+
+    .respec-warning-list,
+    .respec-error-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-family: sans-serif;
+      background-color: rgb(255, 251, 230);
+      font-size: .9em;
+    }
+
+    .respec-warning-list li,
+    .respec-error-list li {
+      padding: 0.4em 0.7em;
+    }
+
+    .respec-warning-list li::before {
+      content: "⚠️";
+      padding-right: .5em;
+    }
+
+    .respec-warning-list li {
+      color: rgb(92, 59, 0);
+      border-bottom: thin solid rgb(255, 245, 194);
+    }
+
+    .respec-error-list,
+    .respec-error-list li {
+      background-color: rgb(255, 240, 240);
+    }
+
+    .respec-error-list li::before {
+      content: "💥";
+      padding-right: .5em;
+    }
+
+    .respec-error-list li {
+      padding: 0.4em 0.7em;
+      color: rgb(92, 59, 0);
+      border-bottom: thin solid rgb(255, 215, 215);
+    }
+
+    #respec-overlay {
+      display: block;
+      opacity: 0;
+      position: fixed;
+      z-index: 10000;
+      top: 0px;
+      left: 0px;
+      height: 100%;
+      width: 100%;
+      background: #000;
+    }
+
+    .respec-modal {
+      display: block;
+      position: fixed;
+      opacity: 0;
+      z-index: 11000;
+      margin: auto;
+      top: 10%;
+      background: #fff;
+      border: 5px solid #666;
+      min-width: 20%;
+      width: 79%;
+      padding: 0;
+      max-height: 80%;
+      overflow-y: auto;
+      margin: 0 -.5cm
+    }
+
+    @media screen and (min-width: 78em) {
+      .respec-modal {
+        width: 62%;
+      }
+    }
+
+    .respec-modal h3 {
+      margin: 0;
+      padding: .2em;
+      text-align: center;
+      color: black;
+      background: linear-gradient(to bottom, rgba(238, 238, 238, 1) 0%, rgba(238, 238, 238, 1) 50%, rgba(204, 204, 204, 1) 100%);
+      font-size: 1em;
+    }
+
+    .respec-modal .inside p {
+      padding-left: 1cm;
+    }
+
+    #respec-menu button.respec-option {
+      background: white;
+      padding: 0 .2cm;
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-size: inherit;
+      padding: 1.2em 1.2em;
+    }
+
+    #respec-menu button.respec-option:hover,
+    #respec-menu button:focus {
+      background-color: #eeeeee;
+    }
+
+    .respec-cmd-icon {
+      padding-right: .5em;
+    }
+
+    #respec-ui button.respec-option:last-child {
+      border: none;
+      border-radius: inherit;
+    }
+
+    .respec-offending-element {
+      display: inline-block;
+      position: relative;
+      background: url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x;
+    }
+/*
+    @supports (text-decoration-style: wavy) {
+      .respec-offending-element {
+        background: none;
+        text-decoration-line: underline;
+        text-decoration-style: wavy;
+        text-decoration-color: red;
+      }
+    }*/
+
+    #issue-summary>ul,
+    .respec-dfn-list {
+      column-count: 2;
+    }
+
+    #issue-summary li,
+    .respec-dfn-list li {
+      list-style: none;
+    }
+
+
+    .respec-button-copy-paste {
+      position: absolute;
+      display: block;
+      padding: 0px 8px;
+      height: 28px;
+      width: 40px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid rgb(144, 184, 222);
+      border-radius: 0px 0px 3px 0;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      /*user-select: none;*/
+      -webkit-appearance: none;
+      margin: 0px 127px;
+      border-left: 0;
+    }
+
+    p+.respec-button-copy-paste {
+      margin: 1px 127px;
+    }
+
+    @media print {
+      .removeOnSave {
+        display: none;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/W3C-IG-NOTE">
+  <link rel="canonical" href="https://www.w3.org/TR/pwp/">
+  <meta name="generator" content="ReSpec 11.4.1">
+  <script id="initialUserConfig" type="application/json">
+    {
+      "localBiblio":
+      {
+        "EPUB3":
+        {
+          "authors": [
+            "Markus Gylling",
+            "Tzviya Siegman",
+            "Matt Garrish"
+          ],
+          "title": "EPUB 3.1",
+          "href": "https://www.w3.org/Submission/2017/SUBM-epub31-20170125/",
+          "rawDate": "2017-01-25",
+          "status": "W3C Member Submission",
+          "publisher": "W3C"
+        },
+        "OCF":
+        {
+          "authors": [
+            "James Pritchett",
+            "Markus Gylling"
+          ],
+          "title": "EPUB Open Container Format (OCF) 3.1",
+          "href": "https://www.w3.org/Submission/2017/SUBM-epub-ocf-20170125/",
+          "rawDate": "2017-01-25",
+          "status": "W3C Member Submission",
+          "publisher": "W3C"
+        },
+        "EPUBCFI":
+        {
+          "authors": [
+            "Peter Sorotokin",
+            "Garth Conboy",
+            "Brady Duga",
+            "John Rivlin",
+            "Don Beaver",
+            "Kevin Ballard",
+            "Alastair Fettes",
+            "Daniel Weck"
+          ],
+          "title": "EPUB Canonical Fragment Identifier (epubcfi) Specification",
+          "href": "http://www.idpf.org/epub/linking/cfi/epub-cfi.html",
+          "rawDate": "2014-06-26",
+          "status": "Recommended Specification",
+          "publisher": "IDPF"
+        },
+        "ODF":
+        {
+          "authors": [
+            "Michael Brauer",
+            "Patrick Durusau",
+            "Gary Edwards",
+            "David Faure",
+            "Tom Magliery",
+            "Daniel Vogelheim"
+          ],
+          "title": "Open Document Format for Office Applications v1.0",
+          "href": "https://www.oasis-open.org/committees/download.php/12572/OpenDocument-v1.0-os.pdf",
+          "rawDate": "2005-05-01",
+          "status": "Oasis Standard",
+          "publisher": "Oasis"
+        },
+        "OOXML":
+        {
+          "authors": [
+            "ECMA International"
+          ],
+          "title": "Office Open XML File Formats, ECMA-376",
+          "href": "http://www.ecma-international.org/publications/standards/Ecma-376.htm",
+          "rawDate": "2012-12",
+          "status": "Standard ECMA 376",
+          "publisher": "ECMA"
+        },
+        "web-manifest":
+        {
+          "title": "Manifest for web application",
+          "href": "https://www.w3.org/TR/appmanifest/",
+          "rawDate": "2017-03-02",
+          "status": "ED",
+          "publisher": "W3C"
+        },
+        "web-packaging":
+        {
+          "authors": [
+            "Jeni Tennison"
+          ],
+          "title": "Packaging on the Web",
+          "href": "http://www.w3.org/TR/web-packaging/",
+          "rawDate": "2015-01-15",
+          "status": "WD",
+          "publisher": "W3C"
+        },
+        "ONIX":
+        {
+          "authors": [
+            "EDItEUR"
+          ],
+          "title": "ONIX for Books 3.0.2 Specification",
+          "rawDate": "2014-01-02",
+          "publisher": "EDItEUR"
+        },
+        "BigJava": "Cay Horstmann. <em>Big Java Late Objects</em>, John Wiley &amp; Sons, Inc., 2013",
+        "web-workers":
+        {
+          "authors": [
+            "Ian Hickson"
+          ],
+          "title": "Web Workers",
+          "href": "https://w3c.github.io/workers/",
+          "rawDate": "2016-09-16",
+          "status": "ED",
+          "publisher": "W3C"
+        },
+        "file-uri-scheme":
+        {
+          "authors": [
+            "M. Kervin"
+          ],
+          "title": "The file URI Scheme",
+          "href": "https://tools.ietf.org/html/draft-ietf-appsawg-file-scheme-03",
+          "rawDate": "2015-07-23",
+          "status": "Internet Draft",
+          "publisher": "IETF"
+        },
+        "CSV":
+        {
+          "authors": [
+            "Yakov Shafranovich"
+          ],
+          "title": "Common Format and MIME Type for Comma-Separated Values (CSV) Files",
+          "href": "http://tools.ietf.org/html/rfc4180",
+          "rawDate": "2015-10",
+          "status": "Informational RFC",
+          "publisher": "IETF"
+        },
+        "ISBN-URN":
+        {
+          "authors": [
+            "J. Hakala",
+            "H. Walravens"
+          ],
+          "title": "Using International Standard Book Numbers as Uniform Resource Names",
+          "href": "http://tools.ietf.org/html/rfc3187",
+          "rawDate": "2001-10",
+          "status": "Informational RFC",
+          "publisher": "IETF"
+        },
+        "UUID":
+        {
+          "authors": [
+            "P. Leach",
+            "M. Mealling",
+            "R. Salz"
+          ],
+          "title": "A Universally Unique IDentifier (UUID) URN Namespace",
+          "href": "http://tools.ietf.org/html/rfc4122",
+          "rawDate": "2005-07",
+          "status": "Informational RFC",
+          "publisher": "IETF"
+        },
+        "pwp-ucr":
+        {
+          "authors": [
+            "Heather Flanagan",
+            "Ivan Herman",
+            "Leonard Rosenthol"
+          ],
+          "title": "Web Publications Use Cases and Requirements",
+          "href": "http://www.w3.org/TR/pwp-ucr/",
+          "publisher": "W3C",
+          "rawDate": "2017-05-02",
+          "status": "Interest Group Note"
+        },
+        "frbr":
+        {
+          "authors": [
+            "Olivia Madison",
+            "John Byrum, Jr.",
+            "Suzanne Jouguelet",
+            "Dorothy McGarry",
+            "Nancy Williamson",
+            "Maria Witt"
+          ],
+          "title": "Functional Requirements for Bibliographic Records",
+          "publisher": "International Federation of Library Associations and Institutions",
+          "rawdate": "2007-12-26",
+          "href": "http://archive.ifla.org/archive/VII/s13/frbr/frbr_current_toc.htm"
+        }
+      },
+      "preProcess": [
+        null
+      ],
+      "ucrUri": "https://w3c.github.io/dpub-pwp-ucr/index.html",
+      "doRdfa": "true",
+      "specStatus": "IG-NOTE",
+      "shortName": "pwp",
+      "publishDate": "2017-05-02",
+      "copyrightStart": "2015",
+      "previousPublishDate": "2017-03-09",
+      "previousMaturity": "WD",
+      "edDraftURI": "https://w3c.github.io/dpub-pwp/",
+      "githubAPI": "https://api.github.com/repos/w3c/dpub-pwp",
+      "editors": [
+      {
+        "name": "Markus Gylling",
+        "mailto": "markus.gylling@gmail.com",
+        "company": "DAISY Consortium",
+        "companyURL": "http://www.daisy.org/",
+        "w3cid": "21614"
+      },
+      {
+        "name": "Ben De Meester",
+        "mailto": "ben.demeester@ugent.be",
+        "company": "Ghent University - iMinds - Data Science Lab",
+        "companyURL": "http://www.iminds.be/",
+        "url": "http://users.ugent.be/~bjdmeest/",
+        "extras": [
+        {
+          "name": "<img src='figures/orcid_logo.png' alt='orcid logo'/>",
+          "href": "http://orcid.org/0000-0003-0248-0987",
+          "class": "orcid"
+        }],
+        "w3cid": "73403"
+      },
+      {
+        "name": "Ivan Herman",
+        "mailto": "ivan@w3.org",
+        "company": "W3C",
+        "companyURL": "http://www.w3.org",
+        "url": "http://www.w3.org/People/Ivan/",
+        "extras": [
+        {
+          "name": "<img src='figures/orcid_logo.png' alt='orcid logo'/>",
+          "href": "http://orcid.org/0000-0003-0782-2704",
+          "class": "orcid"
+        }],
+        "w3cid": "7382"
+      },
+      {
+        "name": "Tzviya Siegman",
+        "mailto": "tsiegman@wiley.com",
+        "company": "John Wiley & Sons, Inc.",
+        "companyURL": "http://www.wiley.com",
+        "w3cid": "65542"
+      },
+      {
+        "name": "Dave Cramer",
+        "mailto": "dauwhe@gmail.com",
+        "company": "Hachette Livre",
+        "companyURL": "http://www.hachettebookgroup.com",
+        "w3cid": "65283"
+      },
+      {
+        "name": "Leonard Rosenthol",
+        "mailto": "lrosenth@adobe.com",
+        "company": "Adobe Systems",
+        "companyURL": "http://www.adobe.com",
+        "extras": [
+        {
+          "name": "<img src='figures/orcid_logo.png' alt='orcid logo'/>",
+          "href": "http://orcid.org/0000-0001-5600-2185",
+          "class": "orcid"
+        }],
+        "w3cid": "42485"
+      }],
+      "wg": "Digital Publishing Interest Group",
+      "wgURI": "https://www.w3.org/dpub/IG/",
+      "wgPublicList": "public-digipub-ig",
+      "issueBase": "https://github.com/w3c/dpub-pwp/issues/",
+      "noRecTrack": "true",
+      "otherLinks": [
+      {
+        "key": "Repository",
+        "data": [
+        {
+          "value": "Github Repository",
+          "href": "https://github.com/w3c/dpub-pwp"
+        }]
+      },
+      {
+        "key": "Issues tracker",
+        "data": [
+        {
+          "value": "Github Issue Tracker",
+          "href": "https://github.com/w3c/dpub-pwp/issues"
+        }]
+      },
+      {
+        "key": "Changes",
+        "data": [
+        {
+          "value": "Commit history",
+          "href": "https://github.com/w3c/dpub-pwp/commits/gh-pages"
+        }]
+      }],
+      "alternateFormats": [
+      {
+        "uri": "pwp.epub",
+        "label": "ePub"
+      }],
+      "charterDisclosureURI": "https://www.w3.org/2004/01/pp-impl/64149/status",
+      "wgPatentURI": "https://www.w3.org/2004/01/pp-impl/64149/status"
+    }
+  </script>
+</head>
+<body aria-busy="false" class="h-entry" id="respecDocument">
+  <div class="head" role="contentinfo" id="respecHeader">
+    <p>
+      <a class="logo" href="https://www.w3.org/"><img width="72" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" alt="W3C"></a>
+    </p>
+    <h1 class="title p-name" id="title" property="dcterms:title">Web Publications for the Open Web Platform: Vision And Technical Challenges</h1>
+    <h2 id="w3c-interest-group-note-02-may-2017"><abbr title="World Wide Web Consortium">W3C</abbr> Interest Group Note <time property="dcterms:issued" class="dt-published" datetime="2017-05-02">02 May 2017</time></h2>
+    <dl>
+      <dt>This version:</dt>
+      <dd><a class="u-url" href="https://www.w3.org/TR/2017/NOTE-pwp-20170502/">https://www.w3.org/TR/2017/NOTE-pwp-20170502/</a></dd>
+      <dt>Latest published version:</dt>
+      <dd><a href="https://www.w3.org/TR/pwp/">https://www.w3.org/TR/pwp/</a></dd>
+      <dt>Latest editor's draft:</dt>
+      <dd><a href="https://w3c.github.io/dpub-pwp/">https://w3c.github.io/dpub-pwp/</a></dd>
+      <dt>Previous version:</dt>
+      <dd><a rel="dcterms:replaces" href="https://www.w3.org/TR/2017/WD-pwp-20170309/">https://www.w3.org/TR/2017/WD-pwp-20170309/</a></dd>
+      <dt>Editors:</dt>
+      <dd class="p-author h-card vcard" property="bibo:editor" resource="_:editor0" data-editor-id="21614"><span property="rdf:first" typeof="foaf:Person"><span property="foaf:name" class="p-name fn">Markus Gylling</span>, <a property="foaf:workplaceHomepage" class="p-org org h-org h-card" href="http://www.daisy.org/">DAISY Consortium</a>, <span class="ed_mailto"><a class="u-email email" property="foaf:mbox" href="mailto:markus.gylling@gmail.com">markus.gylling@gmail.com</a></span></span>
+        <span property="rdf:rest" resource="_:editor1"></span>
+      </dd>
+      <dd class="p-author h-card vcard" resource="_:editor1" data-editor-id="73403"><span property="rdf:first" typeof="foaf:Person"><meta property="foaf:name" content="Ben De Meester"><a class="u-url url p-name fn" property="foaf:homepage" href="http://users.ugent.be/~bjdmeest/">Ben De Meester</a>, <a property="foaf:workplaceHomepage" class="p-org org h-org h-card" href="http://www.iminds.be/">Ghent University - iMinds - Data Science Lab</a>, <span class="ed_mailto"><a class="u-email email" property="foaf:mbox" href="mailto:ben.demeester@ugent.be">ben.demeester@ugent.be</a></span>, <span class="orcid"><a href="http://orcid.org/0000-0003-0248-0987" property="rdfs:seeAlso"><img src="figures/orcid_logo.png" alt="orcid logo"></a></span></span>
+        <span property="rdf:rest" resource="_:editor2"></span>
+      </dd>
+      <dd class="p-author h-card vcard" resource="_:editor2" data-editor-id="7382"><span property="rdf:first" typeof="foaf:Person"><meta property="foaf:name" content="Ivan Herman"><a class="u-url url p-name fn" property="foaf:homepage" href="http://www.w3.org/People/Ivan/">Ivan Herman</a>, <a property="foaf:workplaceHomepage" class="p-org org h-org h-card" href="http://www.w3.org"><abbr title="World Wide Web Consortium">W3C</abbr></a>, <span class="ed_mailto"><a class="u-email email" property="foaf:mbox" href="mailto:ivan@w3.org">ivan@w3.org</a></span>, <span class="orcid"><a href="http://orcid.org/0000-0003-0782-2704" property="rdfs:seeAlso"><img src="figures/orcid_logo.png" alt="orcid logo"></a></span></span>
+        <span property="rdf:rest" resource="_:editor3"></span>
+      </dd>
+      <dd class="p-author h-card vcard" resource="_:editor3" data-editor-id="65542"><span property="rdf:first" typeof="foaf:Person"><span property="foaf:name" class="p-name fn">Tzviya Siegman</span>, <a property="foaf:workplaceHomepage" class="p-org org h-org h-card" href="http://www.wiley.com">John Wiley &amp; Sons, Inc.</a>, <span class="ed_mailto"><a class="u-email email" property="foaf:mbox" href="mailto:tsiegman@wiley.com">tsiegman@wiley.com</a></span></span>
+        <span property="rdf:rest" resource="_:editor4"></span>
+      </dd>
+      <dd class="p-author h-card vcard" resource="_:editor4" data-editor-id="65283"><span property="rdf:first" typeof="foaf:Person"><span property="foaf:name" class="p-name fn">Dave Cramer</span>, <a property="foaf:workplaceHomepage" class="p-org org h-org h-card" href="http://www.hachettebookgroup.com">Hachette Livre</a>, <span class="ed_mailto"><a class="u-email email" property="foaf:mbox" href="mailto:dauwhe@gmail.com">dauwhe@gmail.com</a></span></span>
+        <span property="rdf:rest" resource="_:editor5"></span>
+      </dd>
+      <dd class="p-author h-card vcard" resource="_:editor5" data-editor-id="42485"><span property="rdf:first" typeof="foaf:Person"><span property="foaf:name" class="p-name fn">Leonard Rosenthol</span>, <a property="foaf:workplaceHomepage" class="p-org org h-org h-card" href="http://www.adobe.com">Adobe Systems</a>, <span class="ed_mailto"><a class="u-email email" property="foaf:mbox" href="mailto:lrosenth@adobe.com">lrosenth@adobe.com</a></span>, <span class="orcid"><a href="http://orcid.org/0000-0001-5600-2185" property="rdfs:seeAlso"><img src="figures/orcid_logo.png" alt="orcid logo"></a></span></span>
+        <span property="rdf:rest" resource="rdf:nil"></span>
+      </dd>
+
+      <dt>Repository:</dt>
+      <dd>
+        <a href="https://github.com/w3c/dpub-pwp">
+                      Github Repository
+                    </a>
+      </dd>
+      <dt>Issues tracker:</dt>
+      <dd>
+        <a href="https://github.com/w3c/dpub-pwp/issues">
+                      Github Issue Tracker
+                    </a>
+      </dd>
+      <dt>Changes:</dt>
+      <dd>
+        <a href="https://github.com/w3c/dpub-pwp/commits/gh-pages">
+                      Commit history
+                    </a>
+      </dd>
+    </dl>
+    <p>
+      This document is also available in this non-normative format:
+      <a rel="alternate" href="pwp.epub">ePub</a>
+    </p>
+    <p class="copyright">
+      <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2015-2017
+
+      <a href="https://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
+      <a href="https://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
+      <a href="https://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>).
+      <abbr title="World Wide Web Consortium">W3C</abbr> <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
+      <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and
+      <a rel="license" href="https://www.w3.org/Consortium/Legal/copyright-documents">document use</a> rules apply.
+    </p>
+    <hr title="Separator for header">
+  </div>
+
+  <section id="abstract" class="introductory" property="dc:abstract">
+    <h2 id="h-abstract" resource="#h-abstract"><span property="xhv:role" resource="xhv:heading">Abstract</span></h2>
+    <blockquote class="quote">
+      <p>“A book is a discrete collection of text (and other media), that is designed by an author(s) as an internally complete representation of an idea, or set of ideas; emotion or set of emotions; and transmitted to readers in various formats.”</p>
+      <p>“Books can learn from the Web how to be bounded, but open.<br> The Web can learn from books how to be open, but bounded.”</p>
+      <p class="author">Hugh McGuire, <a href="https://medium.com/@hughmcguire/what-books-can-learn-from-the-web-what-the-web-can-learn-from-books-64670171908f#.482p2ksyi">Medium, April 2016</a>
+      </p>
+    </blockquote>
+    <p> We dream of a world where books, and indeed all kinds of publications, are first-class citizens of the web. From novels to textbooks, from journal articles to corporate memos, from newsletters to manga, publications are everywhere. But we face challenges in presenting them on the web with the fidelity and ease of use that they deserve. This document introduces Web Publications, a vision for the future of digital publishing based on a fully native representation of documents within the Open Web Platform. Web publications can be packaged and they can be portable. Web publications work online or offline. Web publications can be accessible, linkable, and annotatable. </p>
+
+  </section>
+
+  <section id="sotd" class="introductory">
+    <h2 id="h-sotd" resource="#h-sotd"><span property="xhv:role" resource="xhv:heading">Status of This Document</span></h2>
+    <p>
+      <em>This section describes the status of this document at the time of its publication. Other documents may supersede this document. A list of current <abbr title="World Wide Web Consortium">W3C</abbr> publications and the latest revision of this technical report can be found in the <a href="https://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> technical reports index</a> at https://www.w3.org/TR/.</em>
+    </p>
+
+    <p>This document outlines a general vision and should not be considered a technical specification. Instead, its goal is to outline that vision and possible technical directions to achieve it, and reflects the discussions that occured in the Digital Publishing Interest Group. In partiucular, this document looks at some of the technical implications, and possible solutions, arising from the use cases and requirements collected by the Digital Publishing Interest Group, and documented in a companion UCR document&nbsp;[<cite><a class="bibref" href="#bib-pwp-ucr">pwp-ucr</a></cite>]. Some of the sections are more detailed and more mature than others. A more detailed and rigoruous specification should be done by a separated, dedicated Working Group in the future; the final version of this document will published as an Interest Group Note.</p>
+
+    <p>
+      This document was published by the <a href="https://www.w3.org/dpub/IG/">Digital Publishing Interest Group</a> as an Interest Group Note. If you wish to make comments regarding this document, please send them to
+      <a href="mailto:public-digipub-ig@w3.org">public-digipub-ig@w3.org</a> (<a href="mailto:public-digipub-ig-request@w3.org?subject=subscribe">subscribe</a>,
+      <a href="https://lists.w3.org/Archives/Public/public-digipub-ig/">archives</a>). All comments are welcome.
+    </p>
+    <p>
+      Publication as an Interest Group Note does not imply endorsement by the <abbr title="World Wide Web Consortium">W3C</abbr> Membership. This is a draft document and may be updated, replaced or obsoleted by other documents at any time. It is inappropriate to cite this document as other than work in progress.
+    </p>
+    <p>
+      The disclosure obligations of the Participants of this group are described in the
+      <a href="https://www.w3.org/2004/01/pp-impl/64149/status">charter</a>.
+    </p>
+    <p>This document is governed by the <a id="w3c_process_revision" href="https://www.w3.org/2017/Process-20170301/">1 March 2017 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
+    </p>
+
+  </section>
+  <nav id="toc">
+    <h2 class="introductory" id="table-of-contents" resource="#table-of-contents"><span property="xhv:role" resource="xhv:heading">Table of Contents</span></h2>
+    <ol class="toc" role="directory">
+      <li class="tocline"><a href="#introduction" class="tocxref"><span class="secno">1. </span>Introduction</a>
+        <ol class="toc">
+          <li class="tocline"><a href="#whatisawebpublication" class="tocxref"><span class="secno">1.1 </span>What is a <span class="formerLink" data-link-type="dfn">Web Publication</span>?</a></li>
+          <li class="tocline"><a href="#whynow" class="tocxref"><span class="secno">1.2 </span>Why Now?</a></li>
+          <li class="tocline"><a href="#terminology" class="tocxref"><span class="secno">1.3 </span>Terminology</a></li>
+        </ol>
+      </li>
+      <li class="tocline"><a href="#technical-challenges" class="tocxref"><span class="secno">2. </span>Technical Challenges</a>
+        <ol class="toc">
+          <li class="tocline"><a href="#web-publications" class="tocxref"><span class="secno">2.1 </span>Web Publications</a>
+            <ol class="toc">
+              <li class="tocline"><a href="#online-offline" class="tocxref"><span class="secno">2.1.1 </span>Online/Offline</a></li>
+              <li class="tocline"><a href="#identification" class="tocxref"><span class="secno">2.1.2 </span>Addressing and Identification</a></li>
+              <li class="tocline"><a href="#manifest-details" class="tocxref"><span class="secno">2.1.3 </span>WP Manifests</a></li>
+              <li class="tocline"><a href="#metadata" class="tocxref"><span class="secno">2.1.4 </span>Metadata Discovery</a></li>
+              <li class="tocline"><a href="#web-publication-apis" class="tocxref"><span class="secno">2.1.5 </span>Web Publication APIs</a>
+                <ol class="toc">
+                  <li class="tocline"><a href="#document-collection-interface-and-api" class="tocxref"><span class="secno">2.1.5.1 </span>Document Collection Interface and API</a></li>
+                  <li class="tocline"><a href="#publication-object-model-and-api" class="tocxref"><span class="secno">2.1.5.2 </span>Publication Object Model and API</a></li>
+                </ol>
+              </li>
+              <li class="tocline"><a href="#styling" class="tocxref"><span class="secno">2.1.6 </span>Styling and Layout, Pagination</a></li>
+              <li class="tocline"><a href="#personalization" class="tocxref"><span class="secno">2.1.7 </span>Presentation Control and Personalization</a></li>
+            </ol>
+          </li>
+          <li class="tocline"><a href="#packaged-web-publications" class="tocxref"><span class="secno">2.2 </span>Packaged Web Publications</a>
+            <ol class="toc">
+              <li class="tocline"><a href="#package" class="tocxref"><span class="secno">2.2.1 </span>Packaging Formats</a></li>
+              <li class="tocline"><a href="#security_models" class="tocxref"><span class="secno">2.2.2 </span>Security Models</a></li>
+            </ol>
+          </li>
+        </ol>
+      </li>
+      <li class="tocline"><a href="#profiling" class="tocxref"><span class="secno">3. </span>Profiling Web Publications</a></li>
+      <li class="tocline"><a href="#conclusion" class="tocxref"><span class="secno">4. </span>Conclusions</a></li>
+      <li class="tocline"><a href="#simple-manifest-access" class="tocxref"><span class="secno">A. </span>Algorithm to Retrieve the Manifest for a PWP</a></li>
+      <li class="tocline"><a href="#acknowledgements" class="tocxref"><span class="secno">B. </span>Acknowledgements</a></li>
+      <li class="tocline"><a href="#references" class="tocxref"><span class="secno">C. </span>References</a>
+        <ol class="toc">
+          <li class="tocline"><a href="#informative-references" class="tocxref"><span class="secno">C.1 </span>Informative references</a></li>
+        </ol>
+      </li>
+    </ol>
+  </nav>
+
+
+
+  <section id="introduction" typeof="bibo:Chapter" resource="#introduction" property="bibo:hasPart">
+    <!--OddPage-->
+    <h2 id="h-introduction" resource="#h-introduction"><span property="xhv:role" resource="xhv:heading"><span class="secno">1. </span>Introduction</span>
+    </h2>
+
+    <p>The Web emerged in 1994, based on a model of individually-authored documents loosely tied together by hyperlinks. Since then, those Web “pages” have evolved into Web sites and Web Apps, with smaller and smaller bits of content, generated by more and more users or databases, with increasing amounts of interactivity. The Web has become a swarm of small stuff, changing very quickly. Although we still talk about pages, this model has little to do with that much older, yet still very powerful, paged-based media we call books.</p>
+
+    <p>Over the centuries, “books” have assumed many forms: journals, magazines, pamphlets, newspapers, atlases, comics, manga, notebooks, albums of all sorts. We can define these different manifestations as “publications”: bounded editions of meaningful media, made public.</p>
+
+    <p>We believe there is great value in combining this older tradition— of portable, bounded publications—with the pervasive accessibility, addressability, and interconnectedness of the Open Web Platform. We also believe that just as the Web has enabled anyone to express themselves without the need for formal review, so to will people be able to publish their writings in this ad-hoc manner. New models of economic sustainability, innovative experiences of knowledge and invigorated socio-cultural engagement depend on this.</p>
+
+    <p>It is the task of the <abbr title="World Wide Web Consortium">W3C</abbr> Digital Publishing Interest Group to explore the desirability and feasibility of bringing these two great models of publishing together. This document explores the technical feasibility of this vision, and some of the challenges that arise from our use cases, documented in "PWP Use Cases and Requirements"&nbsp;[<cite><a class="bibref" href="#bib-pwp-ucr">pwp-ucr</a></cite>].</p>
+
+    <section id="whatisawebpublication" typeof="bibo:Chapter" resource="#whatisawebpublication" property="bibo:hasPart">
+      <h3 id="h-whatisawebpublication" resource="#h-whatisawebpublication"><span property="xhv:role" resource="xhv:heading"><span class="secno">1.1 </span>What is a <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publication</a>?</span>
+      </h3>
+
+      <p>A <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publication</a> (WP) is a collection of one or more constituent resources, organized together in a uniquely identifiable grouping that may be presented using standard Open Web Platform technologies. A <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publication</a> is not just a collection of links— the act of publishing involves obtaining resources and organizing them into a publication, which must be “manifested” (in the FRBR&nbsp;[<cite><a class="bibref" href="#bib-frbr">frbr</a></cite>] sense) by having the resources available on a Web server. Thus the publisher provides an origin for the WP, and a URL that can uniquely identify that manifestation. </p>
+
+      <p>A <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publication</a> must provide a default ordering of the primary constituent resources, although that order may be changed by user interaction or scripting. A reader must also be able to access any primary resource directly, via navigation provided by the publication itself or the user agent.</p>
+
+      <p>A <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publication</a> may be packaged (and become a PWP—<a href="#dfn-packaged-web-publication" class="internalDFN" data-link-type="dfn">Packaged Web Publication</a>) by having some or all of its constituent resources combined into a single file. The package must include the unique identifier of the manifestation. The act of packaging must be reversible; one must be able to recover the original structure and organization. In particular, relative URLs within the publication must not be altered. References relative to a publication should remain stable. We consider the unpackaged state of a web publication to be canonical. Packaging provides a convenient way to to transmit and store a publication, but user agents are not required to display, annotate, or reference such content in packaged form. </p>
+
+      <p>A Web Publication may be portable and be hosted at some other origin. But the PWP must preserve information about its original origin and identity, so that references to a portable copy can be reconciled with the original publication. </p>
+
+      <p>It must be possible to make Web Publications accessible to a broad range of readers with different needs and capabilities. This includes general WCAG and WAI requirements of the <abbr title="World Wide Web Consortium">W3C</abbr>, but may also include additional accessibility requirements specific to Web Publications. Profiles of Web Publications may also be defined with more stringent accessibility requirements on the publications themselves.</p>
+
+      <p>A Web Publication must be available and functional while the user is offline. A user should, as much as possible, have a seamless experience of interacting with a Web Publication regardless of their network connection. We make no distinction between online and offline when defining Web Publications. </p>
+
+      <p>A Web Publication, having an identity and nature beyond its constituent resources, will have metadata that describes the publication as a whole. We also introduce the abstract concept of a manifest, which serves to carry information about the constituent resources of the publication. The metadata and manifest will also incorporate information about the sequence and presentation of the content. </p>
+
+      <p>At this early stage, we are not defining how Web Publications should be packaged, how they are identified, or how we will store information about the publication as a whole. A separate, more detailed, use cases document&nbsp;[<cite><a class="bibref" href="#bib-pwp-ucr">pwp-ucr</a></cite>] accompanies this document. Here, we describe our vision, consider some of the technical challenges we face, and ponder the choices we must make to implement this vision. Our goal is to provide guidance to a future Working Group.</p>
+    </section>
+
+    <section id="whynow" typeof="bibo:Chapter" resource="#whynow" property="bibo:hasPart">
+      <h3 id="h-whynow" resource="#h-whynow"><span property="xhv:role" resource="xhv:heading"><span class="secno">1.2 </span>Why Now?</span>
+      </h3>
+
+      <p>Digital publishing is at a tipping point. EPUB, based largely on web technologies, has been broadly adopted for trade books, and is gaining traction in the educational world. But creating EPUB files requires features beyond what most authoring environments offer. And rendering EPUBs requires a vast additional layer of technology beyond what web browsers offer, resulting in "epub reading systems" which vary widely in their capabilities and quality. This additional complexity in creating, distributing, and viewing publications has slowed the adoption of EPUB, and in many cases has meant that the open web has many more features than are typically available to EPUB.</p>
+
+      <p>For non-traditional (or ad-hoc) forms of publishing, users find themselves split between the need to produce easily distributed and consumed content (such as via PDF) and their desire to use the rich presentational and interactive features of the Web.
+
+      </p>
+      <p>Reducing or eliminating the gap between what publications require and what the Web can do will greatly reduce the complexity involved for both authoring and publishing.</p>
+
+      <p>This convergence is already happening. Travel and educational publishers, to name just a few, already exploit the advanced possibilities of packaged publishing formats to produce highly interactive documents whose features are very close to what one is used to on the Web. And the converse is also true: tutorial and introductory articles have appeared on the Web that have the quality of traditional publications that one was used to seeing in a scientific magazine, but combined with the interactive possibilities of the Web (<a href="http://bost.ocks.org/mike/algorithms/">Mike Bostock’s article on visualizing algorithms</a> or <a href="http://worrydream.com/LadderOfAbstraction/">Bret Victor’s article on visualization</a> are just two of several possible examples). “Traditional” publications (for example in scholarly publishing) are increasingly moving on-line, exploring new possibilities and publishing paradigms, but also facing issues in combining their traditional requirements with the reality of the Web today. All of these factors also apply in ad-hoc publishing, where the use of (optionally secure) "micro-sites" has also grown in recent years </p>
+
+      <p>Today’s web would also benefit. Many of the use cases described in&nbsp;[<cite><a class="bibref" href="#bib-pwp-ucr">pwp-ucr</a></cite>], such as pagination or coping with a collection of resources, are relevant for much document-oriented web content as well. Publishers have also developed workflows, editorial knowledge, and typographic and design skills that could positively influence the evolution of Web content at large.</p>
+
+      <p>What we envision for <a href="#dfn-packaged-web-publication" class="internalDFN" data-link-type="dfn">Packaged Web Publications</a> is similar to the goals and techniques of <a href="https://en.wikipedia.org/wiki/Progressive_web_app">Progressive Web Apps</a>: breaking the boundaries between web sites and mobile apps, an emphasis on “offline” paradigms, and so on. The time is right to broaden the scope and power of the web to include publications.</p>
+
+    </section>
+
+    <section id="terminology" typeof="bibo:Chapter" resource="#terminology" property="bibo:hasPart">
+      <h3 id="h-terminology" resource="#h-terminology"><span property="xhv:role" resource="xhv:heading"><span class="secno">1.3 </span>Terminology</span>
+      </h3>
+      <p>This document is based on the following definitions.</p>
+      <ul class="terms">
+        <li>This document uses the term <dfn data-dfn-type="dfn" id="dfn-user-agent">user agent</dfn>, as used by the Web community; see, for example, the <a href="https://www.w3.org/WAI/UA/work/wiki/Definition_of_User_Agent">WAI glossary entry</a>. The publishing community often uses the term “reading system” for roughly the same notion; while there may be subtle differences, it is better to stick to a single term for the purposes of this document.</li>
+
+        <li>A <dfn data-dfn-type="dfn" id="dfn-web-publication">Web Publication</dfn> (WP) is a collection of one or more constituent resources, organized together in a uniquely identifiable grouping that may be presented using standard Open Web Platform technologies.</li>
+
+        <li>A <dfn data-dfn-type="dfn" id="dfn-packaged-web-publication">Packaged Web Publication</dfn> (PWP) is a <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publication</a> whose constituent resources are combined into a single distributable file, using some standard packaging format.</li>
+
+        <li>In this document, <dfn data-dfn-type="dfn" id="dfn-manifest">manifest</dfn> refers to an abstract means to contain information necessary to the proper management, rendering, and so on, of a publication. This is opposed to metadata that contains information on the content of the publication like author, publication date, and so on. The precise format of how such a manifest is stored is not considered in this document.</li>
+
+        <li>A <dfn data-dfn-type="dfn" id="dfn-locator">locator</dfn> is the means by which a user agent is able to to locate a constituent resource of a WP. Since a WP may be online or offline, as well as packaged or not, it may require more than a simple URL.</li>
+
+        <li>A <dfn data-dfn-type="dfn" id="dfn-web-resource">Web Resource</dfn> is an abstract resource that is identified by a URI and can be accessed through standard Web protocols. See [<cite><a class="bibref" href="#bib-WCA-terms">WCA-terms</a></cite>] for further details.</li>
+      </ul>
+    </section>
+  </section>
+
+  <section id="technical-challenges" typeof="bibo:Chapter" resource="#technical-challenges" property="bibo:hasPart">
+    <!--OddPage-->
+    <h2 id="h-technical-challenges" resource="#h-technical-challenges"><span property="xhv:role" resource="xhv:heading"><span class="secno">2. </span>Technical Challenges</span>
+    </h2>
+
+    <p>This section considers some of the technical work areas that should be clarified for a more precise and detailed specification of <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publications</a>. The list is not exhaustive and there are only hints at the technical solutions without claiming to be complete and tested for validity. It must also be emphasized that some of solutions to the problems listed below may not come from <abbr title="World Wide Web Consortium">W3C</abbr>, but possibly from other, external organizations (document identification is a typical example).</p>
+
+    <p>The <a href="#terminology" class="sec-ref"><span class="secno">1.3</span> <span class="sec-title">Terminology</span></a> section provides some conceptual framework for the technical discussion. The most important definition is the one of <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publications</a>: the fact that a WP, i.e., a single Web Resource, identifies a <em>collection</em> of <a data-lt="Web Resource" href="#dfn-web-resource" class="internalDFN" data-link-type="dfn">Web Resources</a> that conveys the “boundedness” which characterizes a publication (e.g. a book or an article). All technical issues in this section are, fundamentally, around the question on how this boundedness should co-exist with the opennes of the Web in general.</p>
+
+    <figure id="pwp_one_url">
+      <img src="figures/PWP-oneURL.svg" alt="Image showing a collection of resources, surrounded by a dotted line, and an arrow pointing at that dotted line" style="width:80%">
+      <figcaption>Fig. <span class="figno">1</span> <span class="fig-title">A <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publication</a> represents a <em>collection</em> of <a data-lt="Web Resource" href="#dfn-web-resource" class="internalDFN" data-link-type="dfn">Web Resources</a> that together form a publication, rather than the individual resources. (Picture is also available in <a href="figures/PWP-oneURL.svg">SVG</a> or <a href="figures/PWP-oneURL.png">PNG</a> formats.)</span></figcaption>
+    </figure>
+
+    <section id="web-publications" typeof="bibo:Chapter" resource="#web-publications" property="bibo:hasPart">
+      <h3 id="h-web-publications" resource="#h-web-publications"><span property="xhv:role" resource="xhv:heading"><span class="secno">2.1 </span>Web Publications</span>
+      </h3>
+
+      <section id="online-offline" typeof="bibo:Chapter" resource="#online-offline" property="bibo:hasPart">
+        <h4 id="h-online-offline" resource="#h-online-offline"><span property="xhv:role" resource="xhv:heading"><span class="secno">2.1.1 </span>Online/Offline</span>
+        </h4>
+
+        <p>When handling Web Publications, a <a href="#dfn-user-agent" class="internalDFN" data-link-type="dfn">user agent</a> has to achieve several tasks:</p>
+
+        <ul>
+          <li>Provide some sort of a local storage, or cache, of the WP content. To achieve this, the agent has to catch the HTTP(S) requests stemming from the rendering engine and has to, possibly, serve the content from its cache or the file. In other words, the <a href="#dfn-user-agent" class="internalDFN" data-link-type="dfn">user agent</a> has to act as a network proxy.</li>
+
+          <li>Be able to resolve a <a data-lt="locator" href="#dfn-locator" class="internalDFN" data-link-type="dfn">locators</a> to the consituent resources of a WP, regardless of the state of the WP..
+          </li>
+        </ul>
+
+        <figure style="text-align: center;" id="workers_basic">
+          <img src="figures/Workers-basic.png" alt="A laptop computer gaining access to the unpackaged publication from a web browser connecting to a Server with HTTP requests." style="width:80%">
+          <figcaption>Fig. <span class="figno">2</span> <span class="fig-title">Accessing a <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publication</a> directly from the Web. (Picture is available directly in <a href="figures/Workers-basic.svg">SVG</a> or <a href="figures/Workers-basic.png">PNG</a> formats.)</span></figcaption>
+        </figure>
+
+        <figure style="text-align: center;" id="workers_package">
+          <img src="figures/Workers-cache.png" alt="A laptop computer gaining access to the packaged publication from a web browser connecting to a Server via service workers." style="width:80%">
+          <figcaption>Fig. <span class="figno">3</span> <span class="fig-title">Accessing a <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publication</a> from the Web with a local cache. (Picture is available directly in <a href="figures/Workers-cache.svg">SVG</a> or <a href="figures/Workers-cache.png">PNG</a> formats.)</span></figcaption>
+        </figure>
+
+        <p id="sworkers">The latest evolution of browser technologies around Web Workers&nbsp;[<cite><a class="bibref" href="#bib-web-workers">web-workers</a></cite>] and Service Workers&nbsp;[<cite><a class="bibref" href="#bib-service-workers">service-workers</a></cite>] make the development of such a <a href="#dfn-user-agent" class="internalDFN" data-link-type="dfn">user agent</a> feasible. Service Workers provide a flexible and programmable way to efficiently implement local caching of <a data-lt="Web Resource" href="#dfn-web-resource" class="internalDFN" data-link-type="dfn">Web Resources</a>. Caching is implemented as a programmable network proxy, meaning that the browser’s rendering engine becomes oblivious to whether a resource originates from the local cache or directly from the network: these are indeed some of the basic functionalities a <a href="#dfn-user-agent" class="internalDFN" data-link-type="dfn">user agent</a> must provide to handle Web Publications.</p>
+      </section>
+
+      <section id="identification" typeof="bibo:Chapter" resource="#identification" property="bibo:hasPart">
+        <h4 id="h-identification" resource="#h-identification"><span property="xhv:role" resource="xhv:heading"><span class="secno">2.1.2 </span>Addressing and Identification</span>
+        </h4>
+
+        <p>HTTP(S) URLs serve as the fundamental method for addressing a resource, or a fragment thereof, on the Web. Such URLs can also be used to uniquely identify a resource; however, conceptually, <em class="extra-em">the role of addressing and identification are different</em>. <em>Both</em> of these functionalities should be available for <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publications</a>: a publication should be uniquely identified for, e.g., library catalogues or archival, and a resource locator should be available so that the user could access the content. In other words, a <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publication</a> <em class="rfc2119" title="SHOULD">SHOULD</em> have both one or even possibly several <em>identifier(s)</em> and <em>locators</em>. These may be be identical but may also be different: e.g., an identifier may refer to a specific publication by a publisher (e.g., using an <a href="https://www.isbn-international.org/">ISBN</a>), whereas the locator may refer to a personal copy of that publication that the owner can freely annotate for personal use.</p>
+
+        <div class="note">
+          <div class="note-title marker" aria-level="5" role="heading" id="h-note1"><span>Note</span></div>
+          <p class="">A typical use case for the presence of an <em>identifier</em> beyond the need for a <em>locator</em> is in academic and scholarly publishing. There are currently several methods for citing online works, but there is no equivalent standard method for citations to ebooks. Even if a reflowable ebook is cited by a scholar, the author must refer to the PDF, paper copy, or HTML version to cite it in her bibliography. Identifiers attached to <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publications</a> should enable stable citations.</p>
+        </div>
+
+        <p>A general [<cite><a class="bibref" href="#bib-URI">URI</a></cite>] (which includes the notion of [<cite><a class="bibref" href="#bib-URL">URL</a></cite>]) <em class="rfc2119" title="MAY">MAY</em> serve as an <em>identifier</em> using, e.g., the [<cite><a class="bibref" href="#bib-ISBN-URN">ISBN-URN</a></cite>] or [<cite><a class="bibref" href="#bib-UUID">UUID</a></cite>] schemes. But an identifier does not necessarily resolve to a location on the Web, although it is a good practice to have a dereferencable identifier.</p>
+
+        <p> There is no ubiquitously accepted method for identifying a publication among the various document formats (whether electronic or printed). Within the scholarly publishing industry, for example, initiatives such as <a href="http://www.doi.org">DOI</a> and <a href="http://crossref.org">CROSSREF</a> have addressed this problem, whereas traditional “trade” publishing rely more on <a href="https://www.isbn-international.org/">ISBN</a> related services. Some of these identifier schemes provide resolver services or a “standard” representation in term of [<cite><a class="bibref" href="#bib-URL">URL</a></cite>]. <em>The definition of <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publication</a> should be oblivious to the exact identification used; this issue is left to specialized services and industry organizations.</em> Architecturally, the only requirement, regarding identifiers, is that a <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publication</a> <em class="rfc2119" title="MUST">MUST</em> include one, or more, identifiers, and that these should be stable across, for example, copying the publication or changing its location on the Web.
+          <!--This document concentrates on addressing only, i.e., on the management of <a data-lt="locator">locators</a>.</p>-->
+
+        </p>
+        <div class="issue" id="issue-12">
+          <div class="issue-title marker" aria-level="5" role="heading" id="h-issue1"><a href="https://github.com/w3c/dpub-pwp/issues/12"><span>Issue 12</span></a><span style="text-transform: none">: Identifiers and Scope/Context as defined in Web Annotation Data Model</span></div>
+          <div class="">Do we need a more general form of identification to represent fragments?</div>
+        </div>
+
+        <div class="issue">
+          <div class="issue-title marker" aria-level="5" role="heading" id="h-issue2"><span>Issue</span></div>
+          <div class=""><a href="https://github.com/w3c/dpub-pwp-loc/issues/28">Issue 28 on Locators</a>: do we need several, possibly a hierarchy of identifiers? The current discussion converges towards a model whereby a WP may have
+            <ol>
+              <li>A set of identifiers (with possibly a label assigned to each identifier to describe what it is for and who is the authority to assign them)</li>
+              <li>A state independent locator (can we call this a 'state independent locator'?)</li>
+              <li>State specific locators of a particular copy (ie, a locator to my copy in zip, and a separate locator to the unpacked version on my server)</li>
+            </ol>
+            <p> The rule being that the entries in (1) <em class="rfc2119" title="SHOULD">SHOULD</em> be changed only by the respective authorities, and they <em class="rfc2119" title="MUST">MUST</em> be part of the WP manifest. </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="manifest-details" typeof="bibo:Chapter" resource="#manifest-details" property="bibo:hasPart">
+        <h4 id="h-manifest-details" resource="#h-manifest-details"><span property="xhv:role" resource="xhv:heading"><span class="secno">2.1.3 </span>WP Manifests</span>
+        </h4>
+        <p>A <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publication</a> is a whole that may consist of many parts. We need a way to describe this whole, a place to store information about the publication and its components. We will use the term <a href="#dfn-manifest" class="internalDFN" data-link-type="dfn">manifest</a>, in the sense of a document describing the contents of a ship. A <a href="#dfn-manifest" class="internalDFN" data-link-type="dfn">Manifest</a> may include:</p>
+
+        <ul>
+          <li>Publication metadata, directly or by reference.</li>
+          <li>A list of publication resources, and information about them.</li>
+          <li>The default sequencing of primary publication components.</li>
+          <li>References to tables of contents, glossaries, and other navigational or pedagogical aids.</li>
+          <li>References to alternative manifestations of the publication.</li>
+          <li>Hints to the user agent about how to present the publication.</li>
+        </ul>
+
+        <p>The “Web App Manifest”&nbsp;[<cite><a class="bibref" href="#bib-web-manifest">web-manifest</a></cite>], currently being developed at <abbr title="World Wide Web Consortium">W3C</abbr>, is one example of a technology that could define a WP manifest format. Although the current&nbsp;[<cite><a class="bibref" href="#bib-web-manifest">web-manifest</a></cite>] draft is geared towards Web Applications, it also includes extension points to add information necessary for WPs. Some of these extra manifest members have already been explored in the <a href="https://github.com/dauwhe/epub31-bff">“Browser Friendly Format”</a> work of the EPUB3.1 Working Group. Given the broad range of uses we envision for <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publications</a>, there may even be several alternatives for serializing the information needed in a manifest. </p>
+
+        <p>A fundamental question is how a <a href="#dfn-user-agent" class="internalDFN" data-link-type="dfn">user agent</a> obtains the manifest. Because the publication patterns of WPs can be different depending on publishers, authors, etc., there should be different ways of accessing the manifest: it can be referred to via a <code>link</code> element in an HTML file, can be in an agreed-upon-position within a package, or can be conveyed through a <code>LINK</code> header of an <code>HTTP(S)</code> request. The user agent obtains the <a href="#dfn-manifest" class="internalDFN" data-link-type="dfn">manifest</a> by following a hierarchy of these different possibilities; a separate <a href="#simple-manifest-access">section</a> in the appendix provides more details. (Note that accessing a manifest also has some security issues; the <a href="https://w3c.github.io/manifest/#obtaining">“Obtaining a manifest”</a> of the “Web App Manifest”&nbsp;[<cite><a class="bibref" href="#bib-web-manifest">web-manifest</a></cite>] document provides some further details.)</p>
+
+        <!--
+                <p> This algorithm is typically performed by the <a>user agent</a> when initialized with the state independent locator of a particular <a>WP</a> instance.</p>
+                -->
+
+      </section>
+
+      <section id="metadata" typeof="bibo:Chapter" resource="#metadata" property="bibo:hasPart">
+        <h4 id="h-metadata" resource="#h-metadata"><span property="xhv:role" resource="xhv:heading"><span class="secno">2.1.4 </span>Metadata Discovery</span>
+        </h4>
+        <p>Throughout the digital publishing industry, highly specialized metadata vocabularies, and serialization forms thereof, are being used. Within book trade publishing as an example, ONIX&nbsp;[<cite><a class="bibref" href="#bib-ONIX">ONIX</a></cite>] has attained a dominant status as a metadata package that typically exists (in XML form) independently of the publication, and contains not only bibliographic metadata, but also trade information such as pricing. Scholarly publishing, on the other hand, often uses various derivatives of the ubiquitous BibTeX vocabulary.</p>
+
+        <p>While not contradicting the obvious use cases for out-of-line metadata records as used by publishers, retailers and libraries, <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publications</a> must define a syntax for basic in-line metadata records that is agnostic to the publication’s state. This means that the syntax must seamlessly support discovery and harvesting by both generic Web search engines, as well as dedicated bibliographic/archival/retailer systems. While it is expected that <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publications</a> will define a minimal set of required metadata (cf. the section <a href="#identification" class="sec-ref"><span class="secno">2.1.2</span> <span class="sec-title">Addressing and Identification</span></a>), development and adoption of other vocabularies in <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publications</a> will most likely be deemed as out of scope. In other words, domain-specific metadata requirements are up to the domains themselves to define via a profiling mechanism, or similar yet-to-be-defined means. </p>
+
+        <div class="note">
+          <div class="note-title marker" aria-level="5" role="heading" id="h-note2"><span>Note</span></div>
+          <p class="">The adoption of HTML as a vehicle for expressing publication-level metadata (i.e., using RDFa&nbsp;[<cite><a class="bibref" href="#bib-html-rdfa">html-rdfa</a></cite>] and/or Microdata&nbsp;[<cite><a class="bibref" href="#bib-microdata">microdata</a></cite>] for metadata, like authors or title) would have the added benefits of better I18N support than XML or JSON formats.</p>
+        </div>
+      </section>
+
+      <section id="web-publication-apis" typeof="bibo:Chapter" resource="#web-publication-apis" property="bibo:hasPart">
+        <h4 id="h-web-publication-apis" resource="#h-web-publication-apis"><span property="xhv:role" resource="xhv:heading"><span class="secno">2.1.5 </span>Web Publication APIs</span>
+        </h4>
+        <p>Access to the specific features of Web Publications via programming API is an important feature when it comes to Web Applications making use of Web Publications. </p>
+
+        <div class="note">
+          <div class="note-title marker" aria-level="5" role="heading" id="h-note3"><span>Note</span></div>
+          <p class="">These APIs would have to be specified through a separate incubation phase. Indeed, their specification requires a different expertise than most of what is described in this document.</p>
+        </div>
+
+        <section id="document-collection-interface-and-api" typeof="bibo:Chapter" resource="#document-collection-interface-and-api" property="bibo:hasPart">
+          <h5 id="h-document-collection-interface-and-api" resource="#h-document-collection-interface-and-api"><span property="xhv:role" resource="xhv:heading"><span class="secno">2.1.5.1 </span>Document Collection Interface and API</span>
+          </h5>
+          <p>Today, certain types of Web Resources used in a Web Publication (e.g., HTML or SVG) can be accessed, programatically, via the <a href="https://html.spec.whatwg.org/multipage/dom.html#document">Document</a> interface, that provides attributes and methods to access the full tree-like structure of, say, the HTML content, the various attributes on each level, or the textual content. Programs make use of these possibilities, as well as related interfaces, to implement a multitude of operations on a single resource.</p>
+
+          <p>However, a <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publication</a> is a <em>collection</em> of resources; consequently, a number of operations would also need to be able to be performed on that collection as a whole. Typical examples are: </p>
+
+          <ul>
+            <li>full text search over the full Web Publication;</li>
+            <li>ensure a continuous section, list, table, etc., numbering when the corresponding Web Resources are read continuously, i.e., as part of the Web Publication;</li>
+            <li>provide an outlining and/or table of content generation over the Web Publication</li>
+          </ul>
+
+          <p>Although these operations may be performed via the current standard interfaces, but any such program would have to construct and manage a collection of such document interfaces. And the caller would also need to have detailed knowlege of the state and packaging model (if any) used for the WP. It would therefore necessary to define such a Document Collection Interface, together with a set of suitable attributes and methods. </p>
+        </section>
+
+        <section id="publication-object-model-and-api" typeof="bibo:Chapter" resource="#publication-object-model-and-api" property="bibo:hasPart">
+          <h5 id="h-publication-object-model-and-api" resource="#h-publication-object-model-and-api"><span property="xhv:role" resource="xhv:heading"><span class="secno">2.1.5.2 </span>Publication Object Model and API</span>
+          </h5>
+          <p>Many programmatic steps on Web Publications rely on the interplay of the individual resources and information stored elsewhere, for example in the <a href="#manifest-details">manifest</a> of the Web Publication. These include the creation of the Document Collection Interface object for the Web Publication itself, access to the various metadata items (e.g., the publication's title), and providing information on the publication’s semantic sructure.</p>
+
+          <p>By defining a standard Model and API that would represent a Web Publication, it would make retrieving the information from the manifest and metadata across implementations that use different syntaxes fully interoperable. </p>
+
+          <div class="note">
+            <div class="note-title marker" aria-level="6" role="heading" id="h-note4"><span>Note</span></div>
+            <p class="">There is, currently, a separate <a href="https://www.w3.org/community/pom/"><abbr title="World Wide Web Consortium">W3C</abbr> Community Group on Publication Object Models</a>. At this moment no report has yet been published, though.</p>
+          </div>
+        </section>
+      </section>
+
+      <section id="styling" typeof="bibo:Chapter" resource="#styling" property="bibo:hasPart">
+        <h4 id="h-styling" resource="#h-styling"><span property="xhv:role" resource="xhv:heading"><span class="secno">2.1.6 </span>Styling and Layout, Pagination</span>
+        </h4>
+        <p>As outlined in [<cite><a class="bibref" href="#bib-dpub-latinreq">dpub-latinreq</a></cite>] or [<cite><a class="bibref" href="#bib-dpub-css-priorities">dpub-css-priorities</a></cite>], the Open Web Platform in general, and CSS in particular, is still lacking solutions for meeting all of the publishers’ expectations on satisfactory typography and layout for digital publications. While improved presentation fidelity will be of paramount importance to the overall success and adoption rate of <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publications</a>, it is clear that many of these issues are going to be addressed on a case-by-case basis by the CSS Working Group over a longer period of time. STM publishing, for example, where the faithful representation and rendering of, say, mathematical or chemical formulae is of a paramount importance, has particularly severe requirements that must be fulfilled by the Open Web Platform technologies. Similarly, dynamic pagination of reflowable content is not natively supported by browsers today, and as a result User Agents are forced to implement pagination using various ad-hoc approaches, all coming with a significant penalty in terms of development costs, performance and stability.</p>
+
+        <p>It is anticipated that native support for pagination (in CSS and/or in the DOM) is going to be put forward by stakeholders as a critical component of <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publications</a>; thus the finalization of <a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publications</a> may be contingent on the availability of a native pagination model for Web content.</p>
+
+        <div class="note">
+          <div class="note-title marker" aria-level="5" role="heading" id="h-note5"><span>Note</span></div>
+          <p class="">Note that the <a href="https://wiki.css-houdini.org/">“Houdini” Task Force</a>, recently started jointly by the <abbr title="World Wide Web Consortium">W3C</abbr> CSS WG and the <abbr title="World Wide Web Consortium">W3C</abbr> TAG, may open new avenues to handle pagination.</p>
+        </div>
+      </section>
+
+      <section id="personalization" typeof="bibo:Chapter" resource="#personalization" property="bibo:hasPart">
+        <h4 id="h-personalization" resource="#h-personalization"><span property="xhv:role" resource="xhv:heading"><span class="secno">2.1.7 </span>Presentation Control and Personalization</span>
+        </h4>
+
+        <p>When reading long-form (and sometimes mission-critical) publications, personalization—i.e., the ability for users to adapt the presentation to suit their needs—is of a great importance. While technologies such as CSS Media Queries have come a long way in terms of adapting content to devices, this is not the same thing as adapting to a user. Presentation control features are available in various user agents for publications today. For example, many offer the possibility to dynamically change font size or background/foreground color schemes, or even adopt <a href="https://www.w3.org/WAI/RD/2012/text-customization/r14">accessible presentations needed for dsylexia</a>. Unfortunately, today's implementations are brittle and limited due to the lack of an underlying framework that explicitly supports user adaptation.</p>
+
+        <p><a href="#dfn-web-publication" class="internalDFN" data-link-type="dfn">Web Publications</a> need to incorporate an explicit framework for achieving advanced and predictable user-triggered presentation control. (Note that from this perspective, accessibility can be seen just a radical case of personalization.)</p>
+      </section>
+    </section>
+
+    <section id="packaged-web-publications" typeof="bibo:Chapter" resource="#packaged-web-publications" property="bibo:hasPart">
+      <h3 id="h-packaged-web-publications" resource="#h-packaged-web-publications"><span property="xhv:role" resource="xhv:heading"><span class="secno">2.2 </span>Packaged Web Publications</span>
+      </h3>
+
+      <section id="package" typeof="bibo:Chapter" resource="#package" property="bibo:hasPart">
+        <h4 id="h-package" resource="#h-package"><span property="xhv:role" resource="xhv:heading"><span class="secno">2.2.1 </span>Packaging Formats</span>
+        </h4>
+
+        <p>Transmitting, storing, sharing, or archiving a web publication is easier if it can be packaged as a single file. Several such packaging formats exist today, often using ZIP along with an XML manifest. Examples include [<cite><a class="bibref" href="#bib-OCF">OCF</a></cite>] for EPUB, and [<cite><a class="bibref" href="#bib-ODF">ODF</a></cite>] or [<cite><a class="bibref" href="#bib-OOXML">OOXML</a></cite>] for office documents. None of these are universally recognized and supported across all publishing or web environments. We expect that packaging will not be tightly coupled to the architecture of web publications, so that different packaging formats can be used for different purposes. </p>
+
+        <p>The <abbr title="World Wide Web Consortium">W3C</abbr> has published a Working Draft for "Packaging on the Web" [<cite><a class="bibref" href="#bib-web-packaging">web-packaging</a></cite>], to be used to package bundles of web resources for <a href="https://github.com/dimich-g/webpackage/blob/master/README.md">web caches, local sharing, and CDNs</a>. If this format is adopted by standard user agents (eg. web browsers), we expect to support it as one standard packaging model for <a href="#dfn-packaged-web-publication" class="internalDFN" data-link-type="dfn">Packaged Web Publications</a>.</p>
+
+        <div class="note">
+          <div class="note-title marker" aria-level="5" role="heading" id="h-note6"><span>Note</span></div>
+          <div class="">
+            <p>The IETF has published an <a href="https://tools.ietf.org/html/draft-seantek-kerwin-arcmedia-type-01">informational draft on a top-level media type for archives</a>. Although that draft does not specify a specific archive format, and the work is currently on hold, it shows the overall interest in packaging on the Web in line with the concerns of <a href="#dfn-packaged-web-publication" class="internalDFN" data-link-type="dfn">Packaged Web Publications</a>.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="security_models" typeof="bibo:Chapter" resource="#security_models" property="bibo:hasPart">
+        <h4 id="h-security_models" resource="#h-security_models"><span property="xhv:role" resource="xhv:heading"><span class="secno">2.2.2 </span>Security Models</span>
+        </h4>
+
+        <p>The security model of the Web, based primarily on the same-origin policy and the concept of “site”, does not apply to portable documents, as the notion of “origin” is based on HTTP properties that are invalidated/non-existent when a document transitions from its online state to the portable state. (Packaged) Web Publications must incorporate a security model that defines rules for both the online and portable states and that aligns with <a href="https://github.com/dimich-g/webpackage/blob/master/README.md">Web Packaging.</a></p>
+      </section>
+    </section>
+  </section>
+
+  <section id="profiling" typeof="bibo:Chapter" resource="#profiling" property="bibo:hasPart">
+    <!--OddPage-->
+    <h2 id="h-profiling" resource="#h-profiling"><span property="xhv:role" resource="xhv:heading"><span class="secno">3. </span>Profiling Web Publications</span>
+    </h2>
+
+    <p>Web Publications, by design, must be able to accommodate publications of all sorts, from all domains, and to utilize all available web technologies.</p>
+
+    <p>However, in order to address the needs of their constituents and to streamline the authoring and interchange of publications in their ecosystems, certain domains or communities of interest may benefit from limiting the options that could be available or requiring certain features that would necessarily be optional for Web Publications in general. These would result in profiles of Web Publications that would in all respects be valid Web Publications, but with specific adjustments, done in a certain way, to achieve those benefits.</p>
+
+    <p>For example, the current publication supply chain based on EPUB benefits from requirements such as a certain packaging format, navigation features, and metadata that presumably would be a subset of the options available to Web Publications in general. It may be desirable for what is currently an EPUB to become a particular type (and thus a profile) of Packaged Web Publication. Such a profile may specify a packaging format, or the exact serialization syntax for its manifest (possibly aligning it with those of the current EPUB specification). Likewise, there could be a profile optimized for education that would require certain features for accessibility and to optimize interoperability with Learning Management Systems (LMSs) or Virtual Learning Environments (VLEs), or a profile for scientific publications requiring citations to be in a particular form and optimized for the publication of data.</p>
+
+    <p>Such profiles may need to be able to be recursive, in the way that the current <a href="http://www.idpf.org/epub/profiles/edu/spec/">EPUB for Education</a> specification (commonly known as EDUPUB) is a profile of EPUB.</p>
+  </section>
+
+  <section id="conclusion" typeof="bibo:Chapter" resource="#conclusion" property="bibo:hasPart">
+    <!--OddPage-->
+    <h2 id="h-conclusion" resource="#h-conclusion"><span property="xhv:role" resource="xhv:heading"><span class="secno">4. </span>Conclusions</span>
+    </h2>
+    <p>This document outlines a vision for the convergence between the Open Web Platform and portable documents while also significantly advancing and expanding the existing digital publishing ecosystem. The realization of this vision would require a strong cooperation between the traditional publishing and Web communities, based on a close collaboration between the <abbr title="World Wide Web Consortium">W3C</abbr> and other relevant organizations, like <a href="http://idpf.org">IDPF</a>, <a href="http://editeur.org/">EDItEUR</a>, <a href="http://www.bisg.org">BISG</a>, or others. While it is envisaged that most of the work could be done in one or more dedicated Working Groups (within <abbr title="World Wide Web Consortium">W3C</abbr> or elsewhere, depending on the exact charter), it must be emphasized that many of the features will affect and will be affected by work done elsewhere, within or outside these organizations. The starting point will be to explore and plan for the detailed technical challenges to gain a better insight into the work ahead; this exploration should be done together with the various interested communities.</p>
+  </section>
+
+  <section class="appendix" id="simple-manifest-access" typeof="bibo:Chapter" resource="#simple-manifest-access" property="bibo:hasPart">
+    <!--OddPage-->
+    <h2 id="h-simple-manifest-access" resource="#h-simple-manifest-access"><span property="xhv:role" resource="xhv:heading"><span class="secno">A. </span>Algorithm to Retrieve the Manifest for a PWP</span>
+    </h2>
+
+    <div class="ednote">
+      <div class="ednote-title marker" aria-level="3" role="heading" id="h-ednote1"><span>Editor's Note</span></div>
+      <aside class="">
+        This section may have to be revised thoroughly. Indeed
+        <ul>
+          <li>There is a major push back on accessing a manifest file (e.g., a JSON file) directly, meaning that the appropriate branch may have to go</li>
+          <li>If the publication manifest is on top of a Web App Manifest, then this algorithm should actually be removed and rely on whatever that specification provides. </li>
+        </ul>
+      </aside>
+    </div>
+
+    <p>The goal of this algorithm is to obtain the <a href="#dfn-manifest" class="internalDFN" data-link-type="dfn">PWP manifest</a> based on the value of the state independent locator <strong>L</strong>. This algorithm is performed by the <a href="#dfn-user-agent" class="internalDFN" data-link-type="dfn">user agent</a>, typically when it is initialized with the state independent locator <strong>L</strong> of a particular <a href="#dfn-packaged-web-publication" class="internalDFN" data-link-type="dfn">PWP</a> instance. The algorithm retrieves the <a href="#dfn-manifest" class="internalDFN" data-link-type="dfn">PWP manifest</a> based on the HTTP(S) responses on a <code>HTTP GET</code> request on <strong>L</strong>.</p>
+
+    <div class="note">
+      <div class="note-title marker" aria-level="3" role="heading" id="h-note7"><span>Note</span></div>
+      <p class="">
+        If the <a href="#dfn-user-agent" class="internalDFN" data-link-type="dfn">user agent</a> already has the cached publication, than that will probably prevail (modulo cache state) and there may be no HTTP request in the first place. This section really refers to the situation of a first access.
+      </p>
+    </div>
+
+    <p>In what follows, as an abuse of notation, <code>HTTP&nbsp;GET&nbsp;U</code>, for a URL <code>U</code>, refers to an <code>HTTP</code> or <code>HTTPS</code> request issued to the domain part of <code>U</code>, using the path from <code>U</code>. I.e., if <code>U</code> is <code>http://www.ex.org/a/b/c</code>, then <code>HTTP&nbsp;GET&nbsp;U</code> stands for:</p>
+
+    <pre aria-busy="false" aria-live="polite" class="hljs http"><span class="hljs-keyword">GET</span> <span class="hljs-string">/a/b/c</span> HTTP/1.1
+<span class="hljs-attribute">Host</span>: www.ex.org</pre>
+
+    <p>See [<cite><a class="bibref" href="#bib-rfc2616">rfc2616</a></cite>] for further details.</p>
+
+    <p>With these prerequisites, the algorithm is as follows (see also <a href="#fig-flow-get" class="fig-ref">the figure</a> as a visual aid to the algorithm). The input to the algorithm is the state independent locator of the <a href="#dfn-packaged-web-publication" class="internalDFN" data-link-type="dfn">PWP</a> instance, <strong>L</strong>.</p>
+
+    <ol class="algorithm" id="simple_algorithm">
+      <li>Issue an <code>HTTP&nbsp;GET&nbsp;L</code> request, possibly returning the message body <strong>B</strong>.</li>
+
+      <li>If the response is not successful (e.g., the response code is a 404), the process fails with no results.</li>
+
+      <li>Otherwise, consider the HTTP Response headers:
+        <ol>
+          <li>If the headers include an entry of the form <code>LINK&nbsp;&lt;URI&gt;;&nbsp;rel="manifest"</code> (see [<cite><a class="bibref" href="#bib-rfc5988">rfc5988</a></cite>]) then issue an <code>HTTP&nbsp;GET&nbsp;URI</code> request. </li>
+
+          <li>If that response is successful, the algorithm stops by returning the response message body to the caller as the <a href="#dfn-manifest" class="internalDFN" data-link-type="dfn">PWP manifest</a>.</li>
+
+          <li>(Otherwise, the algorithm continues.)</li>
+        </ol>
+      </li>
+      <li>Consider the media type of the original message body <strong>B</strong>. If it is:
+        <ol>
+          <li>A <em>manifest</em>, as identified by its media type (to be defined), the algorithm stops by returning the response content <strong>B</strong> to the caller as the <a href="#dfn-manifest" class="internalDFN" data-link-type="dfn">PWP manifest</a>.</li>
+
+          <li>A <em>packaged PWP instance</em> (identified via the media type to be specified for the packed state of a PWP):
+            <ol>
+              <li>Unpack the package, and retrieve the <a href="#dfn-manifest" class="internalDFN" data-link-type="dfn">manifest</a> embedded in the package as (to be) specified by the packed state of a PWP.</li>
+              <li>The algorithm stops by returning the manifest retrieved from the package to the caller as the <a href="#dfn-manifest" class="internalDFN" data-link-type="dfn">PWP manifest</a></li>
+            </ol>
+          </li>
+
+          <li>An <em>HTML document</em>, then
+            <ol>
+              <li>If the HTML content includes a <a href="#dfn-manifest" class="internalDFN" data-link-type="dfn">manifest</a> content embedded in a <code>&lt;script&gt;</code> element, serialized in to one of the accepted serializations for PWP manifests:
+                <ol>
+                  <li>Retrieve and parse the content of the <code>&lt;script&gt;</code> element.</li>
+                  <li>If parsing is successful, the algorithm stops by returning the parsed manifest content to the caller as the <a href="#dfn-manifest" class="internalDFN" data-link-type="dfn">PWP manifest</a>.</li>
+                  <li>Otherwise, the algorithm continues</li>
+                </ol>
+              </li>
+              <li>If the HTML content includes a <code>&lt;link&nbsp;rel="manifest"&nbsp;href="URI"&gt;</code> in the header:
+                <ol>
+                  <li>Issue a <code>HTTP&nbsp;GET&nbsp;URI</code> request</li>
+                  <li>If the response is successful, the algorithm stops by returning the response message body to the caller as the <a href="#dfn-manifest" class="internalDFN" data-link-type="dfn">PWP manifest</a>.</li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </li>
+      <li>If the algorithm gets to this points, it fails with no results.</li>
+    </ol>
+
+    <div class="note">
+      <div class="note-title marker" aria-level="3" role="heading" id="h-note8"><span>Note</span></div>
+      <ul class="" id="man_alg_notes">
+        <li>The algorithm considers only HTML as a possible non-packaged and non-manifest response format. It may become possible to allow, for example, SVG as another, possible format for a <a href="#dfn-packaged-web-publication" class="internalDFN" data-link-type="dfn">PWP</a>; this depends on the final specification of a PWP. The algorithm should then be adapted accordingly by adding a relevant branch (e.g., the specification of SVG includes <code>&lt;script&gt;</code> element that can be used to embed a manifest, but does not have a <code>&lt;link&gt;</code> element).</li>
+
+        <li>It may be possible for HTML file to includes several <code>&lt;link&gt;</code> elements referring to a <a href="#dfn-manifest" class="internalDFN" data-link-type="dfn">manifest</a> each. If that becomes allowed by a PWP specification, the corresponding step could be modified by taking all link elements into account, and sequentially considering the manifest files in document order to yield the manifest. The same note is valid for several <code>&lt;script&gt;</code> elements.</li>
+
+        <li>Similarly, if a PWP specification allows for several different serialization syntaxes for manifests, the user agent should be able to recognize and parse them accordingly. The expectation is that the various possible serializations <em class="rfc2119" title="MUST">MUST</em> serialize the <em>same</em> content, i.e., these do not influence the final result.</li>
+
+        <li>The algorithm is silent on the details on how a manifest should be retrieved from a package. This depends on the detailed specification of packaging, on whether a manifest would have to be at a known location within a package, on whether there might be several manifest instances within a package, etc. It is also possible that the details would follow a similar approach as described in this algorithm, i.e., relying on embedded and linked manifests of a top level HTML file, for example. As far as the algorithm described in this section is concerned, these details do not influence the final result.</li>
+
+        <li>The algorithm makes use of the constant <code>manifest</code>; Which is also used by the Web App Manifest to indicate the relationship between a resource and its manifest.</li>
+
+        <li>The user agent <em class="rfc2119" title="MAY">MAY</em> include an <code>Accept</code> header (see [<cite><a class="bibref" href="#bib-rfc7231">rfc7231</a></cite>]) when issuing a <code>HTTP GET</code> to express its preference for, e.g., a packed state of a PWP over manifest payload, or in favor of a particular serialization of the manifest content. Whether this is done or not, and whether the server honors this preference, does not influence the details of the algorithm.</li>
+      </ul>
+    </div>
+
+    <figure id="fig-flow-get">
+      <img src="figures/Simple_manifest_access.svg" style="width:100%" alt="Flowchart of what happens when a Packaged Web Publication is retrieved by the user and how this leads to the PWP manifest; manifest are not combined, first one is used">
+      <figcaption>Fig. <span class="figno">4</span> <span class="fig-title">Visual representation of the simple <a href="#simple_algorithm">algorithm</a> to retrieve the <a href="#dfn-manifest" class="internalDFN" data-link-type="dfn">PWP manifest</a>. The figure is also available in <a href="figures/Simple_manifest_access.svg">SVG</a> and <a href="figures/Simple_manifest_access.png">PNG</a> formats.</span></figcaption>
+    </figure>
+  </section>
+
+  <section class="appendix" id="acknowledgements" typeof="bibo:Chapter" resource="#acknowledgements" property="bibo:hasPart">
+    <!--OddPage-->
+    <h2 id="h-acknowledgements" resource="#h-acknowledgements"><span property="xhv:role" resource="xhv:heading"><span class="secno">B. </span>Acknowledgements</span>
+    </h2>
+    <p>The following people have been instrumental in providing thoughts, feedback, reviews, content, criticism, and input in the creation of this document:</p>
+
+    <div style="margin-left: 3em">
+      Boris Anthony (Rebus Foundation), Luc Audrain (Hachette Livre), Nick Barreto (Canelo, Invited Expert), Baldur Bjarnason (Rebus Foundation), Marcos Caceres (Mozilla), Timothy Cole (University of Illinois at Urbana-Champaign), Garth Conboy (Google), Dave Cramer (Hachette Livre), Romain Deltour (DAISY Consortium), Brady Duga (Google), Heather Flanagan (IETF, Invited Expert), Hadrien Gardeur (Feedbooks), (Markus Gylling (IDPF), Eric Hellman, Ivan Herman (<abbr title="World Wide Web Consortium">W3C</abbr>), Deborah Kaplan (Invited Expert), Bill Kasdorf (BISG), George Kerscher (DAISY Consortium), Peter Krautzberger (MathJax, Invited Expert), Charles LaPierre (Benetech), Laurent Le Meur (EDRLab), Vladimir Levantovsky (Monotype), Mia Lipner (Pearson), Christofer Maden (University of Illinois at Urbana-Champaign), Shane McCarron (Spec-Ops), William McCoy (IDPF), Hugh McGuire (Rebus Foundation), Ben De Meester (iMinds), Liam Quin (<abbr title="World Wide Web Consortium">W3C</abbr>), Leonard Rosenthol (Adobe), Nicholas Ruffilo (Ingram, Invited Expert), Rob Sanderson (Stanford University), Avneesh Singh (DAISY Consortium), Mike Smith (<abbr title="World Wide Web Consortium">W3C</abbr>), Alan Stearns (Adobe), Ayla Stein (University of Illinois at Urbana-Champaign), Tzviya Siegman (Wiley), Nicholas Taylor (Stanford University), Daniel Weck (DAISY Consortium), and Benjamin Young (Wiley).
+    </div>
+  </section>
+
+
+  <section id="references" class="appendix" typeof="bibo:Chapter" resource="#references" property="bibo:hasPart">
+    <!--OddPage-->
+    <h2 id="h-references" resource="#h-references"><span property="xhv:role" resource="xhv:heading"><span class="secno">C. </span>References</span>
+    </h2>
+
+    <section id="informative-references" typeof="bibo:Chapter" resource="#informative-references" property="bibo:hasPart">
+      <h3 id="h-informative-references" resource="#h-informative-references"><span property="xhv:role" resource="xhv:heading"><span class="secno">C.1 </span>Informative references</span>
+      </h3>
+      <dl class="bibliography" resource=""><dt id="bib-ISBN-URN">[ISBN-URN]</dt>
+        <dd><a href="http://tools.ietf.org/html/rfc3187" property="dc:references"><cite>Using International Standard Book Numbers as Uniform Resource Names</cite></a>. J. Hakala; H. Walravens. IETF. Informational RFC. URL: <a href="http://tools.ietf.org/html/rfc3187" property="dc:references">http://tools.ietf.org/html/rfc3187</a>
+        </dd><dt id="bib-OCF">[OCF]</dt>
+        <dd><a href="https://www.w3.org/Submission/2017/SUBM-epub-ocf-20170125/" property="dc:references"><cite>EPUB Open Container Format (OCF) 3.1</cite></a>. James Pritchett; Markus Gylling. W3C. W3C Member Submission. URL: <a href="https://www.w3.org/Submission/2017/SUBM-epub-ocf-20170125/" property="dc:references">https://www.w3.org/Submission/2017/SUBM-epub-ocf-20170125/</a>
+        </dd><dt id="bib-ODF">[ODF]</dt>
+        <dd><a href="https://www.oasis-open.org/committees/download.php/12572/OpenDocument-v1.0-os.pdf" property="dc:references"><cite>Open Document Format for Office Applications v1.0</cite></a>. Michael Brauer; Patrick Durusau; Gary Edwards; David Faure; Tom Magliery; Daniel Vogelheim. Oasis. Oasis Standard. URL: <a href="https://www.oasis-open.org/committees/download.php/12572/OpenDocument-v1.0-os.pdf" property="dc:references">https://www.oasis-open.org/committees/download.php/12572/OpenDocument-v1.0-os.pdf</a>
+        </dd><dt id="bib-ONIX">[ONIX]</dt>
+        <dd><cite>ONIX for Books 3.0.2 Specification</cite>EDItEUR. EDItEUR.
+        </dd><dt id="bib-OOXML">[OOXML]</dt>
+        <dd><a href="http://www.ecma-international.org/publications/standards/Ecma-376.htm" property="dc:references"><cite>Office Open XML File Formats, ECMA-376</cite></a>. ECMA International. ECMA. Standard ECMA 376. URL: <a href="http://www.ecma-international.org/publications/standards/Ecma-376.htm" property="dc:references">http://www.ecma-international.org/publications/standards/Ecma-376.htm</a>
+        </dd><dt id="bib-URI">[URI]</dt>
+        <dd><a href="https://tools.ietf.org/html/rfc3986" property="dc:references"><cite>Uniform Resource Identifier (URI): Generic Syntax</cite></a>. T. Berners-Lee; R. Fielding; L. Masinter. IETF. January 2005. Internet Standard. URL: <a href="https://tools.ietf.org/html/rfc3986" property="dc:references">https://tools.ietf.org/html/rfc3986</a>
+        </dd><dt id="bib-URL">[URL]</dt>
+        <dd><a href="https://url.spec.whatwg.org/" property="dc:references"><cite>URL Standard</cite></a>. Anne van Kesteren. WHATWG. Living Standard. URL: <a href="https://url.spec.whatwg.org/" property="dc:references">https://url.spec.whatwg.org/</a>
+        </dd><dt id="bib-UUID">[UUID]</dt>
+        <dd><a href="http://tools.ietf.org/html/rfc4122" property="dc:references"><cite>A Universally Unique IDentifier (UUID) URN Namespace</cite></a>. P. Leach; M. Mealling; R. Salz. IETF. Informational RFC. URL: <a href="http://tools.ietf.org/html/rfc4122" property="dc:references">http://tools.ietf.org/html/rfc4122</a>
+        </dd><dt id="bib-WCA-terms">[WCA-terms]</dt>
+        <dd><a href="https://www.w3.org/1999/05/WCA-terms/" property="dc:references"><cite>Web Characterization Terminology &amp; Definitions Sheet</cite></a>. Henrik Frystyk Nielsen. W3C. 24 May 1999. URL: <a href="https://www.w3.org/1999/05/WCA-terms/" property="dc:references">https://www.w3.org/1999/05/WCA-terms/</a>
+        </dd><dt id="bib-dpub-css-priorities">[dpub-css-priorities]</dt>
+        <dd><a href="https://www.w3.org/TR/dpub-css-priorities/" property="dc:references"><cite>Priorities for CSS from the Digital Publishing Interest Group</cite></a>. Dave Cramer. W3C. 20 August 2015. W3C Working Draft. URL: <a href="https://www.w3.org/TR/dpub-css-priorities/" property="dc:references">https://www.w3.org/TR/dpub-css-priorities/</a>
+        </dd><dt id="bib-dpub-latinreq">[dpub-latinreq]</dt>
+        <dd><a href="https://www.w3.org/TR/dpub-latinreq/" property="dc:references"><cite>Requirements for Latin Text Layout and Pagination</cite></a>. Dave Cramer. W3C. 30 September 2014. W3C Working Draft. URL: <a href="https://www.w3.org/TR/dpub-latinreq/" property="dc:references">https://www.w3.org/TR/dpub-latinreq/</a>
+        </dd><dt id="bib-frbr">[frbr]</dt>
+        <dd><a href="http://archive.ifla.org/archive/VII/s13/frbr/frbr_current_toc.htm" property="dc:references"><cite>Functional Requirements for Bibliographic Records</cite></a>. Olivia Madison; John Byrum, Jr.; Suzanne Jouguelet; Dorothy McGarry; Nancy Williamson; Maria Witt. International Federation of Library Associations and Institutions. URL: <a href="http://archive.ifla.org/archive/VII/s13/frbr/frbr_current_toc.htm" property="dc:references">http://archive.ifla.org/archive/VII/s13/frbr/frbr_current_toc.htm</a>
+        </dd><dt id="bib-html-rdfa">[html-rdfa]</dt>
+        <dd><a href="https://www.w3.org/TR/html-rdfa/" property="dc:references"><cite>HTML+RDFa 1.1 - Second Edition</cite></a>. Manu Sporny. W3C. 17 March 2015. W3C Recommendation. URL: <a href="https://www.w3.org/TR/html-rdfa/" property="dc:references">https://www.w3.org/TR/html-rdfa/</a>
+        </dd><dt id="bib-microdata">[microdata]</dt>
+        <dd><a href="https://www.w3.org/TR/microdata/" property="dc:references"><cite>HTML Microdata</cite></a>. Ian Hickson. W3C. 29 October 2013. W3C Note. URL: <a href="https://www.w3.org/TR/microdata/" property="dc:references">https://www.w3.org/TR/microdata/</a>
+        </dd><dt id="bib-pwp-ucr">[pwp-ucr]</dt>
+        <dd><a href="http://www.w3.org/TR/pwp-ucr/" property="dc:references"><cite>Web Publications Use Cases and Requirements</cite></a>. Heather Flanagan; Ivan Herman; Leonard Rosenthol. W3C. Interest Group Note. URL: <a href="http://www.w3.org/TR/pwp-ucr/" property="dc:references">http://www.w3.org/TR/pwp-ucr/</a>
+        </dd><dt id="bib-rfc2616">[rfc2616]</dt>
+        <dd><a href="https://tools.ietf.org/html/rfc2616" property="dc:references"><cite>Hypertext Transfer Protocol -- HTTP/1.1</cite></a>. R. Fielding; J. Gettys; J. Mogul; H. Frystyk; L. Masinter; P. Leach; T. Berners-Lee. IETF. June 1999. Draft Standard. URL: <a href="https://tools.ietf.org/html/rfc2616" property="dc:references">https://tools.ietf.org/html/rfc2616</a>
+        </dd><dt id="bib-rfc5988">[rfc5988]</dt>
+        <dd><a href="https://tools.ietf.org/html/rfc5988" property="dc:references"><cite>Web Linking</cite></a>. M. Nottingham. IETF. October 2010. Proposed Standard. URL: <a href="https://tools.ietf.org/html/rfc5988" property="dc:references">https://tools.ietf.org/html/rfc5988</a>
+        </dd><dt id="bib-rfc7231">[rfc7231]</dt>
+        <dd><a href="https://tools.ietf.org/html/rfc7231" property="dc:references"><cite>Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content</cite></a>. R. Fielding, Ed.; J. Reschke, Ed.. IETF. June 2014. Proposed Standard. URL: <a href="https://tools.ietf.org/html/rfc7231" property="dc:references">https://tools.ietf.org/html/rfc7231</a>
+        </dd><dt id="bib-service-workers">[service-workers]</dt>
+        <dd><a href="https://www.w3.org/TR/service-workers-1/" property="dc:references"><cite>Service Workers 1</cite></a>. Alex Russell; Jungkee Song; Jake Archibald; Marijn Kruisselbrink. W3C. 11 October 2016. W3C Working Draft. URL: <a href="https://www.w3.org/TR/service-workers-1/" property="dc:references">https://www.w3.org/TR/service-workers-1/</a>
+        </dd><dt id="bib-web-manifest">[web-manifest]</dt>
+        <dd><a href="https://www.w3.org/TR/appmanifest/" property="dc:references"><cite>Manifest for web application</cite></a>. W3C. W3C Editor's Draft. URL: <a href="https://www.w3.org/TR/appmanifest/" property="dc:references">https://www.w3.org/TR/appmanifest/</a>
+        </dd><dt id="bib-web-packaging">[web-packaging]</dt>
+        <dd><a href="http://www.w3.org/TR/web-packaging/" property="dc:references"><cite>Packaging on the Web</cite></a>. Jeni Tennison. W3C. W3C Working Draft. URL: <a href="http://www.w3.org/TR/web-packaging/" property="dc:references">http://www.w3.org/TR/web-packaging/</a>
+        </dd><dt id="bib-web-workers">[web-workers]</dt>
+        <dd><a href="https://w3c.github.io/workers/" property="dc:references"><cite>Web Workers</cite></a>. Ian Hickson. W3C. W3C Editor's Draft. URL: <a href="https://w3c.github.io/workers/" property="dc:references">https://w3c.github.io/workers/</a>
+        </dd>
+      </dl>
+    </section>
+  </section>
+  <p role="navigation" id="back-to-top"><a href="#toc"><abbr title="Back to Top">↑</abbr></a></p>
+  <script src="https://www.w3.org/scripts/TR/2016/fixup.js"></script>
+</body>
+</html>
