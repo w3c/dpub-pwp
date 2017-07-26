@@ -376,13 +376,13 @@
         and should not be considered a technical specification.
         Instead, its goal is to outline that vision
         and possible technical directions to achieve it,
-        and reflects the discussions that occured in the Digital Publishing Interest Group.
-        In partiucular, this document looks at some of the technical implications,
+        and reflects the discussions that occurred in the Digital Publishing Interest Group.
+        In particular, this document looks at some of the technical implications,
         and possible solutions, arising from the use cases and requirements
         collected by the Digital Publishing Interest Group,
         and documented in a companion UCR document&nbsp;[[pwp-ucr]].
         Some of the sections are more detailed and more mature than others.
-        A more detailed and rigoruous specification should be done
+        A more detailed and rigorous specification should be done
         by a separated, dedicated Working Group in the future;
         the final version of this document will published as an Interest Group Note.</p>
     </section>
@@ -511,7 +511,7 @@
 
         <p>This section considers some of the technical work areas that should be clarified for a more precise and detailed specification of <a>Web Publications</a>. The list is not exhaustive and there are only hints at the technical solutions without claiming to be complete and tested for validity. It must also be emphasized that some of solutions to the problems listed below may not come from W3C, but possibly from other, external organizations (document identification is a typical example).</p>
 
-        <p>The <a href="#terminology"></a> section provides some conceptual framework for the technical discussion. The most important definition is the one of <a>Web Publications</a>: the fact that a WP, i.e., a single Web Resource, identifies a <em>collection</em> of <a data-lt="Web Resource">Web Resources</a> that conveys the “boundedness” which characterizes a publication (e.g. a book or an article). All technical issues in this section are, fundamentally, around the question on how this boundedness should co-exist with the opennes of the Web in general.</p>
+        <p>The <a href="#terminology"></a> section provides some conceptual framework for the technical discussion. The most important definition is the one of <a>Web Publications</a>: the fact that a WP, i.e., a single Web Resource, identifies a <em>collection</em> of <a data-lt="Web Resource">Web Resources</a> that conveys the “boundedness” which characterizes a publication (e.g. a book or an article). All technical issues in this section are, fundamentally, around the question on how this boundedness should co-exist with the openness of the Web in general.</p>
 
         <figure id="pwp_one_url" >
             <img src="figures/PWP-oneURL.svg" alt="Image showing a collection of resources, surrounded by a dotted line, and an arrow pointing at that dotted line" style="width:80%">
@@ -528,7 +528,7 @@
                 <ul>
                     <li>Provide some sort of a local storage, or cache, of the WP content. To achieve this, the agent has to catch the HTTP(S) requests stemming from the rendering engine and has to, possibly, serve the content from its cache or the file. In other words, the <a>user agent</a> has to act as a network proxy.</li>
 
-                    <li>Be able to resolve a <a data-lt="locator">locators</a> to the consituent resources of a WP, regardless of the state of the WP.</a>.
+                    <li>Be able to resolve a <a data-lt="locator">locators</a> to the constituent resources of a WP, regardless of the state of the WP.</a>.
                 </ul>
 
                 <figure style="text-align: center;" id="workers_basic">
@@ -562,7 +562,7 @@
                     <ol>
                         <li>A set of identifiers (with possibly a label assigned to each identifier to describe what it is for and who is the authority to assign them)</li>
                         <li>A state independent locator (can we call this a 'state independent locator'?)</li>
-                        <li>State specific locators of a particular copy (ie, a locator to my copy in zip, and a separate locator to the unpacked version on my server)</li>
+                        <li>State specific locators of a particular copy (i.e., a locator to my copy in zip, and a separate locator to the unpacked version on my server)</li>
                     </ol>
                     <p> The rule being that the entries in (1) SHOULD be changed only by the respective authorities, and they MUST be part of the WP manifest. </p>
                 </div>
@@ -608,7 +608,7 @@
 
                 <section>
                     <h2>Document Collection Interface and API</h2>
-                    <p>Today, certain types of Web Resources used in a Web Publication (e.g., HTML or SVG) can be accessed, programatically, via the <a href="https://html.spec.whatwg.org/multipage/dom.html#document">Document</a> interface, that provides attributes and methods to access the full tree-like structure of, say, the HTML content, the various attributes on each level, or the textual content. Programs make use of these possibilities, as well as related interfaces, to implement a multitude of operations on a single resource.</p>
+                    <p>Today, certain types of Web Resources used in a Web Publication (e.g., HTML or SVG) can be accessed, programmatically, via the <a href="https://html.spec.whatwg.org/multipage/dom.html#document">Document</a> interface, that provides attributes and methods to access the full tree-like structure of, say, the HTML content, the various attributes on each level, or the textual content. Programs make use of these possibilities, as well as related interfaces, to implement a multitude of operations on a single resource.</p>
 
                     <p>However, a <a>Web Publication</a> is a <em>collection</em> of resources; consequently, a number of operations would also need to be able to be performed on that collection as a whole. Typical examples are: </p>
 
@@ -618,11 +618,11 @@
                         <li>provide an outlining and/or table of content generation over the Web Publication</li>
                     </ul>
 
-                    <p>Although these operations may be performed via the current standard interfaces, but any such program would have to construct and manage a collection of such document interfaces. And the caller would also need to have detailed knowlege of the state and packaging model (if any) used for the WP. It would therefore necessary to define such a Document Collection Interface, together with a set of suitable attributes and methods. </p>
+                    <p>Although these operations may be performed via the current standard interfaces, but any such program would have to construct and manage a collection of such document interfaces. And the caller would also need to have detailed knowledge of the state and packaging model (if any) used for the WP. It would therefore necessary to define such a Document Collection Interface, together with a set of suitable attributes and methods. </p>
                 </section>
                 <section>
                     <h2>Publication Object Model and API</h2>
-                    <p>Many programmatic steps on Web Publications rely on the interplay of the individual resources and information stored elsewhere, for example in the <a href="#manifest-details">manifest</a> of the Web Publication. These include the creation of the Document Collection Interface object for the Web Publication itself, access to the various metadata items (e.g., the publication's title), and providing information on the publication’s semantic sructure.</p>
+                    <p>Many programmatic steps on Web Publications rely on the interplay of the individual resources and information stored elsewhere, for example in the <a href="#manifest-details">manifest</a> of the Web Publication. These include the creation of the Document Collection Interface object for the Web Publication itself, access to the various metadata items (e.g., the publication's title), and providing information on the publication’s semantic structure.</p>
 
                     <p>By defining a standard Model and API that would represent a Web Publication, it would make retrieving the information from the manifest and metadata across implementations that use different syntaxes fully interoperable. </p>
 
@@ -642,7 +642,7 @@
             <section id="personalization">
                 <h3>Presentation Control and Personalization</h3>
 
-                <p>When reading long-form (and sometimes mission-critical) publications, personalization—i.e., the ability for users to adapt the presentation to suit their needs—is of a great importance. While technologies such as CSS Media Queries have come a long way in terms of adapting content to devices, this is not the same thing as adapting to a user. Presentation control features are available in various user agents for publications today. For example, many offer the possibility to dynamically change font size or background/foreground color schemes, or even adopt <a href="https://www.w3.org/WAI/RD/2012/text-customization/r14">accessible presentations needed for dsylexia</a>. Unfortunately, today's implementations are brittle and limited due to the lack of an underlying framework that explicitly supports user adaptation.</p>
+                <p>When reading long-form (and sometimes mission-critical) publications, personalization—i.e., the ability for users to adapt the presentation to suit their needs—is of a great importance. While technologies such as CSS Media Queries have come a long way in terms of adapting content to devices, this is not the same thing as adapting to a user. Presentation control features are available in various user agents for publications today. For example, many offer the possibility to dynamically change font size or background/foreground color schemes, or even adopt <a href="https://www.w3.org/WAI/RD/2012/text-customization/r14">accessible presentations needed for dyslexia</a>. Unfortunately, today's implementations are brittle and limited due to the lack of an underlying framework that explicitly supports user adaptation.</p>
 
                 <p><a>Web Publications</a> need to incorporate an explicit framework for achieving advanced and predictable user-triggered presentation control. (Note that from this perspective, accessibility can be seen just a radical case of personalization.)</p>
            </section>
